@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="549" y="1206"/>
         </scene>
-        <!--View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="B0I-xN-QDc">
             <objects>
-                <viewController id="93r-P5-NdP" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="93r-P5-NdP" customClass="StartViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WR3-Gh-jHe"/>
                         <viewControllerLayoutGuide type="bottom" id="tbQ-DW-WTD"/>
@@ -152,59 +152,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIj-1m-cmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1578" y="503"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="cyS-Xi-AfW">
-            <objects>
-                <viewController id="nYy-GC-Jdi" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1et-A0-ZF1"/>
-                        <viewControllerLayoutGuide type="bottom" id="u9L-mC-BFm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Gkt-sQ-nSV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZ1-Ds-D6d">
-                                <rect key="frame" x="0.0" y="64" width="600" height="494"/>
-                                <color key="backgroundColor" red="0.80392156859999997" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tnd-RX-m0D">
-                                <rect key="frame" x="150" y="65" width="300" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Tnd-RX-m0D" secondAttribute="height" multiplier="5:1" id="qPE-tr-n8q"/>
-                                    <constraint firstAttribute="height" constant="60" id="sTP-pF-g24"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5P3-yA-UQE">
-                                <rect key="frame" x="160" y="478" width="280" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="bRZ-pB-I18"/>
-                                    <constraint firstAttribute="height" constant="50" id="zxk-0i-zuB"/>
-                                </constraints>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cZ1-Ds-D6d" firstAttribute="top" secondItem="1et-A0-ZF1" secondAttribute="bottom" id="7Fx-ZW-EAI"/>
-                            <constraint firstAttribute="trailing" secondItem="cZ1-Ds-D6d" secondAttribute="trailing" id="IX5-9V-AcB"/>
-                            <constraint firstItem="cZ1-Ds-D6d" firstAttribute="leading" secondItem="Gkt-sQ-nSV" secondAttribute="leading" id="d1R-nO-9Fb"/>
-                            <constraint firstItem="cZ1-Ds-D6d" firstAttribute="bottom" secondItem="5P3-yA-UQE" secondAttribute="bottom" constant="30" id="sIJ-Ae-BYN"/>
-                            <constraint firstAttribute="centerX" secondItem="5P3-yA-UQE" secondAttribute="centerX" id="uZ3-UR-6xd"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="cZ1-Ds-D6d" secondAttribute="bottom" constant="42" id="vcj-Yc-6g5"/>
-                            <constraint firstItem="Tnd-RX-m0D" firstAttribute="centerX" secondItem="cZ1-Ds-D6d" secondAttribute="centerX" id="wgL-CL-hjw"/>
-                            <constraint firstItem="Tnd-RX-m0D" firstAttribute="top" secondItem="cZ1-Ds-D6d" secondAttribute="top" constant="1" id="zf5-AO-Kgw"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="obQ-Sf-v5W"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a3u-BN-DCs" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6777" y="2451"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="xxY-PA-h5e">
@@ -1038,10 +985,10 @@
             </objects>
             <point key="canvasLocation" x="12831" y="1263"/>
         </scene>
-        <!--View Controller-->
+        <!--Video List View Controller-->
         <scene sceneID="2Pz-r5-1C0">
             <objects>
-                <viewController id="Efe-2X-NLf" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="Efe-2X-NLf" customClass="VideoListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GQx-zv-4dm"/>
                         <viewControllerLayoutGuide type="bottom" id="vrR-nE-eZS"/>
@@ -1130,10 +1077,10 @@
             </objects>
             <point key="canvasLocation" x="2409" y="2595"/>
         </scene>
-        <!--View Controller-->
+        <!--Video Player View Controller-->
         <scene sceneID="Dgp-nj-uuZ">
             <objects>
-                <viewController id="kLI-C6-jJl" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="kLI-C6-jJl" customClass="VideoPlayerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="43i-te-Sqe"/>
                         <viewControllerLayoutGuide type="bottom" id="hAk-ax-C3G"/>
@@ -1196,10 +1143,10 @@
             </objects>
             <point key="canvasLocation" x="1597" y="2595"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact View Controller-->
         <scene sceneID="rzP-fy-XZZ">
             <objects>
-                <viewController id="mDo-pe-Yoh" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="mDo-pe-Yoh" customClass="ContactViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pnG-cF-hl1"/>
                         <viewControllerLayoutGuide type="bottom" id="SyG-pA-Oeu"/>
@@ -1298,10 +1245,10 @@
             </objects>
             <point key="canvasLocation" x="1597" y="3521"/>
         </scene>
-        <!--View Controller-->
+        <!--Calendar View Controller-->
         <scene sceneID="cq6-6U-yl3">
             <objects>
-                <viewController id="Tx1-VC-Gaf" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="Tx1-VC-Gaf" customClass="CalendarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9xW-d4-Vo5"/>
                         <viewControllerLayoutGuide type="bottom" id="uwv-cH-bNq"/>
@@ -1397,10 +1344,10 @@
             </objects>
             <point key="canvasLocation" x="2610" y="4432"/>
         </scene>
-        <!--View Controller-->
+        <!--Frequency View Controller-->
         <scene sceneID="K0R-aw-SO6">
             <objects>
-                <viewController id="gWL-o2-aGY" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="gWL-o2-aGY" customClass="FrequencyViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wo3-fe-fxy"/>
                         <viewControllerLayoutGuide type="bottom" id="uDI-vw-xlX"/>
@@ -1459,10 +1406,10 @@
             </objects>
             <point key="canvasLocation" x="3298" y="4432"/>
         </scene>
-        <!--View Controller-->
+        <!--Time Of Day View Controller-->
         <scene sceneID="3Ou-Ux-bZf">
             <objects>
-                <viewController id="aT1-JG-HQ7" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="aT1-JG-HQ7" customClass="TimeOfDayViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yKo-C9-d4U"/>
                         <viewControllerLayoutGuide type="bottom" id="Jvf-a9-oko"/>

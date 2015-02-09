@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  StartViewController.m
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/8/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "StartViewController.h"
 
-@interface ViewController ()
+@interface StartViewController ()
 
 @end
 
-@implementation ViewController
+@implementation StartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  VideoListViewController.m
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/8/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "VideoListViewController.h"
 
-@interface ViewController ()
+@interface VideoListViewController ()
 
 @end
 
-@implementation ViewController
+@implementation VideoListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

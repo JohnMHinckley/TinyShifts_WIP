@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  VideoListViewController.h
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/8/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface VideoListViewController : UIViewController
 
 @end

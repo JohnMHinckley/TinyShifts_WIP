@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  FrequencyViewController.m
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/8/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "FrequencyViewController.h"
 
-@interface ViewController ()
+@interface FrequencyViewController ()
 
 @end
 
-@implementation ViewController
+@implementation FrequencyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

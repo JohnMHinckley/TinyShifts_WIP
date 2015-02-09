@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  CalendarViewController.m
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/8/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CalendarViewController.h"
 
-@interface ViewController ()
+@interface CalendarViewController ()
 
 @end
 
-@implementation ViewController
+@implementation CalendarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

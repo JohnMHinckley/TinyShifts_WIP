@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  VideoPlayerViewController.m
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/8/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "VideoPlayerViewController.h"
 
-@interface ViewController ()
+@interface VideoPlayerViewController ()
 
 @end
 
-@implementation ViewController
+@implementation VideoPlayerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  ContactViewController.m
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/8/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ContactViewController.h"
 
-@interface ViewController ()
+@interface ContactViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ContactViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
