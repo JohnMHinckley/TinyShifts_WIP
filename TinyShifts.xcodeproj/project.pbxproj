@@ -29,6 +29,8 @@
 		52761E6A1A8840D30018E877 /* FrequencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E691A8840D30018E877 /* FrequencyViewController.m */; };
 		52761E6D1A8840F80018E877 /* TimeOfDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E6C1A8840F80018E877 /* TimeOfDayViewController.m */; };
 		52761E701A88414A0018E877 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E6F1A88414A0018E877 /* ViewController.m */; };
+		52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */; };
+		52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,9 @@
 		52761E6C1A8840F80018E877 /* TimeOfDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeOfDayViewController.m; sourceTree = "<group>"; };
 		52761E6E1A88414A0018E877 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		52761E6F1A88414A0018E877 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		52E6F7AD1A88C0F800A5E269 /* ActivationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationViewController.h; sourceTree = "<group>"; };
+		52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivationViewController.m; sourceTree = "<group>"; };
+		52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +187,9 @@
 				52761E6C1A8840F80018E877 /* TimeOfDayViewController.m */,
 				52761E6E1A88414A0018E877 /* ViewController.h */,
 				52761E6F1A88414A0018E877 /* ViewController.m */,
+				52E6F7AD1A88C0F800A5E269 /* ActivationViewController.h */,
+				52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */,
+				52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -268,6 +276,7 @@
 			files = (
 				524DEA851A7B128D009A2EDC /* tabbaritemIcon_Main.png in Resources */,
 				524DEA871A7B128D009A2EDC /* tabbaritemIcon_Videos.png in Resources */,
+				52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */,
 				524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */,
 				524DEA861A7B128D009A2EDC /* tabbaritemIcon_Settings.png in Resources */,
 				524DEA8A1A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png in Resources */,
@@ -298,6 +307,7 @@
 				52761E6A1A8840D30018E877 /* FrequencyViewController.m in Sources */,
 				52761E6D1A8840F80018E877 /* TimeOfDayViewController.m in Sources */,
 				52761E4C1A8839DD0018E877 /* StartViewController.m in Sources */,
+				52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */,
 				52761E701A88414A0018E877 /* ViewController.m in Sources */,
 				52761E641A8840430018E877 /* VideoPlayerViewController.m in Sources */,
 				52761E611A8840030018E877 /* VideoListViewController.m in Sources */,

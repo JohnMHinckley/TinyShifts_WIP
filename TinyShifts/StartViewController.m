@@ -7,6 +7,8 @@
 //
 
 #import "StartViewController.h"
+#import "AppDelegate.h"
+#import "ActivationViewController.h"
 
 @interface StartViewController ()
 
@@ -17,6 +19,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    // Establish the navigation controller for this line of screens.
+    ((AppDelegate*)[UIApplication sharedApplication].delegate).navigationControllerMain = self.navigationController;
+    
+    
+    // Test for activation.
+    BOOL bActivated = NO;   // test value
+    
+    if (!bActivated)    // Has user activated app?
+    {
+        // User has not activated app.
+        
+        // Create an instance fo the activation view controller.
+        ActivationViewController* vc = [[ActivationViewController alloc] initWithNibName:@"ActivationViewController" bundle:nil];
+        
+        // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
+        [vc setActiveNavigationController:self.navigationController];
+        
+        // Create the activation view controller.
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
