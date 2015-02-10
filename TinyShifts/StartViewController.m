@@ -32,14 +32,20 @@
     {
         // User has not activated app.
         
+        // Disable the tab bar items
+        self.tabBarController.tabBar.userInteractionEnabled = NO;
+        
         // Create an instance fo the activation view controller.
         ActivationViewController* vc = [[ActivationViewController alloc] initWithNibName:@"ActivationViewController" bundle:nil];
         
         // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
         [vc setActiveNavigationController:self.navigationController];
         
+        // Send a pointer to the tab bar controller to the activation view controller, which will enable the tab bar if the app is properly activated.
+        [vc setActiveTabBarController:self.tabBarController];
+        
         // Create the activation view controller.
-        [self.navigationController pushViewController:vc animated:YES];
+        [self.navigationController pushViewController:vc animated:NO];
     }
 }
 

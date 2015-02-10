@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivationViewController">
@@ -15,6 +14,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R2p-9B-CV7">
+                    <rect key="frame" x="0.0" y="48" width="600" height="510"/>
+                    <color key="backgroundColor" red="0.80392156859999997" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RQk-at-meM">
                     <rect key="frame" x="257" y="109" width="87" height="30"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -27,13 +30,6 @@
                         <rect key="frame" x="35" y="174" width="160" height="30"/>
                     </variation>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="cfZ-DM-SP2">
-                    <rect key="frame" x="150" y="49" width="300" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="Ogp-C9-GeI"/>
-                        <constraint firstAttribute="width" secondItem="cfZ-DM-SP2" secondAttribute="height" multiplier="5:1" id="hnC-dQ-8BN"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your activation code:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7X-mk-cgt">
                     <rect key="frame" x="20" y="62" width="95" height="87"/>
                     <constraints>
@@ -47,7 +43,7 @@
                         <rect key="frame" x="0.0" y="123" width="250" height="21"/>
                     </variation>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5I-Me-3UA">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5I-Me-3UA" customClass="CGradientButton">
                     <rect key="frame" x="530" y="99" width="50" height="50"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -57,28 +53,18 @@
                     <state key="normal" title="OK">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="OKButtonPressed:" destination="-1" eventType="touchUpInside" id="eTb-84-Yqi"/>
+                    </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activation screen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRP-Ac-xYA">
-                    <rect key="frame" x="171" y="289" width="132" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R2p-9B-CV7">
-                    <rect key="frame" x="0.0" y="48" width="600" height="510"/>
-                    <color key="backgroundColor" red="0.80392156859999997" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="R2p-9B-CV7" secondAttribute="trailing" id="0cH-ht-AAl"/>
                 <constraint firstItem="R2p-9B-CV7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="7KS-ax-y6B"/>
-                <constraint firstItem="cfZ-DM-SP2" firstAttribute="width" secondItem="cfZ-DM-SP2" secondAttribute="height" multiplier="5:1" id="G0x-Mw-47k"/>
                 <constraint firstItem="Y7X-mk-cgt" firstAttribute="leading" secondItem="R2p-9B-CV7" secondAttribute="leading" constant="20" id="P4v-lt-hHn"/>
                 <constraint firstAttribute="bottom" secondItem="R2p-9B-CV7" secondAttribute="bottom" constant="42" id="TYw-E0-vbe"/>
-                <constraint firstItem="cfZ-DM-SP2" firstAttribute="top" secondItem="R2p-9B-CV7" secondAttribute="top" constant="1" id="W3U-0Y-ZCV"/>
                 <constraint firstItem="Y7X-mk-cgt" firstAttribute="bottom" secondItem="R2p-9B-CV7" secondAttribute="top" constant="101" id="X1r-0w-9JX"/>
-                <constraint firstItem="cfZ-DM-SP2" firstAttribute="centerX" secondItem="R2p-9B-CV7" secondAttribute="centerX" id="gSx-ft-pDh"/>
                 <constraint firstItem="g5I-Me-3UA" firstAttribute="bottom" secondItem="R2p-9B-CV7" secondAttribute="top" constant="101" id="gdu-Ex-QXc"/>
                 <constraint firstItem="R2p-9B-CV7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iLf-Mm-qgT"/>
                 <constraint firstItem="Y7X-mk-cgt" firstAttribute="baseline" secondItem="RQk-at-meM" secondAttribute="baseline" constant="16" id="jfo-HF-7TF"/>
@@ -87,7 +73,4 @@
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="TextLogo_dkblue_205_235_252.png" width="1263" height="254"/>
-    </resources>
 </document>

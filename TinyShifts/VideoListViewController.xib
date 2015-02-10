@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoListViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wts-m9-E5w">
+                    <rect key="frame" x="0.0" y="64" width="600" height="494"/>
+                    <color key="backgroundColor" red="0.80392156859999997" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epT-RK-y8h">
+                    <rect key="frame" x="248" y="266" width="105" height="30"/>
+                    <state key="normal" title="choose a video">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="PlayVideoButtonPushed:" destination="-1" eventType="touchUpInside" id="vyY-sv-w3t"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="video library" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-sT-eCC">
+                    <rect key="frame" x="249" y="195" width="102" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="DqD-on-EcJ">
+                    <rect key="frame" x="150" y="65" width="300" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="DqD-on-EcJ" secondAttribute="height" multiplier="5:1" id="LME-ib-2pD"/>
+                        <constraint firstAttribute="height" constant="60" id="vIL-fH-A9H"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="epT-RK-y8h" firstAttribute="top" secondItem="Iug-sT-eCC" secondAttribute="bottom" constant="50" id="6fz-Wr-rHw"/>
+                <constraint firstItem="DqD-on-EcJ" firstAttribute="top" secondItem="Wts-m9-E5w" secondAttribute="top" constant="1" id="AcC-mM-Lp3"/>
+                <constraint firstItem="Iug-sT-eCC" firstAttribute="top" secondItem="DqD-on-EcJ" secondAttribute="bottom" constant="70" id="Nil-sJ-gE1"/>
+                <constraint firstAttribute="trailing" secondItem="Wts-m9-E5w" secondAttribute="trailing" id="UKb-nV-HhK"/>
+                <constraint firstItem="Iug-sT-eCC" firstAttribute="centerX" secondItem="Wts-m9-E5w" secondAttribute="centerX" id="Vce-vb-FSX"/>
+                <constraint firstItem="Wts-m9-E5w" firstAttribute="centerX" secondItem="epT-RK-y8h" secondAttribute="centerX" id="bTh-jq-umV"/>
+                <constraint firstItem="Wts-m9-E5w" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bgR-1V-n2b"/>
+                <constraint firstItem="DqD-on-EcJ" firstAttribute="centerX" secondItem="Wts-m9-E5w" secondAttribute="centerX" id="lMg-j0-BO1"/>
+                <constraint firstAttribute="bottom" secondItem="Wts-m9-E5w" secondAttribute="bottom" constant="42" id="pU6-ra-q7Z"/>
+                <constraint firstItem="Wts-m9-E5w" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="r22-aP-0Da"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="TextLogo_dkblue_205_235_252.png" width="1263" height="254"/>
+    </resources>
+</document>

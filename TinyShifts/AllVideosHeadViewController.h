@@ -1,5 +1,5 @@
 //
-//  VideoPlayerViewController.h
+//  AllVideosHeadViewController.h
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/9/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoPlayerViewController : UIViewController
+@interface AllVideosHeadViewController : UIViewController
 
 @end

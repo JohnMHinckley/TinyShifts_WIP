@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGradientButton.h"
 
 @interface ActivationViewController : UIViewController
 {
     UINavigationController* activeNavigationController;
+    UITabBarController* activeTabBarController;
 }
+- (IBAction)OKButtonPressed:(CGradientButton *)sender;
 
 
 -(void) setActiveNavigationController:(UINavigationController*) nc;
+-(void) setActiveTabBarController:(UITabBarController*) tc;
 
 @end

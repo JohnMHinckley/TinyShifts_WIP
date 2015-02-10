@@ -23,12 +23,16 @@
 		52761E481A882D000018E877 /* BaselineSurvey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52761E471A882D000018E877 /* BaselineSurvey.storyboard */; };
 		52761E4C1A8839DD0018E877 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E4B1A8839DD0018E877 /* StartViewController.m */; };
 		52761E551A883B630018E877 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E541A883B630018E877 /* ContactViewController.m */; };
-		52761E611A8840030018E877 /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E601A8840030018E877 /* VideoListViewController.m */; };
-		52761E641A8840430018E877 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E631A8840430018E877 /* VideoPlayerViewController.m */; };
 		52761E671A8840980018E877 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E661A8840980018E877 /* CalendarViewController.m */; };
 		52761E6A1A8840D30018E877 /* FrequencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E691A8840D30018E877 /* FrequencyViewController.m */; };
 		52761E6D1A8840F80018E877 /* TimeOfDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E6C1A8840F80018E877 /* TimeOfDayViewController.m */; };
 		52761E701A88414A0018E877 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E6F1A88414A0018E877 /* ViewController.m */; };
+		52CACE561A8985FF00064614 /* CGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE551A8985FF00064614 /* CGradientButton.m */; };
+		52CACE591A898BB600064614 /* AllVideosHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE581A898BB600064614 /* AllVideosHeadViewController.m */; };
+		52CACE5D1A898C4000064614 /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE5B1A898C4000064614 /* VideoListViewController.m */; };
+		52CACE5E1A898C4000064614 /* VideoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CACE5C1A898C4000064614 /* VideoListViewController.xib */; };
+		52CACE621A899B0E00064614 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE601A899B0E00064614 /* VideoPlayerViewController.m */; };
+		52CACE631A899B0E00064614 /* VideoPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CACE611A899B0E00064614 /* VideoPlayerViewController.xib */; };
 		52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */; };
 		52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */; };
 /* End PBXBuildFile section */
@@ -67,10 +71,6 @@
 		52761E4B1A8839DD0018E877 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		52761E531A883B630018E877 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		52761E541A883B630018E877 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
-		52761E5F1A8840030018E877 /* VideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListViewController.h; sourceTree = "<group>"; };
-		52761E601A8840030018E877 /* VideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
-		52761E621A8840430018E877 /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
-		52761E631A8840430018E877 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 		52761E651A8840980018E877 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		52761E661A8840980018E877 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		52761E681A8840D30018E877 /* FrequencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencyViewController.h; sourceTree = "<group>"; };
@@ -79,6 +79,16 @@
 		52761E6C1A8840F80018E877 /* TimeOfDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeOfDayViewController.m; sourceTree = "<group>"; };
 		52761E6E1A88414A0018E877 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		52761E6F1A88414A0018E877 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		52CACE541A8985FF00064614 /* CGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGradientButton.h; sourceTree = "<group>"; };
+		52CACE551A8985FF00064614 /* CGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGradientButton.m; sourceTree = "<group>"; };
+		52CACE571A898BB600064614 /* AllVideosHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllVideosHeadViewController.h; sourceTree = "<group>"; };
+		52CACE581A898BB600064614 /* AllVideosHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllVideosHeadViewController.m; sourceTree = "<group>"; };
+		52CACE5A1A898C4000064614 /* VideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListViewController.h; sourceTree = "<group>"; };
+		52CACE5B1A898C4000064614 /* VideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
+		52CACE5C1A898C4000064614 /* VideoListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoListViewController.xib; sourceTree = "<group>"; };
+		52CACE5F1A899B0E00064614 /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
+		52CACE601A899B0E00064614 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
+		52CACE611A899B0E00064614 /* VideoPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPlayerViewController.xib; sourceTree = "<group>"; };
 		52E6F7AD1A88C0F800A5E269 /* ActivationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationViewController.h; sourceTree = "<group>"; };
 		52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivationViewController.m; sourceTree = "<group>"; };
 		52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationViewController.xib; sourceTree = "<group>"; };
@@ -123,6 +133,8 @@
 		524DEA571A7B0E26009A2EDC /* TinyShifts */ = {
 			isa = PBXGroup;
 			children = (
+				52CACE541A8985FF00064614 /* CGradientButton.h */,
+				52CACE551A8985FF00064614 /* CGradientButton.m */,
 				52761E491A8839A70018E877 /* ViewControllers */,
 				524DEA881A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png */,
 				524DEA891A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png */,
@@ -175,10 +187,6 @@
 				52761E4B1A8839DD0018E877 /* StartViewController.m */,
 				52761E531A883B630018E877 /* ContactViewController.h */,
 				52761E541A883B630018E877 /* ContactViewController.m */,
-				52761E5F1A8840030018E877 /* VideoListViewController.h */,
-				52761E601A8840030018E877 /* VideoListViewController.m */,
-				52761E621A8840430018E877 /* VideoPlayerViewController.h */,
-				52761E631A8840430018E877 /* VideoPlayerViewController.m */,
 				52761E651A8840980018E877 /* CalendarViewController.h */,
 				52761E661A8840980018E877 /* CalendarViewController.m */,
 				52761E681A8840D30018E877 /* FrequencyViewController.h */,
@@ -190,6 +198,14 @@
 				52E6F7AD1A88C0F800A5E269 /* ActivationViewController.h */,
 				52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */,
 				52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */,
+				52CACE571A898BB600064614 /* AllVideosHeadViewController.h */,
+				52CACE581A898BB600064614 /* AllVideosHeadViewController.m */,
+				52CACE5A1A898C4000064614 /* VideoListViewController.h */,
+				52CACE5B1A898C4000064614 /* VideoListViewController.m */,
+				52CACE5C1A898C4000064614 /* VideoListViewController.xib */,
+				52CACE5F1A899B0E00064614 /* VideoPlayerViewController.h */,
+				52CACE601A899B0E00064614 /* VideoPlayerViewController.m */,
+				52CACE611A899B0E00064614 /* VideoPlayerViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -279,11 +295,13 @@
 				52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */,
 				524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */,
 				524DEA861A7B128D009A2EDC /* tabbaritemIcon_Settings.png in Resources */,
+				52CACE5E1A898C4000064614 /* VideoListViewController.xib in Resources */,
 				524DEA8A1A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png in Resources */,
 				524DEA831A7B128D009A2EDC /* tabbaritemIcon_About.png in Resources */,
 				524DEA841A7B128D009A2EDC /* tabbaritemIcon_Contact.png in Resources */,
 				524DEA8B1A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png in Resources */,
 				524DEA691A7B0E26009A2EDC /* LaunchScreen.xib in Resources */,
+				52CACE631A899B0E00064614 /* VideoPlayerViewController.xib in Resources */,
 				524DEA661A7B0E26009A2EDC /* Images.xcassets in Resources */,
 				52761E481A882D000018E877 /* BaselineSurvey.storyboard in Resources */,
 			);
@@ -306,11 +324,13 @@
 				52761E551A883B630018E877 /* ContactViewController.m in Sources */,
 				52761E6A1A8840D30018E877 /* FrequencyViewController.m in Sources */,
 				52761E6D1A8840F80018E877 /* TimeOfDayViewController.m in Sources */,
+				52CACE621A899B0E00064614 /* VideoPlayerViewController.m in Sources */,
 				52761E4C1A8839DD0018E877 /* StartViewController.m in Sources */,
+				52CACE591A898BB600064614 /* AllVideosHeadViewController.m in Sources */,
+				52CACE5D1A898C4000064614 /* VideoListViewController.m in Sources */,
 				52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */,
+				52CACE561A8985FF00064614 /* CGradientButton.m in Sources */,
 				52761E701A88414A0018E877 /* ViewController.m in Sources */,
-				52761E641A8840430018E877 /* VideoPlayerViewController.m in Sources */,
-				52761E611A8840030018E877 /* VideoListViewController.m in Sources */,
 				524DEA5E1A7B0E26009A2EDC /* AppDelegate.m in Sources */,
 				524DEA5B1A7B0E26009A2EDC /* main.m in Sources */,
 				52761E671A8840980018E877 /* CalendarViewController.m in Sources */,
