@@ -1,5 +1,5 @@
 //
-//  FrequencyViewController.h
+//  PleasantMoodListViewController.h
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/12/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FrequencyViewController : UIViewController
+@interface PleasantMoodListViewController : UIViewController
 
 @end

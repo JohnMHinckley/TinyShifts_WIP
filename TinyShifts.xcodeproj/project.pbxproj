@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522DB8DA1A8D6284003EC3E1 /* UnpleasantMoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */; };
+		522DB8DB1A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8D91A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib */; };
+		522DB8DF1A8D633C003EC3E1 /* PleasantMoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8DD1A8D633C003EC3E1 /* PleasantMoodListViewController.m */; };
+		522DB8E01A8D633C003EC3E1 /* PleasantMoodListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8DE1A8D633C003EC3E1 /* PleasantMoodListViewController.xib */; };
+		522DB8E41A8D641C003EC3E1 /* ResourceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8E21A8D641C003EC3E1 /* ResourceListViewController.m */; };
+		522DB8E51A8D641C003EC3E1 /* ResourceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8E31A8D641C003EC3E1 /* ResourceListViewController.xib */; };
+		522DB8E91A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8E71A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m */; };
+		522DB8EA1A8D64D4003EC3E1 /* AskWantResourceInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8E81A8D64D4003EC3E1 /* AskWantResourceInfoViewController.xib */; };
+		522DB8EE1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8EC1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m */; };
+		522DB8EF1A8D65AC003EC3E1 /* AskIfHelpfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8ED1A8D65AC003EC3E1 /* AskIfHelpfulViewController.xib */; };
+		522DB8F31A8D6644003EC3E1 /* AskWatchAgainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8F11A8D6644003EC3E1 /* AskWatchAgainViewController.m */; };
+		522DB8F41A8D6644003EC3E1 /* AskWatchAgainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8F21A8D6644003EC3E1 /* AskWatchAgainViewController.xib */; };
+		522DB8F81A8D66E3003EC3E1 /* AskRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8F61A8D66E3003EC3E1 /* AskRecommendViewController.m */; };
+		522DB8F91A8D66E3003EC3E1 /* AskRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8F71A8D66E3003EC3E1 /* AskRecommendViewController.xib */; };
+		522DB8FD1A8D679D003EC3E1 /* SendSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8FB1A8D679D003EC3E1 /* SendSurveyViewController.m */; };
+		522DB8FE1A8D679D003EC3E1 /* SendSurveyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8FC1A8D679D003EC3E1 /* SendSurveyViewController.xib */; };
 		524DEA5B1A7B0E26009A2EDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 524DEA5A1A7B0E26009A2EDC /* main.m */; };
 		524DEA5E1A7B0E26009A2EDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 524DEA5D1A7B0E26009A2EDC /* AppDelegate.m */; };
 		524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA621A7B0E26009A2EDC /* Main.storyboard */; };
@@ -20,13 +36,35 @@
 		524DEA871A7B128D009A2EDC /* tabbaritemIcon_Videos.png in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA821A7B128D009A2EDC /* tabbaritemIcon_Videos.png */; };
 		524DEA8A1A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA881A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png */; };
 		524DEA8B1A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA891A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png */; };
-		52761E481A882D000018E877 /* BaselineSurvey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52761E471A882D000018E877 /* BaselineSurvey.storyboard */; };
 		52761E4C1A8839DD0018E877 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E4B1A8839DD0018E877 /* StartViewController.m */; };
 		52761E551A883B630018E877 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E541A883B630018E877 /* ContactViewController.m */; };
-		52761E671A8840980018E877 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E661A8840980018E877 /* CalendarViewController.m */; };
-		52761E6A1A8840D30018E877 /* FrequencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E691A8840D30018E877 /* FrequencyViewController.m */; };
-		52761E6D1A8840F80018E877 /* TimeOfDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E6C1A8840F80018E877 /* TimeOfDayViewController.m */; };
-		52761E701A88414A0018E877 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E6F1A88414A0018E877 /* ViewController.m */; };
+		5295B66D1A8CAE8600F2DA35 /* InfoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B66B1A8CAE8600F2DA35 /* InfoListViewController.m */; };
+		5295B66E1A8CAE8600F2DA35 /* InfoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B66C1A8CAE8600F2DA35 /* InfoListViewController.xib */; };
+		5295B6721A8CB36300F2DA35 /* PurposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B6701A8CB36300F2DA35 /* PurposeViewController.m */; };
+		5295B6731A8CB36300F2DA35 /* PurposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B6711A8CB36300F2DA35 /* PurposeViewController.xib */; };
+		5295B6771A8CB50500F2DA35 /* HowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B6751A8CB50500F2DA35 /* HowViewController.m */; };
+		5295B6781A8CB50500F2DA35 /* HowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B6761A8CB50500F2DA35 /* HowViewController.xib */; };
+		5295B67C1A8CB61500F2DA35 /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B67A1A8CB61500F2DA35 /* PrivacyViewController.m */; };
+		5295B67D1A8CB61500F2DA35 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B67B1A8CB61500F2DA35 /* PrivacyViewController.xib */; };
+		5295B6811A8CB9A200F2DA35 /* GenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B67F1A8CB9A200F2DA35 /* GenderViewController.m */; };
+		5295B6841A8CBA6F00F2DA35 /* GenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B6831A8CBA6F00F2DA35 /* GenderViewController.xib */; };
+		5295B6881A8CBB1C00F2DA35 /* AgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B6861A8CBB1C00F2DA35 /* AgeViewController.m */; };
+		5295B6891A8CBB1C00F2DA35 /* AgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B6871A8CBB1C00F2DA35 /* AgeViewController.xib */; };
+		5295B68D1A8CBBD500F2DA35 /* EthnicityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B68B1A8CBBD500F2DA35 /* EthnicityViewController.m */; };
+		5295B68E1A8CBBD500F2DA35 /* EthnicityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B68C1A8CBBD500F2DA35 /* EthnicityViewController.xib */; };
+		5295B6921A8CBCB300F2DA35 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B6901A8CBCB300F2DA35 /* CalendarViewController.m */; };
+		5295B6931A8CBCB300F2DA35 /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B6911A8CBCB300F2DA35 /* CalendarViewController.xib */; };
+		5295B6971A8CBD8D00F2DA35 /* FrequencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B6951A8CBD8D00F2DA35 /* FrequencyViewController.m */; };
+		5295B6981A8CBD8D00F2DA35 /* FrequencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B6961A8CBD8D00F2DA35 /* FrequencyViewController.xib */; };
+		5295B69C1A8CBE3300F2DA35 /* TimeOfDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B69A1A8CBE3300F2DA35 /* TimeOfDayViewController.m */; };
+		5295B69D1A8CBE3300F2DA35 /* TimeOfDayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B69B1A8CBE3300F2DA35 /* TimeOfDayViewController.xib */; };
+		5295B6A11A8CBEE700F2DA35 /* SendBaselineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B69F1A8CBEE700F2DA35 /* SendBaselineViewController.m */; };
+		5295B6A21A8CBEE700F2DA35 /* SendBaselineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B6A01A8CBEE700F2DA35 /* SendBaselineViewController.xib */; };
+		5295B6A61A8CC08500F2DA35 /* MoodMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B6A41A8CC08500F2DA35 /* MoodMeterViewController.m */; };
+		5295B6A71A8CC08500F2DA35 /* MoodMeterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B6A51A8CC08500F2DA35 /* MoodMeterViewController.xib */; };
+		52964E391A8E0DF7004D1116 /* InfoListTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 52964E381A8E0DF7004D1116 /* InfoListTable.m */; };
+		52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */; };
+		52AF131B1A8B7B70000CBD8B /* AboutHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */; };
 		52CACE561A8985FF00064614 /* CGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE551A8985FF00064614 /* CGradientButton.m */; };
 		52CACE591A898BB600064614 /* AllVideosHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE581A898BB600064614 /* AllVideosHeadViewController.m */; };
 		52CACE5D1A898C4000064614 /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE5B1A898C4000064614 /* VideoListViewController.m */; };
@@ -48,6 +86,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		522DB8D71A8D6284003EC3E1 /* UnpleasantMoodListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnpleasantMoodListViewController.h; sourceTree = "<group>"; };
+		522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnpleasantMoodListViewController.m; sourceTree = "<group>"; };
+		522DB8D91A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnpleasantMoodListViewController.xib; sourceTree = "<group>"; };
+		522DB8DC1A8D633C003EC3E1 /* PleasantMoodListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PleasantMoodListViewController.h; sourceTree = "<group>"; };
+		522DB8DD1A8D633C003EC3E1 /* PleasantMoodListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PleasantMoodListViewController.m; sourceTree = "<group>"; };
+		522DB8DE1A8D633C003EC3E1 /* PleasantMoodListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PleasantMoodListViewController.xib; sourceTree = "<group>"; };
+		522DB8E11A8D641C003EC3E1 /* ResourceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceListViewController.h; sourceTree = "<group>"; };
+		522DB8E21A8D641C003EC3E1 /* ResourceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceListViewController.m; sourceTree = "<group>"; };
+		522DB8E31A8D641C003EC3E1 /* ResourceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceListViewController.xib; sourceTree = "<group>"; };
+		522DB8E61A8D64D4003EC3E1 /* AskWantResourceInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskWantResourceInfoViewController.h; sourceTree = "<group>"; };
+		522DB8E71A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskWantResourceInfoViewController.m; sourceTree = "<group>"; };
+		522DB8E81A8D64D4003EC3E1 /* AskWantResourceInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskWantResourceInfoViewController.xib; sourceTree = "<group>"; };
+		522DB8EB1A8D65AC003EC3E1 /* AskIfHelpfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskIfHelpfulViewController.h; sourceTree = "<group>"; };
+		522DB8EC1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskIfHelpfulViewController.m; sourceTree = "<group>"; };
+		522DB8ED1A8D65AC003EC3E1 /* AskIfHelpfulViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskIfHelpfulViewController.xib; sourceTree = "<group>"; };
+		522DB8F01A8D6644003EC3E1 /* AskWatchAgainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskWatchAgainViewController.h; sourceTree = "<group>"; };
+		522DB8F11A8D6644003EC3E1 /* AskWatchAgainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskWatchAgainViewController.m; sourceTree = "<group>"; };
+		522DB8F21A8D6644003EC3E1 /* AskWatchAgainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskWatchAgainViewController.xib; sourceTree = "<group>"; };
+		522DB8F51A8D66E3003EC3E1 /* AskRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskRecommendViewController.h; sourceTree = "<group>"; };
+		522DB8F61A8D66E3003EC3E1 /* AskRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskRecommendViewController.m; sourceTree = "<group>"; };
+		522DB8F71A8D66E3003EC3E1 /* AskRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskRecommendViewController.xib; sourceTree = "<group>"; };
+		522DB8FA1A8D679D003EC3E1 /* SendSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendSurveyViewController.h; sourceTree = "<group>"; };
+		522DB8FB1A8D679D003EC3E1 /* SendSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendSurveyViewController.m; sourceTree = "<group>"; };
+		522DB8FC1A8D679D003EC3E1 /* SendSurveyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendSurveyViewController.xib; sourceTree = "<group>"; };
 		524DEA551A7B0E26009A2EDC /* TinyShifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyShifts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524DEA591A7B0E26009A2EDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		524DEA5A1A7B0E26009A2EDC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,19 +128,52 @@
 		524DEA821A7B128D009A2EDC /* tabbaritemIcon_Videos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbaritemIcon_Videos.png; sourceTree = "<group>"; };
 		524DEA881A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconLogo_dkblue_205_235_252.png; sourceTree = "<group>"; };
 		524DEA891A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextLogo_dkblue_205_235_252.png; sourceTree = "<group>"; };
-		52761E471A882D000018E877 /* BaselineSurvey.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BaselineSurvey.storyboard; sourceTree = "<group>"; };
 		52761E4A1A8839DD0018E877 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		52761E4B1A8839DD0018E877 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		52761E531A883B630018E877 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		52761E541A883B630018E877 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
-		52761E651A8840980018E877 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
-		52761E661A8840980018E877 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
-		52761E681A8840D30018E877 /* FrequencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencyViewController.h; sourceTree = "<group>"; };
-		52761E691A8840D30018E877 /* FrequencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequencyViewController.m; sourceTree = "<group>"; };
-		52761E6B1A8840F80018E877 /* TimeOfDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeOfDayViewController.h; sourceTree = "<group>"; };
-		52761E6C1A8840F80018E877 /* TimeOfDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeOfDayViewController.m; sourceTree = "<group>"; };
-		52761E6E1A88414A0018E877 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		52761E6F1A88414A0018E877 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5295B66A1A8CAE8600F2DA35 /* InfoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoListViewController.h; sourceTree = "<group>"; };
+		5295B66B1A8CAE8600F2DA35 /* InfoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoListViewController.m; sourceTree = "<group>"; };
+		5295B66C1A8CAE8600F2DA35 /* InfoListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoListViewController.xib; sourceTree = "<group>"; };
+		5295B66F1A8CB36300F2DA35 /* PurposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurposeViewController.h; sourceTree = "<group>"; };
+		5295B6701A8CB36300F2DA35 /* PurposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurposeViewController.m; sourceTree = "<group>"; };
+		5295B6711A8CB36300F2DA35 /* PurposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurposeViewController.xib; sourceTree = "<group>"; };
+		5295B6741A8CB50500F2DA35 /* HowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowViewController.h; sourceTree = "<group>"; };
+		5295B6751A8CB50500F2DA35 /* HowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowViewController.m; sourceTree = "<group>"; };
+		5295B6761A8CB50500F2DA35 /* HowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowViewController.xib; sourceTree = "<group>"; };
+		5295B6791A8CB61500F2DA35 /* PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyViewController.h; sourceTree = "<group>"; };
+		5295B67A1A8CB61500F2DA35 /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyViewController.m; sourceTree = "<group>"; };
+		5295B67B1A8CB61500F2DA35 /* PrivacyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivacyViewController.xib; sourceTree = "<group>"; };
+		5295B67E1A8CB9A200F2DA35 /* GenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenderViewController.h; sourceTree = "<group>"; };
+		5295B67F1A8CB9A200F2DA35 /* GenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenderViewController.m; sourceTree = "<group>"; };
+		5295B6831A8CBA6F00F2DA35 /* GenderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenderViewController.xib; sourceTree = "<group>"; };
+		5295B6851A8CBB1C00F2DA35 /* AgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgeViewController.h; sourceTree = "<group>"; };
+		5295B6861A8CBB1C00F2DA35 /* AgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgeViewController.m; sourceTree = "<group>"; };
+		5295B6871A8CBB1C00F2DA35 /* AgeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgeViewController.xib; sourceTree = "<group>"; };
+		5295B68A1A8CBBD500F2DA35 /* EthnicityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EthnicityViewController.h; sourceTree = "<group>"; };
+		5295B68B1A8CBBD500F2DA35 /* EthnicityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EthnicityViewController.m; sourceTree = "<group>"; };
+		5295B68C1A8CBBD500F2DA35 /* EthnicityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EthnicityViewController.xib; sourceTree = "<group>"; };
+		5295B68F1A8CBCB300F2DA35 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		5295B6901A8CBCB300F2DA35 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		5295B6911A8CBCB300F2DA35 /* CalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
+		5295B6941A8CBD8D00F2DA35 /* FrequencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencyViewController.h; sourceTree = "<group>"; };
+		5295B6951A8CBD8D00F2DA35 /* FrequencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequencyViewController.m; sourceTree = "<group>"; };
+		5295B6961A8CBD8D00F2DA35 /* FrequencyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FrequencyViewController.xib; sourceTree = "<group>"; };
+		5295B6991A8CBE3300F2DA35 /* TimeOfDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeOfDayViewController.h; sourceTree = "<group>"; };
+		5295B69A1A8CBE3300F2DA35 /* TimeOfDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeOfDayViewController.m; sourceTree = "<group>"; };
+		5295B69B1A8CBE3300F2DA35 /* TimeOfDayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeOfDayViewController.xib; sourceTree = "<group>"; };
+		5295B69E1A8CBEE700F2DA35 /* SendBaselineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendBaselineViewController.h; sourceTree = "<group>"; };
+		5295B69F1A8CBEE700F2DA35 /* SendBaselineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendBaselineViewController.m; sourceTree = "<group>"; };
+		5295B6A01A8CBEE700F2DA35 /* SendBaselineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendBaselineViewController.xib; sourceTree = "<group>"; };
+		5295B6A31A8CC08500F2DA35 /* MoodMeterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodMeterViewController.h; sourceTree = "<group>"; };
+		5295B6A41A8CC08500F2DA35 /* MoodMeterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodMeterViewController.m; sourceTree = "<group>"; };
+		5295B6A51A8CC08500F2DA35 /* MoodMeterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoodMeterViewController.xib; sourceTree = "<group>"; };
+		52964E371A8E0DF7004D1116 /* InfoListTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoListTable.h; sourceTree = "<group>"; };
+		52964E381A8E0DF7004D1116 /* InfoListTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoListTable.m; sourceTree = "<group>"; };
+		52AF13161A8B79C0000CBD8B /* CalendarHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarHeadViewController.h; sourceTree = "<group>"; };
+		52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHeadViewController.m; sourceTree = "<group>"; };
+		52AF13191A8B7B70000CBD8B /* AboutHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutHeadViewController.h; sourceTree = "<group>"; };
+		52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutHeadViewController.m; sourceTree = "<group>"; };
 		52CACE541A8985FF00064614 /* CGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGradientButton.h; sourceTree = "<group>"; };
 		52CACE551A8985FF00064614 /* CGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGradientButton.m; sourceTree = "<group>"; };
 		52CACE571A898BB600064614 /* AllVideosHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllVideosHeadViewController.h; sourceTree = "<group>"; };
@@ -133,23 +228,14 @@
 		524DEA571A7B0E26009A2EDC /* TinyShifts */ = {
 			isa = PBXGroup;
 			children = (
-				52CACE541A8985FF00064614 /* CGradientButton.h */,
-				52CACE551A8985FF00064614 /* CGradientButton.m */,
+				5295B6691A8CAD4F00F2DA35 /* Graphics */,
 				52761E491A8839A70018E877 /* ViewControllers */,
-				524DEA881A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png */,
-				524DEA891A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png */,
-				524DEA7E1A7B128D009A2EDC /* tabbaritemIcon_About.png */,
-				524DEA7F1A7B128D009A2EDC /* tabbaritemIcon_Contact.png */,
-				524DEA801A7B128D009A2EDC /* tabbaritemIcon_Main.png */,
-				524DEA811A7B128D009A2EDC /* tabbaritemIcon_Settings.png */,
-				524DEA821A7B128D009A2EDC /* tabbaritemIcon_Videos.png */,
 				524DEA5C1A7B0E26009A2EDC /* AppDelegate.h */,
 				524DEA5D1A7B0E26009A2EDC /* AppDelegate.m */,
-				524DEA621A7B0E26009A2EDC /* Main.storyboard */,
-				524DEA651A7B0E26009A2EDC /* Images.xcassets */,
+				52CACE541A8985FF00064614 /* CGradientButton.h */,
+				52CACE551A8985FF00064614 /* CGradientButton.m */,
 				524DEA671A7B0E26009A2EDC /* LaunchScreen.xib */,
 				524DEA581A7B0E26009A2EDC /* Supporting Files */,
-				52761E471A882D000018E877 /* BaselineSurvey.storyboard */,
 			);
 			path = TinyShifts;
 			sourceTree = "<group>";
@@ -183,31 +269,145 @@
 		52761E491A8839A70018E877 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5295B6651A8CAAE700F2DA35 /* Main Storyboard */,
+				5295B6671A8CABE000F2DA35 /* Activation */,
+				5295B6661A8CABA200F2DA35 /* Baseline Survey */,
+				5295B6681A8CAC1000F2DA35 /* Normal Operation */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5295B6651A8CAAE700F2DA35 /* Main Storyboard */ = {
+			isa = PBXGroup;
+			children = (
 				52761E4A1A8839DD0018E877 /* StartViewController.h */,
 				52761E4B1A8839DD0018E877 /* StartViewController.m */,
+				52CACE571A898BB600064614 /* AllVideosHeadViewController.h */,
+				52CACE581A898BB600064614 /* AllVideosHeadViewController.m */,
 				52761E531A883B630018E877 /* ContactViewController.h */,
 				52761E541A883B630018E877 /* ContactViewController.m */,
-				52761E651A8840980018E877 /* CalendarViewController.h */,
-				52761E661A8840980018E877 /* CalendarViewController.m */,
-				52761E681A8840D30018E877 /* FrequencyViewController.h */,
-				52761E691A8840D30018E877 /* FrequencyViewController.m */,
-				52761E6B1A8840F80018E877 /* TimeOfDayViewController.h */,
-				52761E6C1A8840F80018E877 /* TimeOfDayViewController.m */,
-				52761E6E1A88414A0018E877 /* ViewController.h */,
-				52761E6F1A88414A0018E877 /* ViewController.m */,
+				52AF13161A8B79C0000CBD8B /* CalendarHeadViewController.h */,
+				52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */,
+				52AF13191A8B7B70000CBD8B /* AboutHeadViewController.h */,
+				52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */,
+				524DEA621A7B0E26009A2EDC /* Main.storyboard */,
+			);
+			name = "Main Storyboard";
+			sourceTree = "<group>";
+		};
+		5295B6661A8CABA200F2DA35 /* Baseline Survey */ = {
+			isa = PBXGroup;
+			children = (
+				52964E361A8E0D42004D1116 /* InfoListViewController */,
+				5295B66F1A8CB36300F2DA35 /* PurposeViewController.h */,
+				5295B6701A8CB36300F2DA35 /* PurposeViewController.m */,
+				5295B6711A8CB36300F2DA35 /* PurposeViewController.xib */,
+				5295B6741A8CB50500F2DA35 /* HowViewController.h */,
+				5295B6751A8CB50500F2DA35 /* HowViewController.m */,
+				5295B6761A8CB50500F2DA35 /* HowViewController.xib */,
+				5295B6791A8CB61500F2DA35 /* PrivacyViewController.h */,
+				5295B67A1A8CB61500F2DA35 /* PrivacyViewController.m */,
+				5295B67B1A8CB61500F2DA35 /* PrivacyViewController.xib */,
+				5295B67E1A8CB9A200F2DA35 /* GenderViewController.h */,
+				5295B67F1A8CB9A200F2DA35 /* GenderViewController.m */,
+				5295B6831A8CBA6F00F2DA35 /* GenderViewController.xib */,
+				5295B6851A8CBB1C00F2DA35 /* AgeViewController.h */,
+				5295B6861A8CBB1C00F2DA35 /* AgeViewController.m */,
+				5295B6871A8CBB1C00F2DA35 /* AgeViewController.xib */,
+				5295B68A1A8CBBD500F2DA35 /* EthnicityViewController.h */,
+				5295B68B1A8CBBD500F2DA35 /* EthnicityViewController.m */,
+				5295B68C1A8CBBD500F2DA35 /* EthnicityViewController.xib */,
+				5295B68F1A8CBCB300F2DA35 /* CalendarViewController.h */,
+				5295B6901A8CBCB300F2DA35 /* CalendarViewController.m */,
+				5295B6911A8CBCB300F2DA35 /* CalendarViewController.xib */,
+				5295B6941A8CBD8D00F2DA35 /* FrequencyViewController.h */,
+				5295B6951A8CBD8D00F2DA35 /* FrequencyViewController.m */,
+				5295B6961A8CBD8D00F2DA35 /* FrequencyViewController.xib */,
+				5295B6991A8CBE3300F2DA35 /* TimeOfDayViewController.h */,
+				5295B69A1A8CBE3300F2DA35 /* TimeOfDayViewController.m */,
+				5295B69B1A8CBE3300F2DA35 /* TimeOfDayViewController.xib */,
+				5295B69E1A8CBEE700F2DA35 /* SendBaselineViewController.h */,
+				5295B69F1A8CBEE700F2DA35 /* SendBaselineViewController.m */,
+				5295B6A01A8CBEE700F2DA35 /* SendBaselineViewController.xib */,
+			);
+			name = "Baseline Survey";
+			sourceTree = "<group>";
+		};
+		5295B6671A8CABE000F2DA35 /* Activation */ = {
+			isa = PBXGroup;
+			children = (
 				52E6F7AD1A88C0F800A5E269 /* ActivationViewController.h */,
 				52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */,
 				52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */,
-				52CACE571A898BB600064614 /* AllVideosHeadViewController.h */,
-				52CACE581A898BB600064614 /* AllVideosHeadViewController.m */,
+			);
+			name = Activation;
+			sourceTree = "<group>";
+		};
+		5295B6681A8CAC1000F2DA35 /* Normal Operation */ = {
+			isa = PBXGroup;
+			children = (
+				5295B6A31A8CC08500F2DA35 /* MoodMeterViewController.h */,
+				5295B6A41A8CC08500F2DA35 /* MoodMeterViewController.m */,
+				5295B6A51A8CC08500F2DA35 /* MoodMeterViewController.xib */,
+				522DB8D71A8D6284003EC3E1 /* UnpleasantMoodListViewController.h */,
+				522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */,
+				522DB8D91A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib */,
+				522DB8DC1A8D633C003EC3E1 /* PleasantMoodListViewController.h */,
+				522DB8DD1A8D633C003EC3E1 /* PleasantMoodListViewController.m */,
+				522DB8DE1A8D633C003EC3E1 /* PleasantMoodListViewController.xib */,
 				52CACE5A1A898C4000064614 /* VideoListViewController.h */,
 				52CACE5B1A898C4000064614 /* VideoListViewController.m */,
 				52CACE5C1A898C4000064614 /* VideoListViewController.xib */,
+				522DB8E61A8D64D4003EC3E1 /* AskWantResourceInfoViewController.h */,
+				522DB8E71A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m */,
+				522DB8E81A8D64D4003EC3E1 /* AskWantResourceInfoViewController.xib */,
+				522DB8E11A8D641C003EC3E1 /* ResourceListViewController.h */,
+				522DB8E21A8D641C003EC3E1 /* ResourceListViewController.m */,
+				522DB8E31A8D641C003EC3E1 /* ResourceListViewController.xib */,
 				52CACE5F1A899B0E00064614 /* VideoPlayerViewController.h */,
 				52CACE601A899B0E00064614 /* VideoPlayerViewController.m */,
 				52CACE611A899B0E00064614 /* VideoPlayerViewController.xib */,
+				522DB8EB1A8D65AC003EC3E1 /* AskIfHelpfulViewController.h */,
+				522DB8EC1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m */,
+				522DB8ED1A8D65AC003EC3E1 /* AskIfHelpfulViewController.xib */,
+				522DB8F01A8D6644003EC3E1 /* AskWatchAgainViewController.h */,
+				522DB8F11A8D6644003EC3E1 /* AskWatchAgainViewController.m */,
+				522DB8F21A8D6644003EC3E1 /* AskWatchAgainViewController.xib */,
+				522DB8F51A8D66E3003EC3E1 /* AskRecommendViewController.h */,
+				522DB8F61A8D66E3003EC3E1 /* AskRecommendViewController.m */,
+				522DB8F71A8D66E3003EC3E1 /* AskRecommendViewController.xib */,
+				522DB8FA1A8D679D003EC3E1 /* SendSurveyViewController.h */,
+				522DB8FB1A8D679D003EC3E1 /* SendSurveyViewController.m */,
+				522DB8FC1A8D679D003EC3E1 /* SendSurveyViewController.xib */,
 			);
-			name = ViewControllers;
+			name = "Normal Operation";
+			sourceTree = "<group>";
+		};
+		5295B6691A8CAD4F00F2DA35 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				524DEA651A7B0E26009A2EDC /* Images.xcassets */,
+				524DEA881A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png */,
+				524DEA891A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png */,
+				524DEA7E1A7B128D009A2EDC /* tabbaritemIcon_About.png */,
+				524DEA7F1A7B128D009A2EDC /* tabbaritemIcon_Contact.png */,
+				524DEA801A7B128D009A2EDC /* tabbaritemIcon_Main.png */,
+				524DEA811A7B128D009A2EDC /* tabbaritemIcon_Settings.png */,
+				524DEA821A7B128D009A2EDC /* tabbaritemIcon_Videos.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		52964E361A8E0D42004D1116 /* InfoListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5295B66A1A8CAE8600F2DA35 /* InfoListViewController.h */,
+				5295B66B1A8CAE8600F2DA35 /* InfoListViewController.m */,
+				5295B66C1A8CAE8600F2DA35 /* InfoListViewController.xib */,
+				52964E371A8E0DF7004D1116 /* InfoListTable.h */,
+				52964E381A8E0DF7004D1116 /* InfoListTable.m */,
+			);
+			name = InfoListViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,20 +490,39 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522DB8E01A8D633C003EC3E1 /* PleasantMoodListViewController.xib in Resources */,
+				5295B68E1A8CBBD500F2DA35 /* EthnicityViewController.xib in Resources */,
 				524DEA851A7B128D009A2EDC /* tabbaritemIcon_Main.png in Resources */,
+				522DB8DB1A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib in Resources */,
+				5295B67D1A8CB61500F2DA35 /* PrivacyViewController.xib in Resources */,
 				524DEA871A7B128D009A2EDC /* tabbaritemIcon_Videos.png in Resources */,
 				52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */,
+				522DB8F91A8D66E3003EC3E1 /* AskRecommendViewController.xib in Resources */,
 				524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */,
+				522DB8F41A8D6644003EC3E1 /* AskWatchAgainViewController.xib in Resources */,
+				5295B6781A8CB50500F2DA35 /* HowViewController.xib in Resources */,
 				524DEA861A7B128D009A2EDC /* tabbaritemIcon_Settings.png in Resources */,
+				5295B6A71A8CC08500F2DA35 /* MoodMeterViewController.xib in Resources */,
+				5295B6891A8CBB1C00F2DA35 /* AgeViewController.xib in Resources */,
+				522DB8EA1A8D64D4003EC3E1 /* AskWantResourceInfoViewController.xib in Resources */,
+				5295B6841A8CBA6F00F2DA35 /* GenderViewController.xib in Resources */,
 				52CACE5E1A898C4000064614 /* VideoListViewController.xib in Resources */,
+				5295B69D1A8CBE3300F2DA35 /* TimeOfDayViewController.xib in Resources */,
 				524DEA8A1A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png in Resources */,
+				5295B6731A8CB36300F2DA35 /* PurposeViewController.xib in Resources */,
+				5295B6981A8CBD8D00F2DA35 /* FrequencyViewController.xib in Resources */,
+				522DB8E51A8D641C003EC3E1 /* ResourceListViewController.xib in Resources */,
+				522DB8EF1A8D65AC003EC3E1 /* AskIfHelpfulViewController.xib in Resources */,
 				524DEA831A7B128D009A2EDC /* tabbaritemIcon_About.png in Resources */,
+				5295B66E1A8CAE8600F2DA35 /* InfoListViewController.xib in Resources */,
 				524DEA841A7B128D009A2EDC /* tabbaritemIcon_Contact.png in Resources */,
+				522DB8FE1A8D679D003EC3E1 /* SendSurveyViewController.xib in Resources */,
 				524DEA8B1A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png in Resources */,
+				5295B6A21A8CBEE700F2DA35 /* SendBaselineViewController.xib in Resources */,
 				524DEA691A7B0E26009A2EDC /* LaunchScreen.xib in Resources */,
 				52CACE631A899B0E00064614 /* VideoPlayerViewController.xib in Resources */,
 				524DEA661A7B0E26009A2EDC /* Images.xcassets in Resources */,
-				52761E481A882D000018E877 /* BaselineSurvey.storyboard in Resources */,
+				5295B6931A8CBCB300F2DA35 /* CalendarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,18 +541,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				52761E551A883B630018E877 /* ContactViewController.m in Sources */,
-				52761E6A1A8840D30018E877 /* FrequencyViewController.m in Sources */,
-				52761E6D1A8840F80018E877 /* TimeOfDayViewController.m in Sources */,
+				522DB8F31A8D6644003EC3E1 /* AskWatchAgainViewController.m in Sources */,
+				5295B6771A8CB50500F2DA35 /* HowViewController.m in Sources */,
+				522DB8DF1A8D633C003EC3E1 /* PleasantMoodListViewController.m in Sources */,
 				52CACE621A899B0E00064614 /* VideoPlayerViewController.m in Sources */,
+				522DB8F81A8D66E3003EC3E1 /* AskRecommendViewController.m in Sources */,
 				52761E4C1A8839DD0018E877 /* StartViewController.m in Sources */,
+				52AF131B1A8B7B70000CBD8B /* AboutHeadViewController.m in Sources */,
+				522DB8EE1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m in Sources */,
 				52CACE591A898BB600064614 /* AllVideosHeadViewController.m in Sources */,
+				522DB8DA1A8D6284003EC3E1 /* UnpleasantMoodListViewController.m in Sources */,
+				5295B68D1A8CBBD500F2DA35 /* EthnicityViewController.m in Sources */,
+				5295B6A61A8CC08500F2DA35 /* MoodMeterViewController.m in Sources */,
 				52CACE5D1A898C4000064614 /* VideoListViewController.m in Sources */,
+				522DB8FD1A8D679D003EC3E1 /* SendSurveyViewController.m in Sources */,
+				5295B6921A8CBCB300F2DA35 /* CalendarViewController.m in Sources */,
 				52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */,
+				522DB8E41A8D641C003EC3E1 /* ResourceListViewController.m in Sources */,
+				5295B6721A8CB36300F2DA35 /* PurposeViewController.m in Sources */,
 				52CACE561A8985FF00064614 /* CGradientButton.m in Sources */,
-				52761E701A88414A0018E877 /* ViewController.m in Sources */,
+				5295B6971A8CBD8D00F2DA35 /* FrequencyViewController.m in Sources */,
+				5295B66D1A8CAE8600F2DA35 /* InfoListViewController.m in Sources */,
+				5295B69C1A8CBE3300F2DA35 /* TimeOfDayViewController.m in Sources */,
+				52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */,
+				5295B67C1A8CB61500F2DA35 /* PrivacyViewController.m in Sources */,
 				524DEA5E1A7B0E26009A2EDC /* AppDelegate.m in Sources */,
+				52964E391A8E0DF7004D1116 /* InfoListTable.m in Sources */,
+				5295B6A11A8CBEE700F2DA35 /* SendBaselineViewController.m in Sources */,
+				5295B6811A8CB9A200F2DA35 /* GenderViewController.m in Sources */,
 				524DEA5B1A7B0E26009A2EDC /* main.m in Sources */,
-				52761E671A8840980018E877 /* CalendarViewController.m in Sources */,
+				522DB8E91A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m in Sources */,
+				5295B6881A8CBB1C00F2DA35 /* AgeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +696,7 @@
 				INFOPLIST_FILE = TinyShifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -468,6 +707,7 @@
 				INFOPLIST_FILE = TinyShifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

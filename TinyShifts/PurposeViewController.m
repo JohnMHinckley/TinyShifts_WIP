@@ -1,18 +1,18 @@
 //
-//  CalendarViewController.m
+//  PurposeViewController.m
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/12/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "CalendarViewController.h"
+#import "PurposeViewController.h"
 
-@interface CalendarViewController ()
+@interface PurposeViewController ()
 
 @end
 
-@implementation CalendarViewController
+@implementation PurposeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

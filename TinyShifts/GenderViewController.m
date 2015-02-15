@@ -1,18 +1,18 @@
 //
-//  CalendarViewController.m
+//  GenderViewController.m
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/12/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "CalendarViewController.h"
+#import "GenderViewController.h"
 
-@interface CalendarViewController ()
+@interface GenderViewController ()
 
 @end
 
-@implementation CalendarViewController
+@implementation GenderViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

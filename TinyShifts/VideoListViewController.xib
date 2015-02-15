@@ -20,7 +20,7 @@
                     <color key="backgroundColor" red="0.80392156859999997" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epT-RK-y8h">
-                    <rect key="frame" x="248" y="266" width="105" height="30"/>
+                    <rect key="frame" x="248" y="265" width="105" height="30"/>
                     <state key="normal" title="choose a video">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -28,14 +28,14 @@
                         <action selector="PlayVideoButtonPushed:" destination="-1" eventType="touchUpInside" id="vyY-sv-w3t"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="video library" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-sT-eCC">
-                    <rect key="frame" x="249" y="195" width="102" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="video library" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-sT-eCC">
+                    <rect key="frame" x="253" y="194" width="94" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="DqD-on-EcJ">
-                    <rect key="frame" x="150" y="65" width="300" height="60"/>
+                    <rect key="frame" x="150" y="64" width="300" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="DqD-on-EcJ" secondAttribute="height" multiplier="5:1" id="LME-ib-2pD"/>
                         <constraint firstAttribute="height" constant="60" id="vIL-fH-A9H"/>
@@ -45,7 +45,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="epT-RK-y8h" firstAttribute="top" secondItem="Iug-sT-eCC" secondAttribute="bottom" constant="50" id="6fz-Wr-rHw"/>
-                <constraint firstItem="DqD-on-EcJ" firstAttribute="top" secondItem="Wts-m9-E5w" secondAttribute="top" constant="1" id="AcC-mM-Lp3"/>
+                <constraint firstItem="DqD-on-EcJ" firstAttribute="top" secondItem="Wts-m9-E5w" secondAttribute="top" id="AcC-mM-Lp3"/>
                 <constraint firstItem="Iug-sT-eCC" firstAttribute="top" secondItem="DqD-on-EcJ" secondAttribute="bottom" constant="70" id="Nil-sJ-gE1"/>
                 <constraint firstAttribute="trailing" secondItem="Wts-m9-E5w" secondAttribute="trailing" id="UKb-nV-HhK"/>
                 <constraint firstItem="Iug-sT-eCC" firstAttribute="centerX" secondItem="Wts-m9-E5w" secondAttribute="centerX" id="Vce-vb-FSX"/>

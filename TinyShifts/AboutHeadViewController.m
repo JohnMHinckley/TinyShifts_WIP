@@ -1,22 +1,22 @@
 //
-//  CalendarViewController.m
+//  AboutHeadViewController.m
 //  TinyShifts
 //
-//  Created by Dr. John M. Hinckley on 2/12/15.
+//  Created by Dr. John M. Hinckley on 2/11/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "CalendarViewController.h"
+#import "AboutHeadViewController.h"
 
-@interface CalendarViewController ()
+@interface AboutHeadViewController ()
 
 @end
 
-@implementation CalendarViewController
+@implementation AboutHeadViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

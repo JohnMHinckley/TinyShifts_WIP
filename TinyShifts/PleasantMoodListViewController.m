@@ -1,22 +1,22 @@
 //
-//  ViewController.m
+//  PleasantMoodListViewController.m
 //  TinyShifts
 //
-//  Created by Dr. John M. Hinckley on 2/8/15.
+//  Created by Dr. John M. Hinckley on 2/12/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "PleasantMoodListViewController.h"
 
-@interface ViewController ()
+@interface PleasantMoodListViewController ()
 
 @end
 
-@implementation ViewController
+@implementation PleasantMoodListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

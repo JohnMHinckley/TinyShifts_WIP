@@ -9,6 +9,7 @@
 #import "StartViewController.h"
 #import "AppDelegate.h"
 #import "ActivationViewController.h"
+#import "InfoListViewController.h"
 
 @interface StartViewController ()
 
@@ -35,7 +36,7 @@
         // Disable the tab bar items
         self.tabBarController.tabBar.userInteractionEnabled = NO;
         
-        // Create an instance fo the activation view controller.
+        // Create an instance of the activation view controller.
         ActivationViewController* vc = [[ActivationViewController alloc] initWithNibName:@"ActivationViewController" bundle:nil];
         
         // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
@@ -44,7 +45,7 @@
         // Send a pointer to the tab bar controller to the activation view controller, which will enable the tab bar if the app is properly activated.
         [vc setActiveTabBarController:self.tabBarController];
         
-        // Create the activation view controller.
+        // Display the activation view controller.
         [self.navigationController pushViewController:vc animated:NO];
     }
 }
@@ -64,4 +65,34 @@
 }
 */
 
+- (IBAction)startButtonPressed:(CGradientButton *)sender {
+    // The start button has been pressed.
+    
+    
+    
+    BOOL bInitialPass = YES;    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
+    
+    if (bInitialPass)
+    {
+        // This is the initial pass, so go to the InfoList screen.
+        
+        // Create an instance of the Info List view controller.
+        InfoListViewController* vc = [[InfoListViewController alloc] initWithNibName:@"InfoListViewController" bundle:nil];
+        
+        // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
+        [vc setActiveNavigationController:self.navigationController];
+        
+        
+        // Tell the destination view controller, the mode under which it is being created.
+        [vc setScreenMode:1];   // 1 signifies being created in the baseline survey (2 corresponds to coming from the tab bar).
+        
+        // Display the new view controller.
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        // This is not the initial pass, so go to the MoodMeter screen.
+    }
+    
+}
 @end

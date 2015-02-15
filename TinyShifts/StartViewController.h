@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGradientButton.h"
 
 @interface StartViewController : UIViewController
+- (IBAction)startButtonPressed:(CGradientButton *)sender;
 
 @end

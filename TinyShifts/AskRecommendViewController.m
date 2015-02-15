@@ -1,18 +1,18 @@
 //
-//  CalendarViewController.m
+//  AskRecommendViewController.m
 //  TinyShifts
 //
 //  Created by Dr. John M. Hinckley on 2/12/15.
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
-#import "CalendarViewController.h"
+#import "AskRecommendViewController.h"
 
-@interface CalendarViewController ()
+@interface AskRecommendViewController ()
 
 @end
 
-@implementation CalendarViewController
+@implementation AskRecommendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
