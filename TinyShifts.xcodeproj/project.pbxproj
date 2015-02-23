@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5211793C1A941F72001E6F48 /* InfoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5211793B1A941F72001E6F48 /* InfoListTableViewCell.m */; };
+		521179431A942723001E6F48 /* CDatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521179401A942723001E6F48 /* CDatabaseController.m */; };
+		521179441A942723001E6F48 /* CDatabaseDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 521179421A942723001E6F48 /* CDatabaseDelegate.m */; };
+		521179461A94277E001E6F48 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 521179451A94277E001E6F48 /* libsqlite3.dylib */; };
+		521179491A9429B7001E6F48 /* InfoTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 521179481A9429B7001E6F48 /* InfoTopic.m */; };
+		521623001A9102950029BF68 /* InfoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521622FF1A9102950029BF68 /* InfoList.storyboard */; };
 		522DB8DA1A8D6284003EC3E1 /* UnpleasantMoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */; };
 		522DB8DB1A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8D91A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib */; };
 		522DB8DF1A8D633C003EC3E1 /* PleasantMoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8DD1A8D633C003EC3E1 /* PleasantMoodListViewController.m */; };
@@ -65,6 +71,8 @@
 		52964E391A8E0DF7004D1116 /* InfoListTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 52964E381A8E0DF7004D1116 /* InfoListTable.m */; };
 		52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */; };
 		52AF131B1A8B7B70000CBD8B /* AboutHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */; };
+		52C49A451A9A74C000E53A9E /* TableDatum.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C49A441A9A74C000E53A9E /* TableDatum.m */; };
+		52C49A481A9A802800E53A9E /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C49A471A9A802800E53A9E /* InfoViewController.m */; };
 		52CACE561A8985FF00064614 /* CGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE551A8985FF00064614 /* CGradientButton.m */; };
 		52CACE591A898BB600064614 /* AllVideosHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE581A898BB600064614 /* AllVideosHeadViewController.m */; };
 		52CACE5D1A898C4000064614 /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE5B1A898C4000064614 /* VideoListViewController.m */; };
@@ -86,6 +94,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5211793A1A941F72001E6F48 /* InfoListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoListTableViewCell.h; sourceTree = "<group>"; };
+		5211793B1A941F72001E6F48 /* InfoListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoListTableViewCell.m; sourceTree = "<group>"; };
+		5211793F1A942723001E6F48 /* CDatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDatabaseController.h; sourceTree = "<group>"; };
+		521179401A942723001E6F48 /* CDatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDatabaseController.m; sourceTree = "<group>"; };
+		521179411A942723001E6F48 /* CDatabaseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDatabaseDelegate.h; sourceTree = "<group>"; };
+		521179421A942723001E6F48 /* CDatabaseDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDatabaseDelegate.m; sourceTree = "<group>"; };
+		521179451A94277E001E6F48 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		521179471A9429B7001E6F48 /* InfoTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTopic.h; sourceTree = "<group>"; };
+		521179481A9429B7001E6F48 /* InfoTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTopic.m; sourceTree = "<group>"; };
+		521622FF1A9102950029BF68 /* InfoList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InfoList.storyboard; sourceTree = "<group>"; };
 		522DB8D71A8D6284003EC3E1 /* UnpleasantMoodListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnpleasantMoodListViewController.h; sourceTree = "<group>"; };
 		522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnpleasantMoodListViewController.m; sourceTree = "<group>"; };
 		522DB8D91A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnpleasantMoodListViewController.xib; sourceTree = "<group>"; };
@@ -174,6 +192,10 @@
 		52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHeadViewController.m; sourceTree = "<group>"; };
 		52AF13191A8B7B70000CBD8B /* AboutHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutHeadViewController.h; sourceTree = "<group>"; };
 		52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutHeadViewController.m; sourceTree = "<group>"; };
+		52C49A431A9A74C000E53A9E /* TableDatum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDatum.h; sourceTree = "<group>"; };
+		52C49A441A9A74C000E53A9E /* TableDatum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDatum.m; sourceTree = "<group>"; };
+		52C49A461A9A802800E53A9E /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		52C49A471A9A802800E53A9E /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		52CACE541A8985FF00064614 /* CGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGradientButton.h; sourceTree = "<group>"; };
 		52CACE551A8985FF00064614 /* CGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGradientButton.m; sourceTree = "<group>"; };
 		52CACE571A898BB600064614 /* AllVideosHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllVideosHeadViewController.h; sourceTree = "<group>"; };
@@ -194,6 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				521179461A94277E001E6F48 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +230,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5211793D1A9426D3001E6F48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				521179471A9429B7001E6F48 /* InfoTopic.h */,
+				521179481A9429B7001E6F48 /* InfoTopic.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5211793E1A9426E6001E6F48 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				5211793F1A942723001E6F48 /* CDatabaseController.h */,
+				521179401A942723001E6F48 /* CDatabaseController.m */,
+				521179411A942723001E6F48 /* CDatabaseDelegate.h */,
+				521179421A942723001E6F48 /* CDatabaseDelegate.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
 		524DEA4C1A7B0E26009A2EDC = {
 			isa = PBXGroup;
 			children = (
+				521179451A94277E001E6F48 /* libsqlite3.dylib */,
 				524DEA571A7B0E26009A2EDC /* TinyShifts */,
 				524DEA711A7B0E27009A2EDC /* TinyShiftsTests */,
 				524DEA561A7B0E26009A2EDC /* Products */,
@@ -228,6 +272,8 @@
 		524DEA571A7B0E26009A2EDC /* TinyShifts */ = {
 			isa = PBXGroup;
 			children = (
+				5211793E1A9426E6001E6F48 /* Database */,
+				5211793D1A9426D3001E6F48 /* Model */,
 				5295B6691A8CAD4F00F2DA35 /* Graphics */,
 				52761E491A8839A70018E877 /* ViewControllers */,
 				524DEA5C1A7B0E26009A2EDC /* AppDelegate.h */,
@@ -273,6 +319,8 @@
 				5295B6671A8CABE000F2DA35 /* Activation */,
 				5295B6661A8CABA200F2DA35 /* Baseline Survey */,
 				5295B6681A8CAC1000F2DA35 /* Normal Operation */,
+				52C49A431A9A74C000E53A9E /* TableDatum.h */,
+				52C49A441A9A74C000E53A9E /* TableDatum.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -406,6 +454,11 @@
 				5295B66C1A8CAE8600F2DA35 /* InfoListViewController.xib */,
 				52964E371A8E0DF7004D1116 /* InfoListTable.h */,
 				52964E381A8E0DF7004D1116 /* InfoListTable.m */,
+				5211793A1A941F72001E6F48 /* InfoListTableViewCell.h */,
+				5211793B1A941F72001E6F48 /* InfoListTableViewCell.m */,
+				52C49A461A9A802800E53A9E /* InfoViewController.h */,
+				52C49A471A9A802800E53A9E /* InfoViewController.m */,
+				521622FF1A9102950029BF68 /* InfoList.storyboard */,
 			);
 			name = InfoListViewController;
 			sourceTree = "<group>";
@@ -500,6 +553,7 @@
 				522DB8F91A8D66E3003EC3E1 /* AskRecommendViewController.xib in Resources */,
 				524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */,
 				522DB8F41A8D6644003EC3E1 /* AskWatchAgainViewController.xib in Resources */,
+				521623001A9102950029BF68 /* InfoList.storyboard in Resources */,
 				5295B6781A8CB50500F2DA35 /* HowViewController.xib in Resources */,
 				524DEA861A7B128D009A2EDC /* tabbaritemIcon_Settings.png in Resources */,
 				5295B6A71A8CC08500F2DA35 /* MoodMeterViewController.xib in Resources */,
@@ -556,6 +610,8 @@
 				52CACE5D1A898C4000064614 /* VideoListViewController.m in Sources */,
 				522DB8FD1A8D679D003EC3E1 /* SendSurveyViewController.m in Sources */,
 				5295B6921A8CBCB300F2DA35 /* CalendarViewController.m in Sources */,
+				5211793C1A941F72001E6F48 /* InfoListTableViewCell.m in Sources */,
+				521179491A9429B7001E6F48 /* InfoTopic.m in Sources */,
 				52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */,
 				522DB8E41A8D641C003EC3E1 /* ResourceListViewController.m in Sources */,
 				5295B6721A8CB36300F2DA35 /* PurposeViewController.m in Sources */,
@@ -564,7 +620,11 @@
 				5295B66D1A8CAE8600F2DA35 /* InfoListViewController.m in Sources */,
 				5295B69C1A8CBE3300F2DA35 /* TimeOfDayViewController.m in Sources */,
 				52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */,
+				52C49A451A9A74C000E53A9E /* TableDatum.m in Sources */,
 				5295B67C1A8CB61500F2DA35 /* PrivacyViewController.m in Sources */,
+				521179431A942723001E6F48 /* CDatabaseController.m in Sources */,
+				521179441A942723001E6F48 /* CDatabaseDelegate.m in Sources */,
+				52C49A481A9A802800E53A9E /* InfoViewController.m in Sources */,
 				524DEA5E1A7B0E26009A2EDC /* AppDelegate.m in Sources */,
 				52964E391A8E0DF7004D1116 /* InfoListTable.m in Sources */,
 				5295B6A11A8CBEE700F2DA35 /* SendBaselineViewController.m in Sources */,
@@ -647,7 +707,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -682,7 +742,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

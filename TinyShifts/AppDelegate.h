@@ -15,5 +15,9 @@
 @property (strong, nonatomic) UINavigationController* navigationControllerMain;
 
 
+-(NSString*) documentsPath;
+
+
+
 @end
 

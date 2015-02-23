@@ -12,6 +12,7 @@
 {
     UINavigationController* activeNavigationController;
     NSUInteger screenMode;
+    NSMutableArray* arrayTableCellData;
 }
 
 -(void) setActiveNavigationController:(UINavigationController*) nc;

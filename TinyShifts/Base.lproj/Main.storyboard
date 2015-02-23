@@ -84,7 +84,7 @@
                             <constraint firstAttribute="trailing" secondItem="Qc2-JK-rWQ" secondAttribute="trailing" id="fao-J0-baz"/>
                             <constraint firstItem="Qc2-JK-rWQ" firstAttribute="bottom" secondItem="NXR-dY-hkF" secondAttribute="bottom" constant="30" id="hjj-4h-xDT"/>
                             <constraint firstItem="s54-MA-C3p" firstAttribute="centerX" secondItem="Qc2-JK-rWQ" secondAttribute="centerX" id="pvM-mr-ADX"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Qc2-JK-rWQ" secondAttribute="bottom" constant="42" id="r9P-5D-3X0"/>
+                            <constraint firstAttribute="bottom" secondItem="Qc2-JK-rWQ" secondAttribute="bottom" constant="42" id="r9P-5D-3X0"/>
                             <constraint firstItem="wcD-hw-g8z" firstAttribute="top" secondItem="Qc2-JK-rWQ" secondAttribute="top" id="vQU-Dd-HrS"/>
                         </constraints>
                     </view>
