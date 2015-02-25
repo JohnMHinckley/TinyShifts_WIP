@@ -19,19 +19,21 @@
 
 @synthesize scrollView;
 @synthesize informationText;
+@synthesize navigationTitleText;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Adjust the navigation item
-    self.navigationItem.title = @"test title";
+    self.navigationItem.title = navigationTitleText;
     
     // Size of displayed text
     CGFloat fontSize = 12.0;
     
     
     // Add a label subview to the scroll view controller.
+    // First, make up a test box to figure out how big it needs to be to hold the text.
     CGRect testTextbox;
     testTextbox.origin = CGPointMake(10,0);
     testTextbox.size = CGSizeMake(280, 500);    // purpose = 200, how = 250, privacy =
@@ -42,6 +44,7 @@
     testLabel.numberOfLines = 0;
     CGSize testSize = [testLabel sizeThatFits:testTextbox.size];
    
+    // Now make the real box with the determined size.
     CGRect textbox;
     textbox.origin = CGPointMake(10,0);
     textbox.size = testSize;    // purpose = 200, how = 250, privacy =

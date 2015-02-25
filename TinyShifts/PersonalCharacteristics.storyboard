@@ -29,14 +29,7 @@
                                     <constraint firstAttribute="height" constant="64" id="kEh-AK-bsV"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Gender" id="rhw-Vi-tWl">
-                                        <barButtonItem key="rightBarButtonItem" title="Next" width="30" id="7b1-D1-bH3">
-                                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <segue destination="gkD-pY-Wff" kind="push" id="SWO-qo-8N3"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="Gender" id="rhw-Vi-tWl"/>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pA-Lc-Iud" customClass="CGradientButton">
@@ -146,13 +139,7 @@
                                     <constraint firstAttribute="height" constant="64" id="mVM-yv-etM"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Age" id="xKh-1w-avm">
-                                        <barButtonItem key="rightBarButtonItem" title="Next" id="6gl-zx-1gf">
-                                            <connections>
-                                                <segue destination="KLx-Gj-NpI" kind="push" id="cVi-Mz-Nnx"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="Age" id="xKh-1w-avm"/>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TKL-1k-VwV">
@@ -220,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="1456" y="-45"/>
         </scene>
-        <!--View Controller-->
+        <!--Ethnicity View Controller-->
         <scene sceneID="4aG-WK-9Rr">
             <objects>
-                <viewController id="KLx-Gj-NpI" sceneMemberID="viewController">
+                <viewController id="KLx-Gj-NpI" customClass="EthnicityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5kb-By-Fox"/>
                         <viewControllerLayoutGuide type="bottom" id="0Mf-uV-zpj"/>
@@ -426,8 +413,4 @@
     <resources>
         <image name="TextLogo_dkblue_205_235_252.png" width="1263" height="254"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="mLr-UD-8v1"/>
-        <segue reference="SWO-qo-8N3"/>
-    </inferredMetricsTieBreakers>
 </document>

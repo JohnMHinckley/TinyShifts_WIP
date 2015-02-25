@@ -15,6 +15,7 @@
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) NSMutableString* informationText;
+@property (strong, nonatomic) NSMutableString* navigationTitleText;
 
 -(void) setActiveNavigationController:(UINavigationController*) nc;
 

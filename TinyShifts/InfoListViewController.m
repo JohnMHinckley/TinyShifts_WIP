@@ -27,6 +27,28 @@
     // Do any additional setup after loading the view from its nib.
     
     
+    // Adjust the navigation item
+    // Title
+    self.navigationItem.title = @"Information";
+    
+    // Right button
+    UIButton* rightNavigationButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
+    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
+    self.navigationItem.rightBarButtonItem = rightButtonItem;
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     // Set up the array of table data
     arrayTableCellData = [[NSMutableArray alloc] init];
     arrayInfoText = [[NSMutableArray alloc] init];
@@ -77,6 +99,9 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     ((InfoViewController*)[segue destinationViewController]).informationText = [arrayInfoText objectAtIndex:((InfoListTableViewCell*)sender).index];
+    
+    // Pass the table cell label string to also be used as the title at the top of the next screen.
+    ((InfoViewController*)[segue destinationViewController]).navigationTitleText = (NSMutableString*)((TableDatum*)[arrayTableCellData objectAtIndex:((InfoListTableViewCell*)sender).index]).label;
     
 }
 

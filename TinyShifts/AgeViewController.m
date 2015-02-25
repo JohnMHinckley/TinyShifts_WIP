@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // Adjust the navigation item
+    self.navigationItem.title = @"Age";
 }
 
 - (void)didReceiveMemoryWarning {
