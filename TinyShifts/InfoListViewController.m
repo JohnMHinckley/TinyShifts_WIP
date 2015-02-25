@@ -10,6 +10,7 @@
 #import "InfoListTableViewCell.h"
 #import "TableDatum.h"
 #import "InfoViewController.h"
+#import "GenderViewController.h"
 
 @interface InfoListViewController ()
 {
@@ -79,6 +80,12 @@
     
 }
 
+
+- (IBAction)nextButtonPressed:(CGradientButton *)sender {
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
+    GenderViewController* vc = [sb instantiateInitialViewController];
+    [[self navigationController] pushViewController:vc animated:YES];
+}
 
 -(void) setActiveNavigationController:(UINavigationController*) nc
 {

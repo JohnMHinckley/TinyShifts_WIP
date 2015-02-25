@@ -41,6 +41,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="rqb-SX-I2X" eventType="touchUpInside" id="5S8-L5-hMH"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idH-Fh-XLJ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>

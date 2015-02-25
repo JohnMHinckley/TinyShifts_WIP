@@ -24,6 +24,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Adjust the navigation item
+    self.navigationItem.title = @"test title";
+    
+    // Size of displayed text
+    CGFloat fontSize = 12.0;
+    
+    
     // Add a label subview to the scroll view controller.
     CGRect testTextbox;
     testTextbox.origin = CGPointMake(10,0);
@@ -31,6 +38,7 @@
     
     UILabel* testLabel= [[UILabel alloc] initWithFrame:testTextbox];
     testLabel.text = informationText;
+    [testLabel setFont:[UIFont systemFontOfSize:fontSize]];
     testLabel.numberOfLines = 0;
     CGSize testSize = [testLabel sizeThatFits:testTextbox.size];
    
@@ -43,6 +51,7 @@
     [scrollView addSubview:label];
     
     label.text = informationText;
+    [label setFont:[UIFont systemFontOfSize:fontSize]];
     label.numberOfLines = 0;    // remove any restriction on the number of lines.
     label.backgroundColor = [UIColor whiteColor];
     

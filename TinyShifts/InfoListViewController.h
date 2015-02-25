@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGradientButton.h"
 
 @interface InfoListViewController : UIViewController
 {
@@ -15,6 +16,7 @@
     NSMutableArray* arrayTableCellData;
 }
 
+- (IBAction)nextButtonPressed:(CGradientButton *)sender;
 -(void) setActiveNavigationController:(UINavigationController*) nc;
 -(void) setScreenMode:(NSUInteger) mode;
 
