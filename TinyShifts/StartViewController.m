@@ -70,32 +70,15 @@
     
     
     
-    BOOL bInitialPass = YES;    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
+    BOOL bInitialPass = NO;    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
     
     if (bInitialPass)
     {
         // This is the initial pass, so go to the InfoList screen.
-        /*
-        // Create an instance of the Info List view controller.
-        InfoListViewController* vc = [[InfoListViewController alloc] initWithNibName:@"InfoListViewController" bundle:nil];
-        
-        // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
-        [vc setActiveNavigationController:self.navigationController];
-        
-        
-        // Tell the destination view controller, the mode under which it is being created.
-        [vc setScreenMode:1];   // 1 signifies being created in the baseline survey (2 corresponds to coming from the tab bar).
-        
-        // Display the new view controller.
-        [self.navigationController pushViewController:vc animated:YES];
-        */
         
         // Attempt to use storyboard to instantiate InfoListViewController.
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"InfoList" bundle:nil];
-        //InfoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"InfoListViewController"];
         InfoListViewController* vc = [sb instantiateInitialViewController];
-        
-        //[self presentViewController:vc animated:YES completion:nil];
         
         // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
         [vc setActiveNavigationController:self.navigationController];
@@ -110,7 +93,14 @@
     else
     {
         // This is not the initial pass, so go to the MoodMeter screen.
-    }
+        
+        // Attempt to use storyboard to instantiate MoodMeterViewController.
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        InfoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"MoodMeterViewController"];
+        
+        // Display the new view controller.
+        [self.navigationController pushViewController:vc animated:YES];
+   }
     
 }
 

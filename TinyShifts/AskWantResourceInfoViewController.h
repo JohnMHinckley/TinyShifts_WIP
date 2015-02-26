@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AskWantResourceInfoViewController : UIViewController
-
+@property (nonatomic) NSUInteger screenInstance;    // key for where in storyboard this instance appears: 1 (earlier in main storyboard), or 2 (later)
+-(void) setScreenInstance:(NSUInteger)sI;
 @end

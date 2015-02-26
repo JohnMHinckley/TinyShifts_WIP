@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGradientButton.h"
 
 @interface SendBaselineViewController : UIViewController
+- (IBAction)submitButtonPressed:(CGradientButton *)sender;
 
 @end

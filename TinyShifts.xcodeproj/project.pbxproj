@@ -18,21 +18,13 @@
 		521179491A9429B7001E6F48 /* InfoTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 521179481A9429B7001E6F48 /* InfoTopic.m */; };
 		521623001A9102950029BF68 /* InfoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521622FF1A9102950029BF68 /* InfoList.storyboard */; };
 		522DB8DA1A8D6284003EC3E1 /* UnpleasantMoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */; };
-		522DB8DB1A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8D91A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib */; };
 		522DB8DF1A8D633C003EC3E1 /* PleasantMoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8DD1A8D633C003EC3E1 /* PleasantMoodListViewController.m */; };
-		522DB8E01A8D633C003EC3E1 /* PleasantMoodListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8DE1A8D633C003EC3E1 /* PleasantMoodListViewController.xib */; };
 		522DB8E41A8D641C003EC3E1 /* ResourceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8E21A8D641C003EC3E1 /* ResourceListViewController.m */; };
-		522DB8E51A8D641C003EC3E1 /* ResourceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8E31A8D641C003EC3E1 /* ResourceListViewController.xib */; };
 		522DB8E91A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8E71A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m */; };
-		522DB8EA1A8D64D4003EC3E1 /* AskWantResourceInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8E81A8D64D4003EC3E1 /* AskWantResourceInfoViewController.xib */; };
 		522DB8EE1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8EC1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m */; };
-		522DB8EF1A8D65AC003EC3E1 /* AskIfHelpfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8ED1A8D65AC003EC3E1 /* AskIfHelpfulViewController.xib */; };
 		522DB8F31A8D6644003EC3E1 /* AskWatchAgainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8F11A8D6644003EC3E1 /* AskWatchAgainViewController.m */; };
-		522DB8F41A8D6644003EC3E1 /* AskWatchAgainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8F21A8D6644003EC3E1 /* AskWatchAgainViewController.xib */; };
 		522DB8F81A8D66E3003EC3E1 /* AskRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8F61A8D66E3003EC3E1 /* AskRecommendViewController.m */; };
-		522DB8F91A8D66E3003EC3E1 /* AskRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8F71A8D66E3003EC3E1 /* AskRecommendViewController.xib */; };
 		522DB8FD1A8D679D003EC3E1 /* SendSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8FB1A8D679D003EC3E1 /* SendSurveyViewController.m */; };
-		522DB8FE1A8D679D003EC3E1 /* SendSurveyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522DB8FC1A8D679D003EC3E1 /* SendSurveyViewController.xib */; };
 		524DEA5B1A7B0E26009A2EDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 524DEA5A1A7B0E26009A2EDC /* main.m */; };
 		524DEA5E1A7B0E26009A2EDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 524DEA5D1A7B0E26009A2EDC /* AppDelegate.m */; };
 		524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA621A7B0E26009A2EDC /* Main.storyboard */; };
@@ -57,7 +49,6 @@
 		5295B69C1A8CBE3300F2DA35 /* TimeOfDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B69A1A8CBE3300F2DA35 /* TimeOfDayViewController.m */; };
 		5295B6A11A8CBEE700F2DA35 /* SendBaselineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B69F1A8CBEE700F2DA35 /* SendBaselineViewController.m */; };
 		5295B6A61A8CC08500F2DA35 /* MoodMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B6A41A8CC08500F2DA35 /* MoodMeterViewController.m */; };
-		5295B6A71A8CC08500F2DA35 /* MoodMeterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295B6A51A8CC08500F2DA35 /* MoodMeterViewController.xib */; };
 		52964E391A8E0DF7004D1116 /* InfoListTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 52964E381A8E0DF7004D1116 /* InfoListTable.m */; };
 		52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */; };
 		52AF131B1A8B7B70000CBD8B /* AboutHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */; };
@@ -66,9 +57,7 @@
 		52CACE561A8985FF00064614 /* CGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE551A8985FF00064614 /* CGradientButton.m */; };
 		52CACE591A898BB600064614 /* AllVideosHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE581A898BB600064614 /* AllVideosHeadViewController.m */; };
 		52CACE5D1A898C4000064614 /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE5B1A898C4000064614 /* VideoListViewController.m */; };
-		52CACE5E1A898C4000064614 /* VideoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CACE5C1A898C4000064614 /* VideoListViewController.xib */; };
 		52CACE621A899B0E00064614 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE601A899B0E00064614 /* VideoPlayerViewController.m */; };
-		52CACE631A899B0E00064614 /* VideoPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CACE611A899B0E00064614 /* VideoPlayerViewController.xib */; };
 		52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */; };
 		52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */; };
 /* End PBXBuildFile section */
@@ -100,28 +89,20 @@
 		521622FF1A9102950029BF68 /* InfoList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InfoList.storyboard; sourceTree = "<group>"; };
 		522DB8D71A8D6284003EC3E1 /* UnpleasantMoodListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnpleasantMoodListViewController.h; sourceTree = "<group>"; };
 		522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnpleasantMoodListViewController.m; sourceTree = "<group>"; };
-		522DB8D91A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnpleasantMoodListViewController.xib; sourceTree = "<group>"; };
 		522DB8DC1A8D633C003EC3E1 /* PleasantMoodListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PleasantMoodListViewController.h; sourceTree = "<group>"; };
 		522DB8DD1A8D633C003EC3E1 /* PleasantMoodListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PleasantMoodListViewController.m; sourceTree = "<group>"; };
-		522DB8DE1A8D633C003EC3E1 /* PleasantMoodListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PleasantMoodListViewController.xib; sourceTree = "<group>"; };
 		522DB8E11A8D641C003EC3E1 /* ResourceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceListViewController.h; sourceTree = "<group>"; };
 		522DB8E21A8D641C003EC3E1 /* ResourceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceListViewController.m; sourceTree = "<group>"; };
-		522DB8E31A8D641C003EC3E1 /* ResourceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceListViewController.xib; sourceTree = "<group>"; };
 		522DB8E61A8D64D4003EC3E1 /* AskWantResourceInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskWantResourceInfoViewController.h; sourceTree = "<group>"; };
 		522DB8E71A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskWantResourceInfoViewController.m; sourceTree = "<group>"; };
-		522DB8E81A8D64D4003EC3E1 /* AskWantResourceInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskWantResourceInfoViewController.xib; sourceTree = "<group>"; };
 		522DB8EB1A8D65AC003EC3E1 /* AskIfHelpfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskIfHelpfulViewController.h; sourceTree = "<group>"; };
 		522DB8EC1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskIfHelpfulViewController.m; sourceTree = "<group>"; };
-		522DB8ED1A8D65AC003EC3E1 /* AskIfHelpfulViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskIfHelpfulViewController.xib; sourceTree = "<group>"; };
 		522DB8F01A8D6644003EC3E1 /* AskWatchAgainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskWatchAgainViewController.h; sourceTree = "<group>"; };
 		522DB8F11A8D6644003EC3E1 /* AskWatchAgainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskWatchAgainViewController.m; sourceTree = "<group>"; };
-		522DB8F21A8D6644003EC3E1 /* AskWatchAgainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskWatchAgainViewController.xib; sourceTree = "<group>"; };
 		522DB8F51A8D66E3003EC3E1 /* AskRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskRecommendViewController.h; sourceTree = "<group>"; };
 		522DB8F61A8D66E3003EC3E1 /* AskRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskRecommendViewController.m; sourceTree = "<group>"; };
-		522DB8F71A8D66E3003EC3E1 /* AskRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskRecommendViewController.xib; sourceTree = "<group>"; };
 		522DB8FA1A8D679D003EC3E1 /* SendSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendSurveyViewController.h; sourceTree = "<group>"; };
 		522DB8FB1A8D679D003EC3E1 /* SendSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendSurveyViewController.m; sourceTree = "<group>"; };
-		522DB8FC1A8D679D003EC3E1 /* SendSurveyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendSurveyViewController.xib; sourceTree = "<group>"; };
 		524DEA551A7B0E26009A2EDC /* TinyShifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyShifts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524DEA591A7B0E26009A2EDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		524DEA5A1A7B0E26009A2EDC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -162,7 +143,6 @@
 		5295B69F1A8CBEE700F2DA35 /* SendBaselineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendBaselineViewController.m; sourceTree = "<group>"; };
 		5295B6A31A8CC08500F2DA35 /* MoodMeterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodMeterViewController.h; sourceTree = "<group>"; };
 		5295B6A41A8CC08500F2DA35 /* MoodMeterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodMeterViewController.m; sourceTree = "<group>"; };
-		5295B6A51A8CC08500F2DA35 /* MoodMeterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoodMeterViewController.xib; sourceTree = "<group>"; };
 		52964E371A8E0DF7004D1116 /* InfoListTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoListTable.h; sourceTree = "<group>"; };
 		52964E381A8E0DF7004D1116 /* InfoListTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoListTable.m; sourceTree = "<group>"; };
 		52AF13161A8B79C0000CBD8B /* CalendarHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarHeadViewController.h; sourceTree = "<group>"; };
@@ -179,10 +159,8 @@
 		52CACE581A898BB600064614 /* AllVideosHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllVideosHeadViewController.m; sourceTree = "<group>"; };
 		52CACE5A1A898C4000064614 /* VideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListViewController.h; sourceTree = "<group>"; };
 		52CACE5B1A898C4000064614 /* VideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
-		52CACE5C1A898C4000064614 /* VideoListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoListViewController.xib; sourceTree = "<group>"; };
 		52CACE5F1A899B0E00064614 /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
 		52CACE601A899B0E00064614 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
-		52CACE611A899B0E00064614 /* VideoPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPlayerViewController.xib; sourceTree = "<group>"; };
 		52E6F7AD1A88C0F800A5E269 /* ActivationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationViewController.h; sourceTree = "<group>"; };
 		52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivationViewController.m; sourceTree = "<group>"; };
 		52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationViewController.xib; sourceTree = "<group>"; };
@@ -353,6 +331,28 @@
 				52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */,
 				52AF13191A8B7B70000CBD8B /* AboutHeadViewController.h */,
 				52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */,
+				5295B6A31A8CC08500F2DA35 /* MoodMeterViewController.h */,
+				5295B6A41A8CC08500F2DA35 /* MoodMeterViewController.m */,
+				522DB8D71A8D6284003EC3E1 /* UnpleasantMoodListViewController.h */,
+				522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */,
+				522DB8DC1A8D633C003EC3E1 /* PleasantMoodListViewController.h */,
+				522DB8DD1A8D633C003EC3E1 /* PleasantMoodListViewController.m */,
+				52CACE5A1A898C4000064614 /* VideoListViewController.h */,
+				52CACE5B1A898C4000064614 /* VideoListViewController.m */,
+				522DB8E61A8D64D4003EC3E1 /* AskWantResourceInfoViewController.h */,
+				522DB8E71A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m */,
+				522DB8E11A8D641C003EC3E1 /* ResourceListViewController.h */,
+				522DB8E21A8D641C003EC3E1 /* ResourceListViewController.m */,
+				52CACE5F1A899B0E00064614 /* VideoPlayerViewController.h */,
+				52CACE601A899B0E00064614 /* VideoPlayerViewController.m */,
+				522DB8EB1A8D65AC003EC3E1 /* AskIfHelpfulViewController.h */,
+				522DB8EC1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m */,
+				522DB8F01A8D6644003EC3E1 /* AskWatchAgainViewController.h */,
+				522DB8F11A8D6644003EC3E1 /* AskWatchAgainViewController.m */,
+				522DB8F51A8D66E3003EC3E1 /* AskRecommendViewController.h */,
+				522DB8F61A8D66E3003EC3E1 /* AskRecommendViewController.m */,
+				522DB8FA1A8D679D003EC3E1 /* SendSurveyViewController.h */,
+				522DB8FB1A8D679D003EC3E1 /* SendSurveyViewController.m */,
 				524DEA621A7B0E26009A2EDC /* Main.storyboard */,
 			);
 			name = "Main Storyboard";
@@ -382,39 +382,6 @@
 		5295B6681A8CAC1000F2DA35 /* Normal Operation */ = {
 			isa = PBXGroup;
 			children = (
-				5295B6A31A8CC08500F2DA35 /* MoodMeterViewController.h */,
-				5295B6A41A8CC08500F2DA35 /* MoodMeterViewController.m */,
-				5295B6A51A8CC08500F2DA35 /* MoodMeterViewController.xib */,
-				522DB8D71A8D6284003EC3E1 /* UnpleasantMoodListViewController.h */,
-				522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */,
-				522DB8D91A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib */,
-				522DB8DC1A8D633C003EC3E1 /* PleasantMoodListViewController.h */,
-				522DB8DD1A8D633C003EC3E1 /* PleasantMoodListViewController.m */,
-				522DB8DE1A8D633C003EC3E1 /* PleasantMoodListViewController.xib */,
-				52CACE5A1A898C4000064614 /* VideoListViewController.h */,
-				52CACE5B1A898C4000064614 /* VideoListViewController.m */,
-				52CACE5C1A898C4000064614 /* VideoListViewController.xib */,
-				522DB8E61A8D64D4003EC3E1 /* AskWantResourceInfoViewController.h */,
-				522DB8E71A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m */,
-				522DB8E81A8D64D4003EC3E1 /* AskWantResourceInfoViewController.xib */,
-				522DB8E11A8D641C003EC3E1 /* ResourceListViewController.h */,
-				522DB8E21A8D641C003EC3E1 /* ResourceListViewController.m */,
-				522DB8E31A8D641C003EC3E1 /* ResourceListViewController.xib */,
-				52CACE5F1A899B0E00064614 /* VideoPlayerViewController.h */,
-				52CACE601A899B0E00064614 /* VideoPlayerViewController.m */,
-				52CACE611A899B0E00064614 /* VideoPlayerViewController.xib */,
-				522DB8EB1A8D65AC003EC3E1 /* AskIfHelpfulViewController.h */,
-				522DB8EC1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m */,
-				522DB8ED1A8D65AC003EC3E1 /* AskIfHelpfulViewController.xib */,
-				522DB8F01A8D6644003EC3E1 /* AskWatchAgainViewController.h */,
-				522DB8F11A8D6644003EC3E1 /* AskWatchAgainViewController.m */,
-				522DB8F21A8D6644003EC3E1 /* AskWatchAgainViewController.xib */,
-				522DB8F51A8D66E3003EC3E1 /* AskRecommendViewController.h */,
-				522DB8F61A8D66E3003EC3E1 /* AskRecommendViewController.m */,
-				522DB8F71A8D66E3003EC3E1 /* AskRecommendViewController.xib */,
-				522DB8FA1A8D679D003EC3E1 /* SendSurveyViewController.h */,
-				522DB8FB1A8D679D003EC3E1 /* SendSurveyViewController.m */,
-				522DB8FC1A8D679D003EC3E1 /* SendSurveyViewController.xib */,
 			);
 			name = "Normal Operation";
 			sourceTree = "<group>";
@@ -531,31 +498,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				522DB8E01A8D633C003EC3E1 /* PleasantMoodListViewController.xib in Resources */,
 				524DEA851A7B128D009A2EDC /* tabbaritemIcon_Main.png in Resources */,
 				520B67201A9F2B0A00F162A4 /* Schedule.storyboard in Resources */,
-				522DB8DB1A8D6284003EC3E1 /* UnpleasantMoodListViewController.xib in Resources */,
 				524DEA871A7B128D009A2EDC /* tabbaritemIcon_Videos.png in Resources */,
 				52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */,
-				522DB8F91A8D66E3003EC3E1 /* AskRecommendViewController.xib in Resources */,
 				524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */,
-				522DB8F41A8D6644003EC3E1 /* AskWatchAgainViewController.xib in Resources */,
 				521623001A9102950029BF68 /* InfoList.storyboard in Resources */,
 				524DEA861A7B128D009A2EDC /* tabbaritemIcon_Settings.png in Resources */,
-				5295B6A71A8CC08500F2DA35 /* MoodMeterViewController.xib in Resources */,
-				522DB8EA1A8D64D4003EC3E1 /* AskWantResourceInfoViewController.xib in Resources */,
-				52CACE5E1A898C4000064614 /* VideoListViewController.xib in Resources */,
 				52079D0A1A9BF9FF0015A41C /* PersonalCharacteristics.storyboard in Resources */,
 				524DEA8A1A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png in Resources */,
-				522DB8E51A8D641C003EC3E1 /* ResourceListViewController.xib in Resources */,
-				522DB8EF1A8D65AC003EC3E1 /* AskIfHelpfulViewController.xib in Resources */,
 				524DEA831A7B128D009A2EDC /* tabbaritemIcon_About.png in Resources */,
 				524DEA841A7B128D009A2EDC /* tabbaritemIcon_Contact.png in Resources */,
-				522DB8FE1A8D679D003EC3E1 /* SendSurveyViewController.xib in Resources */,
 				520B67231A9F455100F162A4 /* SendBaseline.storyboard in Resources */,
 				524DEA8B1A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png in Resources */,
 				524DEA691A7B0E26009A2EDC /* LaunchScreen.xib in Resources */,
-				52CACE631A899B0E00064614 /* VideoPlayerViewController.xib in Resources */,
 				524DEA661A7B0E26009A2EDC /* Images.xcassets in Resources */,
 				520B67251A9F4CD200F162A4 /* SubmitBaselineDecoration.png in Resources */,
 			);

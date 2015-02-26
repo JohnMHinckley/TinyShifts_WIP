@@ -34,4 +34,12 @@
 }
 */
 
+- (IBAction)submitButtonPressed:(CGradientButton *)sender {
+    // Submit the main survey data and pop the navigation stack to the start screen.
+    
+    
+    
+    
+    [[self navigationController] popToRootViewControllerAnimated:YES];
+}
 @end
