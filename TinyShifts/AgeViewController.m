@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self portraitUnLock];
    
     // Adjust the navigation item
     // Title
@@ -58,15 +57,28 @@
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
--(void) portraitUnLock {
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    appDelegate.screenIsPortraitOnly = false;
-}
+
 
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];
-    [self portraitUnLock];
+    [self portraitLock];
+}
+
+-(void) portraitLock {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.screenIsPortraitOnly = true;
+}
+
+#pragma mark - interface posiiton
+
+- (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL) shouldAutorotate {
+    return NO;
 }
 
 

@@ -9,6 +9,7 @@
 #import "EthnicityViewController.h"
 #import "CGradientButton.h"
 #import "AppDelegate.h"
+#import "CalendarViewController.h"
 
 @interface EthnicityViewController ()
 
@@ -52,11 +53,11 @@
 
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
-    /* TBD
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
-    AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"EthnicityViewController"];
+
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
+    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     [[self navigationController] pushViewController:vc animated:YES];
-     */
+
 }
 
 -(void)viewDidAppear:(BOOL)animated {
