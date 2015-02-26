@@ -7,6 +7,7 @@
 //
 
 #import "ActivationViewController.h"
+#import "AppDelegate.h"
 
 @interface ActivationViewController ()
 
@@ -74,6 +75,28 @@
     // The active tab bar controller is inherited from the calling view controller and is accessed
     // in order to control its being enabled or not.
     activeTabBarController = tc;
+}
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:true];
+    [self portraitLock];
+}
+
+-(void) portraitLock {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.screenIsPortraitOnly = true;
+}
+
+#pragma mark - interface posiiton
+
+- (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL) shouldAutorotate {
+    return NO;
 }
 
 @end

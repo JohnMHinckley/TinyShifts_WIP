@@ -11,6 +11,8 @@
 #import "TableDatum.h"
 #import "InfoViewController.h"
 #import "GenderViewController.h"
+#import "CGradientButton.h"
+#import "AppDelegate.h"
 
 @interface InfoListViewController ()
 {
@@ -32,9 +34,10 @@
     self.navigationItem.title = @"Information";
     
     // Right button
-    UIButton* rightNavigationButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
     [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
     [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
     [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
@@ -273,6 +276,28 @@
 
 
 
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:true];
+    [self portraitLock];
+}
+
+-(void) portraitLock {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.screenIsPortraitOnly = true;
+}
+
+#pragma mark - interface posiiton
+
+- (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL) shouldAutorotate {
+    return NO;
+}
 
 
 

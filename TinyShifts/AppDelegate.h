@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) UINavigationController* navigationControllerMain;
 
+@property (nonatomic) BOOL screenIsPortraitOnly;
+
 
 -(NSString*) documentsPath;
 

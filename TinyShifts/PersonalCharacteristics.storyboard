@@ -10,7 +10,7 @@
         <!--Gender View Controller-->
         <scene sceneID="Zok-rM-MX9">
             <objects>
-                <viewController id="dRO-F1-1xD" customClass="GenderViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GenderViewController" id="dRO-F1-1xD" customClass="GenderViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hic-Sd-V7E"/>
                         <viewControllerLayoutGuide type="bottom" id="hkG-0v-Xz3"/>
@@ -29,23 +29,9 @@
                                     <constraint firstAttribute="height" constant="64" id="kEh-AK-bsV"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Gender" id="rhw-Vi-tWl"/>
+                                    <navigationItem id="rhw-Vi-tWl"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pA-Lc-Iud" customClass="CGradientButton">
-                                <rect key="frame" x="160" y="527" width="280" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="hpO-WM-g8o"/>
-                                    <constraint firstAttribute="width" constant="280" id="nXy-3V-LjY"/>
-                                </constraints>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="gkD-pY-Wff" kind="push" id="rYI-EU-FmN"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="AlQ-Bd-SVU">
                                 <rect key="frame" x="150" y="64" width="300" height="60"/>
                                 <constraints>
@@ -96,7 +82,6 @@
                             <constraint firstItem="GJ0-88-PMI" firstAttribute="centerY" secondItem="4hP-S7-6XF" secondAttribute="top" constant="240" id="4sH-84-4Kx"/>
                             <constraint firstItem="AlQ-Bd-SVU" firstAttribute="centerX" secondItem="4hP-S7-6XF" secondAttribute="centerX" id="7cC-ml-OeX"/>
                             <constraint firstItem="4hP-S7-6XF" firstAttribute="top" secondItem="AlQ-Bd-SVU" secondAttribute="top" id="Awj-Ga-pze"/>
-                            <constraint firstItem="hkG-0v-Xz3" firstAttribute="top" secondItem="5pA-Lc-Iud" secondAttribute="bottom" constant="23" id="BsN-6h-UyL"/>
                             <constraint firstAttribute="trailing" secondItem="evA-09-wQF" secondAttribute="trailing" id="CfO-GC-huW"/>
                             <constraint firstItem="aFN-XU-kxe" firstAttribute="centerY" secondItem="4hP-S7-6XF" secondAttribute="top" constant="200" id="EbR-QU-p0K"/>
                             <constraint firstItem="hkG-0v-Xz3" firstAttribute="top" secondItem="4hP-S7-6XF" secondAttribute="bottom" id="NFd-96-uiv"/>
@@ -109,7 +94,6 @@
                             <constraint firstItem="oAP-lp-ugw" firstAttribute="centerY" secondItem="4hP-S7-6XF" secondAttribute="top" constant="160" id="brG-v4-nqu"/>
                             <constraint firstItem="4hP-S7-6XF" firstAttribute="top" secondItem="evA-09-wQF" secondAttribute="bottom" id="f4d-6n-SaL"/>
                             <constraint firstItem="bmZ-28-f2T" firstAttribute="leading" secondItem="4hP-S7-6XF" secondAttribute="leading" constant="40" id="hb5-DG-NsE"/>
-                            <constraint firstItem="5pA-Lc-Iud" firstAttribute="centerX" secondItem="4hP-S7-6XF" secondAttribute="centerX" id="kmt-xg-3NG"/>
                             <constraint firstItem="BSi-K1-h4k" firstAttribute="leading" secondItem="4hP-S7-6XF" secondAttribute="leading" constant="100" id="lO1-dS-Acn"/>
                             <constraint firstItem="evA-09-wQF" firstAttribute="leading" secondItem="Tpb-vL-ggY" secondAttribute="leading" id="nPg-cR-rIW"/>
                             <constraint firstItem="IM2-eA-UfB" firstAttribute="top" secondItem="4hP-S7-6XF" secondAttribute="top" constant="100" id="wHL-Oj-qmS"/>
@@ -124,7 +108,7 @@
         <!--Age View Controller-->
         <scene sceneID="93Z-xO-Iht">
             <objects>
-                <viewController id="gkD-pY-Wff" customClass="AgeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AgeViewController" id="gkD-pY-Wff" customClass="AgeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YPQ-uS-yII"/>
                         <viewControllerLayoutGuide type="bottom" id="FP1-py-biz"/>
@@ -139,7 +123,7 @@
                                     <constraint firstAttribute="height" constant="64" id="mVM-yv-etM"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Age" id="xKh-1w-avm"/>
+                                    <navigationItem id="xKh-1w-avm"/>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TKL-1k-VwV">
@@ -152,20 +136,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97P-uQ-NwY" customClass="CGradientButton">
-                                <rect key="frame" x="160" y="527" width="280" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="eew-c7-ABS"/>
-                                    <constraint firstAttribute="width" constant="280" id="shj-TJ-aYq"/>
-                                </constraints>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="KLx-Gj-NpI" kind="push" id="mLr-UD-8v1"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="TeK-4B-8Hw">
                                 <rect key="frame" x="150" y="64" width="300" height="60"/>
                                 <constraints>
@@ -189,7 +159,6 @@
                             <constraint firstItem="FP1-py-biz" firstAttribute="top" secondItem="TKL-1k-VwV" secondAttribute="bottom" id="PM4-Uo-jIx"/>
                             <constraint firstItem="TKL-1k-VwV" firstAttribute="top" secondItem="TeK-4B-8Hw" secondAttribute="top" id="ZR5-bW-WNy"/>
                             <constraint firstItem="xuh-gk-iOh" firstAttribute="leading" secondItem="TKL-1k-VwV" secondAttribute="leading" constant="130" id="bkE-VB-YV0"/>
-                            <constraint firstItem="97P-uQ-NwY" firstAttribute="centerX" secondItem="TKL-1k-VwV" secondAttribute="centerX" id="fOa-Zs-Cah"/>
                             <constraint firstItem="TKL-1k-VwV" firstAttribute="leading" secondItem="9Ye-Ix-C6b" secondAttribute="leading" id="h3E-UQ-Ort"/>
                             <constraint firstAttribute="top" secondItem="toH-e3-9E7" secondAttribute="top" id="iNP-Ne-y6p"/>
                             <constraint firstItem="TeK-4B-8Hw" firstAttribute="centerX" secondItem="TKL-1k-VwV" secondAttribute="centerX" id="mb3-FL-mea"/>
@@ -198,7 +167,6 @@
                             <constraint firstAttribute="trailing" secondItem="toH-e3-9E7" secondAttribute="trailing" id="xII-Ns-lGo"/>
                             <constraint firstItem="GUN-l9-a3B" firstAttribute="top" secondItem="TKL-1k-VwV" secondAttribute="top" constant="100" id="xTG-ev-PMK"/>
                             <constraint firstItem="toH-e3-9E7" firstAttribute="leading" secondItem="9Ye-Ix-C6b" secondAttribute="leading" id="zOA-F9-7J7"/>
-                            <constraint firstItem="FP1-py-biz" firstAttribute="top" secondItem="97P-uQ-NwY" secondAttribute="bottom" constant="23" id="zl3-Hj-DWi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sxo-hk-osD"/>
@@ -210,7 +178,7 @@
         <!--Ethnicity View Controller-->
         <scene sceneID="4aG-WK-9Rr">
             <objects>
-                <viewController id="KLx-Gj-NpI" customClass="EthnicityViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EthnicityViewController" id="KLx-Gj-NpI" customClass="EthnicityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5kb-By-Fox"/>
                         <viewControllerLayoutGuide type="bottom" id="0Mf-uV-zpj"/>
@@ -225,7 +193,7 @@
                                     <constraint firstAttribute="height" constant="64" id="Hmi-t2-VLf"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Ethnicity" id="hux-N3-929"/>
+                                    <navigationItem id="hux-N3-929"/>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YUG-VS-Yo9">
@@ -283,17 +251,6 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PgT-oi-ltG">
                                 <rect key="frame" x="40" y="339" width="51" height="31"/>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkL-bO-ftc" customClass="CGradientButton">
-                                <rect key="frame" x="160" y="527" width="280" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="eps-t7-5BG"/>
-                                    <constraint firstAttribute="height" constant="50" id="hcB-dw-jVP"/>
-                                </constraints>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="04q-mU-bsa">
                                 <rect key="frame" x="150" y="64" width="300" height="60"/>
                                 <constraints>
@@ -305,7 +262,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4dJ-sW-Eaw" firstAttribute="centerY" secondItem="YUG-VS-Yo9" secondAttribute="top" constant="250" id="0WX-KP-ZhI"/>
-                            <constraint firstItem="0Mf-uV-zpj" firstAttribute="top" secondItem="TkL-bO-ftc" secondAttribute="bottom" constant="23" id="17d-6T-uy3"/>
                             <constraint firstItem="uQV-7L-wCI" firstAttribute="centerY" secondItem="YUG-VS-Yo9" secondAttribute="top" constant="210" id="8eq-NG-wV2"/>
                             <constraint firstAttribute="trailing" secondItem="5Wc-ae-FcX" secondAttribute="trailing" id="9cT-vE-OoF"/>
                             <constraint firstItem="PgT-oi-ltG" firstAttribute="leading" secondItem="YUG-VS-Yo9" secondAttribute="leading" constant="40" id="ACt-jQ-bXT"/>
@@ -324,7 +280,6 @@
                             <constraint firstItem="r1G-1g-zEA" firstAttribute="centerY" secondItem="YUG-VS-Yo9" secondAttribute="top" constant="250" id="Utx-kW-vNl"/>
                             <constraint firstItem="t2u-eW-1N0" firstAttribute="leading" secondItem="YUG-VS-Yo9" secondAttribute="leading" constant="40" id="UvV-Bh-KMA"/>
                             <constraint firstItem="GI9-TJ-psV" firstAttribute="centerY" secondItem="YUG-VS-Yo9" secondAttribute="top" constant="290" id="VQs-w6-dk8"/>
-                            <constraint firstItem="TkL-bO-ftc" firstAttribute="centerX" secondItem="YUG-VS-Yo9" secondAttribute="centerX" id="VUP-ZZ-UWE"/>
                             <constraint firstItem="5Wc-ae-FcX" firstAttribute="leading" secondItem="ctf-PZ-cN9" secondAttribute="leading" id="VxU-bd-Ntr"/>
                             <constraint firstItem="YUG-VS-Yo9" firstAttribute="top" secondItem="04q-mU-bsa" secondAttribute="top" id="WzI-g0-Mrr"/>
                             <constraint firstItem="4VH-kR-IXn" firstAttribute="leading" secondItem="YUG-VS-Yo9" secondAttribute="leading" constant="40" id="Yia-TC-Rlt"/>

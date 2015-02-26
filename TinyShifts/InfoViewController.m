@@ -7,6 +7,7 @@
 //
 
 #import "InfoViewController.h"
+#import "AppDelegate.h"
 
 @interface InfoViewController ()
 {
@@ -99,6 +100,28 @@
 -(void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
 {
     
+}
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:true];
+    [self portraitLock];
+}
+
+-(void) portraitLock {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.screenIsPortraitOnly = true;
+}
+
+#pragma mark - interface posiiton
+
+- (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL) shouldAutorotate {
+    return NO;
 }
 
 @end

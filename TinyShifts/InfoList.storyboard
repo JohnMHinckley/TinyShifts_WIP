@@ -31,20 +31,6 @@
                                     <constraint firstAttribute="height" constant="60" id="vy4-YW-QtM"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSr-qy-mti" customClass="CGradientButton">
-                                <rect key="frame" x="160" y="527" width="280" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="F8d-4u-nBn"/>
-                                    <constraint firstAttribute="height" constant="50" id="T9j-9q-tbW"/>
-                                </constraints>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextButtonPressed:" destination="rqb-SX-I2X" eventType="touchUpInside" id="5S8-L5-hMH"/>
-                                </connections>
-                            </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idH-Fh-XLJ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <constraints>
@@ -90,14 +76,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Nbu-iG-SIz" firstAttribute="centerX" secondItem="ElI-K4-3dI" secondAttribute="centerX" id="1ls-R7-cvg"/>
-                            <constraint firstItem="eSr-qy-mti" firstAttribute="centerX" secondItem="Nbu-iG-SIz" secondAttribute="centerX" id="5E4-Ke-3Ox"/>
                             <constraint firstItem="idH-Fh-XLJ" firstAttribute="top" secondItem="YIc-uD-ZnZ" secondAttribute="top" id="80Z-4j-YQg"/>
                             <constraint firstItem="MsL-9S-hSp" firstAttribute="top" secondItem="ElI-K4-3dI" secondAttribute="bottom" constant="20" id="DDa-e8-nRo"/>
                             <constraint firstAttribute="trailing" secondItem="Nbu-iG-SIz" secondAttribute="trailing" id="IuB-f0-H2R"/>
                             <constraint firstItem="idH-Fh-XLJ" firstAttribute="leading" secondItem="Nbu-iG-SIz" secondAttribute="leading" id="JOR-NB-ex5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MsL-9S-hSp" secondAttribute="trailing" id="UcD-dV-dIC"/>
-                            <constraint firstItem="eSr-qy-mti" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MsL-9S-hSp" secondAttribute="bottom" constant="20" id="YY1-gd-L8n"/>
-                            <constraint firstItem="Unk-E0-BHU" firstAttribute="top" secondItem="eSr-qy-mti" secondAttribute="bottom" constant="23" id="b2x-f4-ooY"/>
                             <constraint firstItem="idH-Fh-XLJ" firstAttribute="trailing" secondItem="Nbu-iG-SIz" secondAttribute="trailing" id="i5A-aF-fIX"/>
                             <constraint firstItem="Nbu-iG-SIz" firstAttribute="top" secondItem="ElI-K4-3dI" secondAttribute="top" id="kry-Vm-Vwh"/>
                             <constraint firstItem="MsL-9S-hSp" firstAttribute="leading" secondItem="YIc-uD-ZnZ" secondAttribute="leadingMargin" id="pYg-jr-SPk"/>
