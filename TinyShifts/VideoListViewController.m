@@ -9,10 +9,15 @@
 #import "VideoListViewController.h"
 
 @interface VideoListViewController ()
+{
+    UIImageView* subImage;
+}
 
 @end
 
 @implementation VideoListViewController
+@synthesize scrollView;
+@synthesize imageView2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +29,33 @@
         // Hide the Back button.
         self.navigationItem.hidesBackButton = YES;
     }
+    
+    
+    // Add an image subview to the scroll view controller.
+    // First, make up a test box to figure out how big it needs to be to hold the image.
+    CGRect testImagebox;
+    testImagebox.origin = CGPointMake(10,0);
+    testImagebox.size = CGSizeMake(280, 500);
+    
+    UIImage* image = [UIImage imageNamed:@"TreeDesign.png"];
+    
+    UIImageView* testImage = [[UIImageView alloc] initWithImage:image];
+    
+    CGSize testSize = [testImage sizeThatFits:testImagebox.size];
+    
+    // Now make the real box with the determined size.
+    CGRect imagebox;
+    imagebox.origin = CGPointMake(10,0);
+    imagebox.size = testSize;
+    
+    
+    subImage = [[UIImageView alloc] initWithImage:image];
+    imageView2.image = image;
+    //[scrollView addSubview:subImage];
+    
+    
+    scrollView.contentSize = imagebox.size;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +72,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return subImage;
+}
+
+-(void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
+{
+    
+}
+
 
 - (IBAction)PlayVideoButtonPushed:(UIButton *)sender {
     // Button is pushed to play a video.

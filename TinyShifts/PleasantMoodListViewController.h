@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface PleasantMoodListViewController : UIViewController
+{
+    NSMutableArray* arrayTableCellData;
+
+}
 
 @end

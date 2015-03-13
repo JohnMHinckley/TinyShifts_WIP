@@ -57,7 +57,7 @@
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
     
-    BOOL pleasant = YES;
+    BOOL pleasant = NO;
     
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     

@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UnpleasantMoodListViewController : UIViewController
+{
+    NSMutableArray* arrayTableCellData;
+
+}
 
 @end

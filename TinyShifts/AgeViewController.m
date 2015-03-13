@@ -53,7 +53,7 @@
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
-    AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"EthnicityViewController"];
+    AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
     [[self navigationController] pushViewController:vc animated:YES];
 }
 

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "ActivationViewController.h"
 #import "InfoListViewController.h"
+#import "MoodMeterViewController.h"
 
 @interface StartViewController ()
 
@@ -89,14 +90,14 @@
         
         // Display the new view controller.
         [self.navigationController pushViewController:vc animated:YES];
-}
+    }
     else
     {
         // This is not the initial pass, so go to the MoodMeter screen.
         
         // Attempt to use storyboard to instantiate MoodMeterViewController.
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        InfoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"MoodMeterViewController"];
+        MoodMeterViewController* vc = [sb instantiateViewControllerWithIdentifier:@"MoodMeterViewController"];
         
         // Display the new view controller.
         [self.navigationController pushViewController:vc animated:YES];

@@ -14,6 +14,8 @@
     NSUInteger screenMode;
 }
 - (IBAction)PlayVideoButtonPushed:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView2;
 
 -(void) setActiveNavigationController:(UINavigationController*) nc;
 -(void) setScreenMode:(NSUInteger) mode;
