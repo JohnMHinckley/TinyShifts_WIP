@@ -14,6 +14,16 @@
     NSUInteger screenMode;
 }
 - (IBAction)PlayVideoButtonPushed:(UIButton *)sender;
+- (IBAction)buttonPressedFireflies:(UIButton *)sender;
+- (IBAction)buttonPressedSloppyjoe:(UIButton *)sender;
+- (IBAction)buttonPressed711:(UIButton *)sender;
+- (IBAction)buttonPressedTreadingwater:(UIButton *)sender;
+- (IBAction)buttonPressedTrapped:(UIButton *)sender;
+- (IBAction)buttonPressedPotatohead:(UIButton *)sender;
+- (IBAction)buttonPressedTreadmill:(UIButton *)sender;
+- (IBAction)buttonPressedDaury:(UIButton *)sender;
+- (IBAction)buttonPressedBalloon:(UIButton *)sender;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView2;
 

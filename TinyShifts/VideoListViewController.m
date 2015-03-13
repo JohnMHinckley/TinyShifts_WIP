@@ -7,6 +7,9 @@
 //
 
 #import "VideoListViewController.h"
+#import "AskWantResourceInfoViewController.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface VideoListViewController ()
 {
@@ -32,29 +35,13 @@
     
     
     // Add an image subview to the scroll view controller.
-    // First, make up a test box to figure out how big it needs to be to hold the image.
-    CGRect testImagebox;
-    testImagebox.origin = CGPointMake(10,0);
-    testImagebox.size = CGSizeMake(280, 500);
-    
     UIImage* image = [UIImage imageNamed:@"TreeDesign.png"];
-    
-    UIImageView* testImage = [[UIImageView alloc] initWithImage:image];
-    
-    CGSize testSize = [testImage sizeThatFits:testImagebox.size];
-    
-    // Now make the real box with the determined size.
-    CGRect imagebox;
-    imagebox.origin = CGPointMake(10,0);
-    imagebox.size = testSize;
-    
-    
-    subImage = [[UIImageView alloc] initWithImage:image];
     imageView2.image = image;
-    //[scrollView addSubview:subImage];
+    
+    //[imageView2 sizeToFit];  not needed
+    //scrollView.contentSize = imageView2.image.size;    not effective if this is executed here.
     
     
-    scrollView.contentSize = imagebox.size;
     
 }
 
@@ -75,7 +62,7 @@
 
 -(UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-    return subImage;
+    return imageView2;
 }
 
 -(void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
@@ -90,6 +77,97 @@
     // Go to the video player screen.
     
     
+}
+
+- (IBAction)buttonPressedFireflies:(UIButton *)sender {
+//    NSLog(@"Content offset before setContetOffset: = (%f, %f)", scrollView.contentOffset.x, scrollView.contentOffset.y);
+//    [scrollView setContentOffset:CGPointMake(50, 50)];  // shifts tree view up and to left 50 points
+//    NSLog(@"Content offset after setContetOffset: = (%f, %f)\n", scrollView.contentOffset.x, scrollView.contentOffset.y);
+//    
+//    NSLog(@"Initial content size (w, h) = (%f, %f)", scrollView.contentSize.width, scrollView.contentSize.height);
+//    scrollView.contentSize = CGSizeMake(406, 525);
+//    NSLog(@"Final content size (w, h) = (%f, %f)", scrollView.contentSize.width, scrollView.contentSize.height);
+//
+//    NSLog(@"Initial content inset (b, t, L, r) = (%f, %f, %f, %f)", scrollView.contentInset.bottom, scrollView.contentInset.top, scrollView.contentInset.left, scrollView.contentInset.right);
+    
+    [GlobalData sharedManager].selectedVideo = VIDEO_FIREFLIES; // save index to selected video in global data
+
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:1];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedSloppyjoe:(UIButton *)sender {
+    [GlobalData sharedManager].selectedVideo = VIDEO_SLOPPYJOE; // save index to selected video in global data
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:1];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressed711:(UIButton *)sender {
+    [GlobalData sharedManager].selectedVideo = VIDEO_711; // save index to selected video in global data
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:1];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedTreadingwater:(UIButton *)sender {
+    [GlobalData sharedManager].selectedVideo = VIDEO_TREADINGWATER; // save index to selected video in global data
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:1];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedTrapped:(UIButton *)sender {
+    [GlobalData sharedManager].selectedVideo = VIDEO_TRAPPED; // save index to selected video in global data
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:1];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedPotatohead:(UIButton *)sender {
+    [GlobalData sharedManager].selectedVideo = VIDEO_POTATOHEAD; // save index to selected video in global data
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:1];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedTreadmill:(UIButton *)sender {
+    [GlobalData sharedManager].selectedVideo = VIDEO_TREADMILL; // save index to selected video in global data
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:1];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedDaury:(UIButton *)sender {
+    [GlobalData sharedManager].selectedVideo = VIDEO_DAURY; // save index to selected video in global data
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:1];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedBalloon:(UIButton *)sender {
+    [GlobalData sharedManager].selectedVideo = VIDEO_BALLOON; // save index to selected video in global data
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:1];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void) setActiveNavigationController:(UINavigationController*) nc
@@ -112,6 +190,12 @@
     // screen is created.
     
     screenMode = mode;
+}
+
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    scrollView.contentSize = imageView2.image.size;  // For some damned reason, the size of the scroll view content must be set at this late point in the game.  Otherwise the statement has no effect.
 }
 
 @end

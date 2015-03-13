@@ -25,6 +25,7 @@
 		522DB8F31A8D6644003EC3E1 /* AskWatchAgainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8F11A8D6644003EC3E1 /* AskWatchAgainViewController.m */; };
 		522DB8F81A8D66E3003EC3E1 /* AskRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8F61A8D66E3003EC3E1 /* AskRecommendViewController.m */; };
 		522DB8FD1A8D679D003EC3E1 /* SendSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8FB1A8D679D003EC3E1 /* SendSurveyViewController.m */; };
+		5243D8D71AB31610003DAE9C /* GlobalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5243D8D61AB31610003DAE9C /* GlobalData.m */; };
 		524DEA5B1A7B0E26009A2EDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 524DEA5A1A7B0E26009A2EDC /* main.m */; };
 		524DEA5E1A7B0E26009A2EDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 524DEA5D1A7B0E26009A2EDC /* AppDelegate.m */; };
 		524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA621A7B0E26009A2EDC /* Main.storyboard */; };
@@ -120,6 +121,9 @@
 		522DB8F61A8D66E3003EC3E1 /* AskRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskRecommendViewController.m; sourceTree = "<group>"; };
 		522DB8FA1A8D679D003EC3E1 /* SendSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendSurveyViewController.h; sourceTree = "<group>"; };
 		522DB8FB1A8D679D003EC3E1 /* SendSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendSurveyViewController.m; sourceTree = "<group>"; };
+		5243D8D41AB3145B003DAE9C /* ConstGen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstGen.h; sourceTree = "<group>"; };
+		5243D8D51AB31610003DAE9C /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
+		5243D8D61AB31610003DAE9C /* GlobalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalData.m; sourceTree = "<group>"; };
 		524DEA551A7B0E26009A2EDC /* TinyShifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyShifts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524DEA591A7B0E26009A2EDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		524DEA5A1A7B0E26009A2EDC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -266,6 +270,9 @@
 			children = (
 				521179471A9429B7001E6F48 /* InfoTopic.h */,
 				521179481A9429B7001E6F48 /* InfoTopic.m */,
+				5243D8D41AB3145B003DAE9C /* ConstGen.h */,
+				5243D8D51AB31610003DAE9C /* GlobalData.h */,
+				5243D8D61AB31610003DAE9C /* GlobalData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -637,6 +644,7 @@
 				522DB8FD1A8D679D003EC3E1 /* SendSurveyViewController.m in Sources */,
 				5295B6921A8CBCB300F2DA35 /* CalendarViewController.m in Sources */,
 				5211793C1A941F72001E6F48 /* InfoListTableViewCell.m in Sources */,
+				5243D8D71AB31610003DAE9C /* GlobalData.m in Sources */,
 				521179491A9429B7001E6F48 /* InfoTopic.m in Sources */,
 				52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */,
 				522DB8E41A8D641C003EC3E1 /* ResourceListViewController.m in Sources */,

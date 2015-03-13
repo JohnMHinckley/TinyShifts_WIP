@@ -13,6 +13,9 @@
 #import "PleasantMoodListViewController.h"
 
 @interface MoodMeterViewController ()
+{
+    BOOL bResponseIsPleasant;
+}
 
 @end
 
@@ -27,15 +30,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // Adjust the navigation item
-    // Right button
-    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
-    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
-    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+//    // Adjust the navigation item
+//    // Right button
+//    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+//    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
+//    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+//    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+//    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
+//    self.navigationItem.rightBarButtonItem = rightButtonItem;
+    
+    
+    // initialize the response
+    bResponseIsPleasant = NO;
     
 }
 
@@ -57,11 +64,10 @@
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
     
-    BOOL pleasant = NO;
     
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    if (pleasant)
+    if (bResponseIsPleasant)
     {
         PleasantMoodListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"PleasantMoodListViewController"];
         [[self navigationController] pushViewController:vc animated:YES];
@@ -99,4 +105,40 @@
 }
 
 
+- (IBAction)buttonPressedRed:(UIButton *)sender {
+    bResponseIsPleasant = NO;
+    [self doNextScreen];
+    
+}
+
+- (IBAction)buttonPressedYellow:(UIButton *)sender {
+    bResponseIsPleasant = YES;
+    [self doNextScreen];
+}
+
+- (IBAction)buttonPressedBlue:(UIButton *)sender {
+    bResponseIsPleasant = NO;
+    [self doNextScreen];
+}
+
+- (IBAction)buttonPressedGreen:(UIButton *)sender {
+    bResponseIsPleasant = YES;
+    [self doNextScreen];
+}
+
+-(void) doNextScreen
+{
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if (bResponseIsPleasant)
+    {
+        PleasantMoodListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"PleasantMoodListViewController"];
+        [[self navigationController] pushViewController:vc animated:YES];
+    }
+    else{
+        UnpleasantMoodListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"UnpleasantMoodListViewController"];
+        [[self navigationController] pushViewController:vc animated:YES];
+    }
+    
+}
 @end

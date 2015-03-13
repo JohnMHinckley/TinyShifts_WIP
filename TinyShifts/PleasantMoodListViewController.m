@@ -13,6 +13,9 @@
 #import "PleasantMoodTableViewCell.h"
 #import "TableDatum.h"
 #import "AskWantResourceInfoViewController.h"
+#import "GlobalData.h"
+#import "ConstGen.h"
+
 
 @interface PleasantMoodListViewController ()
 {
@@ -209,6 +212,142 @@
     
     selectedCell = indexPath.row;   // get the index of the selected cell.  This will be used to pass the correct text to the next screen.
     
+    
+    
+    // Determine the next video to play.  Generally, randomly pick from among a few, depending on which input the user gives.
+    int R = 0.0;
+    switch (selectedCell) {
+        case 0:
+            // "Relationships" is chosen
+            R = [GlobalData RandomIntUpTo:3];
+            switch (R) {
+                case 0:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_SLOPPYJOE;
+                    break;
+                    
+                case 1:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_POTATOHEAD;
+                    break;
+                    
+                case 2:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_TREADINGWATER;
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+        case 1:
+            // "Stress" is chosen
+            R = [GlobalData RandomIntUpTo:4];
+            switch (R) {
+                case 0:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_TREADMILL;
+                    break;
+                    
+                case 1:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_TREADINGWATER;
+                    break;
+                    
+                case 2:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_BALLOON;
+                    break;
+                    
+                case 3:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_711;
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+        case 2:
+            // "Worry" is chosen
+            R = [GlobalData RandomIntUpTo:2];
+            switch (R) {
+                case 0:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_FIREFLIES;
+                    break;
+                    
+                case 1:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_711;
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+        case 3:
+            // "Insecurities" is chosen
+            R = [GlobalData RandomIntUpTo:2];
+            switch (R) {
+                case 0:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_BALLOON;
+                    break;
+                    
+                case 1:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_TREADMILL;
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+        case 4:
+            // "Supporting someone who is struggling" is chosen
+            R = [GlobalData RandomIntUpTo:9];
+            switch (R) {
+                case 0:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_FIREFLIES;
+                    break;
+                    
+                case 1:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_SLOPPYJOE;
+                    break;
+                    
+                case 2:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_711;
+                    break;
+                    
+                case 3:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_TREADINGWATER;
+                    break;
+                    
+                case 4:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_TRAPPED;
+                    break;
+                    
+                case 5:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_POTATOHEAD;
+                    break;
+                    
+                case 6:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_TREADMILL;
+                    break;
+                    
+                case 7:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_DAURY;
+                    break;
+                    
+                case 8:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_BALLOON;
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    // Determine the next view controller.
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
 
