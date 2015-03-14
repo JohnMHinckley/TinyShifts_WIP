@@ -60,9 +60,10 @@
     label.backgroundColor = [UIColor whiteColor];
     
     
-    CGSize sz = scrollView.bounds.size;
-    sz.height = textbox.size.height;
-    scrollView.contentSize = sz;
+//    CGSize sz = scrollView.bounds.size;
+//    sz.height = textbox.size.height;
+//    scrollView.contentSize = sz;
+    scrollView.contentSize = textbox.size;
     
 }
 

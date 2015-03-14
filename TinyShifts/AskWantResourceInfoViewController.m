@@ -25,15 +25,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // Adjust the navigation item
-    // Right button
-    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
-    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
-    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+//    // Adjust the navigation item
+//    // Right button
+//    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+//    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
+//    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+//    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+//    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
+//    self.navigationItem.rightBarButtonItem = rightButtonItem;
     
 }
 
@@ -104,6 +104,51 @@
 
 - (BOOL) shouldAutorotate {
     return NO;
+}
+
+- (IBAction)buttonPressedYes:(CGradientButton *)sender {
+    // Yes button pressed
+    
+    // Save result in global data
+    NSLog(@"TODO: code in AskWantResourceInforViewController::buttonPressedYes: to log global data.");
+    
+    // Go to Resource List screen.
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ResourceListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"ResourceListViewController"];
+    [vc setScreenInstance:screenInstance];
+    [[self navigationController] pushViewController:vc animated:YES];
+    
+    
+}
+
+- (IBAction)buttonPressedNo:(CGradientButton *)sender {
+    // No button pressed
+    
+    // Save result in global data
+    NSLog(@"TODO: code in AskWantResourceInforViewController::buttonPressedNo: to log global data.");
+    
+    // Go to Video Player screen or Send Survey screen, depending on where we are in the storyboard.
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    VideoPlayerViewController* vc1 = nil;
+    SendSurveyViewController* vc2 = nil;
+    switch (screenInstance) {
+        case 1:
+            // earlier in the storyboard; go to Video Player screen.
+            vc1 = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+            [[self navigationController] pushViewController:vc1 animated:YES];
+            break;
+            
+        case 2:
+            // later in the storyboard; go to Send Survey screen.
+            vc2 = [sb instantiateViewControllerWithIdentifier:@"SendSurveyViewController"];
+            [[self navigationController] pushViewController:vc2 animated:YES];
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 -(void) setScreenInstance:(NSUInteger)sI

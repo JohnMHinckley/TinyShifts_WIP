@@ -13,11 +13,16 @@
 #import "SendSurveyViewController.h"
 
 @interface ResourceListViewController ()
+{
+    UILabel* label;
+}
 
 @end
 
 @implementation ResourceListViewController
 @synthesize screenInstance;
+@synthesize scrollView;
+@synthesize informationText;
 
 
 - (void)viewDidLoad {
@@ -34,6 +39,41 @@
     UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
     
+    
+    informationText = @"Resources on campus:\n\nCounseling and Psychological Services (CAPS)\nMichigan Union, 3rd Floor\n734-764-8312\nwww.caps.umich.edu\n\nUniversity Health Service (UHS)\n207 Fletcher Street\nww.uhs.umich.edu/edbi\n\nWolverine Wellness\n207 Fletcher Street\nhttp://www.uhs.umich.edu/wolverine-wellness\n\nUniversity of Michigan Psychological Clinic\n500 E. Washington St., Suite 100\nhttp://mari.umich.edu/adult-psychological-clinic\n\nFor more about general mental health resources available to U-M students, visit MiTalk (www.mitalk.umich.edu).\n\nList of available resources in the local community:\n\nFor a list of Ann Arbor providers, you can search the database at: umcpd.umich.edu.";
+    
+    // Size of displayed text
+    CGFloat fontSize = 12.0;
+    
+    
+    // Add a label subview to the scroll view controller.
+    // First, make up a test box to figure out how big it needs to be to hold the text.
+    CGRect testTextbox;
+    testTextbox.origin = CGPointMake(10,0);
+    testTextbox.size = CGSizeMake(280, 500);    // purpose = 200, how = 250, privacy =
+    
+    UILabel* testLabel= [[UILabel alloc] initWithFrame:testTextbox];
+    testLabel.text = informationText;
+    [testLabel setFont:[UIFont systemFontOfSize:fontSize]];
+    testLabel.numberOfLines = 0;
+    CGSize testSize = [testLabel sizeThatFits:testTextbox.size];
+    
+    // Now make the real box with the determined size.
+    CGRect textbox;
+    textbox.origin = CGPointMake(10,0);
+    textbox.size = testSize;    // purpose = 200, how = 250, privacy =
+    
+    
+    label = [[UILabel alloc] initWithFrame:textbox];
+    [scrollView addSubview:label];
+    
+    label.text = informationText;
+    [label setFont:[UIFont systemFontOfSize:fontSize]];
+    label.numberOfLines = 0;    // remove any restriction on the number of lines.
+    label.backgroundColor = [UIColor whiteColor];
+    
+    
+    scrollView.contentSize = textbox.size;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +90,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return label;
+}
+
+-(void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
+{
+    
+}
+
 
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {

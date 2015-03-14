@@ -350,7 +350,7 @@
     // Determine the next view controller.
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-
+    [vc setScreenInstance:1];
     [self.navigationController pushViewController:vc animated:YES];
     
     

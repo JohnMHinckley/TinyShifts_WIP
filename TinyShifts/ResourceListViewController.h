@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResourceListViewController : UIViewController
+@interface ResourceListViewController : UIViewController <UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic) NSUInteger screenInstance;    // key for where in storyboard this instance appears: 1 (earlier in main storyboard), or 2 (later)
+@property (strong, nonatomic) NSString* informationText;
+
 -(void) setScreenInstance:(NSUInteger)sI;
 
 @end
