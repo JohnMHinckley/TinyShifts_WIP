@@ -68,6 +68,8 @@
 		52982DB31AB270CC0085C600 /* violet.png in Resources */ = {isa = PBXBuildFile; fileRef = 52982DAA1AB270CC0085C600 /* violet.png */; };
 		52982DB41AB270CC0085C600 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 52982DAB1AB270CC0085C600 /* yellow.png */; };
 		52982DB61AB273570085C600 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 52982DB51AB273570085C600 /* blank.png */; };
+		52A09EC01AB4DD09006C8E3A /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A09EBF1AB4DD09006C8E3A /* VideoListViewController.m */; };
+		52A09EC31AB4DD8E006C8E3A /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A09EC21AB4DD8E006C8E3A /* VideoPlayerViewController.m */; };
 		52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */; };
 		52AF131B1A8B7B70000CBD8B /* AboutHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */; };
 		52B45AD11AB4C704006A4F1B /* Content.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52B45AD01AB4C704006A4F1B /* Content.bundle */; };
@@ -75,8 +77,6 @@
 		52C49A481A9A802800E53A9E /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C49A471A9A802800E53A9E /* InfoViewController.m */; };
 		52CACE561A8985FF00064614 /* CGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE551A8985FF00064614 /* CGradientButton.m */; };
 		52CACE591A898BB600064614 /* AllVideosHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE581A898BB600064614 /* AllVideosHeadViewController.m */; };
-		52CACE5D1A898C4000064614 /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE5B1A898C4000064614 /* VideoListViewController.m */; };
-		52CACE621A899B0E00064614 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE601A899B0E00064614 /* VideoPlayerViewController.m */; };
 		52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */; };
 		52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */; };
 /* End PBXBuildFile section */
@@ -188,6 +188,10 @@
 		52982DAA1AB270CC0085C600 /* violet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = violet.png; sourceTree = "<group>"; };
 		52982DAB1AB270CC0085C600 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		52982DB51AB273570085C600 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
+		52A09EBE1AB4DD09006C8E3A /* VideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListViewController.h; sourceTree = "<group>"; };
+		52A09EBF1AB4DD09006C8E3A /* VideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
+		52A09EC11AB4DD8E006C8E3A /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
+		52A09EC21AB4DD8E006C8E3A /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 		52AF13161A8B79C0000CBD8B /* CalendarHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarHeadViewController.h; sourceTree = "<group>"; };
 		52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHeadViewController.m; sourceTree = "<group>"; };
 		52AF13191A8B7B70000CBD8B /* AboutHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutHeadViewController.h; sourceTree = "<group>"; };
@@ -201,10 +205,6 @@
 		52CACE551A8985FF00064614 /* CGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGradientButton.m; sourceTree = "<group>"; };
 		52CACE571A898BB600064614 /* AllVideosHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllVideosHeadViewController.h; sourceTree = "<group>"; };
 		52CACE581A898BB600064614 /* AllVideosHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllVideosHeadViewController.m; sourceTree = "<group>"; };
-		52CACE5A1A898C4000064614 /* VideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListViewController.h; sourceTree = "<group>"; };
-		52CACE5B1A898C4000064614 /* VideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
-		52CACE5F1A899B0E00064614 /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
-		52CACE601A899B0E00064614 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 		52E6F7AD1A88C0F800A5E269 /* ActivationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationViewController.h; sourceTree = "<group>"; };
 		52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivationViewController.m; sourceTree = "<group>"; };
 		52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationViewController.xib; sourceTree = "<group>"; };
@@ -369,6 +369,10 @@
 		5295B6651A8CAAE700F2DA35 /* Main Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				52A09EC11AB4DD8E006C8E3A /* VideoPlayerViewController.h */,
+				52A09EC21AB4DD8E006C8E3A /* VideoPlayerViewController.m */,
+				52A09EBE1AB4DD09006C8E3A /* VideoListViewController.h */,
+				52A09EBF1AB4DD09006C8E3A /* VideoListViewController.m */,
 				52982D921AB20BF00085C600 /* Pleasant Mood */,
 				52982D911AB20BD90085C600 /* Unpleasant Mood */,
 				52761E4A1A8839DD0018E877 /* StartViewController.h */,
@@ -383,14 +387,10 @@
 				52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */,
 				5295B6A31A8CC08500F2DA35 /* MoodMeterViewController.h */,
 				5295B6A41A8CC08500F2DA35 /* MoodMeterViewController.m */,
-				52CACE5A1A898C4000064614 /* VideoListViewController.h */,
-				52CACE5B1A898C4000064614 /* VideoListViewController.m */,
 				522DB8E61A8D64D4003EC3E1 /* AskWantResourceInfoViewController.h */,
 				522DB8E71A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m */,
 				522DB8E11A8D641C003EC3E1 /* ResourceListViewController.h */,
 				522DB8E21A8D641C003EC3E1 /* ResourceListViewController.m */,
-				52CACE5F1A899B0E00064614 /* VideoPlayerViewController.h */,
-				52CACE601A899B0E00064614 /* VideoPlayerViewController.m */,
 				522DB8EB1A8D65AC003EC3E1 /* AskIfHelpfulViewController.h */,
 				522DB8EC1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m */,
 				522DB8F01A8D6644003EC3E1 /* AskWatchAgainViewController.h */,
@@ -634,7 +634,6 @@
 				522DB8F31A8D6644003EC3E1 /* AskWatchAgainViewController.m in Sources */,
 				522DB8DF1A8D633C003EC3E1 /* PleasantMoodListViewController.m in Sources */,
 				52982D9E1AB20CA50085C600 /* UnpleasantMoodTableViewCell.m in Sources */,
-				52CACE621A899B0E00064614 /* VideoPlayerViewController.m in Sources */,
 				522DB8F81A8D66E3003EC3E1 /* AskRecommendViewController.m in Sources */,
 				52761E4C1A8839DD0018E877 /* StartViewController.m in Sources */,
 				52AF131B1A8B7B70000CBD8B /* AboutHeadViewController.m in Sources */,
@@ -644,7 +643,6 @@
 				5295B68D1A8CBBD500F2DA35 /* EthnicityViewController.m in Sources */,
 				5295B6A61A8CC08500F2DA35 /* MoodMeterViewController.m in Sources */,
 				52982D951AB20C450085C600 /* PleasantMoodTableView.m in Sources */,
-				52CACE5D1A898C4000064614 /* VideoListViewController.m in Sources */,
 				522DB8FD1A8D679D003EC3E1 /* SendSurveyViewController.m in Sources */,
 				5295B6921A8CBCB300F2DA35 /* CalendarViewController.m in Sources */,
 				5211793C1A941F72001E6F48 /* InfoListTableViewCell.m in Sources */,
@@ -657,10 +655,12 @@
 				5295B66D1A8CAE8600F2DA35 /* InfoListViewController.m in Sources */,
 				5295B69C1A8CBE3300F2DA35 /* TimeOfDayViewController.m in Sources */,
 				52982D9B1AB20C940085C600 /* PleasantMoodTableViewCell.m in Sources */,
+				52A09EC31AB4DD8E006C8E3A /* VideoPlayerViewController.m in Sources */,
 				52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */,
 				52C49A451A9A74C000E53A9E /* TableDatum.m in Sources */,
 				521179431A942723001E6F48 /* CDatabaseController.m in Sources */,
 				52982D981AB20C590085C600 /* UnpleasantMoodTableView.m in Sources */,
+				52A09EC01AB4DD09006C8E3A /* VideoListViewController.m in Sources */,
 				521179441A942723001E6F48 /* CDatabaseDelegate.m in Sources */,
 				52C49A481A9A802800E53A9E /* InfoViewController.m in Sources */,
 				524DEA5E1A7B0E26009A2EDC /* AppDelegate.m in Sources */,

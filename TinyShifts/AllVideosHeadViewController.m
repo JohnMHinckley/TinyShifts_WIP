@@ -21,16 +21,16 @@
     
     
     // Create an instance of the video list view controller.
-    VideoListViewController* vc = [[VideoListViewController alloc] initWithNibName:@"VideoListViewController" bundle:nil];
-    
-    // Send a pointer to the current navigation controller to the destination view controller so that we can use it for further navigation in this line.
-    [vc setActiveNavigationController:self.navigationController];
-    
-    // Tell the destination view controller, the mode under which it is being created.
-    [vc setScreenMode:2];   // 2 signifies being created from the tab bar.
-    
-    // Create the activation view controller.
-    [self.navigationController pushViewController:vc animated:NO];
+// TODO rectify this    VideoListViewController* vc = [[VideoListViewController alloc] initWithNibName:@"VideoListViewController" bundle:nil];
+//    
+//    // Send a pointer to the current navigation controller to the destination view controller so that we can use it for further navigation in this line.
+//    [vc setActiveNavigationController:self.navigationController];
+//    
+//    // Tell the destination view controller, the mode under which it is being created.
+//    [vc setScreenMode:2];   // 2 signifies being created from the tab bar.
+//    
+//    // Create the activation view controller.
+//    [self.navigationController pushViewController:vc animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
