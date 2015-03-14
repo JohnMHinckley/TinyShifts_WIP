@@ -70,6 +70,7 @@
 		52982DB61AB273570085C600 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 52982DB51AB273570085C600 /* blank.png */; };
 		52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */; };
 		52AF131B1A8B7B70000CBD8B /* AboutHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */; };
+		52B45AD11AB4C704006A4F1B /* Content.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52B45AD01AB4C704006A4F1B /* Content.bundle */; };
 		52C49A451A9A74C000E53A9E /* TableDatum.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C49A441A9A74C000E53A9E /* TableDatum.m */; };
 		52C49A481A9A802800E53A9E /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C49A471A9A802800E53A9E /* InfoViewController.m */; };
 		52CACE561A8985FF00064614 /* CGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE551A8985FF00064614 /* CGradientButton.m */; };
@@ -191,6 +192,7 @@
 		52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHeadViewController.m; sourceTree = "<group>"; };
 		52AF13191A8B7B70000CBD8B /* AboutHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutHeadViewController.h; sourceTree = "<group>"; };
 		52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutHeadViewController.m; sourceTree = "<group>"; };
+		52B45AD01AB4C704006A4F1B /* Content.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Content.bundle; sourceTree = "<group>"; };
 		52C49A431A9A74C000E53A9E /* TableDatum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDatum.h; sourceTree = "<group>"; };
 		52C49A441A9A74C000E53A9E /* TableDatum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDatum.m; sourceTree = "<group>"; };
 		52C49A461A9A802800E53A9E /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 		524DEA571A7B0E26009A2EDC /* TinyShifts */ = {
 			isa = PBXGroup;
 			children = (
+				52B45AD01AB4C704006A4F1B /* Content.bundle */,
 				5211793E1A9426E6001E6F48 /* Database */,
 				5211793D1A9426D3001E6F48 /* Model */,
 				5295B6691A8CAD4F00F2DA35 /* Graphics */,
@@ -591,6 +594,7 @@
 				52982D901AB207F60085C600 /* mood.png in Resources */,
 				524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */,
 				52982DAD1AB270CC0085C600 /* brtgreen.png in Resources */,
+				52B45AD11AB4C704006A4F1B /* Content.bundle in Resources */,
 				521623001A9102950029BF68 /* InfoList.storyboard in Resources */,
 				524DEA861A7B128D009A2EDC /* tabbaritemIcon_Settings.png in Resources */,
 				52982DAE1AB270CC0085C600 /* drkblue.png in Resources */,
