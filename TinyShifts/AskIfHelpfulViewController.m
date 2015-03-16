@@ -10,6 +10,8 @@
 #import "CGradientButton.h"
 #import "AppDelegate.h"
 #import "AskWatchAgainViewController.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface AskIfHelpfulViewController ()
 
@@ -21,15 +23,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // Adjust the navigation item
-    // Right button
-    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
-    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
-    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+//    // Adjust the navigation item
+//    // Right button
+//    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+//    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
+//    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+//    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+//    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
+//    self.navigationItem.rightBarButtonItem = rightButtonItem;
     
 }
 
@@ -64,6 +66,17 @@
     [self portraitLock];
 }
 
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [[UIDevice currentDevice] setValue:
+     [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
+                                forKey:@"orientation"];
+}
+
+
+
+
 -(void) portraitLock {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     appDelegate.screenIsPortraitOnly = true;
@@ -79,6 +92,46 @@
 - (BOOL) shouldAutorotate {
     return NO;
 }
+
+
+
+- (IBAction)buttonPressedYes:(CGradientButton *)sender {
+    [GlobalData sharedManager].videoWasHelpful = VIDEO_WAS_HELPFUL_YES; // save result
+    
+    // Go to next screen
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    AskWatchAgainViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWatchAgainViewController"];
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedNo:(CGradientButton *)sender {
+    [GlobalData sharedManager].videoWasHelpful = VIDEO_WAS_HELPFUL_NO; // save result
+    
+    // Go to next screen
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    AskWatchAgainViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWatchAgainViewController"];
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedNotSure:(CGradientButton *)sender {
+    [GlobalData sharedManager].videoWasHelpful = VIDEO_WAS_HELPFUL_DONTKNOW; // save result
+    
+    // Go to next screen
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    AskWatchAgainViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWatchAgainViewController"];
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+
+
+
+
+
+
+
 
 
 

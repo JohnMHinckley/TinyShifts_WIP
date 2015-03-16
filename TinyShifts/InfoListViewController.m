@@ -278,6 +278,17 @@
 
 
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [[UIDevice currentDevice] setValue:
+     [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
+                                forKey:@"orientation"];
+}
+
+
+
+
+
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];
     [self portraitLock];

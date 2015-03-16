@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "CGradientButton.h"
 
 
 @interface VideoPlayerViewController : UIViewController
@@ -15,5 +16,7 @@
     MPMoviePlayerController *player;
 
 }
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewBackground;
+- (IBAction)buttonPressedPlayVideo:(CGradientButton *)sender;
 
 @end

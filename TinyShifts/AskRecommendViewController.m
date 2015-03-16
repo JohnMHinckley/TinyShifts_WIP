@@ -10,6 +10,8 @@
 #import "CGradientButton.h"
 #import "AppDelegate.h"
 #import "AskWantResourceInfoViewController.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface AskRecommendViewController ()
 
@@ -21,15 +23,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // Adjust the navigation item
-    // Right button
-    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
-    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
-    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+//    // Adjust the navigation item
+//    // Right button
+//    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+//    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
+//    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+//    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+//    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
+//    self.navigationItem.rightBarButtonItem = rightButtonItem;
     
 }
 
@@ -83,4 +85,25 @@
 
 
 
+- (IBAction)buttonPressedYes:(CGradientButton *)sender {
+    [GlobalData sharedManager].videoRecommend = VIDEO_RECOMMEND_YES; // save result
+    
+    // Go to next screen
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:2];
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedNo:(CGradientButton *)sender {
+    [GlobalData sharedManager].videoRecommend = VIDEO_RECOMMEND_NO; // save result
+    
+    // Go to next screen
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    [vc setScreenInstance:2];
+    [[self navigationController] pushViewController:vc animated:YES];
+}
 @end

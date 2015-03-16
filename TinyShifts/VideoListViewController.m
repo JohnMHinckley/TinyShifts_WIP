@@ -198,4 +198,17 @@
     scrollView.contentSize = imageView2.image.size;  // For some damned reason, the size of the scroll view content must be set at this late point in the game.  Otherwise the statement has no effect.
 }
 
+
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [[UIDevice currentDevice] setValue:
+     [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
+                                forKey:@"orientation"];
+}
+
+
+
+
+
 @end

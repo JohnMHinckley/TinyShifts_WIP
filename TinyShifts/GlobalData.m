@@ -11,6 +11,9 @@
 
 @implementation GlobalData
 @synthesize selectedVideo;
+@synthesize videoWasHelpful;
+@synthesize videoWatchAgain;
+@synthesize videoRecommend;
 
 static GlobalData* sharedSingleton = nil;   // single, static instance of this class
 

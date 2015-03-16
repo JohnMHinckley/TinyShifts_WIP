@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGradientButton.h"
 
 @interface AskRecommendViewController : UIViewController
+- (IBAction)buttonPressedYes:(CGradientButton *)sender;
+- (IBAction)buttonPressedNo:(CGradientButton *)sender;
 
 @end

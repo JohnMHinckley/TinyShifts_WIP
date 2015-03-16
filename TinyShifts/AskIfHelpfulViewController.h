@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGradientButton.h"
 
 @interface AskIfHelpfulViewController : UIViewController
+- (IBAction)buttonPressedYes:(CGradientButton *)sender;
+- (IBAction)buttonPressedNo:(CGradientButton *)sender;
+- (IBAction)buttonPressedNotSure:(CGradientButton *)sender;
 
 @end

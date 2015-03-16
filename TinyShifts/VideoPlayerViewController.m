@@ -22,6 +22,7 @@
 @end
 
 @implementation VideoPlayerViewController
+@synthesize imageViewBackground;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,30 +83,6 @@
     [self portraitUnLock];
     
     
-    // Play the selected video
-    
-    NSString* videoFilename = [arrVideoFilenames objectAtIndex:[GlobalData sharedManager].selectedVideo];
-    NSString* fullpath = [self fullPathForFile:videoFilename];
-
-    if (nil == player)
-    {
-        player = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:fullpath]];
-    }
-    else
-    {
-        player.contentURL = [NSURL fileURLWithPath:fullpath];
-    }
-    
-    UIInterfaceOrientation a = [UIApplication sharedApplication].statusBarOrientation;
-    [self positionViews:a];
-    
-    UIView* v = [self view];
-    
-    [v addSubview:player.view];
-    
-    // play movie
-    [player play];
-
 }
 
 
@@ -249,9 +226,15 @@
     
     CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
     
+    CGSize iPhone6plus = CGSizeMake(1242, 2208);
+    
+    CGSize iPhone6 = CGSizeMake(750, 1334);
+    
     CGSize iPhone5 = CGSizeMake(640, 1136);
     
     CGSize iPhone4 = CGSizeMake(640, 960);
+    
+    CGRect a;
     
     if (UIInterfaceOrientationPortrait == destOrientation ||
         UIInterfaceOrientationPortraitUpsideDown == destOrientation)
@@ -262,13 +245,17 @@
         
         // coordinates are for the view in the portrait mode.
         
+        // Width of screen as determined from width of image view.
+        CGFloat displayWidth = screenBounds.size.width;
+        
         
         if(screenSize.height == iPhone4.height && screenSize.width == iPhone4.width)
         {
             
             NSLog(@"Device is iPhone4");
             
-            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), 320, (320*272/480));
+            //player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), 320, (320*272/480));
+            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), displayWidth, (17.0/30.0)*displayWidth);
             
         }
         else if (screenSize.height == iPhone5.height && screenSize.width == iPhone5.width)
@@ -276,8 +263,35 @@
             
             NSLog(@"Device is iPhone 5");
             
-            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), 320, (320*272/480));
+            //player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), 320, (320*272/480));
+            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), displayWidth, (17.0/30.0)*displayWidth);
             
+        }
+        else if (screenSize.height == iPhone6.height && screenSize.width == iPhone6.width)
+        {
+            
+            NSLog(@"Device is iPhone 6");
+            
+            //player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), 320*(750.0/640.0), (320*272/480)*(750.0/640.0));
+            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), displayWidth, (17.0/30.0)*displayWidth);
+            //a = player.view.frame;
+            
+        }
+        else if (screenSize.height == iPhone6plus.height && screenSize.width == iPhone6plus.width)
+        {
+            
+            NSLog(@"Device is iPhone 6+");
+            
+            //player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), 320, (320*272/480));
+            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), displayWidth, (17.0/30.0)*displayWidth);
+            
+        }
+        else
+        {
+            NSLog(@"Device is unknown");
+            
+            //player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), 320, (320*272/480));
+            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), displayWidth, (17.0/30.0)*displayWidth);
         }
     }
     
@@ -288,23 +302,53 @@
         // coordinates are for the view in the landscape mode.
         
         // coordinates are for the view in the landscape mode.
+        CGFloat marginHeight = 105.0;
+        CGFloat displayHeight = screenBounds.size.height - marginHeight;
         
-        if(screenSize.height == iPhone4.height && screenSize.width == iPhone4.width)
+        if(screenSize.height == iPhone4.width && screenSize.width == iPhone4.height)
         {
             
             NSLog(@"Device is iPhone4");
             
-            player.view.frame = CGRectMake(250, (verMajor >= 7 ? 60 : 10), 220, (220*272/480));
+            //player.view.frame = CGRectMake(250, (verMajor >= 7 ? 60 : 10), 220, (220*272/480));
+            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), (30.0/17.0)*displayHeight, displayHeight);
             
         }
         
-        else if (screenSize.height == iPhone5.height && screenSize.width == iPhone5.width)
+        else if (screenSize.height == iPhone5.width && screenSize.width == iPhone5.height)
         {
             
             NSLog(@"Device is iPhone 5");
             
-            player.view.frame = CGRectMake(290, (verMajor >= 7 ? 60 : 0), 280, (280*272/480));
+            //player.view.frame = CGRectMake(290, (verMajor >= 7 ? 60 : 0), 280, (280*272/480));
+            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), (30.0/17.0)*displayHeight, displayHeight);
             
+        }
+        else if (screenSize.height == iPhone6.width && screenSize.width == iPhone6.height)
+        {
+            
+            NSLog(@"Device is iPhone 6");
+            
+            //player.view.frame = CGRectMake(290, (verMajor >= 7 ? 60 : 0), 320*(750.0/640.0), (320*272/480)*(750.0/640.0));
+            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), (30.0/17.0)*displayHeight, displayHeight);
+            //a = player.view.frame;
+            
+        }
+        else if (screenSize.height == iPhone6plus.width && screenSize.width == iPhone6plus.height)
+        {
+            
+            NSLog(@"Device is iPhone 6+");
+            
+            //player.view.frame = CGRectMake(290, (verMajor >= 7 ? 60 : 0), 320, (320*272/480));
+            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), (30.0/17.0)*displayHeight, displayHeight);
+           
+        }
+        else
+        {
+            NSLog(@"Device is unknown");
+            
+            //player.view.frame = CGRectMake(290, (verMajor >= 7 ? 60 : 0), 320, (320*272/480));
+            player.view.frame = CGRectMake(0, (verMajor >= 7 ? 60 : 0), (30.0/17.0)*displayHeight, displayHeight);
         }
     }
 }
@@ -315,4 +359,30 @@
 
 
 
+- (IBAction)buttonPressedPlayVideo:(CGradientButton *)sender {
+    // Play the selected video
+    
+    NSString* videoFilename = [arrVideoFilenames objectAtIndex:[GlobalData sharedManager].selectedVideo];
+    NSString* fullpath = [self fullPathForFile:videoFilename];
+    
+    if (nil == player)
+    {
+        player = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:fullpath]];
+    }
+    else
+    {
+        player.contentURL = [NSURL fileURLWithPath:fullpath];
+    }
+    
+    UIInterfaceOrientation a = [UIApplication sharedApplication].statusBarOrientation;
+    [self positionViews:a];
+    
+    UIView* v = [self view];
+    
+    [v addSubview:player.view];
+    
+    // play movie
+    [player play];
+    
+}
 @end
