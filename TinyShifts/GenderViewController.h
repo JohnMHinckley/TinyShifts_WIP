@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGradientButton.h"
 
 @interface GenderViewController : UIViewController
+- (IBAction)buttonPressedFemale:(CGradientButton *)sender;
+- (IBAction)buttonPressedMale:(CGradientButton *)sender;
+- (IBAction)buttonPressedNotSure:(CGradientButton *)sender;
 
 @end

@@ -66,6 +66,15 @@
     [self portraitLock];
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    //if (screenMode == 1)
+    {
+        self.navigationItem.hidesBackButton = NO;   // show back button
+    }
+
+}
+
 -(void) portraitLock {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     appDelegate.screenIsPortraitOnly = true;

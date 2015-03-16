@@ -8,6 +8,7 @@
 
 #import "ContactViewController.h"
 
+
 @interface ContactViewController ()
 
 @end
@@ -40,6 +41,28 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
+    
+    
+    
+    // email subject
+    NSString* emailTitle = @"Message from Affirmations";
+    
+    // email content
+    NSString* messageBody = @"";
+    
+    // To address
+    NSArray* toRecipients = [NSArray arrayWithObject:@"v8vette@gmail.com"];
+    
+    MFMailComposeViewController* mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipients];
+    
+    // present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+   
+    
 }
 
 

@@ -7,6 +7,8 @@
 //
 
 #import "SendBaselineViewController.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface SendBaselineViewController ()
 
@@ -37,11 +39,21 @@
 - (IBAction)submitButtonPressed:(CGradientButton *)sender {
     // Submit the baseline survey data and pop the navigation stack to the start screen.
     
-    
+    [GlobalData sharedManager].initialPass = INITIAL_PASS_NO;
+  
     
     
     [[self navigationController] popToRootViewControllerAnimated:YES];
     
+
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    //if (screenMode == 1)
+    {
+        self.navigationItem.hidesBackButton = NO;   // show back button
+    }
 
 }
 @end

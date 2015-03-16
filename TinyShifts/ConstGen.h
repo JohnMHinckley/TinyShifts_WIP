@@ -9,6 +9,25 @@
 #ifndef TinyShifts_ConstGen_h
 #define TinyShifts_ConstGen_h
 
+// Keys for "Gender"
+#define GENDER_FEMALE   1
+#define GENDER_MALE     2
+#define GENDER_OTHER    3
+
+// Keys for "Ethnicity"
+#define ETHNICITY_ASIAN     1
+#define ETHNICITY_BLACK     2
+#define ETHNICITY_HISPANIC  3
+#define ETHNICITY_WHITE     4
+#define ETHNICITY_OTHER     5
+
+// Keys for "Time of Day"
+#define TOD_ANYTIME     1
+#define TOD_MORNING     2
+#define TOD_NOON        3
+#define TOD_AFTERNOON   4
+#define TOD_EVENING     5
+
 // Keys for "Mood meter"
 #define MOOD_METER_BLUE     1
 #define MOOD_METER_RED      2
@@ -64,6 +83,16 @@
 // Keys for "Video recommend?"
 #define VIDEO_RECOMMEND_YES   1
 #define VIDEO_RECOMMEND_NO    0
+
+
+// Keys for Activated
+#define ACTIVATED_YES    1
+#define ACTIVATED_NO     0
+
+
+// Keys for Initial Pass
+#define INITIAL_PASS_YES    1
+#define INITIAL_PASS_NO     0
 
 
 #endif

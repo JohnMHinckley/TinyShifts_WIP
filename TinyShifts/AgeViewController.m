@@ -9,12 +9,16 @@
 #import "AgeViewController.h"
 #import "CGradientButton.h"
 #import "AppDelegate.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
+#import "EthnicityViewController.h"
 
 @interface AgeViewController ()
 
 @end
 
 @implementation AgeViewController
+@synthesize textfieldAge;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,12 +56,21 @@
 
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
+    [GlobalData sharedManager].age = [textfieldAge.text intValue] ; // save result
+    
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
-    AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
+    EthnicityViewController* vc = [sb instantiateViewControllerWithIdentifier:@"EthnicityViewController"];
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    //if (screenMode == 1)
+    {
+        self.navigationItem.hidesBackButton = NO;   // show back button
+    }
 
+}
 
 
 -(void)viewDidAppear:(BOOL)animated {

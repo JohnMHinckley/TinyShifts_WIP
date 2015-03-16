@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    if (screenMode == 1)
+    //if (screenMode == 1)
     {
         // Adjust the navigation item
         // Right button
@@ -194,6 +194,7 @@
     UIInterfaceOrientation a = [UIApplication sharedApplication].statusBarOrientation;
     [self positionViews:a];
     
+    self.navigationItem.hidesBackButton = NO;   // always show back button
 }
 
 

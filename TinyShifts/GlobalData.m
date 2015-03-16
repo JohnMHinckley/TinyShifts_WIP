@@ -10,6 +10,11 @@
 @import Security;
 
 @implementation GlobalData
+@synthesize gender;
+@synthesize age;
+@synthesize ethnicity;
+@synthesize frequency;
+@synthesize timeOfDay;
 @synthesize moodMeterSelection;
 @synthesize moodTableSelection;
 @synthesize selectedVideo;
@@ -18,6 +23,8 @@
 @synthesize videoWasHelpful;
 @synthesize videoWatchAgain;
 @synthesize videoRecommend;
+@synthesize activated;
+@synthesize initialPass;
 
 static GlobalData* sharedSingleton = nil;   // single, static instance of this class
 

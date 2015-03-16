@@ -10,12 +10,15 @@
 #import "CGradientButton.h"
 #import "AppDelegate.h"
 #import "SendBaselineViewController.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface TimeOfDayViewController ()
 
 @end
 
 @implementation TimeOfDayViewController
+@synthesize screenInstance;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,14 +29,14 @@
     self.navigationItem.title = @"Time of Day";
     
     
-    // Right button
-    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
-    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
-    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+//    // Right button
+//    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+//    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
+//    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+//    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+//    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
+//    self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +69,10 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
+    if (screenInstance == 1)
+    {
+        self.navigationItem.hidesBackButton = NO;   // show back button
+    }
 }
 
 
@@ -91,6 +98,96 @@
 - (BOOL) shouldAutorotate {
     return NO;
 }
+
+
+- (IBAction)buttonPressedAnytime:(CGradientButton *)sender {
+    [GlobalData sharedManager].timeOfDay = TOD_ANYTIME; // save result
+    
+    if (screenInstance == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
+        SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        [[self navigationController] pushViewController:vc animated:YES];
+    }
+}
+
+- (IBAction)buttonPressedMorning:(CGradientButton *)sender {
+    [GlobalData sharedManager].timeOfDay = TOD_MORNING; // save result
+    
+    if (screenInstance == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
+        SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        [[self navigationController] pushViewController:vc animated:YES];
+    }
+}
+
+- (IBAction)buttonPressedNoon:(CGradientButton *)sender {
+    [GlobalData sharedManager].timeOfDay = TOD_NOON; // save result
+    
+    if (screenInstance == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
+        SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        [[self navigationController] pushViewController:vc animated:YES];
+    }
+}
+
+- (IBAction)buttonPressedAfternoon:(CGradientButton *)sender {
+    [GlobalData sharedManager].timeOfDay = TOD_AFTERNOON; // save result
+    
+    if (screenInstance == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
+        SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        [[self navigationController] pushViewController:vc animated:YES];
+    }
+}
+
+- (IBAction)buttonPressedEvening:(CGradientButton *)sender {
+    [GlobalData sharedManager].timeOfDay = TOD_EVENING; // save result
+    
+    if (screenInstance == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
+        SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        [[self navigationController] pushViewController:vc animated:YES];
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+-(void) setScreenInstance:(NSUInteger)sI
+{
+    screenInstance = sI;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end

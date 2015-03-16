@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +23,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [GlobalData sharedManager].activated = ACTIVATED_NO;
+    [GlobalData sharedManager].initialPass = INITIAL_PASS_YES;
+    [GlobalData sharedManager].frequency = 7;
+    
     return YES;
 }
 

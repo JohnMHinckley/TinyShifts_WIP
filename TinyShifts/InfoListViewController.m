@@ -33,15 +33,17 @@
     // Title
     self.navigationItem.title = @"Information";
     
-    // Right button
-    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
-    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
-    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
-
+    if (screenMode == 1)
+    {
+        // Right button
+        CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+        [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
+        [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+        rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+        [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
+        self.navigationItem.rightBarButtonItem = rightButtonItem;
+    }
     
     
     
@@ -283,6 +285,14 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
+//    if (screenMode == 1)
+//    {
+       self.navigationItem.hidesBackButton = NO;   // show back button
+//    }
+//    else if (screenMode == 2)
+//    {
+//        self.navigationItem.hidesBackButton = YES;   // do not show back button
+//    }
 }
 
 
@@ -292,6 +302,15 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];
     [self portraitLock];
+    
+//    if (screenMode == 1)
+//    {
+//        self.navigationItem.hidesBackButton = NO;   // show back button
+//    }
+//    else if (screenMode == 2)
+//    {
+//        self.navigationItem.hidesBackButton = YES;   // do not show back button
+//    }
 }
 
 -(void) portraitLock {

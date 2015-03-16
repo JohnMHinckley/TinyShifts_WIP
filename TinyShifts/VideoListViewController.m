@@ -313,6 +313,12 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
+    
+    if (screenMode == 1)
+    {
+        self.navigationItem.hidesBackButton = NO;   // show back button
+    }
+
 }
 
 

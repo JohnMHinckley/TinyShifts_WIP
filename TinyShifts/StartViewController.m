@@ -11,6 +11,8 @@
 #import "ActivationViewController.h"
 #import "InfoListViewController.h"
 #import "MoodMeterViewController.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface StartViewController ()
 
@@ -28,7 +30,7 @@
     
     
     // Test for activation.
-    BOOL bActivated = NO;   // test value
+    BOOL bActivated = ([GlobalData sharedManager].activated == ACTIVATED_YES);
     
     if (!bActivated)    // Has user activated app?
     {
@@ -71,7 +73,7 @@
     
     
     
-    BOOL bInitialPass = YES;    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
+    BOOL bInitialPass = ([GlobalData sharedManager].initialPass == INITIAL_PASS_YES);    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
     
     if (bInitialPass)
     {
@@ -84,6 +86,8 @@
         // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
         [vc setActiveNavigationController:self.navigationController];
         
+        
+        self.navigationItem.hidesBackButton = NO;   // show back button
         
         // Tell the destination view controller, the mode under which it is being created.
         [vc setScreenMode:1];   // 1 signifies being created in the baseline survey (2 corresponds to coming from the tab bar).

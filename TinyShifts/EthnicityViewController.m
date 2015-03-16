@@ -10,6 +10,9 @@
 #import "CGradientButton.h"
 #import "AppDelegate.h"
 #import "CalendarViewController.h"
+#import "FrequencyViewController.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface EthnicityViewController ()
 
@@ -26,14 +29,14 @@
     self.navigationItem.title = @"Ethnicity";
     
     
-    // Right button
-    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
-    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
-    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+//    // Right button
+//    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+//    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
+//    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+//    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+//    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
+//    self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +68,15 @@
     [self portraitLock];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    //if (screenMode == 1)
+    {
+        self.navigationItem.hidesBackButton = NO;   // show back button
+    }
+
+}
+
 -(void) portraitLock {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     appDelegate.screenIsPortraitOnly = true;
@@ -80,5 +92,69 @@
 - (BOOL) shouldAutorotate {
     return NO;
 }
+
+- (IBAction)buttonPressedAsian:(CGradientButton *)sender {
+    [GlobalData sharedManager].ethnicity = ETHNICITY_ASIAN ; // save result
+    
+    // Go to next screen
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
+
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedBlack:(CGradientButton *)sender {
+    [GlobalData sharedManager].ethnicity = ETHNICITY_BLACK ; // save result
+    
+    // Go to next screen
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
+    
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedHispanic:(CGradientButton *)sender {
+    [GlobalData sharedManager].ethnicity = ETHNICITY_HISPANIC ; // save result
+    
+    // Go to next screen
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
+    
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedWhite:(CGradientButton *)sender {
+    [GlobalData sharedManager].ethnicity = ETHNICITY_WHITE ; // save result
+    
+    // Go to next screen
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
+    
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonPressedOther:(CGradientButton *)sender {
+    [GlobalData sharedManager].ethnicity = ETHNICITY_OTHER ; // save result
+    
+    // Go to next screen
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
+    
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+
+
+
+
+
+
+
+
 
 @end

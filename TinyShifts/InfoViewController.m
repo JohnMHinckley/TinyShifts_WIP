@@ -35,9 +35,13 @@
     
     // Add a label subview to the scroll view controller.
     // First, make up a test box to figure out how big it needs to be to hold the text.
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    CGFloat displayWidth = screenBounds.size.width;
+    
     CGRect testTextbox;
     testTextbox.origin = CGPointMake(10,0);
-    testTextbox.size = CGSizeMake(280, 500);    // purpose = 200, how = 250, privacy =
+    //testTextbox.size = CGSizeMake(280, 500);    // purpose = 200, how = 250, privacy =
+    testTextbox.size = CGSizeMake(displayWidth-30, 500);    // purpose = 200, how = 250, privacy =
     
     UILabel* testLabel= [[UILabel alloc] initWithFrame:testTextbox];
     testLabel.text = informationText;
@@ -110,6 +114,10 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
+    //if (screenMode == 1)
+    {
+        self.navigationItem.hidesBackButton = NO;   // show back button
+    }
 }
 
 

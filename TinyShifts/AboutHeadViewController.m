@@ -7,6 +7,7 @@
 //
 
 #import "AboutHeadViewController.h"
+#import "InfoListViewController.h"
 
 @interface AboutHeadViewController ()
 
@@ -14,9 +15,30 @@
 
 @implementation AboutHeadViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    
+    // Attempt to use storyboard to instantiate InfoListViewController.
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"InfoList" bundle:nil];
+    InfoListViewController* vc = [sb instantiateInitialViewController];
+    
+    // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
+    [vc setActiveNavigationController:self.navigationController];
+    
+    
+    // Tell the destination view controller, the mode under which it is being created.
+    [vc setScreenMode:2];   // 1 signifies being created in the baseline survey (2 corresponds to coming from the tab bar).
+    
+    self.navigationItem.hidesBackButton = YES;   // do not show back button
+  
+    // Display the new view controller.
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +55,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
 
 @end

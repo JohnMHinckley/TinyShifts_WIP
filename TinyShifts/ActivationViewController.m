@@ -8,6 +8,8 @@
 
 #import "ActivationViewController.h"
 #import "AppDelegate.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface ActivationViewController ()
 
@@ -46,6 +48,8 @@
     
     if (bCodeIsValid)   // Check whether code is valid.
     {
+        [GlobalData sharedManager].activated = ACTIVATED_YES;
+        
         // Enable the tab bar items
         activeTabBarController.tabBar.userInteractionEnabled = YES;
         
@@ -55,6 +59,7 @@
     else
     {
         // Code is not valid.  Inform user, erase entered code and stay on this screen.
+        [GlobalData sharedManager].activated = ACTIVATED_NO;
     }
 }
 

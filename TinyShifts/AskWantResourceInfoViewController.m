@@ -90,6 +90,10 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
+    //if (screenMode == 1)
+    {
+        self.navigationItem.hidesBackButton = NO;   // show back button
+    }
 }
 
 
@@ -98,6 +102,8 @@
     [super viewDidAppear:true];
     [self portraitLock];
 }
+
+
 
 -(void) portraitLock {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
