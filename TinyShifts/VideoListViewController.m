@@ -8,6 +8,7 @@
 
 #import "VideoListViewController.h"
 #import "AskWantResourceInfoViewController.h"
+#import "VideoPlayerViewController.h"
 #import "ConstGen.h"
 #import "GlobalData.h"
 
@@ -80,94 +81,201 @@
 }
 
 - (IBAction)buttonPressedFireflies:(UIButton *)sender {
-//    NSLog(@"Content offset before setContetOffset: = (%f, %f)", scrollView.contentOffset.x, scrollView.contentOffset.y);
-//    [scrollView setContentOffset:CGPointMake(50, 50)];  // shifts tree view up and to left 50 points
-//    NSLog(@"Content offset after setContetOffset: = (%f, %f)\n", scrollView.contentOffset.x, scrollView.contentOffset.y);
-//    
-//    NSLog(@"Initial content size (w, h) = (%f, %f)", scrollView.contentSize.width, scrollView.contentSize.height);
-//    scrollView.contentSize = CGSizeMake(406, 525);
-//    NSLog(@"Final content size (w, h) = (%f, %f)", scrollView.contentSize.width, scrollView.contentSize.height);
-//
-//    NSLog(@"Initial content inset (b, t, L, r) = (%f, %f, %f, %f)", scrollView.contentInset.bottom, scrollView.contentInset.top, scrollView.contentInset.left, scrollView.contentInset.right);
-    
     [GlobalData sharedManager].selectedVideo = VIDEO_FIREFLIES; // save index to selected video in global data
-
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-    [vc setScreenInstance:1];
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    if (screenMode == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        [vc setScreenInstance:1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (screenMode == 2)
+    {
+        // from all videos tab bar item
+        // Go directly to video display screen
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        [vc setScreenMode:screenMode];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 - (IBAction)buttonPressedSloppyjoe:(UIButton *)sender {
     [GlobalData sharedManager].selectedVideo = VIDEO_SLOPPYJOE; // save index to selected video in global data
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-    [vc setScreenInstance:1];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (screenMode == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        [vc setScreenInstance:1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (screenMode == 2)
+    {
+        // from all videos tab bar item
+        // Go directly to video display screen
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        [vc setScreenMode:screenMode];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 - (IBAction)buttonPressed711:(UIButton *)sender {
     [GlobalData sharedManager].selectedVideo = VIDEO_711; // save index to selected video in global data
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-    [vc setScreenInstance:1];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (screenMode == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        [vc setScreenInstance:1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (screenMode == 2)
+    {
+        // from all videos tab bar item
+        // Go directly to video display screen
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        [vc setScreenMode:screenMode];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 - (IBAction)buttonPressedTreadingwater:(UIButton *)sender {
     [GlobalData sharedManager].selectedVideo = VIDEO_TREADINGWATER; // save index to selected video in global data
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-    [vc setScreenInstance:1];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (screenMode == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        [vc setScreenInstance:1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (screenMode == 2)
+    {
+        // from all videos tab bar item
+        // Go directly to video display screen
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        [vc setScreenMode:screenMode];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 - (IBAction)buttonPressedTrapped:(UIButton *)sender {
     [GlobalData sharedManager].selectedVideo = VIDEO_TRAPPED; // save index to selected video in global data
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-    [vc setScreenInstance:1];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (screenMode == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        [vc setScreenInstance:1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (screenMode == 2)
+    {
+        // from all videos tab bar item
+        // Go directly to video display screen
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        [vc setScreenMode:screenMode];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 - (IBAction)buttonPressedPotatohead:(UIButton *)sender {
     [GlobalData sharedManager].selectedVideo = VIDEO_POTATOHEAD; // save index to selected video in global data
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-    [vc setScreenInstance:1];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (screenMode == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        [vc setScreenInstance:1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (screenMode == 2)
+    {
+        // from all videos tab bar item
+        // Go directly to video display screen
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        [vc setScreenMode:screenMode];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 - (IBAction)buttonPressedTreadmill:(UIButton *)sender {
     [GlobalData sharedManager].selectedVideo = VIDEO_TREADMILL; // save index to selected video in global data
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-    [vc setScreenInstance:1];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (screenMode == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        [vc setScreenInstance:1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (screenMode == 2)
+    {
+        // from all videos tab bar item
+        // Go directly to video display screen
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        [vc setScreenMode:screenMode];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 - (IBAction)buttonPressedDaury:(UIButton *)sender {
     [GlobalData sharedManager].selectedVideo = VIDEO_DAURY; // save index to selected video in global data
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-    [vc setScreenInstance:1];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (screenMode == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        [vc setScreenInstance:1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (screenMode == 2)
+    {
+        // from all videos tab bar item
+        // Go directly to video display screen
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        [vc setScreenMode:screenMode];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 - (IBAction)buttonPressedBalloon:(UIButton *)sender {
     [GlobalData sharedManager].selectedVideo = VIDEO_BALLOON; // save index to selected video in global data
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-    [vc setScreenInstance:1];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (screenMode == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        [vc setScreenInstance:1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (screenMode == 2)
+    {
+        // from all videos tab bar item
+        // Go directly to video display screen
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        [vc setScreenMode:screenMode];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 -(void) setActiveNavigationController:(UINavigationController*) nc

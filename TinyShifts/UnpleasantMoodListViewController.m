@@ -252,6 +252,8 @@
     switch (selectedCell) {
         case 0:
             // "I'm experiencing problems in my relationships with friends/family" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_U_RELATIONSHIP_PROBLEMS; // save result
+            
             R = [GlobalData RandomIntUpTo:3];
             switch (R) {
                 case 0:
@@ -273,6 +275,8 @@
             
         case 1:
             // "I feel generally down" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_U_FEEL_DOWN; // save result
+            
             R = [GlobalData RandomIntUpTo:2];
             switch (R) {
                 case 0:
@@ -290,6 +294,8 @@
             
         case 2:
             // "There is too much pressure and responsibilities" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_U_PRESSURE; // save result
+            
             R = [GlobalData RandomIntUpTo:4];
             switch (R) {
                 case 0:
@@ -315,6 +321,8 @@
             
         case 3:
             // "I feel lonely" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_U_LONELY; // save result
+            
             R = [GlobalData RandomIntUpTo:1];
             switch (R) {
                 case 0:
@@ -328,6 +336,8 @@
             
         case 4:
             // "I don't think I'm good enough" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_U_NOT_GOOD_ENOUGH; // save result
+            
             R = [GlobalData RandomIntUpTo:2];
             switch (R) {
                 case 0:
@@ -345,6 +355,8 @@
             
         case 5:
             // "I don't like the way I look" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_U_NOT_LIKE_LOOKS; // save result
+            
             R = [GlobalData RandomIntUpTo:2];
             switch (R) {
                 case 0:
@@ -362,6 +374,8 @@
             
         case 6:
             // "I worry all the time" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_U_WORRY; // save result
+            
             R = [GlobalData RandomIntUpTo:2];
             switch (R) {
                 case 0:
@@ -377,6 +391,14 @@
             }
             break;
             
+        case 7:
+            // "Other" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_U_OTHER; // save result
+            
+            [GlobalData sharedManager].selectedVideo = VIDEO_UNDEFINED; // Video will actually be selected from the next screen.
+            
+            break;
+            
         default:
             break;
     }
@@ -389,6 +411,10 @@
     {
         // "Other" is chosen
         VideoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoListViewController"];
+        
+        // Tell the destination view controller, the mode under which it is being created.
+        [vc setScreenMode:1];   // 1 signifies being created from the main line of storyboard.
+        
         [self.navigationController pushViewController:vc animated:YES];
     }
     else

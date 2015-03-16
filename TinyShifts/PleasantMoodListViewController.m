@@ -219,6 +219,8 @@
     switch (selectedCell) {
         case 0:
             // "Relationships" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_P_RELATIONSHIPS; // save result
+            
             R = [GlobalData RandomIntUpTo:3];
             switch (R) {
                 case 0:
@@ -240,6 +242,8 @@
             
         case 1:
             // "Stress" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_P_STRESS; // save result
+            
             R = [GlobalData RandomIntUpTo:4];
             switch (R) {
                 case 0:
@@ -265,6 +269,8 @@
             
         case 2:
             // "Worry" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_P_WORRY; // save result
+            
             R = [GlobalData RandomIntUpTo:2];
             switch (R) {
                 case 0:
@@ -282,6 +288,8 @@
             
         case 3:
             // "Insecurities" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_P_INSECURITIES; // save result
+            
             R = [GlobalData RandomIntUpTo:2];
             switch (R) {
                 case 0:
@@ -299,6 +307,8 @@
             
         case 4:
             // "Supporting someone who is struggling" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_P_SUPPORTING; // save result
+            
             R = [GlobalData RandomIntUpTo:9];
             switch (R) {
                 case 0:

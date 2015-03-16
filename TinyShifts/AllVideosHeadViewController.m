@@ -31,6 +31,17 @@
 //    
 //    // Create the activation view controller.
 //    [self.navigationController pushViewController:vc animated:NO];
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    VideoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoListViewController"];
+    
+    // Tell the destination view controller, the mode under which it is being created.
+    [vc setScreenMode:2];   // 2 signifies being created from the tab bar.
+  
+    
+    // Display the new view controller.
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

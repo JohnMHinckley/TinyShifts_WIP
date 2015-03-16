@@ -12,6 +12,8 @@
 #import "ResourceListViewController.h"
 #import "VideoPlayerViewController.h"
 #import "SendSurveyViewController.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface AskWantResourceInfoViewController ()
 
@@ -117,7 +119,18 @@
     // Yes button pressed
     
     // Save result in global data
-    NSLog(@"TODO: code in AskWantResourceInforViewController::buttonPressedYes: to log global data.");
+    
+    switch (screenInstance) {
+        case 1:
+            [GlobalData sharedManager].wantResourceInfo1 = WANT_RESOURCE_INFO_1_YES; // save result
+            break;
+            
+        case 2:
+            [GlobalData sharedManager].wantResourceInfo2 = WANT_RESOURCE_INFO_2_YES; // save result
+            break;
+        default:
+            break;
+    }
     
     // Go to Resource List screen.
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -132,7 +145,6 @@
     // No button pressed
     
     // Save result in global data
-    NSLog(@"TODO: code in AskWantResourceInforViewController::buttonPressedNo: to log global data.");
     
     // Go to Video Player screen or Send Survey screen, depending on where we are in the storyboard.
     
@@ -142,12 +154,16 @@
     switch (screenInstance) {
         case 1:
             // earlier in the storyboard; go to Video Player screen.
+            [GlobalData sharedManager].wantResourceInfo1 = WANT_RESOURCE_INFO_1_NO; // save result
+            
             vc1 = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
             [[self navigationController] pushViewController:vc1 animated:YES];
             break;
             
         case 2:
             // later in the storyboard; go to Send Survey screen.
+            [GlobalData sharedManager].wantResourceInfo2 = WANT_RESOURCE_INFO_2_NO; // save result
+
             vc2 = [sb instantiateViewControllerWithIdentifier:@"SendSurveyViewController"];
             [[self navigationController] pushViewController:vc2 animated:YES];
             break;

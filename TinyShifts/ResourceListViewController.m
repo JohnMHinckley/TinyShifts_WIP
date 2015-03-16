@@ -126,6 +126,7 @@
     if (firstInstance)
     {
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        [vc setScreenMode:1];
         [[self navigationController] pushViewController:vc animated:YES];
     }
     else{

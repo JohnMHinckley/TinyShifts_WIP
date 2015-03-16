@@ -14,9 +14,10 @@
 @interface VideoPlayerViewController : UIViewController
 {
     MPMoviePlayerController *player;
-
+    NSUInteger screenMode;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewBackground;
 - (IBAction)buttonPressedPlayVideo:(CGradientButton *)sender;
+-(void) setScreenMode:(NSUInteger) mode;
 
 @end

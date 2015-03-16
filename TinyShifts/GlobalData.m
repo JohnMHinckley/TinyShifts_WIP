@@ -10,7 +10,11 @@
 @import Security;
 
 @implementation GlobalData
+@synthesize moodMeterSelection;
+@synthesize moodTableSelection;
 @synthesize selectedVideo;
+@synthesize wantResourceInfo1;
+@synthesize wantResourceInfo2;
 @synthesize videoWasHelpful;
 @synthesize videoWatchAgain;
 @synthesize videoRecommend;

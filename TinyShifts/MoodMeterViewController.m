@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import "UnpleasantMoodListViewController.h"
 #import "PleasantMoodListViewController.h"
+#import "ConstGen.h"
+#import "GlobalData.h"
 
 @interface MoodMeterViewController ()
 {
@@ -106,22 +108,26 @@
 
 
 - (IBAction)buttonPressedRed:(UIButton *)sender {
+    [GlobalData sharedManager].moodMeterSelection = MOOD_METER_RED; // save result
     bResponseIsPleasant = NO;
     [self doNextScreen];
     
 }
 
 - (IBAction)buttonPressedYellow:(UIButton *)sender {
+    [GlobalData sharedManager].moodMeterSelection = MOOD_METER_YELLOW; // save result
     bResponseIsPleasant = YES;
     [self doNextScreen];
 }
 
 - (IBAction)buttonPressedBlue:(UIButton *)sender {
+    [GlobalData sharedManager].moodMeterSelection = MOOD_METER_BLUE; // save result
     bResponseIsPleasant = NO;
     [self doNextScreen];
 }
 
 - (IBAction)buttonPressedGreen:(UIButton *)sender {
+    [GlobalData sharedManager].moodMeterSelection = MOOD_METER_GREEN; // save result
     bResponseIsPleasant = YES;
     [self doNextScreen];
 }

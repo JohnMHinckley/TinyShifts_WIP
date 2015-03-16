@@ -71,7 +71,7 @@
     
     
     
-    BOOL bInitialPass = NO;    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
+    BOOL bInitialPass = YES;    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
     
     if (bInitialPass)
     {
