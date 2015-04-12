@@ -190,12 +190,21 @@
                                     <constraint firstAttribute="width" secondItem="3Wa-rW-tyw" secondAttribute="height" multiplier="5:1" id="rkR-oj-8j0"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact screen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbg-fz-ezW">
-                                <rect key="frame" x="242" y="301" width="117" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsZ-Bs-tSr" customClass="CGradientButton">
+                                <rect key="frame" x="460" y="468" width="100" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="2tz-IQ-WyN"/>
+                                    <constraint firstAttribute="height" constant="50" id="HrP-q8-gPF"/>
+                                </constraints>
+                                <state key="normal" title="Send Email">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressedSendEmail:" destination="mDo-pe-Yoh" eventType="touchUpInside" id="29Z-Y0-U93"/>
+                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="0Up-ew-cmq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -203,10 +212,10 @@
                             <constraint firstItem="3Wa-rW-tyw" firstAttribute="top" secondItem="I41-7s-RIb" secondAttribute="top" id="DxX-we-6mW"/>
                             <constraint firstAttribute="bottom" secondItem="I41-7s-RIb" secondAttribute="bottom" constant="42" id="HKl-Bj-nHr"/>
                             <constraint firstItem="I41-7s-RIb" firstAttribute="leading" secondItem="H7o-eS-g9B" secondAttribute="leading" id="MmA-3P-CkO"/>
-                            <constraint firstItem="I41-7s-RIb" firstAttribute="centerX" secondItem="Jbg-fz-ezW" secondAttribute="centerX" id="OPv-pL-XYg"/>
                             <constraint firstAttribute="trailing" secondItem="I41-7s-RIb" secondAttribute="trailing" id="bcB-tf-eFD"/>
                             <constraint firstItem="I41-7s-RIb" firstAttribute="top" secondItem="pnG-cF-hl1" secondAttribute="bottom" id="bli-Cz-fOl"/>
-                            <constraint firstItem="I41-7s-RIb" firstAttribute="centerY" secondItem="Jbg-fz-ezW" secondAttribute="centerY" id="tye-Ik-UV9"/>
+                            <constraint firstItem="I41-7s-RIb" firstAttribute="trailing" secondItem="EsZ-Bs-tSr" secondAttribute="trailing" constant="40" id="mec-0X-84N"/>
+                            <constraint firstItem="I41-7s-RIb" firstAttribute="bottom" secondItem="EsZ-Bs-tSr" secondAttribute="bottom" constant="40" id="suf-5F-tLu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pbI-XZ-bfU"/>
@@ -329,20 +338,12 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" red="0.80392156859999997" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Head" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmQ-Di-Lby">
-                                <rect key="frame" x="254" y="297" width="92" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="t2F-jf-XIy" firstAttribute="left" secondItem="PCs-tu-fjd" secondAttribute="left" id="2K9-rr-ajm"/>
                             <constraint firstAttribute="right" secondItem="t2F-jf-XIy" secondAttribute="right" id="Y1z-z1-EZp"/>
                             <constraint firstItem="4ck-YM-Fof" firstAttribute="top" secondItem="t2F-jf-XIy" secondAttribute="bottom" id="Z6c-gb-LZL"/>
-                            <constraint firstItem="t2F-jf-XIy" firstAttribute="centerY" secondItem="CmQ-Di-Lby" secondAttribute="centerY" id="cLJ-Qm-QDR"/>
-                            <constraint firstItem="t2F-jf-XIy" firstAttribute="centerX" secondItem="CmQ-Di-Lby" secondAttribute="centerX" id="xGb-iB-Y0d"/>
                             <constraint firstItem="t2F-jf-XIy" firstAttribute="top" secondItem="nIL-eG-Ckf" secondAttribute="bottom" id="zz7-zd-GFx"/>
                         </constraints>
                     </view>

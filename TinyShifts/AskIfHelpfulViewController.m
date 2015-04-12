@@ -55,6 +55,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskWatchAgainViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWatchAgainViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
@@ -72,10 +73,6 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
-    //if (screenMode == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
 }
 
 
@@ -106,6 +103,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskWatchAgainViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWatchAgainViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
@@ -116,6 +114,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskWatchAgainViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWatchAgainViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
@@ -126,6 +125,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskWatchAgainViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWatchAgainViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 

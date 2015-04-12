@@ -44,11 +44,7 @@
         UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
         self.navigationItem.rightBarButtonItem = rightButtonItem;
     }
-    
-    
-    
-    
-    
+   
     
     
     
@@ -114,6 +110,7 @@
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
     GenderViewController* vc = [sb instantiateInitialViewController];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
@@ -285,14 +282,6 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
-//    if (screenMode == 1)
-//    {
-       self.navigationItem.hidesBackButton = NO;   // show back button
-//    }
-//    else if (screenMode == 2)
-//    {
-//        self.navigationItem.hidesBackButton = YES;   // do not show back button
-//    }
 }
 
 
@@ -303,14 +292,6 @@
     [super viewDidAppear:true];
     [self portraitLock];
     
-//    if (screenMode == 1)
-//    {
-//        self.navigationItem.hidesBackButton = NO;   // show back button
-//    }
-//    else if (screenMode == 2)
-//    {
-//        self.navigationItem.hidesBackButton = YES;   // do not show back button
-//    }
 }
 
 -(void) portraitLock {

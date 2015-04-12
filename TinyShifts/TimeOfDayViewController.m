@@ -59,6 +59,7 @@
    
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
     SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
    
 }
@@ -69,10 +70,6 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
-    if (screenInstance == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
 }
 
 
@@ -107,6 +104,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
         SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [[self navigationController] pushViewController:vc animated:YES];
     }
 }
@@ -118,6 +116,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
         SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [[self navigationController] pushViewController:vc animated:YES];
     }
 }
@@ -129,6 +128,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
         SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [[self navigationController] pushViewController:vc animated:YES];
     }
 }
@@ -140,6 +140,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
         SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [[self navigationController] pushViewController:vc animated:YES];
     }
 }
@@ -151,6 +152,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
         SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [[self navigationController] pushViewController:vc animated:YES];
     }
 }

@@ -124,25 +124,6 @@
 */
 
 
-//- (IBAction)nextButtonPressed:(CGradientButton *)sender {
-//    
-//    BOOL otherSelected = YES;
-//    
-//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    
-//    if (otherSelected)
-//    {
-//        VideoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoListViewController"];
-//        [[self navigationController] pushViewController:vc animated:YES];
-//    }
-//    else{
-//        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-//        [vc setScreenInstance:1];
-//        [[self navigationController] pushViewController:vc animated:YES];
-//    }
-//    
-//}
-
 
 
 
@@ -411,6 +392,7 @@
     {
         // "Other" is chosen
         VideoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoListViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         
         // Tell the destination view controller, the mode under which it is being created.
         [vc setScreenMode:1];   // 1 signifies being created from the main line of storyboard.
@@ -420,6 +402,7 @@
     else
     {
         AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:1];
         [self.navigationController pushViewController:vc animated:YES];
     }

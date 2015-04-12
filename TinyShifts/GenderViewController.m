@@ -58,6 +58,7 @@
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
     AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
@@ -67,15 +68,6 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];
     [self portraitLock];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    //if (screenMode == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
-
 }
 
 -(void) portraitLock {
@@ -102,6 +94,7 @@
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
     AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
@@ -111,6 +104,7 @@
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
     AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
@@ -120,6 +114,7 @@
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
     AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 @end

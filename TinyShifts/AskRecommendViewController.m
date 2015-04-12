@@ -55,6 +55,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:2];
     [[self navigationController] pushViewController:vc animated:YES];
 }
@@ -65,15 +66,6 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];
     [self portraitLock];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    //if (screenMode == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
-
 }
 
 -(void) portraitLock {
@@ -101,6 +93,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:2];
     [[self navigationController] pushViewController:vc animated:YES];
 }
@@ -112,6 +105,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:2];
     [[self navigationController] pushViewController:vc animated:YES];
 }

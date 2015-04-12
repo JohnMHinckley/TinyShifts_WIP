@@ -27,14 +27,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    if (screenMode == 2)
-    {
-        // This is being created from the tab bar.
-        // Hide the Back button.
-        self.navigationItem.hidesBackButton = YES;
-    }
-    
-    
     // Add an image subview to the scroll view controller.
     UIImage* image = [UIImage imageNamed:@"TreeDesign.png"];
     imageView2.image = image;
@@ -87,6 +79,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -96,6 +89,7 @@
         // Go directly to video display screen
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenMode:screenMode];
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -109,6 +103,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -118,6 +113,7 @@
         // Go directly to video display screen
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenMode:screenMode];
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -131,6 +127,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -140,6 +137,7 @@
         // Go directly to video display screen
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenMode:screenMode];
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -153,6 +151,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -162,6 +161,7 @@
         // Go directly to video display screen
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenMode:screenMode];
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -175,6 +175,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -184,6 +185,7 @@
         // Go directly to video display screen
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenMode:screenMode];
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -197,6 +199,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -206,6 +209,7 @@
         // Go directly to video display screen
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenMode:screenMode];
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -219,6 +223,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -228,6 +233,7 @@
         // Go directly to video display screen
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenMode:screenMode];
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -241,6 +247,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -250,6 +257,7 @@
         // Go directly to video display screen
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenMode:screenMode];
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -263,6 +271,7 @@
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -272,6 +281,7 @@
         // Go directly to video display screen
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenMode:screenMode];
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -313,11 +323,6 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
-    
-    if (screenMode == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
 
 }
 

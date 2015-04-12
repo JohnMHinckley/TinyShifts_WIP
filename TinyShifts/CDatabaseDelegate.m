@@ -7,7 +7,7 @@
 //
 
 #import "CDatabaseDelegate.h"
-#import "CDatabaseController.h"
+#import "DatabaseController.h"
 #import "InfoTopic.h"
 
 
@@ -18,13 +18,13 @@
     // Read an integer from the database by executing the input query.
     int retval = 0;
     
-    [[CDatabaseController sharedManager] openDB];
+    [[DatabaseController sharedManager] openDB];
     
     // get the week index of the latest record in AppAction_ScheduleOpen for which done = 1
     NSString *qsql = query;
     
     sqlite3_stmt *statement;
-    if ([[CDatabaseController sharedManager] compileSqlStatement:&statement fromQuery:qsql])
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
     {
         while (sqlite3_step(statement) == SQLITE_ROW)
         {
@@ -39,7 +39,7 @@
     
     
     
-    [[CDatabaseController sharedManager] closeDB];
+    [[DatabaseController sharedManager] closeDB];
     
 
     return retval;
@@ -55,13 +55,13 @@
     
     NSString* retval = nil;
     
-    [[CDatabaseController sharedManager] openDB];
+    [[DatabaseController sharedManager] openDB];
     
     
     NSString *qsql = query;
     
     sqlite3_stmt *statement;
-    if ([[CDatabaseController sharedManager] compileSqlStatement:&statement fromQuery:qsql])
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
     {
         while (sqlite3_step(statement) == SQLITE_ROW)
         {
@@ -78,7 +78,7 @@
     }
     
     
-    [[CDatabaseController sharedManager] closeDB];
+    [[DatabaseController sharedManager] closeDB];
     
     return retval;
 }
@@ -91,13 +91,13 @@
     // Read a float from the database by executing the input query.
     double retval = 0.0;
     
-    [[CDatabaseController sharedManager] openDB];
+    [[DatabaseController sharedManager] openDB];
     
     // get the week index of the latest record in AppAction_ScheduleOpen for which done = 1
     NSString *qsql = query;
     
     sqlite3_stmt *statement;
-    if ([[CDatabaseController sharedManager] compileSqlStatement:&statement fromQuery:qsql])
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
     {
         while (sqlite3_step(statement) == SQLITE_ROW)
         {
@@ -112,7 +112,7 @@
     
     
     
-    [[CDatabaseController sharedManager] closeDB];
+    [[DatabaseController sharedManager] closeDB];
     
     
     return retval;
@@ -125,13 +125,13 @@
 {
     // Execute the input query on the database.
     
-    [[CDatabaseController sharedManager] openDB];
+    [[DatabaseController sharedManager] openDB];
     
     
     NSString *qsql = query;
     
     sqlite3_stmt *statement;
-    if ([[CDatabaseController sharedManager] compileSqlStatement:&statement fromQuery:qsql])
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
     {
         sqlite3_step(statement);
         
@@ -144,7 +144,7 @@
     
     
     
-    [[CDatabaseController sharedManager] closeDB];
+    [[DatabaseController sharedManager] closeDB];
 }
 
 
@@ -168,14 +168,14 @@
     NSMutableArray* arr = [[NSMutableArray alloc] init];
     
     
-    [[CDatabaseController sharedManager] openDB];
+    [[DatabaseController sharedManager] openDB];
     
     
     //—-retrieve rows—-
     NSString *qsql = [NSString stringWithFormat:@"SELECT topicID, topicTitle, contentBkgndImage, topicText FROM InfoList"];
     
     sqlite3_stmt *statement;
-    if ([[CDatabaseController sharedManager] compileSqlStatement:&statement fromQuery:qsql])
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
     {
         char* c = nil;
         while (sqlite3_step(statement) == SQLITE_ROW)
@@ -203,7 +203,7 @@
         sqlite3_finalize(statement);
     }
     
-    [[CDatabaseController sharedManager] closeDB];
+    [[DatabaseController sharedManager] closeDB];
     
     return arr;
 }

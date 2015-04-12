@@ -57,6 +57,7 @@
     
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
     
 }

@@ -43,12 +43,4 @@
     [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    //if (screenMode == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
-
-}
 @end

@@ -41,6 +41,7 @@
         
         // Create an instance of the activation view controller.
         ActivationViewController* vc = [[ActivationViewController alloc] initWithNibName:@"ActivationViewController" bundle:nil];
+        vc.navigationItem.hidesBackButton = YES;
         
         // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
         [vc setActiveNavigationController:self.navigationController];
@@ -82,12 +83,11 @@
         // Attempt to use storyboard to instantiate InfoListViewController.
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"InfoList" bundle:nil];
         InfoListViewController* vc = [sb instantiateInitialViewController];
+        vc.navigationItem.hidesBackButton = NO;
         
         // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
         [vc setActiveNavigationController:self.navigationController];
         
-        
-        self.navigationItem.hidesBackButton = NO;   // show back button
         
         // Tell the destination view controller, the mode under which it is being created.
         [vc setScreenMode:1];   // 1 signifies being created in the baseline survey (2 corresponds to coming from the tab bar).
@@ -102,6 +102,7 @@
         // Attempt to use storyboard to instantiate MoodMeterViewController.
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         MoodMeterViewController* vc = [sb instantiateViewControllerWithIdentifier:@"MoodMeterViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         
         // Display the new view controller.
         [self.navigationController pushViewController:vc animated:YES];

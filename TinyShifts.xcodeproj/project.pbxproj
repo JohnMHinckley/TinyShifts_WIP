@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		445ADC851AB9DD7300FDCAEE /* Launch_750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC811AB9DD7300FDCAEE /* Launch_750x1334.png */; };
+		445ADC861AB9DD7300FDCAEE /* Launch_1242x2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC821AB9DD7300FDCAEE /* Launch_1242x2208.png */; };
+		445ADC8A1AB9E17900FDCAEE /* appIcon_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC871AB9E17900FDCAEE /* appIcon_58x58.png */; };
+		445ADC8B1AB9E17900FDCAEE /* appIcon_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC881AB9E17900FDCAEE /* appIcon_80x80.png */; };
+		445ADC8C1AB9E17900FDCAEE /* appIcon_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC891AB9E17900FDCAEE /* appIcon_120x120.png */; };
+		445ADC8F1AB9E3BE00FDCAEE /* appIcon_87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC8D1AB9E3BE00FDCAEE /* appIcon_87x87.png */; };
+		445ADC901AB9E3BE00FDCAEE /* appIcon_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC8E1AB9E3BE00FDCAEE /* appIcon_180x180.png */; };
+		445ADC931ABA04B600FDCAEE /* LaunchImage_640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC911ABA04B600FDCAEE /* LaunchImage_640x960.png */; };
+		445ADC941ABA04B600FDCAEE /* LaunchImage_640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC921ABA04B600FDCAEE /* LaunchImage_640x1136.png */; };
 		52079D0A1A9BF9FF0015A41C /* PersonalCharacteristics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52079D091A9BF9FF0015A41C /* PersonalCharacteristics.storyboard */; };
 		520B67201A9F2B0A00F162A4 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520B671F1A9F2B0A00F162A4 /* Schedule.storyboard */; };
 		520B67231A9F455100F162A4 /* SendBaseline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520B67221A9F455100F162A4 /* SendBaseline.storyboard */; };
 		520B67251A9F4CD200F162A4 /* SubmitBaselineDecoration.png in Resources */ = {isa = PBXBuildFile; fileRef = 520B67241A9F4CD200F162A4 /* SubmitBaselineDecoration.png */; };
 		5211793C1A941F72001E6F48 /* InfoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5211793B1A941F72001E6F48 /* InfoListTableViewCell.m */; };
-		521179431A942723001E6F48 /* CDatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521179401A942723001E6F48 /* CDatabaseController.m */; };
 		521179441A942723001E6F48 /* CDatabaseDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 521179421A942723001E6F48 /* CDatabaseDelegate.m */; };
 		521179461A94277E001E6F48 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 521179451A94277E001E6F48 /* libsqlite3.dylib */; };
 		521179491A9429B7001E6F48 /* InfoTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 521179481A9429B7001E6F48 /* InfoTopic.m */; };
@@ -40,6 +48,9 @@
 		524DEA871A7B128D009A2EDC /* tabbaritemIcon_Videos.png in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA821A7B128D009A2EDC /* tabbaritemIcon_Videos.png */; };
 		524DEA8A1A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA881A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png */; };
 		524DEA8B1A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA891A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png */; };
+		5255EE3D1ADA91FD00CFAB8F /* DatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255EE3C1ADA91FD00CFAB8F /* DatabaseController.m */; };
+		5264DADC1AD9570C0036F9A1 /* Database.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5264DADB1AD9570C0036F9A1 /* Database.bundle */; };
+		5264DAE61AD9CBFA0036F9A1 /* AppInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5264DAE51AD9CBFA0036F9A1 /* AppInfo.plist */; };
 		52761E4C1A8839DD0018E877 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E4B1A8839DD0018E877 /* StartViewController.m */; };
 		52761E551A883B630018E877 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E541A883B630018E877 /* ContactViewController.m */; };
 		5295B66D1A8CAE8600F2DA35 /* InfoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295B66B1A8CAE8600F2DA35 /* InfoListViewController.m */; };
@@ -93,14 +104,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		445ADC811AB9DD7300FDCAEE /* Launch_750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch_750x1334.png; sourceTree = "<group>"; };
+		445ADC821AB9DD7300FDCAEE /* Launch_1242x2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch_1242x2208.png; sourceTree = "<group>"; };
+		445ADC871AB9E17900FDCAEE /* appIcon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon_58x58.png; sourceTree = "<group>"; };
+		445ADC881AB9E17900FDCAEE /* appIcon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon_80x80.png; sourceTree = "<group>"; };
+		445ADC891AB9E17900FDCAEE /* appIcon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon_120x120.png; sourceTree = "<group>"; };
+		445ADC8D1AB9E3BE00FDCAEE /* appIcon_87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon_87x87.png; sourceTree = "<group>"; };
+		445ADC8E1AB9E3BE00FDCAEE /* appIcon_180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon_180x180.png; sourceTree = "<group>"; };
+		445ADC911ABA04B600FDCAEE /* LaunchImage_640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_640x960.png; sourceTree = "<group>"; };
+		445ADC921ABA04B600FDCAEE /* LaunchImage_640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_640x1136.png; sourceTree = "<group>"; };
 		52079D091A9BF9FF0015A41C /* PersonalCharacteristics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalCharacteristics.storyboard; sourceTree = "<group>"; };
 		520B671F1A9F2B0A00F162A4 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		520B67221A9F455100F162A4 /* SendBaseline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SendBaseline.storyboard; sourceTree = "<group>"; };
 		520B67241A9F4CD200F162A4 /* SubmitBaselineDecoration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SubmitBaselineDecoration.png; sourceTree = "<group>"; };
 		5211793A1A941F72001E6F48 /* InfoListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoListTableViewCell.h; sourceTree = "<group>"; };
 		5211793B1A941F72001E6F48 /* InfoListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoListTableViewCell.m; sourceTree = "<group>"; };
-		5211793F1A942723001E6F48 /* CDatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDatabaseController.h; sourceTree = "<group>"; };
-		521179401A942723001E6F48 /* CDatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDatabaseController.m; sourceTree = "<group>"; };
 		521179411A942723001E6F48 /* CDatabaseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDatabaseDelegate.h; sourceTree = "<group>"; };
 		521179421A942723001E6F48 /* CDatabaseDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDatabaseDelegate.m; sourceTree = "<group>"; };
 		521179451A94277E001E6F48 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -145,6 +163,10 @@
 		524DEA821A7B128D009A2EDC /* tabbaritemIcon_Videos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbaritemIcon_Videos.png; sourceTree = "<group>"; };
 		524DEA881A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconLogo_dkblue_205_235_252.png; sourceTree = "<group>"; };
 		524DEA891A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextLogo_dkblue_205_235_252.png; sourceTree = "<group>"; };
+		5255EE3B1ADA91FD00CFAB8F /* DatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseController.h; sourceTree = "<group>"; };
+		5255EE3C1ADA91FD00CFAB8F /* DatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseController.m; sourceTree = "<group>"; };
+		5264DADB1AD9570C0036F9A1 /* Database.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Database.bundle; sourceTree = "<group>"; };
+		5264DAE51AD9CBFA0036F9A1 /* AppInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppInfo.plist; sourceTree = "<group>"; };
 		52761E4A1A8839DD0018E877 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		52761E4B1A8839DD0018E877 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		52761E531A883B630018E877 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
@@ -285,8 +307,8 @@
 		5211793E1A9426E6001E6F48 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				5211793F1A942723001E6F48 /* CDatabaseController.h */,
-				521179401A942723001E6F48 /* CDatabaseController.m */,
+				5255EE3B1ADA91FD00CFAB8F /* DatabaseController.h */,
+				5255EE3C1ADA91FD00CFAB8F /* DatabaseController.m */,
 				521179411A942723001E6F48 /* CDatabaseDelegate.h */,
 				521179421A942723001E6F48 /* CDatabaseDelegate.m */,
 			);
@@ -316,6 +338,7 @@
 		524DEA571A7B0E26009A2EDC /* TinyShifts */ = {
 			isa = PBXGroup;
 			children = (
+				5264DADB1AD9570C0036F9A1 /* Database.bundle */,
 				52B45AD01AB4C704006A4F1B /* Content.bundle */,
 				5211793E1A9426E6001E6F48 /* Database */,
 				5211793D1A9426D3001E6F48 /* Model */,
@@ -336,6 +359,7 @@
 			children = (
 				524DEA591A7B0E26009A2EDC /* Info.plist */,
 				524DEA5A1A7B0E26009A2EDC /* main.m */,
+				5264DAE51AD9CBFA0036F9A1 /* AppInfo.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -439,6 +463,15 @@
 		5295B6691A8CAD4F00F2DA35 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				445ADC911ABA04B600FDCAEE /* LaunchImage_640x960.png */,
+				445ADC921ABA04B600FDCAEE /* LaunchImage_640x1136.png */,
+				445ADC871AB9E17900FDCAEE /* appIcon_58x58.png */,
+				445ADC881AB9E17900FDCAEE /* appIcon_80x80.png */,
+				445ADC8D1AB9E3BE00FDCAEE /* appIcon_87x87.png */,
+				445ADC891AB9E17900FDCAEE /* appIcon_120x120.png */,
+				445ADC8E1AB9E3BE00FDCAEE /* appIcon_180x180.png */,
+				445ADC811AB9DD7300FDCAEE /* Launch_750x1334.png */,
+				445ADC821AB9DD7300FDCAEE /* Launch_1242x2208.png */,
 				52982DB51AB273570085C600 /* blank.png */,
 				52982DA31AB270CC0085C600 /* blue.png */,
 				52982DA41AB270CC0085C600 /* brtgreen.png */,
@@ -587,9 +620,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				445ADC861AB9DD7300FDCAEE /* Launch_1242x2208.png in Resources */,
+				445ADC8C1AB9E17900FDCAEE /* appIcon_120x120.png in Resources */,
 				52982DA01AB227120085C600 /* TableCellBackground.png in Resources */,
 				52982DAF1AB270CC0085C600 /* green.png in Resources */,
+				5264DADC1AD9570C0036F9A1 /* Database.bundle in Resources */,
 				52982DA21AB233B10085C600 /* TreeDesign.png in Resources */,
+				445ADC8F1AB9E3BE00FDCAEE /* appIcon_87x87.png in Resources */,
 				524DEA851A7B128D009A2EDC /* tabbaritemIcon_Main.png in Resources */,
 				520B67201A9F2B0A00F162A4 /* Schedule.storyboard in Resources */,
 				524DEA871A7B128D009A2EDC /* tabbaritemIcon_Videos.png in Resources */,
@@ -597,6 +634,7 @@
 				52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */,
 				52982D901AB207F60085C600 /* mood.png in Resources */,
 				524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */,
+				445ADC901AB9E3BE00FDCAEE /* appIcon_180x180.png in Resources */,
 				52982DAD1AB270CC0085C600 /* brtgreen.png in Resources */,
 				52B45AD11AB4C704006A4F1B /* Content.bundle in Resources */,
 				521623001A9102950029BF68 /* InfoList.storyboard in Resources */,
@@ -607,11 +645,17 @@
 				52982DAC1AB270CC0085C600 /* blue.png in Resources */,
 				524DEA8A1A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png in Resources */,
 				524DEA831A7B128D009A2EDC /* tabbaritemIcon_About.png in Resources */,
+				445ADC8B1AB9E17900FDCAEE /* appIcon_80x80.png in Resources */,
 				52982DB21AB270CC0085C600 /* red.png in Resources */,
 				52982DB01AB270CC0085C600 /* orange.png in Resources */,
 				524DEA841A7B128D009A2EDC /* tabbaritemIcon_Contact.png in Resources */,
 				520B67231A9F455100F162A4 /* SendBaseline.storyboard in Resources */,
+				445ADC851AB9DD7300FDCAEE /* Launch_750x1334.png in Resources */,
+				5264DAE61AD9CBFA0036F9A1 /* AppInfo.plist in Resources */,
+				445ADC8A1AB9E17900FDCAEE /* appIcon_58x58.png in Resources */,
 				524DEA8B1A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png in Resources */,
+				445ADC931ABA04B600FDCAEE /* LaunchImage_640x960.png in Resources */,
+				445ADC941ABA04B600FDCAEE /* LaunchImage_640x1136.png in Resources */,
 				52982DB11AB270CC0085C600 /* pink.png in Resources */,
 				524DEA691A7B0E26009A2EDC /* LaunchScreen.xib in Resources */,
 				524DEA661A7B0E26009A2EDC /* Images.xcassets in Resources */,
@@ -662,11 +706,11 @@
 				52A09EC31AB4DD8E006C8E3A /* VideoPlayerViewController.m in Sources */,
 				52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */,
 				52C49A451A9A74C000E53A9E /* TableDatum.m in Sources */,
-				521179431A942723001E6F48 /* CDatabaseController.m in Sources */,
 				52982D981AB20C590085C600 /* UnpleasantMoodTableView.m in Sources */,
 				52A09EC01AB4DD09006C8E3A /* VideoListViewController.m in Sources */,
 				521179441A942723001E6F48 /* CDatabaseDelegate.m in Sources */,
 				52C49A481A9A802800E53A9E /* InfoViewController.m in Sources */,
+				5255EE3D1ADA91FD00CFAB8F /* DatabaseController.m in Sources */,
 				524DEA5E1A7B0E26009A2EDC /* AppDelegate.m in Sources */,
 				52964E391A8E0DF7004D1116 /* InfoListTable.m in Sources */,
 				5295B6A11A8CBEE700F2DA35 /* SendBaselineViewController.m in Sources */,
@@ -795,6 +839,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TinyShifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -806,6 +851,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TinyShifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

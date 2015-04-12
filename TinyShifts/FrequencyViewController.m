@@ -31,7 +31,7 @@
     self.navigationItem.title = @"Frequency";
     
     
-    if (screenInstance == 1)
+    //if (screenInstance == 1)
     {
         // Right button
         CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
@@ -41,12 +41,6 @@
         [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
         self.navigationItem.rightBarButtonItem = rightButtonItem;
-    }
-    if (screenInstance == 2)
-    {
-        // This is being created from the tab bar.
-        // Hide the Back button.
-        self.navigationItem.hidesBackButton = YES;
     }
 
     sliderFrequency.value = [GlobalData sharedManager].frequency;
@@ -74,6 +68,7 @@
     
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     TimeOfDayViewController* vc = [sb instantiateViewControllerWithIdentifier:@"TimeOfDayViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:screenInstance];  // tell next screen where on storyboard we are coming from
     [[self navigationController] pushViewController:vc animated:YES];
     
@@ -85,10 +80,6 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
-    if (screenInstance == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
 }
 
 

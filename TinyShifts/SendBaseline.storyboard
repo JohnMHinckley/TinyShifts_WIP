@@ -58,7 +58,7 @@
                                     <constraint firstAttribute="height" constant="60" id="WPd-nd-gT9"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hit submit to transfer the data to us so we can customize and improve your experience withthe app." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TC9-iH-hy5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hit submit to transfer the data to us so we can customize and improve your experience with the app." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="521" translatesAutoresizingMaskIntoConstraints="NO" id="TC9-iH-hy5">
                                 <rect key="frame" x="40" y="410" width="520" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="pDF-mB-rZU"/>

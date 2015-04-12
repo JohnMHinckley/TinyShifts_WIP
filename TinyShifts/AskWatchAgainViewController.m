@@ -55,6 +55,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskRecommendViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskRecommendViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
@@ -64,15 +65,6 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];
     [self portraitLock];
-}
-
--(void) viewWillAppear:(BOOL)animated
-{
-    //if (screenMode == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
-
 }
 
 -(void) portraitLock {
@@ -100,6 +92,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskRecommendViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskRecommendViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
@@ -110,6 +103,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskRecommendViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskRecommendViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 @end

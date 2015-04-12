@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
+#import "CGradientButton.h"
 
 @interface ContactViewController : UIViewController <MFMailComposeViewControllerDelegate>
+- (IBAction)buttonPressedSendEmail:(CGradientButton *)sender;
 
 @end

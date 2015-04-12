@@ -103,18 +103,6 @@
 
 
 
-//- (IBAction)nextButtonPressed:(CGradientButton *)sender {
-//    
-//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
-//    [vc setScreenInstance:1];
-//    [[self navigationController] pushViewController:vc animated:YES];
-//    
-//}
-
-
-
-
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];
     [self portraitLock];
@@ -360,6 +348,7 @@
     // Determine the next view controller.
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];
     [self.navigationController pushViewController:vc animated:YES];
     

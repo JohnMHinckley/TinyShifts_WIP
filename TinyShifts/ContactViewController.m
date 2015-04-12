@@ -43,9 +43,19 @@
                                 forKey:@"orientation"];
     
     
+    //[self composeEmail];
     
+    
+    
+}
+
+
+
+
+-(void) composeEmail
+{
     // email subject
-    NSString* emailTitle = @"Message from Affirmations";
+    NSString* emailTitle = @"Message from TinyShifts";
     
     // email content
     NSString* messageBody = @"";
@@ -59,13 +69,58 @@
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipients];
     
-    // present mail view controller on screen
-    [self presentViewController:mc animated:YES completion:NULL];
-   
     
+    
+    Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
+    if (mailClass != nil)
+    {
+        if ([mailClass canSendMail])
+        {
+            // present mail view controller on screen
+            [self presentViewController:mc animated:YES completion:NULL];
+        }
+        else
+        {
+            //[self launchMailAppOnDevice];
+        }
+    }
+    else
+    {
+        //  [self launchMailAppOnDevice];
+    }
+}
+
+
+
+-(void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail canceled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the mail interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
 
 
+
+- (IBAction)buttonPressedSendEmail:(CGradientButton *)sender {
+    [self composeEmail];
+}
 @end

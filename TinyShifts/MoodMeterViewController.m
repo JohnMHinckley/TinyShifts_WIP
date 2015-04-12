@@ -72,10 +72,12 @@
     if (bResponseIsPleasant)
     {
         PleasantMoodListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"PleasantMoodListViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [[self navigationController] pushViewController:vc animated:YES];
     }
     else{
         UnpleasantMoodListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"UnpleasantMoodListViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [[self navigationController] pushViewController:vc animated:YES];
     }
     
@@ -88,15 +90,6 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];
     [self portraitLock];
-}
-
--(void) viewWillAppear:(BOOL)animated
-{
-    //if (screenMode == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
-
 }
 
 -(void) portraitLock {
@@ -148,10 +141,12 @@
     if (bResponseIsPleasant)
     {
         PleasantMoodListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"PleasantMoodListViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [[self navigationController] pushViewController:vc animated:YES];
     }
     else{
         UnpleasantMoodListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"UnpleasantMoodListViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [[self navigationController] pushViewController:vc animated:YES];
     }
     

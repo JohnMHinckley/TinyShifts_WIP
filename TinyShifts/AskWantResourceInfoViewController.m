@@ -66,6 +66,7 @@
     if (selectedYES)
     {
         ResourceListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"ResourceListViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenInstance:screenInstance];
         [[self navigationController] pushViewController:vc animated:YES];
     }
@@ -73,11 +74,14 @@
         if (firstInstance)
         {
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
+        [vc setScreenMode:1];
         [[self navigationController] pushViewController:vc animated:YES];
         }
         else
         {
             SendSurveyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendSurveyViewController"];
+            vc.navigationItem.hidesBackButton = NO;
             [[self navigationController] pushViewController:vc animated:YES];
         }
     }
@@ -90,10 +94,6 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
-    //if (screenMode == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
 }
 
 
@@ -141,6 +141,7 @@
     // Go to Resource List screen.
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ResourceListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"ResourceListViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:screenInstance];
     [[self navigationController] pushViewController:vc animated:YES];
     
@@ -163,6 +164,8 @@
             [GlobalData sharedManager].wantResourceInfo1 = WANT_RESOURCE_INFO_1_NO; // save result
             
             vc1 = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+            vc1.navigationItem.hidesBackButton = NO;
+            [vc1 setScreenMode:screenInstance];
             [[self navigationController] pushViewController:vc1 animated:YES];
             break;
             
@@ -171,6 +174,7 @@
             [GlobalData sharedManager].wantResourceInfo2 = WANT_RESOURCE_INFO_2_NO; // save result
 
             vc2 = [sb instantiateViewControllerWithIdentifier:@"SendSurveyViewController"];
+            vc2.navigationItem.hidesBackButton = NO;
             [[self navigationController] pushViewController:vc2 animated:YES];
             break;
             

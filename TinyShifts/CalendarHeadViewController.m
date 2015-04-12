@@ -22,6 +22,7 @@
     
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    vc.navigationItem.hidesBackButton = YES;
     [vc setScreenInstance:2];   // signifies that this is coming from the tab bar
     [[self navigationController] pushViewController:vc animated:YES];
 }

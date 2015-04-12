@@ -59,6 +59,7 @@
 
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 
 }
@@ -66,15 +67,6 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];
     [self portraitLock];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    //if (screenMode == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
-
 }
 
 -(void) portraitLock {
@@ -99,6 +91,7 @@
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
 
     [[self navigationController] pushViewController:vc animated:YES];
@@ -110,6 +103,7 @@
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     
     [[self navigationController] pushViewController:vc animated:YES];
@@ -121,6 +115,7 @@
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     
     [[self navigationController] pushViewController:vc animated:YES];
@@ -132,6 +127,7 @@
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     
     [[self navigationController] pushViewController:vc animated:YES];
@@ -143,6 +139,7 @@
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     
     [[self navigationController] pushViewController:vc animated:YES];

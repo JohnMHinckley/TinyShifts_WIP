@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //if (screenMode == 1)
+    if (screenMode == 1)
     {
         // Adjust the navigation item
         // Right button
@@ -75,6 +75,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     AskIfHelpfulViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskIfHelpfulViewController"];
+    vc.navigationItem.hidesBackButton = NO;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
@@ -194,7 +195,6 @@
     UIInterfaceOrientation a = [UIApplication sharedApplication].statusBarOrientation;
     [self positionViews:a];
     
-    self.navigationItem.hidesBackButton = NO;   // always show back button
 }
 
 

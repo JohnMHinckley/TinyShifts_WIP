@@ -85,10 +85,6 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
-    //if (screenMode == 1)
-    {
-        self.navigationItem.hidesBackButton = NO;   // show back button
-    }
 }
 
 
@@ -130,11 +126,13 @@
     if (firstInstance)
     {
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [vc setScreenMode:1];
         [[self navigationController] pushViewController:vc animated:YES];
     }
     else{
         SendSurveyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendSurveyViewController"];
+        vc.navigationItem.hidesBackButton = NO;
         [[self navigationController] pushViewController:vc animated:YES];
     }
 }
