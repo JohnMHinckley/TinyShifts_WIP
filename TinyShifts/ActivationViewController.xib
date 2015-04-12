@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivationViewController">
             <connections>
+                <outlet property="m_LabelActivation" destination="Y7X-mk-cgt" id="PrO-FR-iNd"/>
+                <outlet property="m_TextActivation" destination="BnE-B8-SO8" id="blM-Zk-DlE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,18 +21,6 @@
                     <rect key="frame" x="0.0" y="48" width="600" height="510"/>
                     <color key="backgroundColor" red="0.80392156859999997" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RQk-at-meM">
-                    <rect key="frame" x="257" y="109" width="87" height="30"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="87" id="2ga-g1-EBR"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
-                        <rect key="frame" x="35" y="174" width="160" height="30"/>
-                    </variation>
-                </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your activation code:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Y7X-mk-cgt">
                     <rect key="frame" x="20" y="62" width="95" height="87"/>
                     <constraints>
@@ -38,7 +28,7 @@
                         <constraint firstAttribute="width" constant="95" id="F9w-Ok-tpS"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
                         <rect key="frame" x="0.0" y="123" width="250" height="21"/>
@@ -58,6 +48,19 @@
                         <action selector="OKButtonPressed:" destination="-1" eventType="touchUpInside" id="eTb-84-Yqi"/>
                     </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BnE-B8-SO8">
+                    <rect key="frame" x="255" y="91" width="90" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Tpu-ut-PfC"/>
+                        <constraint firstAttribute="width" constant="90" id="nGo-Om-2uV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="uyT-3G-eEI"/>
+                    </connections>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -68,9 +71,9 @@
                 <constraint firstItem="Y7X-mk-cgt" firstAttribute="bottom" secondItem="R2p-9B-CV7" secondAttribute="top" constant="101" id="X1r-0w-9JX"/>
                 <constraint firstItem="g5I-Me-3UA" firstAttribute="bottom" secondItem="R2p-9B-CV7" secondAttribute="top" constant="101" id="gdu-Ex-QXc"/>
                 <constraint firstItem="R2p-9B-CV7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iLf-Mm-qgT"/>
-                <constraint firstItem="Y7X-mk-cgt" firstAttribute="baseline" secondItem="RQk-at-meM" secondAttribute="baseline" constant="16" id="jfo-HF-7TF"/>
-                <constraint firstItem="R2p-9B-CV7" firstAttribute="centerX" secondItem="RQk-at-meM" secondAttribute="centerX" id="q5N-Zv-4hJ"/>
+                <constraint firstItem="Y7X-mk-cgt" firstAttribute="centerY" secondItem="BnE-B8-SO8" secondAttribute="centerY" id="lvf-iU-cSI"/>
                 <constraint firstItem="R2p-9B-CV7" firstAttribute="right" secondItem="g5I-Me-3UA" secondAttribute="right" constant="20" id="qiO-6a-WLc"/>
+                <constraint firstAttribute="centerX" secondItem="BnE-B8-SO8" secondAttribute="centerX" id="uPQ-UC-9Yt"/>
             </constraints>
         </view>
     </objects>

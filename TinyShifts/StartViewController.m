@@ -8,11 +8,14 @@
 
 #import "StartViewController.h"
 #import "AppDelegate.h"
+#import "CActivationManager.h"
 #import "ActivationViewController.h"
 #import "InfoListViewController.h"
 #import "MoodMeterViewController.h"
 #import "ConstGen.h"
 #import "GlobalData.h"
+#import "Backendless.h"
+#import "RDB_Participants.h"
 
 @interface StartViewController ()
 
@@ -20,9 +23,30 @@
 
 @implementation StartViewController
 
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+//    // -------------- Code for creating a RDB_Participants table in the remote database.  Normally, can be commented out.
+//    Responder* responder = [Responder responder:self
+//                             selResponseHandler:@selector(responseHandlerSendParticipant:)
+//                                selErrorHandler:@selector(errorHandler:)];
+//    
+//    RDB_Participants* record = [[RDB_Participants alloc] init];
+//    
+//    id<IDataStore> dataStore = [backendless.persistenceService of:[RDB_Participants class]];
+//    
+//    [dataStore save:record responder:responder];
+//    //---------------
+
     
     
     // Establish the navigation controller for this line of screens.
@@ -30,29 +54,64 @@
     
     
     // Test for activation.
-    BOOL bActivated = ([GlobalData sharedManager].activated == ACTIVATED_YES);
+    int appIsActivated = [[CActivationManager sharedManager] getActivationStatus];
     
-    if (!bActivated)    // Has user activated app?
+    if (appIsActivated)
     {
-        // User has not activated app.
+        // app is activated
+        
+        // TODO: develop code for starting timers.
+//        [[CScheduleManager sharedManager] startProdTimers]; // Start all non-done timers for prodding.
+//        
+//        [[CScheduleManager sharedManager] startGEPromptTimers]; // Start all non-done timers for GE prompting.
+        
+    }
+    else
+    {
+        // app is not activated
         
         // Disable the tab bar items
         self.tabBarController.tabBar.userInteractionEnabled = NO;
         
         // Create an instance of the activation view controller.
-        ActivationViewController* vc = [[ActivationViewController alloc] initWithNibName:@"ActivationViewController" bundle:nil];
+        ActivationViewController* vc = [[ActivationViewController alloc] initWithNibName:@"ActivationViewController"
+                                                                                  bundle:nil];
         vc.navigationItem.hidesBackButton = YES;
         
-        // Send a pointer to the current navigation controller to the activation view controller so that we can get back to this controller after the activation work is done.
+        // Send a pointer to the current navigation controller to the activation view controller
+        // so that we can get back to this controller after the activation work is done.
         [vc setActiveNavigationController:self.navigationController];
         
-        // Send a pointer to the tab bar controller to the activation view controller, which will enable the tab bar if the app is properly activated.
+        // Send a pointer to the tab bar controller to the activation view controller,
+        // which will enable the tab bar if the app is properly activated.
         [vc setActiveTabBarController:self.tabBarController];
         
         // Display the activation view controller.
         [self.navigationController pushViewController:vc animated:NO];
     }
+    
 }
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(id)responseHandlerSendParticipant:(id)response
+{
+    NSLog(@"Response Handler for send test participant: Response = %@", response);
+    
+    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    
+    return response;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

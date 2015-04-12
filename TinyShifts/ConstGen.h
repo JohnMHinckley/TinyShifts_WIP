@@ -95,4 +95,33 @@
 #define INITIAL_PASS_NO     0
 
 
+
+
+
+//----------------------------------------------------------------------------------------
+// Backendless parameters
+
+// HRC values
+// email = John@HinckleyResearch.com
+// pw = wiggleworm55.
+
+#define BackendlessApplicationID    @"B67AC089-B3B9-6FEE-FFD0-9D6432DAC700"
+#define BackendlessIOSSecretKey     @"EB5A2BEF-5804-C9EC-FF45-E7EBBF016500"
+#define BackendlessApplicationVer   @"v1"
+
+
+// SPH values:
+// email = tinyshifts@umich.edu
+// pw = ?
+/*
+ #define BackendlessApplicationID    @"0AB623A6-8BD0-1333-FF89-FD667FC95F00"
+ #define BackendlessIOSSecretKey     @"255693E8-09D7-8734-FFD4-11FE129E2300"
+ #define BackendlessApplicationVer   @"v1"
+ */
+
+//----------------------------------------------------------------------------------------
+
+
+
+
 #endif

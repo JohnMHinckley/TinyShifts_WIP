@@ -43,6 +43,7 @@ static DatabaseController* sharedSingleton = nil;   // single, static instance o
         // The singleton has not yet been created, so allocate and initialize it here.
         // This is done only once in the program.
         
+        //sharedSingleton = [[super allocWithZone:NULL] init];
         sharedSingleton = [[super alloc] init];
     }
     else
@@ -52,6 +53,24 @@ static DatabaseController* sharedSingleton = nil;   // single, static instance o
     }
     return sharedSingleton;
 }
+
+
+
+//+(id)allocWithZone:(NSZone *)zone
+//{
+//    // NSObject method override.
+//    // Normally, returns a new instance of the receiving class.
+//    
+//    return [self sharedManager];
+//}
+//
+//-(id)copyWithZone:(NSZone*) zone
+//{
+//    // NSObject method override.
+//    // Normally, returns the receiver.
+//    
+//    return self;
+//}
 
 
 
@@ -229,6 +248,8 @@ static DatabaseController* sharedSingleton = nil;   // single, static instance o
         
         // Get the documents path in the app's sandbox
         NSString* path = ((AppDelegate*) [UIApplication sharedApplication].delegate).documentsPath;
+        
+        NSLog(@"Path to database: %@", path);
         
         
         

@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "CGradientButton.h"
 
-@interface ActivationViewController : UIViewController
+@interface ActivationViewController : UIViewController <UITextViewDelegate>
 {
     UINavigationController* activeNavigationController;
     UITabBarController* activeTabBarController;
+    NSString* testCode;
 }
+
 - (IBAction)OKButtonPressed:(CGradientButton *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *m_LabelActivation;
+@property (weak, nonatomic) IBOutlet UITextView *m_TextActivation;
 
 
 -(void) setActiveNavigationController:(UINavigationController*) nc;

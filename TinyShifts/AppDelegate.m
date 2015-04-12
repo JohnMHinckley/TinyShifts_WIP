@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "ConstGen.h"
 #import "GlobalData.h"
+#import "DatabaseController.h"
+#import "Backendless.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +29,20 @@
     [GlobalData sharedManager].activated = ACTIVATED_NO;
     [GlobalData sharedManager].initialPass = INITIAL_PASS_YES;
     [GlobalData sharedManager].frequency = 7;
+    
+    
+    
+    
+    
+    // Setup backendless
+    [backendless initApp:BackendlessApplicationID secret:BackendlessIOSSecretKey version:BackendlessApplicationVer];
+    
+    
+    
+    
+    
+    // Set up the database in the sandbox, if it is not already there.
+    [[DatabaseController sharedManager] createDatabase];
     
     return YES;
 }
