@@ -78,6 +78,22 @@
 		5255F0D61ADABFDA00CFAB8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F0D21ADABFDA00CFAB8F /* UIKit.framework */; };
 		5255F0D81ADAC04800CFAB8F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F0D71ADAC04800CFAB8F /* libz.dylib */; };
 		5255F0DC1ADACAE700CFAB8F /* RDB_Participants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0DB1ADACAE700CFAB8F /* RDB_Participants.m */; };
+		5255F0DF1ADB37EC00CFAB8F /* RDB_Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0DE1ADB37EC00CFAB8F /* RDB_Notifications.m */; };
+		5255F0E21ADB3CD400CFAB8F /* Notifications_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0E11ADB3CD400CFAB8F /* Notifications_Rec.m */; };
+		5255F0E51ADB47DC00CFAB8F /* RDB_DeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0E41ADB47DC00CFAB8F /* RDB_DeviceData.m */; };
+		5255F0E81ADB49B300CFAB8F /* DeviceData_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0E71ADB49B300CFAB8F /* DeviceData_Rec.m */; };
+		5255F0EB1ADB4D1600CFAB8F /* InfoReadingActivity_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0EA1ADB4D1600CFAB8F /* InfoReadingActivity_Rec.m */; };
+		5255F0EE1ADB4EE200CFAB8F /* RDB_InfoReadingActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0ED1ADB4EE200CFAB8F /* RDB_InfoReadingActivity.m */; };
+		5255F0F11ADB507000CFAB8F /* PersonalData_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0F01ADB507000CFAB8F /* PersonalData_Rec.m */; };
+		5255F0F41ADB52B600CFAB8F /* RDB_PersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0F31ADB52B600CFAB8F /* RDB_PersonalData.m */; };
+		5255F0F71ADB545800CFAB8F /* Schedule_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0F61ADB545800CFAB8F /* Schedule_Rec.m */; };
+		5255F0FA1ADB563100CFAB8F /* RDB_Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0F91ADB563100CFAB8F /* RDB_Schedule.m */; };
+		5255F0FD1ADB576200CFAB8F /* SurveyData_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0FC1ADB576200CFAB8F /* SurveyData_Rec.m */; };
+		5255F1001ADB5B1D00CFAB8F /* RDB_SurveyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0FF1ADB5B1D00CFAB8F /* RDB_SurveyData.m */; };
+		5255F1031ADB5CCC00CFAB8F /* RandomVideoPlayActivity_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F1021ADB5CCC00CFAB8F /* RandomVideoPlayActivity_Rec.m */; };
+		5255F1061ADB5D8A00CFAB8F /* RDB_RandomVideoPlayActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F1051ADB5D8A00CFAB8F /* RDB_RandomVideoPlayActivity.m */; };
+		5255F1091ADB5E2300CFAB8F /* ContactActivity_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F1081ADB5E2300CFAB8F /* ContactActivity_Rec.m */; };
+		5255F10C1ADB5EB600CFAB8F /* RDB_ContactActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F10B1ADB5EB600CFAB8F /* RDB_ContactActivity.m */; };
 		5264DADC1AD9570C0036F9A1 /* Database.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5264DADB1AD9570C0036F9A1 /* Database.bundle */; };
 		5264DAE61AD9CBFA0036F9A1 /* AppInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5264DAE51AD9CBFA0036F9A1 /* AppInfo.plist */; };
 		52761E4C1A8839DD0018E877 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52761E4B1A8839DD0018E877 /* StartViewController.m */; };
@@ -402,6 +418,38 @@
 		5255F0D71ADAC04800CFAB8F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5255F0DA1ADACAE700CFAB8F /* RDB_Participants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_Participants.h; sourceTree = "<group>"; };
 		5255F0DB1ADACAE700CFAB8F /* RDB_Participants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_Participants.m; sourceTree = "<group>"; };
+		5255F0DD1ADB37EC00CFAB8F /* RDB_Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_Notifications.h; sourceTree = "<group>"; };
+		5255F0DE1ADB37EC00CFAB8F /* RDB_Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_Notifications.m; sourceTree = "<group>"; };
+		5255F0E01ADB3CD400CFAB8F /* Notifications_Rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications_Rec.h; sourceTree = "<group>"; };
+		5255F0E11ADB3CD400CFAB8F /* Notifications_Rec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications_Rec.m; sourceTree = "<group>"; };
+		5255F0E31ADB47DC00CFAB8F /* RDB_DeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_DeviceData.h; sourceTree = "<group>"; };
+		5255F0E41ADB47DC00CFAB8F /* RDB_DeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_DeviceData.m; sourceTree = "<group>"; };
+		5255F0E61ADB49B300CFAB8F /* DeviceData_Rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceData_Rec.h; sourceTree = "<group>"; };
+		5255F0E71ADB49B300CFAB8F /* DeviceData_Rec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceData_Rec.m; sourceTree = "<group>"; };
+		5255F0E91ADB4D1600CFAB8F /* InfoReadingActivity_Rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoReadingActivity_Rec.h; sourceTree = "<group>"; };
+		5255F0EA1ADB4D1600CFAB8F /* InfoReadingActivity_Rec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoReadingActivity_Rec.m; sourceTree = "<group>"; };
+		5255F0EC1ADB4EE200CFAB8F /* RDB_InfoReadingActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_InfoReadingActivity.h; sourceTree = "<group>"; };
+		5255F0ED1ADB4EE200CFAB8F /* RDB_InfoReadingActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_InfoReadingActivity.m; sourceTree = "<group>"; };
+		5255F0EF1ADB507000CFAB8F /* PersonalData_Rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalData_Rec.h; sourceTree = "<group>"; };
+		5255F0F01ADB507000CFAB8F /* PersonalData_Rec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalData_Rec.m; sourceTree = "<group>"; };
+		5255F0F21ADB52B600CFAB8F /* RDB_PersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_PersonalData.h; sourceTree = "<group>"; };
+		5255F0F31ADB52B600CFAB8F /* RDB_PersonalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_PersonalData.m; sourceTree = "<group>"; };
+		5255F0F51ADB545800CFAB8F /* Schedule_Rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule_Rec.h; sourceTree = "<group>"; };
+		5255F0F61ADB545800CFAB8F /* Schedule_Rec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule_Rec.m; sourceTree = "<group>"; };
+		5255F0F81ADB563100CFAB8F /* RDB_Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_Schedule.h; sourceTree = "<group>"; };
+		5255F0F91ADB563100CFAB8F /* RDB_Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_Schedule.m; sourceTree = "<group>"; };
+		5255F0FB1ADB576200CFAB8F /* SurveyData_Rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyData_Rec.h; sourceTree = "<group>"; };
+		5255F0FC1ADB576200CFAB8F /* SurveyData_Rec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyData_Rec.m; sourceTree = "<group>"; };
+		5255F0FE1ADB5B1D00CFAB8F /* RDB_SurveyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_SurveyData.h; sourceTree = "<group>"; };
+		5255F0FF1ADB5B1D00CFAB8F /* RDB_SurveyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_SurveyData.m; sourceTree = "<group>"; };
+		5255F1011ADB5CCC00CFAB8F /* RandomVideoPlayActivity_Rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomVideoPlayActivity_Rec.h; sourceTree = "<group>"; };
+		5255F1021ADB5CCC00CFAB8F /* RandomVideoPlayActivity_Rec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomVideoPlayActivity_Rec.m; sourceTree = "<group>"; };
+		5255F1041ADB5D8A00CFAB8F /* RDB_RandomVideoPlayActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_RandomVideoPlayActivity.h; sourceTree = "<group>"; };
+		5255F1051ADB5D8A00CFAB8F /* RDB_RandomVideoPlayActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_RandomVideoPlayActivity.m; sourceTree = "<group>"; };
+		5255F1071ADB5E2300CFAB8F /* ContactActivity_Rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactActivity_Rec.h; sourceTree = "<group>"; };
+		5255F1081ADB5E2300CFAB8F /* ContactActivity_Rec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactActivity_Rec.m; sourceTree = "<group>"; };
+		5255F10A1ADB5EB600CFAB8F /* RDB_ContactActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_ContactActivity.h; sourceTree = "<group>"; };
+		5255F10B1ADB5EB600CFAB8F /* RDB_ContactActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_ContactActivity.m; sourceTree = "<group>"; };
 		5264DADB1AD9570C0036F9A1 /* Database.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Database.bundle; sourceTree = "<group>"; };
 		5264DAE51AD9CBFA0036F9A1 /* AppInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppInfo.plist; sourceTree = "<group>"; };
 		52761E4A1A8839DD0018E877 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
@@ -573,6 +621,22 @@
 				5255EFD71ADA956600CFAB8F /* CDatabaseInterface.m */,
 				5255EE3B1ADA91FD00CFAB8F /* DatabaseController.h */,
 				5255EE3C1ADA91FD00CFAB8F /* DatabaseController.m */,
+				5255F0E01ADB3CD400CFAB8F /* Notifications_Rec.h */,
+				5255F0E11ADB3CD400CFAB8F /* Notifications_Rec.m */,
+				5255F0E61ADB49B300CFAB8F /* DeviceData_Rec.h */,
+				5255F0E71ADB49B300CFAB8F /* DeviceData_Rec.m */,
+				5255F0E91ADB4D1600CFAB8F /* InfoReadingActivity_Rec.h */,
+				5255F0EA1ADB4D1600CFAB8F /* InfoReadingActivity_Rec.m */,
+				5255F0EF1ADB507000CFAB8F /* PersonalData_Rec.h */,
+				5255F0F01ADB507000CFAB8F /* PersonalData_Rec.m */,
+				5255F0F51ADB545800CFAB8F /* Schedule_Rec.h */,
+				5255F0F61ADB545800CFAB8F /* Schedule_Rec.m */,
+				5255F0FB1ADB576200CFAB8F /* SurveyData_Rec.h */,
+				5255F0FC1ADB576200CFAB8F /* SurveyData_Rec.m */,
+				5255F1011ADB5CCC00CFAB8F /* RandomVideoPlayActivity_Rec.h */,
+				5255F1021ADB5CCC00CFAB8F /* RandomVideoPlayActivity_Rec.m */,
+				5255F1071ADB5E2300CFAB8F /* ContactActivity_Rec.h */,
+				5255F1081ADB5E2300CFAB8F /* ContactActivity_Rec.m */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -1063,6 +1127,22 @@
 			children = (
 				5255F0DA1ADACAE700CFAB8F /* RDB_Participants.h */,
 				5255F0DB1ADACAE700CFAB8F /* RDB_Participants.m */,
+				5255F0DD1ADB37EC00CFAB8F /* RDB_Notifications.h */,
+				5255F0DE1ADB37EC00CFAB8F /* RDB_Notifications.m */,
+				5255F0E31ADB47DC00CFAB8F /* RDB_DeviceData.h */,
+				5255F0E41ADB47DC00CFAB8F /* RDB_DeviceData.m */,
+				5255F0EC1ADB4EE200CFAB8F /* RDB_InfoReadingActivity.h */,
+				5255F0ED1ADB4EE200CFAB8F /* RDB_InfoReadingActivity.m */,
+				5255F0F21ADB52B600CFAB8F /* RDB_PersonalData.h */,
+				5255F0F31ADB52B600CFAB8F /* RDB_PersonalData.m */,
+				5255F0F81ADB563100CFAB8F /* RDB_Schedule.h */,
+				5255F0F91ADB563100CFAB8F /* RDB_Schedule.m */,
+				5255F0FE1ADB5B1D00CFAB8F /* RDB_SurveyData.h */,
+				5255F0FF1ADB5B1D00CFAB8F /* RDB_SurveyData.m */,
+				5255F1041ADB5D8A00CFAB8F /* RDB_RandomVideoPlayActivity.h */,
+				5255F1051ADB5D8A00CFAB8F /* RDB_RandomVideoPlayActivity.m */,
+				5255F10A1ADB5EB600CFAB8F /* RDB_ContactActivity.h */,
+				5255F10B1ADB5EB600CFAB8F /* RDB_ContactActivity.m */,
 			);
 			name = "Remote Database";
 			sourceTree = "<group>";
@@ -1366,16 +1446,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5255F0DF1ADB37EC00CFAB8F /* RDB_Notifications.m in Sources */,
 				52761E551A883B630018E877 /* ContactViewController.m in Sources */,
+				5255F1061ADB5D8A00CFAB8F /* RDB_RandomVideoPlayActivity.m in Sources */,
 				522DB8F31A8D6644003EC3E1 /* AskWatchAgainViewController.m in Sources */,
 				522DB8DF1A8D633C003EC3E1 /* PleasantMoodListViewController.m in Sources */,
 				52982D9E1AB20CA50085C600 /* UnpleasantMoodTableViewCell.m in Sources */,
 				522DB8F81A8D66E3003EC3E1 /* AskRecommendViewController.m in Sources */,
 				52761E4C1A8839DD0018E877 /* StartViewController.m in Sources */,
+				5255F0E51ADB47DC00CFAB8F /* RDB_DeviceData.m in Sources */,
 				52AF131B1A8B7B70000CBD8B /* AboutHeadViewController.m in Sources */,
 				522DB8EE1A8D65AC003EC3E1 /* AskIfHelpfulViewController.m in Sources */,
 				52CACE591A898BB600064614 /* AllVideosHeadViewController.m in Sources */,
+				5255F0EB1ADB4D1600CFAB8F /* InfoReadingActivity_Rec.m in Sources */,
 				522DB8DA1A8D6284003EC3E1 /* UnpleasantMoodListViewController.m in Sources */,
+				5255F0FA1ADB563100CFAB8F /* RDB_Schedule.m in Sources */,
 				5295B68D1A8CBBD500F2DA35 /* EthnicityViewController.m in Sources */,
 				5255EFD51ADA94BA00CFAB8F /* CActivationManager.m in Sources */,
 				5255EFD81ADA956600CFAB8F /* CDatabaseInterface.m in Sources */,
@@ -1384,29 +1469,40 @@
 				522DB8FD1A8D679D003EC3E1 /* SendSurveyViewController.m in Sources */,
 				5295B6921A8CBCB300F2DA35 /* CalendarViewController.m in Sources */,
 				5211793C1A941F72001E6F48 /* InfoListTableViewCell.m in Sources */,
+				5255F0F71ADB545800CFAB8F /* Schedule_Rec.m in Sources */,
+				5255F1091ADB5E2300CFAB8F /* ContactActivity_Rec.m in Sources */,
 				5243D8D71AB31610003DAE9C /* GlobalData.m in Sources */,
 				521179491A9429B7001E6F48 /* InfoTopic.m in Sources */,
 				52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */,
 				522DB8E41A8D641C003EC3E1 /* ResourceListViewController.m in Sources */,
+				5255F1031ADB5CCC00CFAB8F /* RandomVideoPlayActivity_Rec.m in Sources */,
 				52CACE561A8985FF00064614 /* CGradientButton.m in Sources */,
 				5295B6971A8CBD8D00F2DA35 /* FrequencyViewController.m in Sources */,
+				5255F0E21ADB3CD400CFAB8F /* Notifications_Rec.m in Sources */,
 				5295B66D1A8CAE8600F2DA35 /* InfoListViewController.m in Sources */,
 				5295B69C1A8CBE3300F2DA35 /* TimeOfDayViewController.m in Sources */,
+				5255F0F41ADB52B600CFAB8F /* RDB_PersonalData.m in Sources */,
+				5255F0EE1ADB4EE200CFAB8F /* RDB_InfoReadingActivity.m in Sources */,
 				52982D9B1AB20C940085C600 /* PleasantMoodTableViewCell.m in Sources */,
+				5255F10C1ADB5EB600CFAB8F /* RDB_ContactActivity.m in Sources */,
 				52A09EC31AB4DD8E006C8E3A /* VideoPlayerViewController.m in Sources */,
+				5255F1001ADB5B1D00CFAB8F /* RDB_SurveyData.m in Sources */,
 				52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */,
 				52C49A451A9A74C000E53A9E /* TableDatum.m in Sources */,
 				52982D981AB20C590085C600 /* UnpleasantMoodTableView.m in Sources */,
 				52A09EC01AB4DD09006C8E3A /* VideoListViewController.m in Sources */,
+				5255F0FD1ADB576200CFAB8F /* SurveyData_Rec.m in Sources */,
 				52C49A481A9A802800E53A9E /* InfoViewController.m in Sources */,
 				5255EE3D1ADA91FD00CFAB8F /* DatabaseController.m in Sources */,
 				5255F0DC1ADACAE700CFAB8F /* RDB_Participants.m in Sources */,
 				524DEA5E1A7B0E26009A2EDC /* AppDelegate.m in Sources */,
+				5255F0F11ADB507000CFAB8F /* PersonalData_Rec.m in Sources */,
 				52964E391A8E0DF7004D1116 /* InfoListTable.m in Sources */,
 				5295B6A11A8CBEE700F2DA35 /* SendBaselineViewController.m in Sources */,
 				5295B6811A8CB9A200F2DA35 /* GenderViewController.m in Sources */,
 				524DEA5B1A7B0E26009A2EDC /* main.m in Sources */,
 				522DB8E91A8D64D4003EC3E1 /* AskWantResourceInfoViewController.m in Sources */,
+				5255F0E81ADB49B300CFAB8F /* DeviceData_Rec.m in Sources */,
 				5295B6881A8CBB1C00F2DA35 /* AgeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
