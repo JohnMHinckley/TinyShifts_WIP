@@ -12,8 +12,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize didTransmitThisRecord;
 
 
@@ -68,8 +68,8 @@ static ContactActivity_Rec* sharedSingleton = nil;   // single, static instance 
 -(id) init
 {
     participantId = [[NSMutableString alloc] initWithString:@""];
-    date = [[NSMutableString alloc] initWithString:@""];
-    time = [[NSMutableString alloc] initWithString:@""];
+    dateRecord = [[NSMutableString alloc] initWithString:@""];
+    timeRecord = [[NSMutableString alloc] initWithString:@""];
     
     [self clearData];
     
@@ -88,8 +88,8 @@ static ContactActivity_Rec* sharedSingleton = nil;   // single, static instance 
     
     idRecord                = 0;
     participantId           = @"";
-    date                    = @"";
-    time                    = @"";
+    dateRecord                    = @"";
+    timeRecord                    = @"";
     didTransmitThisRecord   = 0;
 }
 

@@ -13,8 +13,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize deviceMfg;
 @synthesize deviceModel;
 @synthesize osVersion;
@@ -31,8 +31,8 @@
     
     idRecord        = [DeviceData_Rec sharedManager].idRecord;
     participantId   = [DeviceData_Rec sharedManager].participantId;
-    date            = [DeviceData_Rec sharedManager].date;
-    time            = [DeviceData_Rec sharedManager].time;
+    dateRecord            = [DeviceData_Rec sharedManager].dateRecord;
+    timeRecord            = [DeviceData_Rec sharedManager].timeRecord;
     deviceMfg       = [DeviceData_Rec sharedManager].deviceMfg;
     deviceModel     = [DeviceData_Rec sharedManager].deviceModel;
     osVersion       = [DeviceData_Rec sharedManager].osVersion;

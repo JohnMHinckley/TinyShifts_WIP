@@ -18,6 +18,10 @@
 @property int moodTableSelection;   // selection from both unpleasant and pleasant mood tables
 @property int selectedVideo;        // index of video to be viewed
 @property int wantResourceInfo1;    // wants resource info, first time asked.
+@property (nonatomic, strong) NSString* dateStartVideoPlay; // date of start video view
+@property (nonatomic, strong) NSString* timeStartVideoPlay; // time of start video view
+@property (nonatomic, strong) NSString* dateEndVideoPlay;   // date of end video view
+@property (nonatomic, strong) NSString* timeEndVideoPlay;   // time of end video view
 @property int wantResourceInfo2;    // wants resource info, second time asked.
 @property int videoWasHelpful;      // was the video helpful?
 @property int videoWatchAgain;      // watch it again?

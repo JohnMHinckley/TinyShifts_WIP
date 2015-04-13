@@ -13,8 +13,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 
 
 
@@ -27,8 +27,8 @@
     
     idRecord            = [ContactActivity_Rec sharedManager].idRecord;
     participantId       = [ContactActivity_Rec sharedManager].participantId;
-    date                = [ContactActivity_Rec sharedManager].date;
-    time                = [ContactActivity_Rec sharedManager].time;
+    dateRecord                = [ContactActivity_Rec sharedManager].dateRecord;
+    timeRecord                = [ContactActivity_Rec sharedManager].timeRecord;
     
     return self;
     

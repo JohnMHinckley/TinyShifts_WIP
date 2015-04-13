@@ -13,8 +13,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize weeklyFrequency;
 @synthesize availableMorning;
 @synthesize availableNoon;
@@ -31,8 +31,8 @@
     
     idRecord            = [Schedule_Rec sharedManager].idRecord;
     participantId       = [Schedule_Rec sharedManager].participantId;
-    date                = [Schedule_Rec sharedManager].date;
-    time                = [Schedule_Rec sharedManager].time;
+    dateRecord                = [Schedule_Rec sharedManager].dateRecord;
+    timeRecord                = [Schedule_Rec sharedManager].timeRecord;
     weeklyFrequency     = [Schedule_Rec sharedManager].weeklyFrequency;
     availableMorning    = [Schedule_Rec sharedManager].availableMorning;
     availableNoon       = [Schedule_Rec sharedManager].availableNoon;

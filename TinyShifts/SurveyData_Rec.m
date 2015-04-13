@@ -12,8 +12,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize moodFeeling;
 @synthesize moodEnergy;
 @synthesize moodCode;
@@ -81,8 +81,8 @@ static SurveyData_Rec* sharedSingleton = nil;   // single, static instance of th
 -(id) init
 {
     participantId = [[NSMutableString alloc] initWithString:@""];
-    date = [[NSMutableString alloc] initWithString:@""];
-    time = [[NSMutableString alloc] initWithString:@""];
+    dateRecord = [[NSMutableString alloc] initWithString:@""];
+    timeRecord = [[NSMutableString alloc] initWithString:@""];
     dateStartVideoPlay = [[NSMutableString alloc] initWithString:@""];
     timeStartVideoPlay = [[NSMutableString alloc] initWithString:@""];
     dateEndVideoPlay = [[NSMutableString alloc] initWithString:@""];
@@ -105,8 +105,8 @@ static SurveyData_Rec* sharedSingleton = nil;   // single, static instance of th
     
     idRecord                = 0;
     participantId           = @"";
-    date                    = @"";
-    time                    = @"";
+    dateRecord                    = @"";
+    timeRecord                    = @"";
     moodFeeling             = 0;
     moodEnergy              = 0;
     moodCode                = 0;

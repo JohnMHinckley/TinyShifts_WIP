@@ -7,7 +7,10 @@
 //
 
 #import "ContactViewController.h"
-
+#import "CDatabaseInterface.h"
+#import "Backendless.h"
+#import "RDB_ContactActivity.h"
+#import "ContactActivity_Rec.h"
 
 @interface ContactViewController ()
 
@@ -121,6 +124,78 @@
 
 
 - (IBAction)buttonPressedSendEmail:(CGradientButton *)sender {
+    
+    
+    // Submit the contact activity information and then compose an email.
+    
+    ContactActivity_Rec* rec = [ContactActivity_Rec sharedManager];
+    
+    rec.idRecord++;
+    rec.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
+    
+    // Get the current date and time and save these in the ContactActivity_Rec object.
+    NSDateFormatter *dateFormatter1;
+    NSDateFormatter *dateFormatter2;
+    
+    //date formatter with just date and no time
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
+    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
+    
+    //date formatter with no date and just time
+    dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
+    
+    rec.dateRecord = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
+    rec.timeRecord = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
+    
+    
+    // Send the survey data to the remote database
+    
+    Responder* responder = [Responder responder:self
+                             selResponseHandler:@selector(responseHandlerSendContactActivity:)
+                                selErrorHandler:@selector(errorHandler:)];
+    
+    RDB_ContactActivity* record = [[RDB_ContactActivity alloc] init];
+    
+    id<IDataStore> dataStore = [backendless.persistenceService of:[RDB_ContactActivity class]];
+    
+    [dataStore save:record responder:responder];
+    
+    
+    
+    
     [self composeEmail];
 }
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(id)responseHandlerSendContactActivity:(id)response
+{
+    NSLog(@"Response Handler for send ContactActivity: Response = %@", response);
+    
+    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    
+    return response;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+-(void)errorHandler:(Fault *)fault
+{
+    NSLog(@"In error handler.");
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
 @end

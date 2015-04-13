@@ -13,8 +13,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize videoShown;
 @synthesize dateStartVideoPlay;
 @synthesize timeStartVideoPlay;
@@ -31,8 +31,8 @@
     
     idRecord            = [RandomVideoPlayActivity_Rec sharedManager].idRecord;
     participantId       = [RandomVideoPlayActivity_Rec sharedManager].participantId;
-    date                = [RandomVideoPlayActivity_Rec sharedManager].date;
-    time                = [RandomVideoPlayActivity_Rec sharedManager].time;
+    dateRecord                = [RandomVideoPlayActivity_Rec sharedManager].dateRecord;
+    timeRecord                = [RandomVideoPlayActivity_Rec sharedManager].timeRecord;
     videoShown          = [RandomVideoPlayActivity_Rec sharedManager].videoShown;
     dateStartVideoPlay  = [RandomVideoPlayActivity_Rec sharedManager].dateStartVideoPlay;
     timeStartVideoPlay  = [RandomVideoPlayActivity_Rec sharedManager].timeStartVideoPlay;

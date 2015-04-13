@@ -13,8 +13,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize moodFeeling;
 @synthesize moodEnergy;
 @synthesize moodCode;
@@ -39,8 +39,8 @@
     
     idRecord            = [SurveyData_Rec sharedManager].idRecord;
     participantId       = [SurveyData_Rec sharedManager].participantId;
-    date                = [SurveyData_Rec sharedManager].date;
-    time                = [SurveyData_Rec sharedManager].time;
+    dateRecord                = [SurveyData_Rec sharedManager].dateRecord;
+    timeRecord                = [SurveyData_Rec sharedManager].timeRecord;
     moodFeeling         = [SurveyData_Rec sharedManager].moodFeeling;
     moodEnergy          = [SurveyData_Rec sharedManager].moodEnergy;
     moodCode            = [SurveyData_Rec sharedManager].moodCode;

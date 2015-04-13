@@ -19,6 +19,10 @@
 @synthesize moodTableSelection;
 @synthesize selectedVideo;
 @synthesize wantResourceInfo1;
+@synthesize dateStartVideoPlay;
+@synthesize timeStartVideoPlay;
+@synthesize dateEndVideoPlay;
+@synthesize timeEndVideoPlay;
 @synthesize wantResourceInfo2;
 @synthesize videoWasHelpful;
 @synthesize videoWatchAgain;

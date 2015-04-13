@@ -13,8 +13,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize gender;
 @synthesize age;
 @synthesize ethnicity;
@@ -29,8 +29,8 @@
     
     idRecord        = [PersonalData_Rec sharedManager].idRecord;
     participantId   = [PersonalData_Rec sharedManager].participantId;
-    date            = [PersonalData_Rec sharedManager].date;
-    time            = [PersonalData_Rec sharedManager].time;
+    dateRecord            = [PersonalData_Rec sharedManager].dateRecord;
+    timeRecord            = [PersonalData_Rec sharedManager].timeRecord;
     gender          = [PersonalData_Rec sharedManager].gender;
     age             = [PersonalData_Rec sharedManager].age;
     ethnicity       = [PersonalData_Rec sharedManager].ethnicity;

@@ -12,8 +12,8 @@
 
 @property NSInteger idRecord;                           // identifies specific notification
 @property (nonatomic, strong) NSString* participantId;  // id of participant
-@property (nonatomic, strong) NSString* date;           // date of record creation
-@property (nonatomic, strong) NSString* time;           // time of record creation
+@property (nonatomic, strong) NSString* dateRecord;           // date of record creation
+@property (nonatomic, strong) NSString* timeRecord;           // time of record creation
 @property NSInteger moodFeeling;                        // mood ranking from mood-meter
 @property NSInteger moodEnergy;                         // energy ranking from mood-meter
 @property NSInteger moodCode;                           // code for specific mood situation

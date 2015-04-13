@@ -13,8 +13,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize gender;
 @synthesize age;
 @synthesize ethnicity;
@@ -72,8 +72,8 @@ static PersonalData_Rec* sharedSingleton = nil;   // single, static instance of 
 -(id) init
 {
     participantId = [[NSMutableString alloc] initWithString:@""];
-    date = [[NSMutableString alloc] initWithString:@""];
-    time = [[NSMutableString alloc] initWithString:@""];
+    dateRecord = [[NSMutableString alloc] initWithString:@""];
+    timeRecord = [[NSMutableString alloc] initWithString:@""];
     
     [self clearData];
     
@@ -92,8 +92,8 @@ static PersonalData_Rec* sharedSingleton = nil;   // single, static instance of 
     
     idRecord                = 0;
     participantId           = @"";
-    date                    = @"";
-    time                    = @"";
+    dateRecord                    = @"";
+    timeRecord                    = @"";
     gender                  = GENDER_UNSPEC;
     age                     = 0;
     ethnicity               = ETHNICITY_UNSPEC;

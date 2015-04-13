@@ -13,6 +13,8 @@
 #import "GenderViewController.h"
 #import "CGradientButton.h"
 #import "AppDelegate.h"
+#import "InfoReadingActivity_Rec.h"
+#import "CDatabaseInterface.h"
 
 @interface InfoListViewController ()
 {
@@ -103,6 +105,37 @@
     
     // Pass the table cell label string to also be used as the title at the top of the next screen.
     ((InfoViewController*)[segue destinationViewController]).navigationTitleText = (NSMutableString*)((TableDatum*)[arrayTableCellData objectAtIndex:((InfoListTableViewCell*)sender).index]).label;
+    
+    
+    
+    
+    // Record part of the database record for this InfoReadingActivity.
+
+    InfoReadingActivity_Rec* rec = [InfoReadingActivity_Rec sharedManager];
+    
+    rec.idRecord++; // increment the record id
+    
+    rec.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
+    
+    // Get the current date and time and save these in the InfoReadingActivity_Rec object.
+    NSDateFormatter *dateFormatter1;
+    NSDateFormatter *dateFormatter2;
+    
+    //date formatter with just date and no time
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
+    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
+    
+    //date formatter with no date and just time
+    dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
+    
+    rec.dateStartReading = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
+    rec.timeStartReading = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
+
+    rec.infoPageRead = ((InfoListTableViewCell*)sender).index;  // identifies which page is being read.
+    
     
 }
 

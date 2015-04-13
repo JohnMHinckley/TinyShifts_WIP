@@ -12,8 +12,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize weeklyFrequency;
 @synthesize availableMorning;
 @synthesize availableNoon;
@@ -73,8 +73,8 @@ static Schedule_Rec* sharedSingleton = nil;   // single, static instance of this
 -(id) init
 {
     participantId = [[NSMutableString alloc] initWithString:@""];
-    date = [[NSMutableString alloc] initWithString:@""];
-    time = [[NSMutableString alloc] initWithString:@""];
+    dateRecord = [[NSMutableString alloc] initWithString:@""];
+    timeRecord = [[NSMutableString alloc] initWithString:@""];
     
     [self clearData];
     
@@ -93,8 +93,8 @@ static Schedule_Rec* sharedSingleton = nil;   // single, static instance of this
     
     idRecord                = 0;
     participantId           = @"";
-    date                    = @"";
-    time                    = @"";
+    dateRecord                    = @"";
+    timeRecord                    = @"";
     weeklyFrequency         = 0;
     availableMorning        = 0;
     availableNoon           = 0;

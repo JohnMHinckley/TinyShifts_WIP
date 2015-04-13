@@ -853,7 +853,7 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     [[DatabaseController sharedManager] openDB];
     
     
-    NSString *qsql = [NSString stringWithFormat:@"SELECT idParticipantCode from MyIdentity limit 1"];
+    NSString *qsql = [NSString stringWithFormat:@"SELECT participantId from MyIdentity limit 1"];
     
     sqlite3_stmt *statement;
     if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])

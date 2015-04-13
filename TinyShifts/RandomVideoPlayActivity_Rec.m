@@ -12,8 +12,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize videoShown;
 @synthesize dateStartVideoPlay;
 @synthesize timeStartVideoPlay;
@@ -73,8 +73,8 @@ static RandomVideoPlayActivity_Rec* sharedSingleton = nil;   // single, static i
 -(id) init
 {
     participantId = [[NSMutableString alloc] initWithString:@""];
-    date = [[NSMutableString alloc] initWithString:@""];
-    time = [[NSMutableString alloc] initWithString:@""];
+    dateRecord = [[NSMutableString alloc] initWithString:@""];
+    timeRecord = [[NSMutableString alloc] initWithString:@""];
     dateStartVideoPlay = [[NSMutableString alloc] initWithString:@""];
     timeStartVideoPlay = [[NSMutableString alloc] initWithString:@""];
     dateEndVideoPlay = [[NSMutableString alloc] initWithString:@""];
@@ -97,8 +97,8 @@ static RandomVideoPlayActivity_Rec* sharedSingleton = nil;   // single, static i
     
     idRecord                = 0;
     participantId           = @"";
-    date                    = @"";
-    time                    = @"";
+    dateRecord                    = @"";
+    timeRecord                    = @"";
     videoShown              = 0;
     dateStartVideoPlay      = @"";
     timeStartVideoPlay      = @"";

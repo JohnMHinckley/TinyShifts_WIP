@@ -12,8 +12,8 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize date;
-@synthesize time;
+@synthesize dateRecord;
+@synthesize timeRecord;
 @synthesize deviceMfg;
 @synthesize deviceModel;
 @synthesize osVersion;
@@ -73,8 +73,8 @@ static DeviceData_Rec* sharedSingleton = nil;   // single, static instance of th
 -(id) init
 {
     participantId = [[NSMutableString alloc] initWithString:@""];
-    date = [[NSMutableString alloc] initWithString:@""];
-    time = [[NSMutableString alloc] initWithString:@""];
+    dateRecord = [[NSMutableString alloc] initWithString:@""];
+    timeRecord = [[NSMutableString alloc] initWithString:@""];
     deviceMfg = [[NSMutableString alloc] initWithString:@""];
     deviceModel = [[NSMutableString alloc] initWithString:@""];
     osVersion = [[NSMutableString alloc] initWithString:@""];
@@ -98,8 +98,8 @@ static DeviceData_Rec* sharedSingleton = nil;   // single, static instance of th
     
     idRecord                = 0;
     participantId           = @"";
-    date                    = @"";
-    time                    = @"";
+    dateRecord                    = @"";
+    timeRecord                    = @"";
     deviceMfg               = @"";
     deviceModel             = @"";
     osVersion               = @"";

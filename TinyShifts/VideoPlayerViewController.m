@@ -13,6 +13,10 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "ConstGen.h"
 #import "GlobalData.h"
+#import "RandomVideoPlayActivity_Rec.h"
+#import "RDB_RandomVideoPlayActivity.h"
+#import "CDatabaseInterface.h"
+#import "Backendless.h"
 
 @interface VideoPlayerViewController ()
 {
@@ -87,11 +91,138 @@
     [self portraitUnLock];
     
     
+    
+    
+    
+    
+    // Get the current date/time
+    // Get the current date and time and save these in the GlobalData object.
+    NSDateFormatter *dateFormatter1;
+    NSDateFormatter *dateFormatter2;
+    
+    //date formatter with just date and no time
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
+    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
+    
+    //date formatter with no date and just time
+    dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
+    
+    [GlobalData sharedManager].dateStartVideoPlay = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
+    [GlobalData sharedManager].timeStartVideoPlay = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
+    
+}
+
+
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    
+    // Get the current date/time
+    // Get the current date and time and save these in the GlobalData object.
+    NSDateFormatter *dateFormatter1;
+    NSDateFormatter *dateFormatter2;
+    
+    //date formatter with just date and no time
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
+    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
+    
+    //date formatter with no date and just time
+    dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
+    
+    [GlobalData sharedManager].dateEndVideoPlay = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
+    [GlobalData sharedManager].timeEndVideoPlay = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
+    
+    
+    
+    if (screenMode == 2)
+    {
+        // This is being accessed from the tab bar.
+        // Send a record to the remote database.
+        
+        RandomVideoPlayActivity_Rec* rec = [RandomVideoPlayActivity_Rec sharedManager];
+        
+        rec.idRecord++;
+        rec.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
+        
+        // Get the current date and time and save these in the InfoReadingActivity_Rec object.
+        NSDateFormatter *dateFormatter1;
+        NSDateFormatter *dateFormatter2;
+        
+        //date formatter with just date and no time
+        dateFormatter1 = [[NSDateFormatter alloc] init];
+        [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
+        [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
+        
+        //date formatter with no date and just time
+        dateFormatter2 = [[NSDateFormatter alloc] init];
+        [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
+        [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
+        
+        rec.dateRecord = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
+        rec.timeRecord = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
+        
+        rec.videoShown = [GlobalData sharedManager].selectedVideo;
+        
+        rec.dateStartVideoPlay = [GlobalData sharedManager].dateStartVideoPlay;
+        rec.timeStartVideoPlay = [GlobalData sharedManager].timeStartVideoPlay;
+        rec.dateEndVideoPlay = [GlobalData sharedManager].dateEndVideoPlay;
+        rec.timeEndVideoPlay = [GlobalData sharedManager].timeEndVideoPlay;
+        
+        
+        
+        // Send the survey data to the remote database
+        
+        Responder* responder = [Responder responder:self
+                                 selResponseHandler:@selector(responseHandlerSendRandomVideoPlayActivity:)
+                                    selErrorHandler:@selector(errorHandler:)];
+        
+        RDB_RandomVideoPlayActivity* record = [[RDB_RandomVideoPlayActivity alloc] init];
+        
+        id<IDataStore> dataStore = [backendless.persistenceService of:[RDB_RandomVideoPlayActivity class]];
+        
+        [dataStore save:record responder:responder];
+        
+        
+      
+       
+    }
+    
 }
 
 
 
 
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(id)responseHandlerSendRandomVideoPlayActivity:(id)response
+{
+    NSLog(@"Response Handler for send RandomVideoPlayActivity: Response = %@", response);
+    
+    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    
+    return response;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+-(void)errorHandler:(Fault *)fault
+{
+    NSLog(@"In error handler.");
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
 
 
 

@@ -8,6 +8,9 @@
 
 #import "InfoViewController.h"
 #import "AppDelegate.h"
+#import "InfoReadingActivity_Rec.h"
+#import "RDB_InfoReadingActivity.h"
+#import "Backendless.h"
 
 @interface InfoViewController ()
 {
@@ -123,6 +126,71 @@
     [super viewDidAppear:true];
     [self portraitLock];
 }
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    // Finish forming the database record about using this screen and send the data to the remote database.
+    
+    
+    InfoReadingActivity_Rec* rec = [InfoReadingActivity_Rec sharedManager];
+    
+    // Get the current date and time and save these in the InfoReadingActivity_Rec object.
+    NSDateFormatter *dateFormatter1;
+    NSDateFormatter *dateFormatter2;
+    
+    //date formatter with just date and no time
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
+    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
+    
+    //date formatter with no date and just time
+    dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
+    
+    rec.dateEndReading = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
+    rec.timeEndReading = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
+    
+    Responder* responder = [Responder responder:self
+                             selResponseHandler:@selector(responseHandlerSendInfoReadingActivity:)
+                                selErrorHandler:@selector(errorHandler:)];
+    
+    RDB_InfoReadingActivity* record = [[RDB_InfoReadingActivity alloc] init];
+    
+    id<IDataStore> dataStore = [backendless.persistenceService of:[RDB_InfoReadingActivity class]];
+    
+    [dataStore save:record responder:responder];
+    
+    
+    
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(id)responseHandlerSendInfoReadingActivity:(id)response
+{
+    NSLog(@"Response Handler for send InfoReadingActivity: Response = %@", response);
+    
+//    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    
+    return response;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
 
 -(void) portraitLock {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
