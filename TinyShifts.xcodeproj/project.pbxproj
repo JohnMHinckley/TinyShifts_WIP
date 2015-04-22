@@ -47,6 +47,7 @@
 		524DEA871A7B128D009A2EDC /* tabbaritemIcon_Videos.png in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA821A7B128D009A2EDC /* tabbaritemIcon_Videos.png */; };
 		524DEA8A1A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA881A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png */; };
 		524DEA8B1A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA891A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png */; };
+		5250E7E41AE859E000A35F0B /* DailyTimeIntervals.m in Sources */ = {isa = PBXBuildFile; fileRef = 5250E7E31AE859E000A35F0B /* DailyTimeIntervals.m */; };
 		5255EE3D1ADA91FD00CFAB8F /* DatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255EE3C1ADA91FD00CFAB8F /* DatabaseController.m */; };
 		5255EFD51ADA94BA00CFAB8F /* CActivationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255EFD41ADA94BA00CFAB8F /* CActivationManager.m */; };
 		5255EFD81ADA956600CFAB8F /* CDatabaseInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255EFD71ADA956600CFAB8F /* CDatabaseInterface.m */; };
@@ -127,6 +128,8 @@
 		52982DB61AB273570085C600 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 52982DB51AB273570085C600 /* blank.png */; };
 		52A09EC01AB4DD09006C8E3A /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A09EBF1AB4DD09006C8E3A /* VideoListViewController.m */; };
 		52A09EC31AB4DD8E006C8E3A /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A09EC21AB4DD8E006C8E3A /* VideoPlayerViewController.m */; };
+		52A243221AE6FCF600B42B97 /* ScheduleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A243211AE6FCF600B42B97 /* ScheduleManager.m */; };
+		52A243251AE70C8A00B42B97 /* RDB_DailyTimeIntervals.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A243241AE70C8A00B42B97 /* RDB_DailyTimeIntervals.m */; };
 		52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */; };
 		52AF131B1A8B7B70000CBD8B /* AboutHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */; };
 		52B45AD11AB4C704006A4F1B /* Content.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52B45AD01AB4C704006A4F1B /* Content.bundle */; };
@@ -206,6 +209,8 @@
 		524DEA821A7B128D009A2EDC /* tabbaritemIcon_Videos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbaritemIcon_Videos.png; sourceTree = "<group>"; };
 		524DEA881A7B150F009A2EDC /* IconLogo_dkblue_205_235_252.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconLogo_dkblue_205_235_252.png; sourceTree = "<group>"; };
 		524DEA891A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextLogo_dkblue_205_235_252.png; sourceTree = "<group>"; };
+		5250E7E21AE859E000A35F0B /* DailyTimeIntervals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyTimeIntervals.h; sourceTree = "<group>"; };
+		5250E7E31AE859E000A35F0B /* DailyTimeIntervals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTimeIntervals.m; sourceTree = "<group>"; };
 		5255EE3B1ADA91FD00CFAB8F /* DatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseController.h; sourceTree = "<group>"; };
 		5255EE3C1ADA91FD00CFAB8F /* DatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseController.m; sourceTree = "<group>"; };
 		5255EFD31ADA94BA00CFAB8F /* CActivationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CActivationManager.h; sourceTree = "<group>"; };
@@ -501,6 +506,10 @@
 		52A09EBF1AB4DD09006C8E3A /* VideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
 		52A09EC11AB4DD8E006C8E3A /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
 		52A09EC21AB4DD8E006C8E3A /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
+		52A243201AE6FCF600B42B97 /* ScheduleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleManager.h; sourceTree = "<group>"; };
+		52A243211AE6FCF600B42B97 /* ScheduleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleManager.m; sourceTree = "<group>"; };
+		52A243231AE70C8A00B42B97 /* RDB_DailyTimeIntervals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_DailyTimeIntervals.h; sourceTree = "<group>"; };
+		52A243241AE70C8A00B42B97 /* RDB_DailyTimeIntervals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_DailyTimeIntervals.m; sourceTree = "<group>"; };
 		52AF13161A8B79C0000CBD8B /* CalendarHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarHeadViewController.h; sourceTree = "<group>"; };
 		52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHeadViewController.m; sourceTree = "<group>"; };
 		52AF13191A8B7B70000CBD8B /* AboutHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutHeadViewController.h; sourceTree = "<group>"; };
@@ -610,6 +619,8 @@
 				5243D8D41AB3145B003DAE9C /* ConstGen.h */,
 				5243D8D51AB31610003DAE9C /* GlobalData.h */,
 				5243D8D61AB31610003DAE9C /* GlobalData.m */,
+				5250E7E21AE859E000A35F0B /* DailyTimeIntervals.h */,
+				5250E7E31AE859E000A35F0B /* DailyTimeIntervals.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -725,6 +736,8 @@
 			children = (
 				5255EFD31ADA94BA00CFAB8F /* CActivationManager.h */,
 				5255EFD41ADA94BA00CFAB8F /* CActivationManager.m */,
+				52A243201AE6FCF600B42B97 /* ScheduleManager.h */,
+				52A243211AE6FCF600B42B97 /* ScheduleManager.m */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -1143,6 +1156,8 @@
 				5255F1051ADB5D8A00CFAB8F /* RDB_RandomVideoPlayActivity.m */,
 				5255F10A1ADB5EB600CFAB8F /* RDB_ContactActivity.h */,
 				5255F10B1ADB5EB600CFAB8F /* RDB_ContactActivity.m */,
+				52A243231AE70C8A00B42B97 /* RDB_DailyTimeIntervals.h */,
+				52A243241AE70C8A00B42B97 /* RDB_DailyTimeIntervals.m */,
 			);
 			name = "Remote Database";
 			sourceTree = "<group>";
@@ -1451,6 +1466,7 @@
 				5255F1061ADB5D8A00CFAB8F /* RDB_RandomVideoPlayActivity.m in Sources */,
 				522DB8F31A8D6644003EC3E1 /* AskWatchAgainViewController.m in Sources */,
 				522DB8DF1A8D633C003EC3E1 /* PleasantMoodListViewController.m in Sources */,
+				5250E7E41AE859E000A35F0B /* DailyTimeIntervals.m in Sources */,
 				52982D9E1AB20CA50085C600 /* UnpleasantMoodTableViewCell.m in Sources */,
 				522DB8F81A8D66E3003EC3E1 /* AskRecommendViewController.m in Sources */,
 				52761E4C1A8839DD0018E877 /* StartViewController.m in Sources */,
@@ -1480,6 +1496,7 @@
 				5295B6971A8CBD8D00F2DA35 /* FrequencyViewController.m in Sources */,
 				5255F0E21ADB3CD400CFAB8F /* Notifications_Rec.m in Sources */,
 				5295B66D1A8CAE8600F2DA35 /* InfoListViewController.m in Sources */,
+				52A243221AE6FCF600B42B97 /* ScheduleManager.m in Sources */,
 				5295B69C1A8CBE3300F2DA35 /* TimeOfDayViewController.m in Sources */,
 				5255F0F41ADB52B600CFAB8F /* RDB_PersonalData.m in Sources */,
 				5255F0EE1ADB4EE200CFAB8F /* RDB_InfoReadingActivity.m in Sources */,
@@ -1489,6 +1506,7 @@
 				5255F1001ADB5B1D00CFAB8F /* RDB_SurveyData.m in Sources */,
 				52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */,
 				52C49A451A9A74C000E53A9E /* TableDatum.m in Sources */,
+				52A243251AE70C8A00B42B97 /* RDB_DailyTimeIntervals.m in Sources */,
 				52982D981AB20C590085C600 /* UnpleasantMoodTableView.m in Sources */,
 				52A09EC01AB4DD09006C8E3A /* VideoListViewController.m in Sources */,
 				5255F0FD1ADB576200CFAB8F /* SurveyData_Rec.m in Sources */,
