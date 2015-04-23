@@ -12,6 +12,11 @@
 #import "TimeOfDayViewController.h"
 #import "ConstGen.h"
 #import "GlobalData.h"
+#import "Schedule_Rec.h"
+#import "RDB_Schedule.h"
+#import "CDatabaseInterface.h"
+#import "Backendless.h"
+
 
 @interface FrequencyViewController ()
 
@@ -110,6 +115,11 @@
 - (IBAction)sliderValueChanged:(UISlider *)sender {
     [GlobalData sharedManager].frequency = sliderFrequency.value;
     labelSliderValue.text = [NSString stringWithFormat:@"%d", (int) sliderFrequency.value]; // value displayed on the screen
+    
+    if (screenInstance == 2)
+    {
+        [self sendSchedule];
+    }
 }
 
 
@@ -121,6 +131,81 @@
 
 
 
+
+
+
+
+-(void) sendSchedule
+{
+    // Record part of the database record for Schedule.
+    
+    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];
+    
+    rec2.idRecord++; // increment the record id
+    
+    rec2.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
+    
+    // Get the current date and time and save these in the InfoReadingActivity_Rec object.
+    NSDateFormatter *dateFormatter1;
+    NSDateFormatter *dateFormatter2;
+    
+    //date formatter with just date and no time
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
+    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
+    
+    //date formatter with no date and just time
+    dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
+    
+    rec2.dateRecord = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
+    rec2.timeRecord = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
+    
+    rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
+    
+    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
+    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
+    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
+    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
+    
+    
+    
+    
+    // Send the schedule to the remote database.
+    
+    Responder* responder2 = [Responder responder:self
+                              selResponseHandler:@selector(responseHandlerSendSchedule:)
+                                 selErrorHandler:@selector(errorHandler:)];
+    
+    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];
+    
+    id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
+    
+    [dataStore2 save:record2 responder:responder2];
+    
+    
+    
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(id)responseHandlerSendSchedule:(id)response
+{
+    NSLog(@"Response Handler for send Schedule: Response = %@", response);
+    
+    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    
+    return response;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
 
 
 

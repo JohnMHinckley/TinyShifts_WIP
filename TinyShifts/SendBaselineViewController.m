@@ -22,9 +22,12 @@
 
 @implementation SendBaselineViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,44 +89,11 @@
     
     rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
     
-    switch ([GlobalData sharedManager].timeOfDay)
-    {
-        case TOD_MORNING:
-            rec2.availableMorning = 1;
-            rec2.availableNoon = 0;
-            rec2.availableAfternoon = 0;
-            rec2.availableEvening = 0;
-            break;
-            
-        case TOD_NOON:
-            rec2.availableMorning = 0;
-            rec2.availableNoon = 1;
-            rec2.availableAfternoon = 0;
-            rec2.availableEvening = 0;
-            break;
-            
-        case TOD_AFTERNOON:
-            rec2.availableMorning = 0;
-            rec2.availableNoon = 0;
-            rec2.availableAfternoon = 1;
-            rec2.availableEvening = 0;
-            break;
-            
-        case TOD_EVENING:
-            rec2.availableMorning = 0;
-            rec2.availableNoon = 0;
-            rec2.availableAfternoon = 0;
-            rec2.availableEvening = 1;
-            break;
-            
-        case TOD_ANYTIME:
-        default:
-            rec2.availableMorning = 1;
-            rec2.availableNoon = 1;
-            rec2.availableAfternoon = 1;
-            rec2.availableEvening = 1;
-            break;
-    }
+    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
+    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
+    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
+    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
+    
     
     
     

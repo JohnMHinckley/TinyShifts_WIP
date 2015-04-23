@@ -14,7 +14,11 @@
 @synthesize age;
 @synthesize ethnicity;
 @synthesize frequency;
-@synthesize timeOfDay;
+//@synthesize timeOfDay;
+@synthesize timeOfDayAvailMorning;
+@synthesize timeOfDayAvailNoon;
+@synthesize timeOfDayAvailAfternoon;
+@synthesize timeOfDayAvailEvening;
 @synthesize moodMeterSelection;
 @synthesize moodTableSelection;
 @synthesize selectedVideo;

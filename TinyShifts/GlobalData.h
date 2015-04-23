@@ -13,7 +13,11 @@
 @property int age;                  // user's age
 @property int ethnicity;            // user's ethnicity
 @property int frequency;            // number of times per week for recommendation
-@property int timeOfDay;            // preferred time of day for recommendation
+//@property int timeOfDay;            // preferred time of day for recommendation
+@property int timeOfDayAvailMorning;    // user is available in morning for recommendation
+@property int timeOfDayAvailNoon;       // user is available in noon period for recommendation
+@property int timeOfDayAvailAfternoon;  // user is available in afternoon for recommendation
+@property int timeOfDayAvailEvening;    // user is available in evening for recommendation
 @property int moodMeterSelection;   // initial mood meter response
 @property int moodTableSelection;   // selection from both unpleasant and pleasant mood tables
 @property int selectedVideo;        // index of video to be viewed
