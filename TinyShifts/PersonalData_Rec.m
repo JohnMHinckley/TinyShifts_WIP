@@ -16,6 +16,7 @@
 @synthesize dateRecord;
 @synthesize timeRecord;
 @synthesize gender;
+@synthesize genderIdxSelected;
 @synthesize age;
 @synthesize ethnicity;
 @synthesize didTransmitThisRecord;
@@ -92,9 +93,10 @@ static PersonalData_Rec* sharedSingleton = nil;   // single, static instance of 
     
     idRecord                = 0;
     participantId           = @"";
-    dateRecord                    = @"";
-    timeRecord                    = @"";
-    gender                  = GENDER_UNSPEC;
+    dateRecord              = @"";
+    timeRecord              = @"";
+    gender                  = @"";
+    genderIdxSelected       = GENDER_UNSPEC;
     age                     = 0;
     ethnicity               = ETHNICITY_UNSPEC;
     didTransmitThisRecord   = 0;

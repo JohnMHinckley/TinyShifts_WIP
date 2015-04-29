@@ -12,9 +12,10 @@
 
 @property NSInteger idRecord;                           // identifies specific notification
 @property (nonatomic, strong) NSString* participantId;  // id of participant
-@property (nonatomic, strong) NSString* dateRecord;           // date of record creation
-@property (nonatomic, strong) NSString* timeRecord;           // time of record creation
-@property NSInteger gender;                             // key identifying gender of participant
+@property (nonatomic, strong) NSString* dateRecord;     // date of record creation
+@property (nonatomic, strong) NSString* timeRecord;     // time of record creation
+@property (nonatomic, strong) NSString* gender;         // gender of participant
+@property NSInteger genderIdxSelected;                  // key to user's gender
 @property NSInteger age;                                // age of participant (years)
 @property NSInteger ethnicity;                          // key identifying ethnicity of participant
 @property NSInteger didTransmitThisRecord;              // flag indicating whether this record has been received by the remote DB

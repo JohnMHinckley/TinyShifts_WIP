@@ -9,6 +9,26 @@
 #ifndef TinyShifts_ConstGen_h
 #define TinyShifts_ConstGen_h
 
+
+
+
+
+// --------------------- Code version ----------------
+#define CODE_VERSION_DEVELOPMENT    0
+#define CODE_VERSION_RELEASE        1
+#define CODE_VERSION CODE_VERSION_DEVELOPMENT
+// ---------------------------------------------------
+
+
+
+
+
+#define maxnumItems 10      // maximum possible number of items (switches) on the screen
+
+
+
+
+
 // Keys for "Gender"
 #define GENDER_UNSPEC   0
 #define GENDER_FEMALE   1
@@ -105,6 +125,10 @@
 //----------------------------------------------------------------------------------------
 // Backendless parameters
 
+#if CODE_VERSION == CODE_VERSION_DEVELOPMENT
+
+#define ContactEMailAddress @"v8vette@gmail.com"
+
 // HRC values
 // email = John@HinckleyResearch.com
 // pw = wiggleworm55.
@@ -114,14 +138,19 @@
 #define BackendlessApplicationVer   @"v1"
 
 
+#elif CODE_VERSION == CODE_VERSION_RELEASE
+
+#define ContactEMailAddress @"tinyshifts@umich.edu"
+
 // SPH values:
 // email = tinyshifts@umich.edu
 // pw = ?
-/*
+
  #define BackendlessApplicationID    @"0AB623A6-8BD0-1333-FF89-FD667FC95F00"
  #define BackendlessIOSSecretKey     @"255693E8-09D7-8734-FFD4-11FE129E2300"
  #define BackendlessApplicationVer   @"v1"
- */
+
+#endif
 
 //----------------------------------------------------------------------------------------
 

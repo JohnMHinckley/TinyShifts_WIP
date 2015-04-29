@@ -35,10 +35,10 @@
     // Do any additional setup after loading the view from its nib.
     
     // Set the switches
-    switchMorning.on = ([GlobalData sharedManager].timeOfDayAvailMorning > 0 ? YES : NO);
-    switchNoon.on = ([GlobalData sharedManager].timeOfDayAvailNoon > 0 ? YES : NO);
-    switchAfternoon.on = ([GlobalData sharedManager].timeOfDayAvailAfternoon > 0 ? YES : NO);
-    switchEvening.on = ([GlobalData sharedManager].timeOfDayAvailEvening > 0 ? YES : NO);
+    switchMorning.on = ([GlobalData sharedManager].timeOfDayAvailMorning > 0 ? NO : YES);
+    switchNoon.on = ([GlobalData sharedManager].timeOfDayAvailNoon > 0 ? NO : YES);
+    switchAfternoon.on = ([GlobalData sharedManager].timeOfDayAvailAfternoon > 0 ? NO : YES);
+    switchEvening.on = ([GlobalData sharedManager].timeOfDayAvailEvening > 0 ? NO : YES);
     
     // Adjust the navigation item
     // Title
@@ -75,7 +75,21 @@
 
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
-   
+    // Next button is pressed.
+    
+    // TODO:
+    // if all time intervals are selected for NOT receiving notifications, then
+    // set up a notification to remind the user to change this, at 6 p.m. on Friday.
+    if ([GlobalData sharedManager].timeOfDayAvailMorning == 0
+        && [GlobalData sharedManager].timeOfDayAvailNoon == 0
+        && [GlobalData sharedManager].timeOfDayAvailAfternoon == 0
+        && [GlobalData sharedManager].timeOfDayAvailEvening == 0)
+    {
+        NSLog(@"All intervals are omitted from reminders");
+    }
+        
+    
+    // Go to next screen.
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
     SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
     vc.navigationItem.hidesBackButton = NO;
@@ -251,7 +265,7 @@
 
 
 - (IBAction)switchChangedMorning:(UISwitch *)sender {
-    [GlobalData sharedManager].timeOfDayAvailMorning = (sender.isOn ? 1 : 0); // set flag
+    [GlobalData sharedManager].timeOfDayAvailMorning = (sender.isOn ? 0 : 1); // set flag
     NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailMorning,
           [GlobalData sharedManager].timeOfDayAvailNoon,
@@ -265,7 +279,7 @@
 }
 
 - (IBAction)switchChangedNoon:(UISwitch *)sender {
-    [GlobalData sharedManager].timeOfDayAvailNoon = (sender.isOn ? 1 : 0); // set flag
+    [GlobalData sharedManager].timeOfDayAvailNoon = (sender.isOn ? 0 : 1); // set flag
     NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailMorning,
           [GlobalData sharedManager].timeOfDayAvailNoon,
@@ -279,7 +293,7 @@
 }
 
 - (IBAction)switchChangedAfternoon:(UISwitch *)sender {
-    [GlobalData sharedManager].timeOfDayAvailAfternoon = (sender.isOn ? 1 : 0); // set flag
+    [GlobalData sharedManager].timeOfDayAvailAfternoon = (sender.isOn ? 0 : 1); // set flag
     NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailMorning,
           [GlobalData sharedManager].timeOfDayAvailNoon,
@@ -293,7 +307,7 @@
 }
 
 - (IBAction)switchChangedEvening:(UISwitch *)sender {
-    [GlobalData sharedManager].timeOfDayAvailEvening = (sender.isOn ? 1 : 0); // set flag
+    [GlobalData sharedManager].timeOfDayAvailEvening = (sender.isOn ? 0 : 1); // set flag
     NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailMorning,
           [GlobalData sharedManager].timeOfDayAvailNoon,

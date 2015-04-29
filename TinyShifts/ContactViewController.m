@@ -7,6 +7,7 @@
 //
 
 #import "ContactViewController.h"
+#import "ConstGen.h"
 #import "CDatabaseInterface.h"
 #import "Backendless.h"
 #import "RDB_ContactActivity.h"
@@ -58,13 +59,13 @@
 -(void) composeEmail
 {
     // email subject
-    NSString* emailTitle = @"Message from TinyShifts";
+    NSString* emailTitle = @"Message from TinyShifts app user";
     
     // email content
     NSString* messageBody = @"";
     
     // To address
-    NSArray* toRecipients = [NSArray arrayWithObject:@"v8vette@gmail.com"];
+    NSArray* toRecipients = [NSArray arrayWithObject:ContactEMailAddress];
     
     MFMailComposeViewController* mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;

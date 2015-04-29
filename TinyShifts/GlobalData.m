@@ -11,6 +11,7 @@
 
 @implementation GlobalData
 @synthesize gender;
+@synthesize genderIdxSelected;
 @synthesize age;
 @synthesize ethnicity;
 @synthesize frequency;

@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface GlobalData : NSObject
-@property int gender;               // user's gender
+@property (nonatomic, strong) NSString* gender;             // user's gender
+@property int genderIdxSelected;                            // key to user's gender
 @property int age;                  // user's age
 @property int ethnicity;            // user's ethnicity
 @property int frequency;            // number of times per week for recommendation
