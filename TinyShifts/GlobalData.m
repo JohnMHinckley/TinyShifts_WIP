@@ -33,6 +33,7 @@
 @synthesize videoRecommend;
 @synthesize activated;
 @synthesize initialPass;
+@synthesize remainingNumberRecommendationsThisWeek;
 
 static GlobalData* sharedSingleton = nil;   // single, static instance of this class
 
@@ -111,6 +112,164 @@ static GlobalData* sharedSingleton = nil;   // single, static instance of this c
     
     return retval;
 }
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
++(NSString*) getAppInfoStringValueForKey:(NSString*) skey
+{
+    // Read the string value from the AppInfo property list corresponding to the input key skey.
+    
+    // If the path to the AppInfo property list is determined, and
+    // if the property list exists, and
+    // if the string value corresponding to skey is found in the list,
+    // then return the value.
+    
+    // Otherwise, return nil.
+    
+    
+    
+    NSString* value = nil;   // Initialize the value.
+    
+    
+    
+    // Get the path for the AppInfo property list.
+    NSString* pathToAppInfoPList = [[NSBundle mainBundle] pathForResource:@"AppInfo" ofType:@"plist"];
+    
+    
+    
+    if (nil != pathToAppInfoPList)  // was the path for the AppInfo property list found?
+    {
+        // yes, it was found.
+        
+        
+        // Check that property list file exists
+        if ([[NSFileManager defaultManager] fileExistsAtPath:pathToAppInfoPList])   // was the AppInfo property list found?
+        {
+            // yes, it was found.
+            
+            // Load the property list into a dictionary.
+            NSDictionary *dic = [[NSDictionary alloc] initWithContentsOfFile:pathToAppInfoPList];
+            
+            
+            // Get the value from the dictionary,
+            // as the value corresponding to the key skey.
+            value = [NSString stringWithFormat:@"%@",[dic valueForKey:skey]];
+            
+            
+            if (nil != value)
+            {
+                // Apparently OK, some kind of string was read.
+            }
+            else
+            {
+                // No valid string was read from the property list.
+                NSLog(@"*** Warning: value not found in GlobalData::getAppInfoStringValueForKey.  Returning nil.");
+            }
+        }
+        else
+        {
+            // AppInfo property list not found.
+            NSLog(@"*** Warning: AppInfo property list not found in GlobalData::getAppInfoStringValueForKey.");
+            NSLog(@"Returning nil.");
+        }
+    }
+    else
+    {
+        // Path for AppInfo property list not found.
+        NSLog(@"*** Warning: Path for AppInfo property list not found in GlobalData::getAppInfoStringValueForKey.");
+        NSLog(@"Returning nil.");
+    }
+    
+    
+    
+    return value;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
++(NSInteger) getAppInfoIntegerValueForKey:(NSString*) skey
+{
+    // Read the NSInteger value from the AppInfo property list corresponding to the input key skey.
+    
+    // If the path to the AppInfo property list is determined, and
+    // if the property list exists, and
+    // if the integer value corresponding to skey is found in the list,
+    // then return the value.
+    
+    // Otherwise, return -999999.
+    
+    
+    
+    NSInteger value = -999999;   // Initialize the value.
+    
+    
+    
+    // Get the path for the AppInfo property list.
+    NSString* pathToAppInfoPList = [[NSBundle mainBundle] pathForResource:@"AppInfo" ofType:@"plist"];
+    
+    
+    
+    if (nil != pathToAppInfoPList)  // was the path for the AppInfo property list found?
+    {
+        // yes, it was found.
+        
+        
+        // Check that property list file exists
+        if ([[NSFileManager defaultManager] fileExistsAtPath:pathToAppInfoPList])   // was the AppInfo property list found?
+        {
+            // yes, it was found.
+            
+            // Load the property list into a dictionary.
+            NSDictionary *dic = [[NSDictionary alloc] initWithContentsOfFile:pathToAppInfoPList];
+            
+            
+            // Get the value from the dictionary,
+            // as the value corresponding to the key skey.
+            //value = [NSString stringWithFormat:@"%@",[dic valueForKey:skey]];
+            value = [[NSString stringWithFormat:@"%@",[dic valueForKey:skey]] integerValue];
+            
+            
+            if (-999999 != value)
+            {
+                // Apparently OK, some kind of string was read.
+            }
+            else
+            {
+                // No valid string was read from the property list.
+                NSLog(@"*** Warning: value not found in GlobalData::getAppInfoIntegerValueForKey.  Returning -999999.");
+            }
+        }
+        else
+        {
+            // AppInfo property list not found.
+            NSLog(@"*** Warning: AppInfo property list not found in GlobalData::getAppInfoIntegerValueForKey.");
+            NSLog(@"Returning -999999.");
+        }
+    }
+    else
+    {
+        // Path for AppInfo property list not found.
+        NSLog(@"*** Warning: Path for AppInfo property list not found in GlobalData::getAppInfoIntegerValueForKey.");
+        NSLog(@"Returning -999999.");
+    }
+    
+    
+    
+    return value;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
 
 
 

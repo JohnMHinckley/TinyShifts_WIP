@@ -8,6 +8,7 @@
 
 #import "DatabaseController.h"
 #import "AppDelegate.h"
+#import "GlobalData.h"
 
 @implementation DatabaseController
 
@@ -238,7 +239,7 @@ static DatabaseController* sharedSingleton = nil;   // single, static instance o
     
     
     // Read the database file name from the app info property list.
-    NSString *fn = [self getAppInfoStringValueForKey:@"Database filename"];
+    NSString *fn = [GlobalData getAppInfoStringValueForKey:@"Database filename"];
     
     
     
@@ -280,7 +281,7 @@ static DatabaseController* sharedSingleton = nil;   // single, static instance o
 
 //---------------------------------------------------------------------------------------------------------------------------------
 
-
+/*
 
 -(NSString*) getAppInfoStringValueForKey:(NSString*) skey
 {
@@ -351,7 +352,7 @@ static DatabaseController* sharedSingleton = nil;   // single, static instance o
     
     return value;
 }
-
+*/
 
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -459,7 +460,7 @@ static DatabaseController* sharedSingleton = nil;   // single, static instance o
     
     
     // Get the name of the bundle containing the database
-    NSString* bundleName = [self getAppInfoStringValueForKey:@"Database bundle name"];
+    NSString* bundleName = [GlobalData getAppInfoStringValueForKey:@"Database bundle name"];
     
     
     // Form the bundle path
@@ -480,7 +481,7 @@ static DatabaseController* sharedSingleton = nil;   // single, static instance o
             
             
             // Get the name of the database in the distributed bundle
-            NSString* DBName = [self getAppInfoStringValueForKey:@"Database filename"];
+            NSString* DBName = [GlobalData getAppInfoStringValueForKey:@"Database filename"];
             
             
             

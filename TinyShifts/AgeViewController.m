@@ -57,6 +57,7 @@
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
     [GlobalData sharedManager].age = [textfieldAge.text intValue] ; // save result
+    NSLog(@"Age value saved: %d", [GlobalData sharedManager].age);
     
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
     EthnicityViewController* vc = [sb instantiateViewControllerWithIdentifier:@"EthnicityViewController"];

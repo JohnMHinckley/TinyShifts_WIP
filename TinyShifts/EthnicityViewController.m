@@ -87,6 +87,7 @@
 
 - (IBAction)buttonPressedAsian:(CGradientButton *)sender {
     [GlobalData sharedManager].ethnicity = ETHNICITY_ASIAN ; // save result
+    NSLog(@"Ethnicity value saved: %d", [GlobalData sharedManager].ethnicity);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
@@ -99,6 +100,7 @@
 
 - (IBAction)buttonPressedBlack:(CGradientButton *)sender {
     [GlobalData sharedManager].ethnicity = ETHNICITY_BLACK ; // save result
+    NSLog(@"Ethnicity value saved: %d", [GlobalData sharedManager].ethnicity);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
@@ -111,6 +113,7 @@
 
 - (IBAction)buttonPressedHispanic:(CGradientButton *)sender {
     [GlobalData sharedManager].ethnicity = ETHNICITY_HISPANIC ; // save result
+    NSLog(@"Ethnicity value saved: %d", [GlobalData sharedManager].ethnicity);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
@@ -123,6 +126,7 @@
 
 - (IBAction)buttonPressedWhite:(CGradientButton *)sender {
     [GlobalData sharedManager].ethnicity = ETHNICITY_WHITE ; // save result
+    NSLog(@"Ethnicity value saved: %d", [GlobalData sharedManager].ethnicity);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
@@ -135,6 +139,7 @@
 
 - (IBAction)buttonPressedOther:(CGradientButton *)sender {
     [GlobalData sharedManager].ethnicity = ETHNICITY_OTHER ; // save result
+    NSLog(@"Ethnicity value saved: %d", [GlobalData sharedManager].ethnicity);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];

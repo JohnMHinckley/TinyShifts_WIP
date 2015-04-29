@@ -252,6 +252,11 @@
 
 - (IBAction)switchChangedMorning:(UISwitch *)sender {
     [GlobalData sharedManager].timeOfDayAvailMorning = (sender.isOn ? 1 : 0); // set flag
+    NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
+          [GlobalData sharedManager].timeOfDayAvailMorning,
+          [GlobalData sharedManager].timeOfDayAvailNoon,
+          [GlobalData sharedManager].timeOfDayAvailAfternoon,
+          [GlobalData sharedManager].timeOfDayAvailEvening);
     
     if (screenInstance == 2)
     {
@@ -261,6 +266,11 @@
 
 - (IBAction)switchChangedNoon:(UISwitch *)sender {
     [GlobalData sharedManager].timeOfDayAvailNoon = (sender.isOn ? 1 : 0); // set flag
+    NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
+          [GlobalData sharedManager].timeOfDayAvailMorning,
+          [GlobalData sharedManager].timeOfDayAvailNoon,
+          [GlobalData sharedManager].timeOfDayAvailAfternoon,
+          [GlobalData sharedManager].timeOfDayAvailEvening);
     
     if (screenInstance == 2)
     {
@@ -270,6 +280,11 @@
 
 - (IBAction)switchChangedAfternoon:(UISwitch *)sender {
     [GlobalData sharedManager].timeOfDayAvailAfternoon = (sender.isOn ? 1 : 0); // set flag
+    NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
+          [GlobalData sharedManager].timeOfDayAvailMorning,
+          [GlobalData sharedManager].timeOfDayAvailNoon,
+          [GlobalData sharedManager].timeOfDayAvailAfternoon,
+          [GlobalData sharedManager].timeOfDayAvailEvening);
     
     if (screenInstance == 2)
     {
@@ -279,6 +294,11 @@
 
 - (IBAction)switchChangedEvening:(UISwitch *)sender {
     [GlobalData sharedManager].timeOfDayAvailEvening = (sender.isOn ? 1 : 0); // set flag
+    NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
+          [GlobalData sharedManager].timeOfDayAvailMorning,
+          [GlobalData sharedManager].timeOfDayAvailNoon,
+          [GlobalData sharedManager].timeOfDayAvailAfternoon,
+          [GlobalData sharedManager].timeOfDayAvailEvening);
     
     if (screenInstance == 2)
     {

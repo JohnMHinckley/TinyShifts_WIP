@@ -90,6 +90,7 @@
 
 - (IBAction)buttonPressedFemale:(CGradientButton *)sender {
     [GlobalData sharedManager].gender = GENDER_FEMALE ; // save result
+    NSLog(@"Gender key stored: %d", [GlobalData sharedManager].gender);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
@@ -100,6 +101,7 @@
 
 - (IBAction)buttonPressedMale:(CGradientButton *)sender {
     [GlobalData sharedManager].gender = GENDER_MALE ; // save result
+    NSLog(@"Gender key stored: %d", [GlobalData sharedManager].gender);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
@@ -110,6 +112,7 @@
 
 - (IBAction)buttonPressedNotSure:(CGradientButton *)sender {
     [GlobalData sharedManager].gender = GENDER_OTHER ; // save result
+    NSLog(@"Gender key stored: %d", [GlobalData sharedManager].gender);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];

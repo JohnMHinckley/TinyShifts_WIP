@@ -34,9 +34,13 @@
 @property int activated;            // is or is not activated?
 @property int initialPass;          // is or is not initial use of app?
 
+@property int remainingNumberRecommendationsThisWeek;   // number of recommendation events remaining to be done this week
+
 +(GlobalData*) sharedManager;
 
 +(float) RandomNumberUpTo:(float) upperLimit;
 +(int) RandomIntUpTo:(int) upperLimit;
++(NSString*) getAppInfoStringValueForKey:(NSString*) skey;
++(NSInteger) getAppInfoIntegerValueForKey:(NSString*) skey;
 
 @end
