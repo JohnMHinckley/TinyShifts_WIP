@@ -76,11 +76,23 @@
 
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // Next button pressed.
     
-    AskIfHelpfulViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskIfHelpfulViewController"];
-    vc.navigationItem.hidesBackButton = NO;
-    [[self navigationController] pushViewController:vc animated:YES];
+    // First, check whether video was actually played.
+    if ([GlobalData sharedManager].bVideoDidPlay == NO)
+    {
+        // video was not actually played.  Generate an alert requiring play.
+        [[[UIAlertView alloc] initWithTitle:@"No Video Was Viewed" message:@"You should view the video before proceeding." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
+    else
+    {
+        // video was played, so go to next screen.
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        AskIfHelpfulViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskIfHelpfulViewController"];
+        vc.navigationItem.hidesBackButton = NO;
+        [[self navigationController] pushViewController:vc animated:YES];
+    }
 }
 
 
@@ -531,6 +543,11 @@
     
     // play movie
     [player play];
+    
+    
+    // Update the played video flag.
+    [GlobalData sharedManager].bVideoDidPlay = YES;
+    
     
 }
 @end

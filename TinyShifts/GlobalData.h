@@ -35,6 +35,8 @@
 @property int activated;            // is or is not activated?
 @property int initialPass;          // is or is not initial use of app?
 
+@property BOOL bVideoDidPlay;       // flag: YES if video played when play video screen was presented.
+
 @property int remainingNumberRecommendationsThisWeek;   // number of recommendation events remaining to be done this week
 
 +(GlobalData*) sharedManager;

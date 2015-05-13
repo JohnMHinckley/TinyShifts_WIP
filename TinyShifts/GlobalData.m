@@ -35,6 +35,7 @@
 @synthesize activated;
 @synthesize initialPass;
 @synthesize remainingNumberRecommendationsThisWeek;
+@synthesize bVideoDidPlay;
 
 static GlobalData* sharedSingleton = nil;   // single, static instance of this class
 

@@ -156,6 +156,11 @@
     }
     else
     {
+        
+        // Some initialization, first.
+        
+        [GlobalData sharedManager].bVideoDidPlay = NO;  // initialize video played flag.
+        
         // This is not the initial pass, so go to the MoodMeter screen.
         
         // Attempt to use storyboard to instantiate MoodMeterViewController.

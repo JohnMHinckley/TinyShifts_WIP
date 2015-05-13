@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mdf-7E-hgC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mdf-7E-hgC">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -1000,7 +1000,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedYes:" destination="lVM-Yj-2DJ" eventType="touchUpInside" id="PB7-KM-B0T"/>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="9kW-hL-fcz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucy-k8-92A" customClass="CGradientButton">
@@ -1015,7 +1014,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedNo:" destination="lVM-Yj-2DJ" eventType="touchUpInside" id="M1e-in-4Ov"/>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="DtX-9K-Gln"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1135,7 +1133,6 @@
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="buttonPressedPlayVideo:" destination="vW5-Co-2zU" eventType="touchUpInside" id="f0h-hU-uV4"/>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="RR3-dv-fqy"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snT-AY-bS9">
@@ -1197,7 +1194,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedYes:" destination="PUi-Pt-cdM" eventType="touchUpInside" id="iZS-3o-zHP"/>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="k3L-Ce-x1w"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoL-Jp-HMq" customClass="CGradientButton">
@@ -1212,7 +1208,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedNo:" destination="PUi-Pt-cdM" eventType="touchUpInside" id="IEy-NE-qgE"/>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="hbM-Uq-MMg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osk-Bq-j6B" customClass="CGradientButton">
@@ -1227,7 +1222,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedNotSure:" destination="PUi-Pt-cdM" eventType="touchUpInside" id="zmw-m0-oxR"/>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="Ogg-As-rKO"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="MGq-TS-BZd">
@@ -1308,7 +1302,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedYes:" destination="iUj-7H-hp6" eventType="touchUpInside" id="fZt-eO-RFn"/>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="0Vx-Y6-nOK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkW-Gf-jVC" customClass="CGradientButton">
@@ -1323,7 +1316,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedNo:" destination="iUj-7H-hp6" eventType="touchUpInside" id="9Nv-Rg-N7A"/>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="niN-7i-vQ0"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="clV-d0-dBM">
@@ -1402,7 +1394,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedYes:" destination="zFx-OO-J51" eventType="touchUpInside" id="PK6-64-EzT"/>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="p1F-m3-dEz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em6-P2-EZF" customClass="CGradientButton">
@@ -1417,7 +1408,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedNo:" destination="zFx-OO-J51" eventType="touchUpInside" id="oo0-I5-Egz"/>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="tJP-OF-gR0"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="roz-oI-6mC">
@@ -1496,7 +1486,7 @@
                                     <constraint firstAttribute="height" constant="90" id="Ay6-QO-RRi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="xRo-es-GET">
@@ -1526,7 +1516,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startButtonPressed:" destination="93r-P5-NdP" eventType="touchUpInside" id="seo-79-oYi"/>
                                     <action selector="submitButtonPressed:" destination="uT7-up-38O" eventType="touchUpInside" id="4xh-cj-iPo"/>
                                 </connections>
                             </button>
