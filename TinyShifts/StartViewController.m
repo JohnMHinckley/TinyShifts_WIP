@@ -16,6 +16,10 @@
 #import "GlobalData.h"
 #import "Backendless.h"
 #import "RDB_Participants.h"
+#import "CDatabaseInterface.h"
+
+
+int State;
 
 @interface StartViewController ()
 
@@ -33,6 +37,14 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    
+    // Initialization
+    
+    // State = 0: baseline survey not done.
+    // State = 1: baseline survey has been done.
+    State = 0;
     
     
 //    // -------------- Code for creating a RDB_Participants table in the remote database.  Normally, can be commented out.
@@ -59,6 +71,22 @@
     if (appIsActivated)
     {
         // app is activated
+        
+//        // Determine whether baseline survey has been done yet.  If it has, set State = 1, otherwise, set State = 0.
+//        State = [[CDatabaseInterface sharedManager] getBaselineSurveyStatus];
+//        
+//        if (State == 1)
+//        {
+//            // Baseline survey has been done, so enable tab bar buttons.
+//            self.tabBarController.tabBar.userInteractionEnabled = YES;
+//        }
+//        else
+//        {
+//            // Baseline survey has not been done, so disable tab bar buttons.
+//            self.tabBarController.tabBar.userInteractionEnabled = NO;
+//        }
+        
+        
         
         // TODO: develop code for starting timers.
 //        [[CScheduleManager sharedManager] startProdTimers]; // Start all non-done timers for prodding.
@@ -90,6 +118,17 @@
         [self.navigationController pushViewController:vc animated:NO];
     }
     
+}
+
+
+
+-(void) setState:(int)newState
+{
+    // Update the private State of this view controller with the input value.
+    // Generally, this is used after completing the baseline survey to record the fact of its completion.
+    
+    State = newState;
+    State = [[CDatabaseInterface sharedManager] getBaselineSurveyStatus];
 }
 
 
@@ -133,7 +172,8 @@
     
     
     
-    BOOL bInitialPass = ([GlobalData sharedManager].initialPass == INITIAL_PASS_YES);    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
+    //BOOL bInitialPass = ([GlobalData sharedManager].initialPass == INITIAL_PASS_YES);    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
+    BOOL bInitialPass = (State == 0);    // If State is 0, this is the initial pass: baseline survey has not yet been done.  Otherwise, it has been done.
     
     if (bInitialPass)
     {
@@ -173,6 +213,37 @@
    }
     
 }
+
+
+
+
+
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    // Control whether the user can interact with the tab bar buttons, based on whether the
+    // baseline survey has been completed yet.
+    // Determine whether baseline survey has been done yet.  If it has, set State = 1, otherwise, set State = 0.
+    
+    State = [[CDatabaseInterface sharedManager] getBaselineSurveyStatus];
+    
+    if (State == 1)
+    {
+        // Baseline survey has been done, so enable tab bar buttons.
+        self.tabBarController.tabBar.userInteractionEnabled = YES;
+    }
+    else
+    {
+        // Baseline survey has not been done, so disable tab bar buttons.
+        self.tabBarController.tabBar.userInteractionEnabled = NO;
+    }
+}
+
+
+
+
+
+
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];

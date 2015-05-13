@@ -121,6 +121,72 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 
 
 
+-(int) getBaselineSurveyStatus
+{
+    // Get the baseline survey status of the app.
+    // This is read from the MyStatus table in the database.
+    // If the value corresponding to the key "baselineDone" is 0, the baseline survey has not been done: return a value of 0.
+    // If the value is not 0, the baseline survey has been done: return a value of 1.
+    int retVal = 0;
+    
+    BOOL bDidFindDatabase = NO; // used to test for presence of database, which may not be on the phone, initially.
+    
+    
+    [[DatabaseController sharedManager] openDB];
+    
+    
+    
+    //—-retrieve rows—-
+    NSString *qsql = @"SELECT value FROM MyStatus where key = 'baselineDone'";
+    
+    sqlite3_stmt *statement;
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+    {
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            retVal = sqlite3_column_int(statement, 0);  // int value read for key
+            
+            
+            bDidFindDatabase = YES;
+            
+        }
+        
+        
+        sqlite3_reset(statement);
+        
+        //—-deletes the compiled statement from memory—-
+        sqlite3_finalize(statement);
+    }
+    
+    
+    
+    
+    [[DatabaseController sharedManager] closeDB];
+    
+    
+    if (!bDidFindDatabase)
+    {
+        // did not find database: issue an alert.
+        
+        UIAlertView *alertView = nil;
+        alertView = [[UIAlertView alloc] initWithTitle:@"Attention:"
+                                               message:@"Local TinyShifts database has not \nbeen installed on this device.\nThis must be installed \nprior to activation."
+                                              delegate:self cancelButtonTitle:@"OK"
+                                     otherButtonTitles:nil];
+        [alertView show];
+        
+    }
+    
+    
+    return retVal;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
 -(NSString*) getParticipantCodeWithMatchingActivation:(NSString*)activationCode
 {
     NSString* retVal = nil;
@@ -154,7 +220,8 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     BackendlessDataQuery *query = [BackendlessDataQuery query];
     
-    query.whereClause = [NSString stringWithFormat:@"activationCode = \'%@\'", activationCode];
+    query.whereClause = [NSString stringWithFormat:@"activationCode = \'%@\'", [activationCode lowercaseString]];   // search for the activation code, after having cast is as lower case.
+                                                                                                                    // remote db needs to use lower case characters for all activation codes.
     
     
     BackendlessCollection* collection = [backendless.persistenceService find:[RDB_Participants class] dataQuery:query];
@@ -237,15 +304,22 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 
 
 
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
 
 -(void) saveAppActivationState:(int)activationValue
 {
     // save the value of activationValue in the table MyStatus, under the key "activated"
+    NSString* key = @"activated";
     
     [[DatabaseController sharedManager] openDB];
     
     
-    NSString* qsql = @"DELETE FROM MyStatus";
+    //NSString* qsql = @"DELETE FROM MyStatus";
+    //NSString* qsql = @"DELETE FROM MyStatus WHERE key = 'activated'";
+    // Delete the (all) record from the MyStatus table having the value of "activated" in the field key.
+    NSString* qsql = [NSString stringWithFormat:@"DELETE FROM MyStatus WHERE key = '%@'", key];
     
     sqlite3_stmt *statement;
     if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
@@ -261,7 +335,9 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     
     
-    qsql = [NSString stringWithFormat:@"INSERT INTO MyStatus values ('activated', %d)",activationValue];
+    //qsql = [NSString stringWithFormat:@"INSERT INTO MyStatus values ('activated', %d)",activationValue];
+    // Insert a record in the MyStatus table having a key value of "activated" and a value equal to activationValue.
+    qsql = [NSString stringWithFormat:@"INSERT INTO MyStatus values ('%@', %d)",key,activationValue];
     
     if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
     {
@@ -280,6 +356,59 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 }
 
 
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(void) saveBaselineSurveyStatus:(int)statusValue
+{
+    // save the value of statusValue in the table MyStatus, under the key "baselineDone"
+    NSString* key = @"baselineDone";
+    
+    [[DatabaseController sharedManager] openDB];
+    
+    
+    //NSString* qsql = @"DELETE FROM MyStatus WHERE key = 'baselineDone'";
+    // Delete the (all) record from the MyStatus table having the value of "baselineDone" in the field key.
+    NSString* qsql = [NSString stringWithFormat:@"DELETE FROM MyStatus WHERE key = '%@'", key];
+   
+    sqlite3_stmt *statement;
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+    {
+        sqlite3_step(statement);
+        
+        
+        sqlite3_reset(statement);
+        
+        //—-deletes the compiled statement from memory—-
+        sqlite3_finalize(statement);
+    }
+    
+    
+    
+    // Insert a record in the MyStatus table having a key value of "baselineDone" and a value equal to statusValue.
+    qsql = [NSString stringWithFormat:@"INSERT INTO MyStatus values ('%@', %d)",key,statusValue];
+    
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+    {
+        sqlite3_step(statement);
+        
+        
+        sqlite3_reset(statement);
+        
+        //—-deletes the compiled statement from memory—-
+        sqlite3_finalize(statement);
+    }
+    
+    
+    
+    [[DatabaseController sharedManager] closeDB];
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
 
 
 

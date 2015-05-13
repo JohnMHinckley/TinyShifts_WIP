@@ -33,7 +33,7 @@
         <!--Start View Controller-->
         <scene sceneID="B0I-xN-QDc">
             <objects>
-                <viewController id="93r-P5-NdP" customClass="StartViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartViewController" id="93r-P5-NdP" customClass="StartViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WR3-Gh-jHe"/>
                         <viewControllerLayoutGuide type="bottom" id="tbQ-DW-WTD"/>

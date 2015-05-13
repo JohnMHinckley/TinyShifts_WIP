@@ -15,6 +15,7 @@
 #import "Backendless.h"
 #import "RDB_PersonalData.h"
 #import "RDB_Schedule.h"
+#import "StartViewController.h"
 
 @interface SendBaselineViewController ()
 
@@ -133,7 +134,11 @@
     
     [GlobalData sharedManager].initialPass = INITIAL_PASS_NO;
   
-    
+//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    StartViewController* vc = [sb instantiateViewControllerWithIdentifier:@"StartViewController"];
+//    [vc setState:1];    // Set State flag in StartViewController to indicate that baseline survey has been done.
+    [[CDatabaseInterface sharedManager] saveBaselineSurveyStatus:1]; // record fact that baseline survey has been done.
+
     
     [[self navigationController] popToRootViewControllerAnimated:YES];
     

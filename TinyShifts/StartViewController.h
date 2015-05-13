@@ -11,5 +11,6 @@
 
 @interface StartViewController : UIViewController
 - (IBAction)startButtonPressed:(CGradientButton *)sender;
+-(void) setState:(int)newState;
 
 @end

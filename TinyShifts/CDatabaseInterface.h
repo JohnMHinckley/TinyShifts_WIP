@@ -148,9 +148,11 @@
 // ----------------------------- Table: MyStatus --------------------------------------
 // read
 -(int) getActivationStatus;
+-(int) getBaselineSurveyStatus;
 
 // write
 -(void) saveAppActivationState:(int)activationValue;
+-(void) saveBaselineSurveyStatus:(int)statusValue;
 
 
 

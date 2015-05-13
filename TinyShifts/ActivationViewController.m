@@ -149,7 +149,8 @@
     {
         
         // If it does not, set the activation label to instruct the user to re-enter the activation code.
-        m_LabelActivation.text = @"Activation failed-try again.";
+        //m_LabelActivation.text = @"Activation failed-try again.";
+        [[[UIAlertView alloc] initWithTitle:@"Invalid Activation Code" message:@"Your valid activation code must be entered to proceed.  This is the code that you were assigned by the TinyShifts project administrator." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         
     }
     
