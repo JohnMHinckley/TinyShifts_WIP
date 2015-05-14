@@ -30,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UITabBarController* utc = self.tabBarController;
+    //UITabBarController* utc = self.tabBarController;
     
     
     // Adjust the navigation item

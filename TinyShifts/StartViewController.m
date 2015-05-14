@@ -19,7 +19,7 @@
 #import "CDatabaseInterface.h"
 
 
-int State;
+
 
 @interface StartViewController ()
 

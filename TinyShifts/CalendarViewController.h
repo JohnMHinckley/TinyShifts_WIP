@@ -10,4 +10,8 @@
 
 @interface CalendarViewController : UIViewController
 
+@property (nonatomic) NSUInteger screenInstance;    // key for where in storyboard this instance appears: 1 (in main storyboard), or 2 (tab bar)
+
+-(void) setScreenInstance:(NSUInteger)sI;
+
 @end

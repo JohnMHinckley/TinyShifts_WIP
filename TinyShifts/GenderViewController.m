@@ -14,7 +14,6 @@
 #import "GlobalData.h"
 #import "CDatabaseInterface.h"
 
-int State;
 
 
 @interface GenderViewController ()

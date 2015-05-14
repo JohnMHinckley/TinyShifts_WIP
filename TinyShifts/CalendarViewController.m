@@ -17,6 +17,7 @@
 @end
 
 @implementation CalendarViewController
+@synthesize screenInstance;
 
 
 - (void)viewDidLoad {
@@ -52,6 +53,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+-(void) setScreenInstance:(NSUInteger)sI
+{
+    screenInstance = sI;
+}
+
+
+
+
+
+
+
 
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {

@@ -14,7 +14,6 @@
 #import "EthnicityViewController.h"
 #import "CDatabaseInterface.h"
 
-int State;
 
 
 @interface AgeViewController ()

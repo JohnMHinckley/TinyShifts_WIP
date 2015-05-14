@@ -113,7 +113,8 @@
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
 
@@ -126,7 +127,8 @@
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     
@@ -139,7 +141,8 @@
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     
@@ -152,7 +155,8 @@
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     
@@ -165,7 +169,8 @@
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     

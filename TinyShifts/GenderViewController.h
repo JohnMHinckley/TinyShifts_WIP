@@ -16,6 +16,7 @@ static CGRect textFieldFrame;   // frame of text field, in normal position
 @interface GenderViewController : UIViewController <UITextFieldDelegate>
 {
     NSInteger numItems;         // actual number of items on the screen (must be <= maxnumItems)
+    int State;
 }
 
 @property (strong, nonatomic) IBOutletCollection(UISwitch) NSArray *m_Switch;

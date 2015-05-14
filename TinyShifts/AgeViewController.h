@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface AgeViewController : UIViewController  <UITextFieldDelegate>
+{
+    int State;
+
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *textfieldAge;
 
