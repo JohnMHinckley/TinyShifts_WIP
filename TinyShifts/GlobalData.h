@@ -13,6 +13,7 @@
 @property int genderIdxSelected;                            // key to user's gender
 @property int age;                  // user's age
 @property int ethnicity;            // user's ethnicity
+@property BOOL bUseGoogleCal;        // flag: YES if using Google calendar
 @property int frequency;            // number of times per week for recommendation
 //@property int timeOfDay;            // preferred time of day for recommendation
 @property int timeOfDayAvailMorning;    // user is available in morning for recommendation

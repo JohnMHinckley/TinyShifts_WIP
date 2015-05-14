@@ -14,6 +14,7 @@
 @synthesize genderIdxSelected;
 @synthesize age;
 @synthesize ethnicity;
+@synthesize bUseGoogleCal;
 @synthesize frequency;
 //@synthesize timeOfDay;
 @synthesize timeOfDayAvailMorning;

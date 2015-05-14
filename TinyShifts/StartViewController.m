@@ -75,19 +75,6 @@
     {
         // app is activated
         
-//        // Determine whether baseline survey has been done yet.  If it has, set State = 1, otherwise, set State = 0.
-//        State = [[CDatabaseInterface sharedManager] getBaselineSurveyStatus];
-//        
-//        if (State == 1)
-//        {
-//            // Baseline survey has been done, so enable tab bar buttons.
-//            self.tabBarController.tabBar.userInteractionEnabled = YES;
-//        }
-//        else
-//        {
-//            // Baseline survey has not been done, so disable tab bar buttons.
-//            self.tabBarController.tabBar.userInteractionEnabled = NO;
-//        }
         
         
         
@@ -180,6 +167,22 @@
     
     if (bInitialPass)
     {
+        // Some initialization, first.
+        
+        [GlobalData sharedManager].gender = GENDER_UNSPEC;
+        [GlobalData sharedManager].age = 0;
+        [GlobalData sharedManager].ethnicity = ETHNICITY_UNSPEC;
+        [GlobalData sharedManager].bUseGoogleCal = NO;
+        [GlobalData sharedManager].frequency = 7;
+        [GlobalData sharedManager].timeOfDayAvailMorning = 1;
+        [GlobalData sharedManager].timeOfDayAvailNoon = 1;
+        [GlobalData sharedManager].timeOfDayAvailAfternoon = 1;
+        [GlobalData sharedManager].timeOfDayAvailEvening = 1;
+        
+        
+        
+        
+        
         // This is the initial pass, so go to the InfoList screen.
         
         // Attempt to use storyboard to instantiate InfoListViewController.
@@ -203,6 +206,10 @@
         // Some initialization, first.
         
         [GlobalData sharedManager].bVideoDidPlay = NO;  // initialize video played flag.
+        
+        
+        
+        
         
         // This is not the initial pass, so go to the MoodMeter screen.
         

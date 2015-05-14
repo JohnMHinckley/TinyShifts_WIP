@@ -137,6 +137,8 @@
     {
         [self sendSchedule];
     }
+    
+    NSLog(@"Frequency value = %d", [GlobalData sharedManager].frequency);
 }
 
 

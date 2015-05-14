@@ -33,7 +33,11 @@
                                 <color key="backgroundColor" red="0.80392156859999997" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iQO-ha-63H">
-                                <rect key="frame" x="40" y="179" width="51" height="31"/>
+                                <rect key="frame" x="531" y="179" width="51" height="31"/>
+                                <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="switchChangedUseGoogleCal:" destination="rFx-tv-jx4" eventType="valueChanged" id="PmO-fH-hz8"/>
+                                </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ5-k1-8k7">
                                 <rect key="frame" x="150" y="64" width="300" height="60"/>
@@ -58,7 +62,7 @@
                             <constraint firstItem="JT2-Ja-K3F" firstAttribute="top" secondItem="HsY-5y-Fvs" secondAttribute="top" constant="80" id="JZA-oA-nh9"/>
                             <constraint firstItem="HsY-5y-Fvs" firstAttribute="trailing" secondItem="JT2-Ja-K3F" secondAttribute="trailing" constant="20" id="P9d-Gm-4a7"/>
                             <constraint firstItem="HsY-5y-Fvs" firstAttribute="leading" secondItem="fkd-Tt-C1W" secondAttribute="leading" id="S6Y-yS-LdI"/>
-                            <constraint firstItem="iQO-ha-63H" firstAttribute="leading" secondItem="HsY-5y-Fvs" secondAttribute="leading" constant="40" id="b8y-Fi-UdM"/>
+                            <constraint firstItem="HsY-5y-Fvs" firstAttribute="trailing" secondItem="iQO-ha-63H" secondAttribute="trailing" constant="20" id="b8y-Fi-UdM"/>
                             <constraint firstItem="HsY-5y-Fvs" firstAttribute="top" secondItem="ZZ5-k1-8k7" secondAttribute="top" id="ggD-Zb-aaO"/>
                             <constraint firstItem="ujf-0r-j9G" firstAttribute="top" secondItem="HsY-5y-Fvs" secondAttribute="bottom" id="hs1-mH-ImL"/>
                             <constraint firstItem="36r-oH-ZU5" firstAttribute="leading" secondItem="fkd-Tt-C1W" secondAttribute="leading" id="mQs-yJ-PIj"/>
@@ -67,6 +71,9 @@
                             <constraint firstAttribute="top" secondItem="36r-oH-ZU5" secondAttribute="top" id="yRW-wP-pBs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="switchUseGoogleCal" destination="iQO-ha-63H" id="loW-eC-dIJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vax-N2-WOw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,6 +233,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oEi-H6-7eg">
                                 <rect key="frame" x="531" y="266" width="51" height="31"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="switchChangedNoon:" destination="9jN-gn-HLy" eventType="valueChanged" id="WuQ-fl-8Ho"/>
                                 </connections>
@@ -239,6 +247,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ge3-h0-2Wl">
                                 <rect key="frame" x="531" y="322" width="51" height="31"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="switchChangedAfternoon:" destination="9jN-gn-HLy" eventType="valueChanged" id="mdf-Xx-sro"/>
                                 </connections>
@@ -252,6 +261,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ogi-Ny-Rhv">
                                 <rect key="frame" x="531" y="378" width="51" height="31"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="switchChangedEvening:" destination="9jN-gn-HLy" eventType="valueChanged" id="l3d-hf-PiN"/>
                                 </connections>
@@ -265,6 +275,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAR-tl-vt0">
                                 <rect key="frame" x="531" y="210" width="51" height="31"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="switchChangedMorning:" destination="9jN-gn-HLy" eventType="valueChanged" id="BBj-hh-RX2"/>
                                 </connections>

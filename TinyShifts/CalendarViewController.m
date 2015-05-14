@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "FrequencyViewController.h"
 #import "CDatabaseInterface.h"
+#import "GlobalData.h"
 
 @interface CalendarViewController ()
 
@@ -37,6 +38,8 @@
     [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
+    
+    self.switchUseGoogleCal.on = [GlobalData sharedManager].bUseGoogleCal;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +58,21 @@
 */
 
 
+
+- (IBAction)switchChangedUseGoogleCal:(UISwitch *)sender {
+    // Use Google calendar switch changed state.
+    // Record its current state.
+    
+    //-------------------------------------------------
+    //TODO: implement Google calendar use
+    if (self.switchUseGoogleCal.isOn)   // temporary measure to turn it off
+    {
+        self.switchUseGoogleCal.on = NO;
+    }
+    //-------------------------------------------------
+    
+    [GlobalData sharedManager].bUseGoogleCal = self.switchUseGoogleCal.isOn;
+}
 
 -(void) setScreenInstance:(NSUInteger)sI
 {
