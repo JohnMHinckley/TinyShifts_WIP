@@ -36,6 +36,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void) viewWillAppear:(BOOL)animated
+{
+//    // Control whether the user can interact with the tab bar buttons, based on whether the
+//    // baseline survey has been completed yet.
+//    // Determine whether baseline survey has been done yet.  If it has, set State = 1, otherwise, set State = 0.
+//    
+//    if ([[CDatabaseInterface sharedManager] getBaselineSurveyStatus] == 1)
+//    {
+//        // Baseline survey has been done, so enable tab bar buttons.
+//        self.tabBarController.tabBar.userInteractionEnabled = YES;
+//    }
+//    else
+//    {
+//        // Baseline survey has not been done, so disable tab bar buttons.
+//        self.tabBarController.tabBar.userInteractionEnabled = NO;
+//    }
+    
+    
+}
+
+
+
 /*
 #pragma mark - Navigation
 

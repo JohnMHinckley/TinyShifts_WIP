@@ -12,6 +12,10 @@
 #import "AppDelegate.h"
 #import "ConstGen.h"
 #import "GlobalData.h"
+#import "CDatabaseInterface.h"
+
+int State;
+
 
 @interface GenderViewController ()
 
@@ -92,6 +96,18 @@
     {
         m_TextField.hidden = YES;
     }
+    
+    
+    
+    // Set State corresponding to text field being shown
+    if (m_TextField.hidden)
+    {
+        State = 1;  // text field is not displayed.
+    }
+    else
+    {
+        State = 2;  // text field is displayed, but keyboard is not present
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,6 +127,20 @@
 
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
+    
+    
+    // Is the view controller in State == 3 (keyboard is present)?
+    if (State == 3)
+    {
+        // Make the keyboard disappear
+        // Make text field become white and resume its normal position.
+        // Make the switches reappear.
+        //[textField resignFirstResponder];
+        [self.view endEditing:YES];
+
+        // Set flag to indicate that text field is displayed.
+        State = 2;
+    }
     
     
     // Check that at least one of the items are selected, before allowing forward navigation.
@@ -154,6 +184,26 @@
     appDelegate.screenIsPortraitOnly = true;
 }
 
+
+-(void) viewWillAppear:(BOOL)animated
+{
+//    // Control whether the user can interact with the tab bar buttons, based on whether the
+//    // baseline survey has been completed yet.
+//    // Determine whether baseline survey has been done yet.  If it has, set State = 1, otherwise, set State = 0.
+//    
+//    if ([[CDatabaseInterface sharedManager] getBaselineSurveyStatus] == 1)
+//    {
+//        // Baseline survey has been done, so enable tab bar buttons.
+//        self.tabBarController.tabBar.userInteractionEnabled = YES;
+//    }
+//    else
+//    {
+//        // Baseline survey has not been done, so disable tab bar buttons.
+//        self.tabBarController.tabBar.userInteractionEnabled = NO;
+//    }
+
+}
+
 #pragma mark - interface posiiton
 
 - (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
@@ -167,38 +217,47 @@
 
 
 
-- (IBAction)buttonPressedFemale:(CGradientButton *)sender {
-    [GlobalData sharedManager].gender = @"female" ; // save result
-    NSLog(@"Gender stored: %@", [GlobalData sharedManager].gender);
-    
-    // Go to next screen
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
-    AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
-    vc.navigationItem.hidesBackButton = NO;
-    [[self navigationController] pushViewController:vc animated:YES];
-}
-
-- (IBAction)buttonPressedMale:(CGradientButton *)sender {
-    [GlobalData sharedManager].gender = @"male" ; // save result
-    NSLog(@"Gender stored: %@", [GlobalData sharedManager].gender);
-    
-    // Go to next screen
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
-    AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
-    vc.navigationItem.hidesBackButton = NO;
-    [[self navigationController] pushViewController:vc animated:YES];
-}
-
-- (IBAction)buttonPressedNotSure:(CGradientButton *)sender {
-    [GlobalData sharedManager].gender = @"other" ; // save result
-    NSLog(@"Gender key stored: %@", [GlobalData sharedManager].gender);
-    
-    // Go to next screen
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
-    AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
-    vc.navigationItem.hidesBackButton = NO;
-    [[self navigationController] pushViewController:vc animated:YES];
-}
+//- (IBAction)buttonPressedFemale:(CGradientButton *)sender {
+//    
+//    State = 1;  // set flag: text field is not displayed.
+//
+//    [GlobalData sharedManager].gender = @"female" ; // save result
+//    NSLog(@"Gender stored: %@", [GlobalData sharedManager].gender);
+//    
+//    // Go to next screen
+//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
+//    AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
+//    vc.navigationItem.hidesBackButton = NO;
+//    [[self navigationController] pushViewController:vc animated:YES];
+//}
+//
+//- (IBAction)buttonPressedMale:(CGradientButton *)sender {
+//    
+//    State = 1;  // set flag: text field is not displayed.
+//    
+//    [GlobalData sharedManager].gender = @"male" ; // save result
+//    NSLog(@"Gender stored: %@", [GlobalData sharedManager].gender);
+//    
+//    // Go to next screen
+//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
+//    AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
+//    vc.navigationItem.hidesBackButton = NO;
+//    [[self navigationController] pushViewController:vc animated:YES];
+//}
+//
+//- (IBAction)buttonPressedNotSure:(CGradientButton *)sender {
+//    
+//    State = 2;  // set flag: text field is displayed.
+//    
+//    [GlobalData sharedManager].gender = @"other" ; // save result
+//    NSLog(@"Gender key stored: %@", [GlobalData sharedManager].gender);
+//    
+//    // Go to next screen
+//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"PersonalCharacteristics" bundle:nil];
+//    AgeViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AgeViewController"];
+//    vc.navigationItem.hidesBackButton = NO;
+//    [[self navigationController] pushViewController:vc animated:YES];
+//}
 
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -276,6 +335,17 @@
     }
     
     
+    // Set State flag depending upon whether or not text field is displayed
+    if (m_TextField.hidden)
+    {
+        State = 1;  // text field is hidden
+    }
+    else
+    {
+        State = 2;  // text field is displayed, but keyboard is not present
+    }
+    
+    
     
     
     
@@ -327,6 +397,9 @@
         ((UISwitch*)[m_Switch objectAtIndex:i]).hidden = YES;
         ((UILabel*)[m_Label objectAtIndex:i]).hidden = YES;
     }
+    
+    
+    State = 3;  // set flag: text field is displayed and keyboard appears.
     
     // Some of the coordinates are OS version-dependent.
     // Get the version of the OS:
@@ -514,6 +587,11 @@
         ((UISwitch*)[m_Switch objectAtIndex:i]).hidden = NO;
         ((UILabel*)[m_Label objectAtIndex:i]).hidden = NO;
     }
+    
+    
+    State = 2;  // set flag: text field is displayed, but keyboard is removed.
+    
+
     
 }
 

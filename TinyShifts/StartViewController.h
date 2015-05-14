@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CGradientButton.h"
 
-@interface StartViewController : UIViewController
+@interface StartViewController : UIViewController <UITabBarControllerDelegate>
+
 - (IBAction)startButtonPressed:(CGradientButton *)sender;
 -(void) setState:(int)newState;
 

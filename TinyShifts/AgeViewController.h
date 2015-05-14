@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AgeViewController : UIViewController
+@interface AgeViewController : UIViewController  <UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *textfieldAge;
 
 @end

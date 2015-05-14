@@ -42,6 +42,9 @@ int State;
     
     // Initialization
     
+    UITabBarController* utc = self.tabBarController;
+    utc.delegate = self;
+    
     // State = 0: baseline survey not done.
     // State = 1: baseline survey has been done.
     State = 0;
@@ -221,22 +224,22 @@ int State;
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    // Control whether the user can interact with the tab bar buttons, based on whether the
-    // baseline survey has been completed yet.
-    // Determine whether baseline survey has been done yet.  If it has, set State = 1, otherwise, set State = 0.
-    
-    State = [[CDatabaseInterface sharedManager] getBaselineSurveyStatus];
-    
-    if (State == 1)
-    {
-        // Baseline survey has been done, so enable tab bar buttons.
-        self.tabBarController.tabBar.userInteractionEnabled = YES;
-    }
-    else
-    {
-        // Baseline survey has not been done, so disable tab bar buttons.
-        self.tabBarController.tabBar.userInteractionEnabled = NO;
-    }
+//    // Control whether the user can interact with the tab bar buttons, based on whether the
+//    // baseline survey has been completed yet.
+//    // Determine whether baseline survey has been done yet.  If it has, set State = 1, otherwise, set State = 0.
+//    
+//    State = [[CDatabaseInterface sharedManager] getBaselineSurveyStatus];
+//    
+//    if (State == 1)
+//    {
+//        // Baseline survey has been done, so enable tab bar buttons.
+//        self.tabBarController.tabBar.userInteractionEnabled = YES;
+//    }
+//    else
+//    {
+//        // Baseline survey has not been done, so disable tab bar buttons.
+//        self.tabBarController.tabBar.userInteractionEnabled = NO;
+//    }
 }
 
 
@@ -264,6 +267,29 @@ int State;
 
 - (BOOL) shouldAutorotate {
     return NO;
+}
+
+
+
+
+
+-(BOOL) tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    BOOL retval = YES;
+    
+    if ([[CDatabaseInterface sharedManager] getBaselineSurveyStatus] == 1)
+    {
+        // Baseline survey has been done, so enable tab bar buttons.
+        retval = YES;
+    }
+    else
+    {
+        // Baseline survey has not been done, so disable tab bar buttons.
+        retval = NO;
+    }
+    
+    
+    return retval;
 }
 
 @end

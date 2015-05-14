@@ -187,7 +187,10 @@
                                     <constraint firstAttribute="width" constant="50" id="xzg-9v-yuZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gkD-pY-Wff" id="2Ay-QP-kY9"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -253,7 +256,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedAsian:" destination="KLx-Gj-NpI" eventType="touchUpInside" id="Eub-tT-reL"/>
-                                    <action selector="buttonPressedFemale:" destination="dRO-F1-1xD" eventType="touchUpInside" id="Hml-Of-MFK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfh-X4-eWZ" customClass="CGradientButton">
@@ -268,7 +270,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedBlack:" destination="KLx-Gj-NpI" eventType="touchUpInside" id="aFy-qJ-ntM"/>
-                                    <action selector="buttonPressedMale:" destination="dRO-F1-1xD" eventType="touchUpInside" id="VUU-0m-2XD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zej-vM-NeP" customClass="CGradientButton">
@@ -283,7 +284,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressedHispanic:" destination="KLx-Gj-NpI" eventType="touchUpInside" id="2Sz-3U-gl9"/>
-                                    <action selector="buttonPressedNotSure:" destination="dRO-F1-1xD" eventType="touchUpInside" id="ej9-T0-aWN"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your ethnicity/race:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80f-sh-ydF">
@@ -310,7 +310,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressedFemale:" destination="dRO-F1-1xD" eventType="touchUpInside" id="RHC-HT-zDJ"/>
                                     <action selector="buttonPressedWhite:" destination="KLx-Gj-NpI" eventType="touchUpInside" id="w6l-iu-DmE"/>
                                 </connections>
                             </button>
@@ -325,7 +324,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressedMale:" destination="dRO-F1-1xD" eventType="touchUpInside" id="jaF-QS-o27"/>
                                     <action selector="buttonPressedOther:" destination="KLx-Gj-NpI" eventType="touchUpInside" id="eyN-LT-XGL"/>
                                 </connections>
                             </button>
