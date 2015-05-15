@@ -15,6 +15,8 @@
 
 +(ScheduleManager*) sharedManager;
 
--(void) getNextRandomEventTime;
+-(NSDate*) getNextRandomEventTime;
+-(void) updateSchedule;
+
 
 @end

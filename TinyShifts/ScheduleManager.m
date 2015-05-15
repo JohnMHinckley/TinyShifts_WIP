@@ -11,6 +11,8 @@
 #import "DailyTimeIntervals.h"
 #import "Schedule_Rec.h"
 #import "CDatabaseInterface.h"
+#import "RDB_Schedule.h"
+#import "Backendless.h"
 @import UIKit;
 
 @implementation ScheduleManager
@@ -124,7 +126,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 
 
 
--(void) getNextRandomEventTime
+-(NSDate*) getNextRandomEventTime
 {
     /*
      Pseudorandomly pick the next time for an event.
@@ -144,6 +146,9 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
      12. Register the next notification.
      
      */
+    NSDate* retval = nil;   // return value: pointer to a NSDate object.
+    
+    
     const int minutesPerWeek = 60 * 24 * 7;
     
     NSInteger Nr = [self getNumberRemainingEvents];
@@ -158,6 +163,10 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         {
             m[i] = i;
         }
+        
+        
+        // step 3.
+        // Time interval boundaries obtained from local dictionary member timeIntervals.
         
         
         //=========================================================================================
@@ -432,174 +441,143 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         
         //=========================================================================================
         // Check for use of Google calendar
-        // if not using Google calendar...
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        // Step 7. sort the minute array in ascending order of value
-        // Use an exchange sort method with the special knowledge that the array has multiple zero values and that
-        // these are the smallest values.
-        
-        for (int j = 0; j < minutesPerWeek-1; j++)    // loop over index for first element
+        if ([[GlobalData sharedManager] bUseGoogleCal])
         {
-            if (m[j] > 0)
-            {
-                // Loops over index of second element, only if first element is greater than zero.
-                for (int i = j+1; i < minutesPerWeek; i++)  // loop over index for second element
-                {
-                    if (m[i] < m[j])
-                    {
-                        // first element is larger than the second element: must swap them
-                        int mtemp = m[i];
-                        m[i] = m[j];
-                        m[j] = mtemp;
-                    }
-                }
-            }
-            else
-            {
-                // On the other hand, if the first element is zero, it is not larger than any possible second
-                // element, so the first element can stay where it is.  Go to the next first element.
-            }
-        }
-        
-        
-        
-        
-        // Step 8.  find the index of the lowest non-zero element
-        int indexFirstNonzeroElement = minutesPerWeek;  // this will become the index for the first non-zero element in the sorted array.
-        // if no element is non-zero, this index will remain at minutesPerWeek, in which
-        // case, this will signal that there are no non-zero elements in the array.
-        
-        for (int j = 0; j < minutesPerWeek && (indexFirstNonzeroElement == minutesPerWeek); j++)    // loop only until the first non-zero element is found.
-        {
-            if (m[j] > 0)
-            {
-                indexFirstNonzeroElement = j;
-            }
-        }
-        
-        
-        
-        
-        
-        
-        // Does a non-zero element exist?
-        // Step 9. If a non-zero element does not exist: there are no more events to do this week.
-        
-        if (indexFirstNonzeroElement < minutesPerWeek)
-        {
-            // there is at least one nonzero element.
-            // Step 10. Otherwise, pick Nr random number from [n1 to 10080-1]
-            // Step 11. Keep the smallest one.
-            // Nr is the remaining number of events for this week.
-            // n1 is the index of the first non-zero element in the minute array.
-            
-            // Random number generator provides an integer in the range of [0,ULim-1].
-            int ULim = 10080 - indexFirstNonzeroElement;
-            int smallestRandomNumber = 10080;
-            for (int i = 0; i < Nr; i++)
-            {
-                int R = 0.0;
-                R = [GlobalData RandomIntUpTo:(ULim-1)];
-                R = R + indexFirstNonzeroElement;   // put random number in the range of [n1, 10080-1].
-                // if this is the smallest one so far, keep it.
-                if (R < smallestRandomNumber)
-                {
-                    smallestRandomNumber = R;
-                }
-            }
-            
-            
-            // Step 12. Register the next notification.
-            
-            // the value of smallestRandomNumber is the minute index for the selected time for the next notification.
-            // translate this into a NSDate object, then set a local notification for this date.
-            
-            // Set the notification for this date/time.
-            
-            // Get today's date
-            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-            NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
-            int weekday = [components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
-            
-            // Get the NSDate object for now
-            NSDate* now = [NSDate date];
-            
-            // Get the components of this date/time
-            components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:now];
-            NSInteger nowHour = [components hour];
-            NSInteger nowMinute = [components minute];
-            NSInteger secondsBeforeNow = 60 * (nowMinute + 60 * nowHour + 24 * (weekday-1));    // number of seconds between 12:00 a.m. Sunday and now.
-            NSTimeInterval dTime = (NSTimeInterval) (-secondsBeforeNow);
-            
-            // Get the NSDate object for 12:00 a.m. Sunday
-            NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
-            
-            // Get the NSDate object for the randomly selected time, which is an offset from 12:00 a.m. Sunday.
-            dTime = (NSTimeInterval) (60 * smallestRandomNumber);
-            NSDate* fireDate = [NSDate dateWithTimeInterval:dTime sinceDate:dateSunday];
-            
-            //-------------------
-            
-            // Allocate a working UILocalNotification object.
-            UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-            
-            // Return if it was not properly allocated and initialized.
-            if (localNotif == nil)
-            {
-                return;
-            }
-            
-            localNotif.fireDate = fireDate;
-            localNotif.timeZone = [NSTimeZone defaultTimeZone];
-            
-            
-            // Specify the notification characteristics
-            localNotif.alertBody = @"This is a suggestion to run the TinyShifts app.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
-            
-            localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
-            localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
-            localNotif.applicationIconBadgeNumber = 0;  // Display this as the icon's badge.
-            
-            //        // Specify custom data for the notification.
-            //        NSString* s1 = [NSString stringWithFormat:@"%d", datum.idRecord];
-            //        NSString* s2 = [NSString stringWithFormat:@"%d", datum.idWeek];
-            //        NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"PROD", @"Notification_Type", s1, @"Record_Number", s2, @"Week_Number", nil];
-            //        localNotif.userInfo = infoDict;
-            
-            
-            //------------------------------  Schedule the local notification  --------------------------
-            NSLog(@"Prior to scheduling a suggestion notification:");
-            [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
-            
-            [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-            
-            NSLog(@"After to scheduling a suggestion notification:");
-            [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
-            //-------------------
+            // Is using Google calendar.
+#pragma mark ***** TODO: code this.
             
         }
         else
         {
-            // There are no more events to do this week.
-        }
-    }
+        // if not using Google calendar...
+        
+            
+            // Step 7. sort the minute array in ascending order of value
+            // Use an exchange sort method with the special knowledge that the array has multiple zero values and that
+            // these are the smallest values.
+            
+            for (int j = 0; j < minutesPerWeek-1; j++)    // loop over index for first element
+            {
+                if (m[j] > 0)
+                {
+                    // Loops over index of second element, only if first element is greater than zero.
+                    for (int i = j+1; i < minutesPerWeek; i++)  // loop over index for second element
+                    {
+                        if (m[i] < m[j])
+                        {
+                            // first element is larger than the second element: must swap them
+                            int mtemp = m[i];
+                            m[i] = m[j];
+                            m[j] = mtemp;
+                        }
+                    }
+                }
+                else
+                {
+                    // On the other hand, if the first element is zero, it is not larger than any possible second
+                    // element, so the first element can stay where it is.  Go to the next first element.
+                }
+            }
+            
+            
+            
+            
+            // Step 8.  find the index of the lowest non-zero element
+            int indexFirstNonzeroElement = minutesPerWeek;  // this will become the index for the first non-zero element in the sorted array.
+            // if no element is non-zero, this index will remain at minutesPerWeek, in which
+            // case, this will signal that there are no non-zero elements in the array.
+            
+            for (int j = 0; j < minutesPerWeek && (indexFirstNonzeroElement == minutesPerWeek); j++)    // loop only until the first non-zero element is found.
+            {
+                if (m[j] > 0)
+                {
+                    indexFirstNonzeroElement = j;
+                    break;  // leave the for-loop, having found the lowest non-zero element.
+                }
+            }
+            
+            
+            
+            
+            
+            
+            // Does a non-zero element exist?
+            // Step 9. If a non-zero element does not exist: there are no more events to do this week.
+            
+            if (indexFirstNonzeroElement < minutesPerWeek)
+            {
+                // there is at least one nonzero element.
+                // Step 10. Otherwise, pick Nr random number from [n1 to 10080-1]
+                // Step 11. Keep the smallest one.
+                // Nr is the remaining number of events for this week.
+                // n1 is the index of the first non-zero element in the minute array.
+                
+                // Random number generator provides an integer in the range of [0,ULim-1].
+                int ULim = 10080 - indexFirstNonzeroElement;
+                int smallestRandomNumber = 10080;
+                for (int i = 0; i < Nr; i++)
+                {
+                    int R = 0.0;
+                    R = [GlobalData RandomIntUpTo:(ULim-1)];
+                    R = R + indexFirstNonzeroElement;   // put random number in the range of [n1, 10080-1].
+                    // if this is the smallest one so far, keep it.
+                    if (R < smallestRandomNumber)
+                    {
+                        smallestRandomNumber = R;
+                    }
+                }
+                
+                
+                // Step 12. Register the next notification.
+                
+                // the value of smallestRandomNumber is the minute index for the selected time for the next notification.
+                // translate this into a NSDate object, then set a local notification for this date.
+                
+                // Set the notification for this date/time.
+                
+                // Get today's date
+                NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+                NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+                int weekday = [components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
+                
+                // Get the NSDate object for now
+                NSDate* now = [NSDate date];
+                
+                // Get the components of this date/time
+                components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:now];
+                NSInteger nowHour = [components hour];
+                NSInteger nowMinute = [components minute];
+                NSInteger secondsBeforeNow = 60 * (nowMinute + 60 * nowHour + 24 * (weekday-1));    // number of seconds between 12:00 a.m. Sunday and now.
+                NSTimeInterval dTime = (NSTimeInterval) (-secondsBeforeNow);
+                
+                // Get the NSDate object for 12:00 a.m. Sunday
+                NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
+                
+                // Get the NSDate object for the randomly selected time, which is an offset from 12:00 a.m. Sunday.
+                dTime = (NSTimeInterval) (60 * smallestRandomNumber);
+                NSDate* fireDate = [NSDate dateWithTimeInterval:dTime sinceDate:dateSunday];
+                
+                retval = fireDate;  // return this date object.
+                
+                
+            }
+            else
+            {
+                // There are no more events to do this week.
+            }
+        }   // Not using Google calendar.
+        
+    }   // Number of remaining events this week > 0
     else
     {
+        // Number of remaining events this week <= 0.
+        
+        
         // There are no more events to do this week.
     }
     
-    
+    return retval;
 }
 
 
@@ -617,9 +595,6 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 
 
 
-
-
-
 //---------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -627,7 +602,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 -(void) setNumberRemainingEvents:(int)n
 {
     // Set the number of remaining recommendation events for this week.
-    // TODO: code this
+    [GlobalData  setAppInfoIntegerValue:n ForKey:@"NumberRemainingEvents"];
 }
 
 
@@ -674,6 +649,208 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 
 
 
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(BOOL) createRecommendationNotificationOnDate:(NSDate*)fireDate
+{
+    BOOL retSuccess = YES;  // return value indicating creation success
+    
+    //-------------------
+    
+    // Allocate a working UILocalNotification object.
+    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+    
+    // Return if it was not properly allocated and initialized.
+    if (localNotif == nil)
+    {
+        retSuccess = NO;
+    }
+    else
+    {
+        
+        localNotif.fireDate = fireDate;
+        localNotif.timeZone = [NSTimeZone defaultTimeZone];
+        
+        
+        // Specify the notification characteristics
+        localNotif.alertBody = @"This is a suggestion to run the TinyShifts app.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
+        
+        localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
+        localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
+        localNotif.applicationIconBadgeNumber = 0;  // Display this as the icon's badge.
+        
+        //        // Specify custom data for the notification.
+        //        NSString* s1 = [NSString stringWithFormat:@"%d", datum.idRecord];
+        //        NSString* s2 = [NSString stringWithFormat:@"%d", datum.idWeek];
+        //        NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"PROD", @"Notification_Type", s1, @"Record_Number", s2, @"Week_Number", nil];
+        //        localNotif.userInfo = infoDict;
+        
+        
+        //------------------------------  Schedule the local notification  --------------------------
+        NSLog(@"Prior to scheduling a suggestion notification:");
+        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+        
+        NSLog(@"After to scheduling a suggestion notification:");
+        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
+    }
+    //-------------------
+    
+    return retSuccess;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(BOOL) createProdNotificationOnDate:(NSDate*)fireDate
+{
+    BOOL retSuccess = YES;  // return value indicating creation success
+    
+    //-------------------
+    
+    // Allocate a working UILocalNotification object.
+    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+    
+    // Return if it was not properly allocated and initialized.
+    if (localNotif == nil)
+    {
+        retSuccess = NO;
+    }
+    else
+    {
+        
+        localNotif.fireDate = fireDate;
+        localNotif.timeZone = [NSTimeZone defaultTimeZone];
+        
+        
+        // Specify the notification characteristics
+        localNotif.alertBody = @"Consider setting automatic recommendations in the TinyShifts app.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
+        
+        localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
+        localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
+        localNotif.applicationIconBadgeNumber = 0;  // Display this as the icon's badge.
+        
+        //        // Specify custom data for the notification.
+        //        NSString* s1 = [NSString stringWithFormat:@"%d", datum.idRecord];
+        //        NSString* s2 = [NSString stringWithFormat:@"%d", datum.idWeek];
+        //        NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"PROD", @"Notification_Type", s1, @"Record_Number", s2, @"Week_Number", nil];
+        //        localNotif.userInfo = infoDict;
+        
+        
+        //------------------------------  Schedule the local notification  --------------------------
+        NSLog(@"Prior to scheduling a suggestion notification:");
+        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+        
+        NSLog(@"After to scheduling a suggestion notification:");
+        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
+    }
+    //-------------------
+    
+    return retSuccess;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(void) updateSchedule
+{
+    // Record part of the database record for Schedule.
+    
+    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];
+    
+    rec2.idRecord++; // increment the record id
+    
+    rec2.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
+    
+    // Get the current date and time and save these in the InfoReadingActivity_Rec object.
+    NSDateFormatter *dateFormatter1;
+    NSDateFormatter *dateFormatter2;
+    
+    //date formatter with just date and no time
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
+    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
+    
+    //date formatter with no date and just time
+    dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
+    
+    rec2.dateRecord = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
+    rec2.timeRecord = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
+    
+    rec2.bUseGoogleCalendar = [GlobalData sharedManager].bUseGoogleCal;
+    
+    rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
+    
+    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
+    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
+    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
+    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
+    
+    
+    
+    // Save the schedule record to the local database.
+    [[CDatabaseInterface sharedManager] saveSchedule:rec2];
+    
+    
+    
+    
+    // Send the schedule to the remote database.
+    
+    Responder* responder2 = [Responder responder:self
+                              selResponseHandler:@selector(responseHandlerSendSchedule:)
+                                 selErrorHandler:@selector(errorHandler:)];
+    
+    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];
+    
+    id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
+    
+    [dataStore2 save:record2 responder:responder2];
+    
+    
+    
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(id)responseHandlerSendSchedule:(id)response
+{
+    NSLog(@"Response Handler for send Schedule: Response = %@", response);
+    
+    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    
+    return response;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+-(void) clearAllLocalNotifications
+{
+#pragma mark *** TODO: code this.
+    
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
 
 
 

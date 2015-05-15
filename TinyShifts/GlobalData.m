@@ -11,6 +11,7 @@
 #import "RDB_Schedule.h"
 #import "CDatabaseInterface.h"
 #import "Backendless.h"
+#import "ScheduleManager.h"
 @import Security;
 
 @implementation GlobalData
@@ -279,6 +280,143 @@ static GlobalData* sharedSingleton = nil;   // single, static instance of this c
 
 
 
++(BOOL) setAppInfoStringValue:(NSString*) sstr ForKey:(NSString*) skey
+{
+    // Write the string value to the AppInfo property list corresponding to the input key skey.
+    
+    // If the path to the AppInfo property list is determined, and
+    // if the property list exists,
+    // then write the string.
+    // Return YES (successful).
+
+    // Otherwise, return NO (not successful).
+    
+    BOOL retSuccessful = NO;    // initialize return value.
+    
+    NSString* value = sstr;   // Initialize the value.
+    
+    
+    
+    // Get the path for the AppInfo property list.
+    NSString* pathToAppInfoPList = [[NSBundle mainBundle] pathForResource:@"AppInfo" ofType:@"plist"];
+    
+    
+    
+    if (nil != pathToAppInfoPList)  // was the path for the AppInfo property list found?
+    {
+        // yes, it was found.
+        
+        
+        // Check that property list file exists
+        if ([[NSFileManager defaultManager] fileExistsAtPath:pathToAppInfoPList])   // was the AppInfo property list found?
+        {
+            // yes, it was found.
+            
+            // Load the property list into a mutable dictionary.
+            NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithContentsOfFile:pathToAppInfoPList];
+            
+            
+            // Set the value in the dictionary,
+            // as the value corresponding to the key skey.
+            [dic setValue:value forKey:skey];
+            
+            // Set return flag to indicate success.
+            retSuccessful = YES;
+            
+        }
+        else
+        {
+            // AppInfo property list not found.
+            NSLog(@"*** Warning: AppInfo property list not found in GlobalData::setAppInfoStringValue:ForKey:.");
+            NSLog(@"Returning NO.");
+        }
+    }
+    else
+    {
+        // Path for AppInfo property list not found.
+        NSLog(@"*** Warning: Path for AppInfo property list not found in GlobalData::setAppInfoStringValue:ForKey:.");
+        NSLog(@"Returning NO.");
+    }
+    
+    
+    
+    return retSuccessful;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
++(BOOL) setAppInfoIntegerValue:(NSInteger) nvalue ForKey:(NSString*) skey
+{
+    // Write the integer value to the AppInfo property list corresponding to the input key skey.
+    
+    // If the path to the AppInfo property list is determined, and
+    // if the property list exists,
+    // then write the integer.
+    // Return YES (successful).
+    
+    // Otherwise, return NO (not successful).
+    
+    BOOL retSuccessful = NO;    // initialize return value.
+    
+    NSInteger value = nvalue;   // Initialize the value.
+    
+    
+    
+    // Get the path for the AppInfo property list.
+    NSString* pathToAppInfoPList = [[NSBundle mainBundle] pathForResource:@"AppInfo" ofType:@"plist"];
+    
+    
+    
+    if (nil != pathToAppInfoPList)  // was the path for the AppInfo property list found?
+    {
+        // yes, it was found.
+        
+        
+        // Check that property list file exists
+        if ([[NSFileManager defaultManager] fileExistsAtPath:pathToAppInfoPList])   // was the AppInfo property list found?
+        {
+            // yes, it was found.
+            
+            // Load the property list into a mutable dictionary.
+            NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithContentsOfFile:pathToAppInfoPList];
+            
+            // Set the value in the dictionary,
+            // as the value corresponding to the key skey.
+            [dic setValue:[NSString stringWithFormat:@"%d",value] forKey:skey];
+            
+            // Set return flag to indicate success.
+            retSuccessful = YES;
+            
+        }
+        else
+        {
+            // AppInfo property list not found.
+            NSLog(@"*** Warning: AppInfo property list not found in GlobalData::setAppInfoIntegerValue:ForKey:.");
+            NSLog(@"Returning NO.");
+        }
+    }
+    else
+    {
+        // Path for AppInfo property list not found.
+        NSLog(@"*** Warning: Path for AppInfo property list not found in GlobalData::setAppInfoIntegerValue:ForKey:.");
+        NSLog(@"Returning NO.");
+    }
+    
+    
+    
+    return retSuccessful;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
 - (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 
@@ -292,7 +430,7 @@ static GlobalData* sharedSingleton = nil;   // single, static instance of this c
         if ([title isEqualToString:@"Save"])
         {
             NSLog(@"Save schedule changes.");
-            [self sendSchedule];
+            [[ScheduleManager sharedManager] updateSchedule];
         }
         else if ([title isEqualToString:@"Discard"])
         {
@@ -303,95 +441,6 @@ static GlobalData* sharedSingleton = nil;   // single, static instance of this c
     
     
 }
-
-
-
-
-
-
-
-
--(void) sendSchedule
-{
-    // Record part of the database record for Schedule.
-    
-    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];
-    
-    rec2.idRecord++; // increment the record id
-    
-    rec2.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
-    
-    // Get the current date and time and save these in the InfoReadingActivity_Rec object.
-    NSDateFormatter *dateFormatter1;
-    NSDateFormatter *dateFormatter2;
-    
-    //date formatter with just date and no time
-    dateFormatter1 = [[NSDateFormatter alloc] init];
-    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
-    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
-    
-    //date formatter with no date and just time
-    dateFormatter2 = [[NSDateFormatter alloc] init];
-    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
-    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
-    
-    rec2.dateRecord = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
-    rec2.timeRecord = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
-    
-    rec2.bUseGoogleCalendar = [GlobalData sharedManager].bUseGoogleCal;
-    
-    rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
-    
-    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
-    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
-    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
-    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
-    
-    
-    
-    // Save the schedule record to the local database.
-    [[CDatabaseInterface sharedManager] saveSchedule:rec2];
-    
-    
-    
-    
-    // Send the schedule to the remote database.
-    
-    Responder* responder2 = [Responder responder:self
-                              selResponseHandler:@selector(responseHandlerSendSchedule:)
-                                 selErrorHandler:@selector(errorHandler:)];
-    
-    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];
-    
-    id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
-    
-    [dataStore2 save:record2 responder:responder2];
-    
-    
-    
-}
-
-
-
-//---------------------------------------------------------------------------------------------------------------------------------
-
-
-
--(id)responseHandlerSendSchedule:(id)response
-{
-    NSLog(@"Response Handler for send Schedule: Response = %@", response);
-    
-    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    
-    return response;
-}
-
-
-
-//---------------------------------------------------------------------------------------------------------------------------------
-
-
-
 
 
 
