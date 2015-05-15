@@ -15,6 +15,20 @@
 
 @implementation CDatabaseInterface
 
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- singleton ------------------------
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
 static CDatabaseInterface* sharedSingleton = nil;   // single, static instance of this class
 
 
@@ -48,6 +62,14 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     return self;
 }
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- MyStatus ------------------------
 
 
 
@@ -187,127 +209,6 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 
 
 
--(NSString*) getParticipantCodeWithMatchingActivation:(NSString*)activationCode
-{
-    NSString* retVal = nil;
-    
-//    [[DatabaseController sharedManager] openDB];
-//    
-//    
-//    NSString *qsql = [NSString stringWithFormat:@"SELECT idParticipantCode FROM Participants where activationCode = '%@'", activationCode];
-//    
-//    sqlite3_stmt *statement;
-//    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
-//    {
-//        while (sqlite3_step(statement) == SQLITE_ROW)
-//        {
-//            char *idParticipantCode = (char *) sqlite3_column_text(statement, 0);  // idParticipantCode
-//            
-//            retVal = [[NSString alloc] initWithUTF8String:idParticipantCode];
-//        }
-//        
-//        
-//        sqlite3_reset(statement);
-//        
-//        //—-deletes the compiled statement from memory—-
-//        sqlite3_finalize(statement);
-//    }
-//    
-//    
-//    
-//    [[DatabaseController sharedManager] closeDB];
-    
-    
-    BackendlessDataQuery *query = [BackendlessDataQuery query];
-    
-    query.whereClause = [NSString stringWithFormat:@"activationCode = \'%@\'", [activationCode lowercaseString]];   // search for the activation code, after having cast is as lower case.
-                                                                                                                    // remote db needs to use lower case characters for all activation codes.
-    
-    
-    BackendlessCollection* collection = [backendless.persistenceService find:[RDB_Participants class] dataQuery:query];
-
-    NSMutableArray* data = [[NSMutableArray alloc] initWithArray:[collection data]];
-    
-    if ([data count] > 0)
-    {
-        // A participant with the specified activationCode was found.
-        
-        // Return the corresponding participantID.
-        
-        retVal = ((RDB_Participants*)[data objectAtIndex:0]).idParticipantCode;
-    }
-
-    
-    return retVal;
-}
-
-
-
-
-//---------------------------------------------------------------------------------------------------------------------------------
-
-
-
-- (void)responseHandlerActivationQuery:(id)response
-{
-    NSLog(@"responseHandler:Schedule Sent; class = %@", [response class]);
-    
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    
-    NSMutableArray* data = [[NSMutableArray alloc] initWithArray:[(BackendlessCollection *)response data]];
-    
-    if ([data count] > 0)
-    {
-        // corresponding record(s) was found in the remote database table
-        
-        // In the Participants table, for the record with recordID matching the value in data, set the confirmed transmitted bit.
-        int recordID = (int)((RDB_Participants*)[data objectAtIndex:0]).idParticipantCode;
-        
-        [self setTransmitConfirmedBitForSurveyRecordWithID:recordID];
-        
-    }
-    
-}
-
-
-
-//---------------------------------------------------------------------------------------------------------------------------------
-
-
-
--(void) saveMyIdentityAs:(NSString*)idParticipantCode
-{
-    // save the value of idParticipantCode in the table MyIdentity
-    
-    [[DatabaseController sharedManager] openDB];
-    
-    
-    NSString *qsql = [NSString stringWithFormat:@"INSERT INTO MyIdentity values ('%@')",idParticipantCode];
-    
-    sqlite3_stmt *statement;
-    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
-    {
-        sqlite3_step(statement);
-        
-        
-        sqlite3_reset(statement);
-        
-        //—-deletes the compiled statement from memory—-
-        sqlite3_finalize(statement);
-    }
-    
-    
-    
-    [[DatabaseController sharedManager] closeDB];
-}
-
-
-
-//---------------------------------------------------------------------------------------------------------------------------------
-
-
-
 -(void) saveAppActivationState:(int)activationValue
 {
     // save the value of activationValue in the table MyStatus, under the key "activated"
@@ -372,7 +273,7 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     //NSString* qsql = @"DELETE FROM MyStatus WHERE key = 'baselineDone'";
     // Delete the (all) record from the MyStatus table having the value of "baselineDone" in the field key.
     NSString* qsql = [NSString stringWithFormat:@"DELETE FROM MyStatus WHERE key = '%@'", key];
-   
+    
     sqlite3_stmt *statement;
     if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
     {
@@ -405,6 +306,304 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     [[DatabaseController sharedManager] closeDB];
 }
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- RDB: Participants ------------------------
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(NSString*) getParticipantCodeWithMatchingActivation:(NSString*)activationCode
+{
+    NSString* retVal = nil;
+    
+//    [[DatabaseController sharedManager] openDB];
+//    
+//    
+//    NSString *qsql = [NSString stringWithFormat:@"SELECT idParticipantCode FROM Participants where activationCode = '%@'", activationCode];
+//    
+//    sqlite3_stmt *statement;
+//    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+//    {
+//        while (sqlite3_step(statement) == SQLITE_ROW)
+//        {
+//            char *idParticipantCode = (char *) sqlite3_column_text(statement, 0);  // idParticipantCode
+//            
+//            retVal = [[NSString alloc] initWithUTF8String:idParticipantCode];
+//        }
+//        
+//        
+//        sqlite3_reset(statement);
+//        
+//        //—-deletes the compiled statement from memory—-
+//        sqlite3_finalize(statement);
+//    }
+//    
+//    
+//    
+//    [[DatabaseController sharedManager] closeDB];
+    
+    
+    BackendlessDataQuery *query = [BackendlessDataQuery query];
+    
+    query.whereClause = [NSString stringWithFormat:@"activationCode = \'%@\'", [activationCode lowercaseString]];   // search for the activation code, after having cast is as lower case.
+                                                                                                                    // remote db needs to use lower case characters for all activation codes.
+    
+    
+    BackendlessCollection* collection = [backendless.persistenceService find:[RDB_Participants class] dataQuery:query];
+
+    NSMutableArray* data = [[NSMutableArray alloc] initWithArray:[collection data]];
+    
+    if ([data count] > 0)
+    {
+        // A participant with the specified activationCode was found.
+        
+        // Return the corresponding participantID.
+        
+        retVal = ((RDB_Participants*)[data objectAtIndex:0]).idParticipantCode;
+    }
+
+    
+    return retVal;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+- (void)responseHandlerActivationQuery:(id)response
+{
+    NSLog(@"responseHandler:Schedule Sent; class = %@", [response class]);
+    
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    NSMutableArray* data = [[NSMutableArray alloc] initWithArray:[(BackendlessCollection *)response data]];
+    
+    if ([data count] > 0)
+    {
+        // corresponding record(s) was found in the remote database table
+        
+        // In the Participants table, for the record with recordID matching the value in data, set the confirmed transmitted bit.
+        int recordID = (int)((RDB_Participants*)[data objectAtIndex:0]).idParticipantCode;
+        
+        [self setTransmitConfirmedBitForSurveyRecordWithID:recordID];
+        
+    }
+    
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- MyIdentity ------------------------
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(void) saveMyIdentityAs:(NSString*)idParticipantCode
+{
+    // save the value of idParticipantCode in the table MyIdentity
+    
+    [[DatabaseController sharedManager] openDB];
+    
+    
+    NSString *qsql = [NSString stringWithFormat:@"INSERT INTO MyIdentity values ('%@')",idParticipantCode];
+    
+    sqlite3_stmt *statement;
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+    {
+        sqlite3_step(statement);
+        
+        
+        sqlite3_reset(statement);
+        
+        //—-deletes the compiled statement from memory—-
+        sqlite3_finalize(statement);
+    }
+    
+    
+    
+    [[DatabaseController sharedManager] closeDB];
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(NSString*) getMyIdentity
+{
+    // Read and return the participant code from MyIdentity table
+    
+    
+    NSString* retVal = nil;
+    
+    [[DatabaseController sharedManager] openDB];
+    
+    
+    NSString *qsql = [NSString stringWithFormat:@"SELECT participantId from MyIdentity limit 1"];
+    
+    sqlite3_stmt *statement;
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+    {
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            char *idParticipantCode = (char *) sqlite3_column_text(statement, 0);  // idParticipantCode
+            
+            retVal = [[NSString alloc] initWithUTF8String:idParticipantCode];
+        }
+        
+        
+        sqlite3_reset(statement);
+        
+        //—-deletes the compiled statement from memory—-
+        sqlite3_finalize(statement);
+    }
+    
+    
+    
+    [[DatabaseController sharedManager] closeDB];
+    
+    
+    return retVal;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- Schedule ------------------------
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(void) saveSchedule:(Schedule_Rec*) rec
+{
+    
+    static int idRec = 0;
+    
+    [[DatabaseController sharedManager] openDB];
+    
+    
+    NSString *qsql = [NSString stringWithFormat:@"INSERT INTO Schedule values (%d, '%@', '%@', '%@', %d, %d, %d, %d, %d, %d, %d)",
+                      idRec,
+                      rec.participantId,
+                      rec.dateRecord,
+                      rec.timeRecord,
+                      rec.bUseGoogleCalendar,
+                      rec.weeklyFrequency,
+                      rec.availableMorning,
+                      rec.availableNoon,
+                      rec.availableAfternoon,
+                      rec.availableEvening,
+                      0];  // 0 signifies that data is not sent to RDB
+    
+    sqlite3_stmt *statement;
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+    {
+        sqlite3_step(statement);
+        
+        
+        sqlite3_reset(statement);
+        
+        //—-deletes the compiled statement from memory—-
+        sqlite3_finalize(statement);
+    }
+    
+    
+    
+    [[DatabaseController sharedManager] closeDB];
+    
+    idRec++;   // increment PK for next cycle
+}
+
+
+-(Schedule_Rec*) getLatestSchedule
+{
+    Schedule_Rec* rec = [[Schedule_Rec alloc] init];
+   
+    
+    
+    [[DatabaseController sharedManager] openDB];
+    
+    
+    //—-retrieve latest row—-
+    NSString *qsql = [NSString stringWithFormat:@"SELECT id, participantId, date, time, bUseGoogleCalendar, weeklyFrequency, availableMorning, availableNoon, availableAfternoon, availableEvening, didTransmitThisRecord FROM Schedule order by id DESC limit 1"];
+    
+    sqlite3_stmt *statement;
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+    {
+        int n;
+        char* c;
+        
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            n = sqlite3_column_int(statement, 0); rec.idRecord = n;  // id
+            
+            c = (char *) sqlite3_column_text(statement, 1); rec.participantId = [[NSMutableString alloc] initWithUTF8String:c];  // participantId
+            
+            c = (char *) sqlite3_column_text(statement, 2); rec.dateRecord = [[NSMutableString alloc] initWithUTF8String:c];  // date
+            
+            c = (char *) sqlite3_column_text(statement, 3); rec.timeRecord = [[NSMutableString alloc] initWithUTF8String:c];  // time
+            
+            n = sqlite3_column_int(statement, 4); rec.bUseGoogleCalendar = n;  // bUseGoogleCalendar
+            
+            n = sqlite3_column_int(statement, 5); rec.weeklyFrequency = n;  // weeklyFrequency
+            
+            n = sqlite3_column_int(statement, 6); rec.availableMorning = n;  // availableMorning
+            
+            n = sqlite3_column_int(statement, 7); rec.availableNoon = n;  // availableNoon
+            
+            n = sqlite3_column_int(statement, 8); rec.availableAfternoon = n;  // availableAfternoon
+            
+            n = sqlite3_column_int(statement, 9); rec.availableEvening = n;  // availableEvening
+            
+            n = sqlite3_column_int(statement, 10); rec.didTransmitThisRecord = n;  // didTransmitThisRecord
+        }
+        
+        
+        sqlite3_reset(statement);
+        
+        //—-deletes the compiled statement from memory—-
+        sqlite3_finalize(statement);
+    }
+    [[DatabaseController sharedManager] closeDB];
+   
+    
+    
+    return rec;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- not used ------------------------
 
 
 
@@ -972,42 +1171,6 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 
 
 
--(NSString*) getMyIdentity
-{
-    // Read and return the participant code from MyIdentity table
-    
-    
-    NSString* retVal = nil;
-    
-    [[DatabaseController sharedManager] openDB];
-    
-    
-    NSString *qsql = [NSString stringWithFormat:@"SELECT participantId from MyIdentity limit 1"];
-    
-    sqlite3_stmt *statement;
-    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
-    {
-        while (sqlite3_step(statement) == SQLITE_ROW)
-        {
-            char *idParticipantCode = (char *) sqlite3_column_text(statement, 0);  // idParticipantCode
-            
-            retVal = [[NSString alloc] initWithUTF8String:idParticipantCode];
-        }
-        
-        
-        sqlite3_reset(statement);
-        
-        //—-deletes the compiled statement from memory—-
-        sqlite3_finalize(statement);
-    }
-    
-    
-    
-    [[DatabaseController sharedManager] closeDB];
-    
-    
-    return retVal;
-}
 
 
 

@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FrequencyViewController : UIViewController
+@interface FrequencyViewController : UIViewController <UIAlertViewDelegate>
+{
+    BOOL bDataChanged_Mode2;    // flag: YES = user changed data on screen.
+}
+
+@property (strong, nonatomic) UIAlertView* responseAlert;
+
 @property (weak, nonatomic) IBOutlet UISlider *sliderFrequency;
 @property (weak, nonatomic) IBOutlet UILabel *labelSliderValue;
 - (IBAction)sliderValueChanged:(UISlider *)sender;

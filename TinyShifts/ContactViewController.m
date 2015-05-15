@@ -180,7 +180,7 @@
 {
     NSLog(@"Response Handler for send ContactActivity: Response = %@", response);
     
-    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    //[[[UIAlertView alloc] initWithTitle:@"E-mail Sent" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     
     return response;
 }

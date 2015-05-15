@@ -15,6 +15,7 @@
 {
     MPMoviePlayerController *player;
     NSUInteger screenMode;
+    BOOL bVideoDidPlayMode2;    // flag used in screen mode 2 (tab bar button activated) to track whether a video was actually played in this screen.
 }
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewBackground;
 - (IBAction)buttonPressedPlayVideo:(CGradientButton *)sender;

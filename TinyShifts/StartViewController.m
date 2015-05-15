@@ -47,7 +47,7 @@
     
     // State = 0: baseline survey not done.
     // State = 1: baseline survey has been done.
-    State = 0;
+    State = [[CDatabaseInterface sharedManager] getBaselineSurveyStatus];
     
     
 //    // -------------- Code for creating a RDB_Participants table in the remote database.  Normally, can be commented out.

@@ -8,19 +8,119 @@
 
 #import <Foundation/Foundation.h>
 #import "sqlite3.h"
+#import "Schedule_Rec.h"
 
 @interface CDatabaseInterface : NSObject
 {
     sqlite3 *db;    // pointer to an sqlite3 structure
 }
 
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- singleton ------------------------
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
 +(CDatabaseInterface*) sharedManager;
-//-(BOOL) openDB;
-//-(BOOL) closeDB;
-//-(BOOL) compileSqlStatement:(sqlite3_stmt**)pStatement fromQuery:(NSString*)qSQL;
 
 
 
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- MyStatus ------------------------
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// read
+-(int) getActivationStatus;
+-(int) getBaselineSurveyStatus;
+
+// write
+-(void) saveAppActivationState:(int)activationValue;
+-(void) saveBaselineSurveyStatus:(int)statusValue;
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- RDB: Participants ------------------------
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// read
+-(NSString*) getParticipantCodeWithMatchingActivation:(NSString*)activationCode;
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- MyIdentity ------------------------
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// read
+-(NSString*) getMyIdentity;
+
+// write
+-(void) saveMyIdentityAs:(NSString*)idParticipantCode;
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- Schedule ------------------------
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// write
+-(void) saveSchedule:(Schedule_Rec*) rec;
+
+// read
+-(Schedule_Rec*) getLatestSchedule;
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#pragma mark ----------------------- not used ------------------------
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -133,35 +233,6 @@
 
 
 
-// ----------------------------- Table: MyIdentity --------------------------------------
-// read
--(NSString*) getMyIdentity;
-
-// write
--(void) saveMyIdentityAs:(NSString*)idParticipantCode;
-
-
-
-
-
-
-// ----------------------------- Table: MyStatus --------------------------------------
-// read
--(int) getActivationStatus;
--(int) getBaselineSurveyStatus;
-
-// write
--(void) saveAppActivationState:(int)activationValue;
--(void) saveBaselineSurveyStatus:(int)statusValue;
-
-
-
-
-
-
-// ----------------------------- Table: Participants --------------------------------------
-// read
--(NSString*) getParticipantCodeWithMatchingActivation:(NSString*)activationCode;
 
 
 

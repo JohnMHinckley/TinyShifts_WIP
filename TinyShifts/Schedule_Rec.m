@@ -14,6 +14,7 @@
 @synthesize participantId;
 @synthesize dateRecord;
 @synthesize timeRecord;
+@synthesize bUseGoogleCalendar;
 @synthesize weeklyFrequency;
 @synthesize availableMorning;
 @synthesize availableNoon;
@@ -93,11 +94,13 @@ static Schedule_Rec* sharedSingleton = nil;   // single, static instance of this
     
     idRecord                = 0;
     participantId           = @"";
-    dateRecord                    = @"";
-    timeRecord                    = @"";
+    dateRecord              = @"";
+    timeRecord              = @"";
+    bUseGoogleCalendar      = 0;
     weeklyFrequency         = 0;
     availableMorning        = 0;
     availableNoon           = 0;
+    availableAfternoon      = 0;
     availableEvening        = 0;
     didTransmitThisRecord   = 0;
 }

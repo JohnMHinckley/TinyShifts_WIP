@@ -20,18 +20,18 @@
     // Do any additional setup after loading the view.
     
     
-    // Create an instance of the video list view controller.
-    
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    VideoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoListViewController"];
-    vc.navigationItem.hidesBackButton = YES;
-    
-    // Tell the destination view controller, the mode under which it is being created.
-    [vc setScreenMode:2];   // 2 signifies being created from the tab bar.
-  
-    
-    // Display the new view controller.
-    [self.navigationController pushViewController:vc animated:YES];
+//    // Create an instance of the video list view controller.
+//    
+//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    VideoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoListViewController"];
+//    vc.navigationItem.hidesBackButton = YES;
+//    
+//    // Tell the destination view controller, the mode under which it is being created.
+//    [vc setScreenMode:2];   // 2 signifies being created from the tab bar.
+//  
+//    
+//    // Display the new view controller.
+//    [self.navigationController pushViewController:vc animated:YES];
 
 }
 
@@ -49,5 +49,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    // Create an instance of the video list view controller.
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    VideoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoListViewController"];
+    vc.navigationItem.hidesBackButton = YES;
+    
+    // Tell the destination view controller, the mode under which it is being created.
+    [vc setScreenMode:2];   // 2 signifies being created from the tab bar.
+    
+    
+    // Display the new view controller.
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

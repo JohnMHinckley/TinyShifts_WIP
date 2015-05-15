@@ -28,18 +28,30 @@
 @synthesize switchNoon;
 @synthesize switchAfternoon;
 @synthesize switchEvening;
+@synthesize responseAlert;
+
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // Set the switches
-    switchMorning.on = ([GlobalData sharedManager].timeOfDayAvailMorning > 0 ? NO : YES);
-    switchNoon.on = ([GlobalData sharedManager].timeOfDayAvailNoon > 0 ? NO : YES);
-    switchAfternoon.on = ([GlobalData sharedManager].timeOfDayAvailAfternoon > 0 ? NO : YES);
-    switchEvening.on = ([GlobalData sharedManager].timeOfDayAvailEvening > 0 ? NO : YES);
-    
+//    if (screenInstance == 2)
+//    {
+//        Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+//        [GlobalData sharedManager].timeOfDayAvailMorning = rec.availableMorning;
+//        [GlobalData sharedManager].timeOfDayAvailNoon = rec.availableNoon;
+//        [GlobalData sharedManager].timeOfDayAvailAfternoon = rec.availableAfternoon;
+//        [GlobalData sharedManager].timeOfDayAvailEvening = rec.availableEvening;
+//    }
+//    
+//
+//    // Set the switches
+//    switchMorning.on = ([GlobalData sharedManager].timeOfDayAvailMorning > 0 ? NO : YES);
+//    switchNoon.on = ([GlobalData sharedManager].timeOfDayAvailNoon > 0 ? NO : YES);
+//    switchAfternoon.on = ([GlobalData sharedManager].timeOfDayAvailAfternoon > 0 ? NO : YES);
+//    switchEvening.on = ([GlobalData sharedManager].timeOfDayAvailEvening > 0 ? NO : YES);
+//    
     // Adjust the navigation item
     // Title
     self.navigationItem.title = @"Time of Day";
@@ -86,6 +98,10 @@
         && [GlobalData sharedManager].timeOfDayAvailEvening == 0)
     {
         NSLog(@"All intervals are omitted from reminders");
+#pragma mark ******* TODO item
+        // If parameters are changed on this screen, set a flag to form a local notification if and when the changes are saved.
+        // else, if parameters are not changed, and if a local notification is not already registered, form one now.
+        
     }
         
     
@@ -100,22 +116,28 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-//    // Control whether the user can interact with the tab bar buttons, based on whether the
-//    // baseline survey has been completed yet.
-//    // Determine whether baseline survey has been done yet.  If it has, set State = 1, otherwise, set State = 0.
-//    
-//    if ([[CDatabaseInterface sharedManager] getBaselineSurveyStatus] == 1)
-//    {
-//        // Baseline survey has been done, so enable tab bar buttons.
-//        self.tabBarController.tabBar.userInteractionEnabled = YES;
-//    }
-//    else
-//    {
-//        // Baseline survey has not been done, so disable tab bar buttons.
-//        self.tabBarController.tabBar.userInteractionEnabled = NO;
-//    }
+    if (screenInstance == 2)
+    {
+        bDataChanged_Mode2 = NO;    // Initialize data change flag
+    }
     
 
+    
+    if (screenInstance == 2)
+    {
+        Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+        [GlobalData sharedManager].timeOfDayAvailMorning = rec.availableMorning;
+        [GlobalData sharedManager].timeOfDayAvailNoon = rec.availableNoon;
+        [GlobalData sharedManager].timeOfDayAvailAfternoon = rec.availableAfternoon;
+        [GlobalData sharedManager].timeOfDayAvailEvening = rec.availableEvening;
+    }
+    
+    
+    // Set the switches
+    switchMorning.on = ([GlobalData sharedManager].timeOfDayAvailMorning > 0 ? NO : YES);
+    switchNoon.on = ([GlobalData sharedManager].timeOfDayAvailNoon > 0 ? NO : YES);
+    switchAfternoon.on = ([GlobalData sharedManager].timeOfDayAvailAfternoon > 0 ? NO : YES);
+    switchEvening.on = ([GlobalData sharedManager].timeOfDayAvailEvening > 0 ? NO : YES);
     
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
@@ -129,6 +151,49 @@
     [super viewDidAppear:true];
     [self portraitLock];
 }
+
+
+
+
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+//    if (screenInstance == 2 && bDataChanged_Mode2)
+//    {
+//        // Ask user whether to save or discard changes on this screen.
+//        
+//        UIAlertView *alert = [[UIAlertView alloc]
+//                              initWithTitle:@"Data Changed"
+//                              message:@"Do you want save or discard your changes on the Time of Day screen?"
+//                              delegate:self
+//                              cancelButtonTitle:@"Discard" otherButtonTitles:@"Save",nil];
+//        
+//        self.responseAlert = alert;     // Set the responseAlert so that the alert handler will know which alert is initiating it.
+//        
+//        [alert show];
+//    }
+}
+
+
+-(void) viewDidDisappear:(BOOL)animated
+{
+    if (screenInstance == 2 && bDataChanged_Mode2)
+    {
+        // Ask user whether to save or discard changes on this screen.
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Data Changed"
+                              message:@"Do you want save or discard your changes on the Time of Day screen?"
+                              delegate:[GlobalData sharedManager] // delegate:self
+                              cancelButtonTitle:@"Discard" otherButtonTitles:@"Save",nil];
+        
+        self.responseAlert = alert;     // Set the responseAlert so that the alert handler will know which alert is initiating it.
+        
+        [alert show];
+    }
+}
+
+
 
 -(void) portraitLock {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
@@ -207,81 +272,87 @@
 //    }
 //}
 
--(void) sendSchedule
-{
-    // Record part of the database record for Schedule.
-    
-    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];
-    
-    rec2.idRecord++; // increment the record id
-    
-    rec2.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
-    
-    // Get the current date and time and save these in the InfoReadingActivity_Rec object.
-    NSDateFormatter *dateFormatter1;
-    NSDateFormatter *dateFormatter2;
-    
-    //date formatter with just date and no time
-    dateFormatter1 = [[NSDateFormatter alloc] init];
-    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
-    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
-    
-    //date formatter with no date and just time
-    dateFormatter2 = [[NSDateFormatter alloc] init];
-    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
-    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
-    
-    rec2.dateRecord = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
-    rec2.timeRecord = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
-    
-    rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
-    
-    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
-    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
-    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
-    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
-    
-    
-    
-    
-    // Send the schedule to the remote database.
-    
-    Responder* responder2 = [Responder responder:self
-                              selResponseHandler:@selector(responseHandlerSendSchedule:)
-                                 selErrorHandler:@selector(errorHandler:)];
-    
-    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];
-    
-    id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
-    
-    [dataStore2 save:record2 responder:responder2];
-    
-    
-    
-}
-
-
-
-//---------------------------------------------------------------------------------------------------------------------------------
-
-
-
--(id)responseHandlerSendSchedule:(id)response
-{
-    NSLog(@"Response Handler for send Schedule: Response = %@", response);
-    
-    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    
-    return response;
-}
-
-
-
-//---------------------------------------------------------------------------------------------------------------------------------
+//-(void) sendSchedule
+//{
+//    // Record part of the database record for Schedule.
+//    
+//    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];
+//    
+//    rec2.idRecord++; // increment the record id
+//    
+//    rec2.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
+//    
+//    // Get the current date and time and save these in the InfoReadingActivity_Rec object.
+//    NSDateFormatter *dateFormatter1;
+//    NSDateFormatter *dateFormatter2;
+//    
+//    //date formatter with just date and no time
+//    dateFormatter1 = [[NSDateFormatter alloc] init];
+//    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
+//    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
+//    
+//    //date formatter with no date and just time
+//    dateFormatter2 = [[NSDateFormatter alloc] init];
+//    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
+//    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
+//    
+//    rec2.dateRecord = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
+//    rec2.timeRecord = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
+//    
+//    rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
+//    
+//    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
+//    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
+//    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
+//    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
+//    
+//    
+//    
+//    
+//    // Send the schedule to the remote database.
+//    
+//    Responder* responder2 = [Responder responder:self
+//                              selResponseHandler:@selector(responseHandlerSendSchedule:)
+//                                 selErrorHandler:@selector(errorHandler:)];
+//    
+//    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];
+//    
+//    id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
+//    
+//    [dataStore2 save:record2 responder:responder2];
+//    
+//    
+//    
+//}
+//
+//
+//
+////---------------------------------------------------------------------------------------------------------------------------------
+//
+//
+//
+//-(id)responseHandlerSendSchedule:(id)response
+//{
+//    NSLog(@"Response Handler for send Schedule: Response = %@", response);
+//    
+//    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//    
+//    return response;
+//}
+//
+//
+//
+////---------------------------------------------------------------------------------------------------------------------------------
 
 
 
 - (IBAction)switchChangedMorning:(UISwitch *)sender {
+    
+    if (screenInstance == 2)
+    {
+        bDataChanged_Mode2 = YES;    // Set data change flag
+    }
+    
     [GlobalData sharedManager].timeOfDayAvailMorning = (sender.isOn ? 0 : 1); // set flag
     NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailMorning,
@@ -289,13 +360,19 @@
           [GlobalData sharedManager].timeOfDayAvailAfternoon,
           [GlobalData sharedManager].timeOfDayAvailEvening);
     
-    if (screenInstance == 2)
-    {
-        [self sendSchedule];
-    }
+//    if (screenInstance == 2)
+//    {
+//        [self sendSchedule];
+//    }
 }
 
 - (IBAction)switchChangedNoon:(UISwitch *)sender {
+    
+    if (screenInstance == 2)
+    {
+        bDataChanged_Mode2 = YES;    // Set data change flag
+    }
+    
     [GlobalData sharedManager].timeOfDayAvailNoon = (sender.isOn ? 0 : 1); // set flag
     NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailMorning,
@@ -303,13 +380,19 @@
           [GlobalData sharedManager].timeOfDayAvailAfternoon,
           [GlobalData sharedManager].timeOfDayAvailEvening);
     
-    if (screenInstance == 2)
-    {
-        [self sendSchedule];
-    }
+//    if (screenInstance == 2)
+//    {
+//        [self sendSchedule];
+//    }
 }
 
 - (IBAction)switchChangedAfternoon:(UISwitch *)sender {
+    
+    if (screenInstance == 2)
+    {
+        bDataChanged_Mode2 = YES;    // Set data change flag
+    }
+    
     [GlobalData sharedManager].timeOfDayAvailAfternoon = (sender.isOn ? 0 : 1); // set flag
     NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailMorning,
@@ -317,13 +400,19 @@
           [GlobalData sharedManager].timeOfDayAvailAfternoon,
           [GlobalData sharedManager].timeOfDayAvailEvening);
     
-    if (screenInstance == 2)
-    {
-        [self sendSchedule];
-    }
+//    if (screenInstance == 2)
+//    {
+//        [self sendSchedule];
+//    }
 }
 
 - (IBAction)switchChangedEvening:(UISwitch *)sender {
+    
+    if (screenInstance == 2)
+    {
+        bDataChanged_Mode2 = YES;    // Set data change flag
+    }
+    
     [GlobalData sharedManager].timeOfDayAvailEvening = (sender.isOn ? 0 : 1); // set flag
     NSLog(@"Availability times: Morning, Noon, Afternoon, Evening = %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailMorning,
@@ -331,10 +420,10 @@
           [GlobalData sharedManager].timeOfDayAvailAfternoon,
           [GlobalData sharedManager].timeOfDayAvailEvening);
     
-    if (screenInstance == 2)
-    {
-        [self sendSchedule];
-    }
+//    if (screenInstance == 2)
+//    {
+//        [self sendSchedule];
+//    }
 }
 
 
@@ -361,15 +450,31 @@
 
 
 
-
-
-
-
-
-
-
-
-
+//- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    
+//    // the user clicked one of the #/Cancel buttons
+//    
+//    if (actionSheet == responseAlert)
+//    {
+//        
+//        // the user clicked one of the #/Cancel buttons
+//        
+//        NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
+//        
+//        if ([title isEqualToString:@"Save"])
+//        {
+//            NSLog(@"Save changes on Calendar screen.");
+//        }
+//        else if ([title isEqualToString:@"Discard"])
+//        {
+//            NSLog(@"Discard changes on Calendar screen.");
+//        }
+//        
+//    }
+//    
+//    
+//}
 
 
 @end

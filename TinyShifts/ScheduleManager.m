@@ -9,6 +9,8 @@
 #import "ScheduleManager.h"
 #import "GlobalData.h"
 #import "DailyTimeIntervals.h"
+#import "Schedule_Rec.h"
+#import "CDatabaseInterface.h"
 @import UIKit;
 
 @implementation ScheduleManager
@@ -174,6 +176,14 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         {
             // positive number of time intervals.
             // For the morning through evening time intervals, set the available flag to whatever is current for this user.
+            
+            // Get the most recent schedule data
+            Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+            [GlobalData sharedManager].timeOfDayAvailMorning = rec.availableMorning;
+            [GlobalData sharedManager].timeOfDayAvailNoon = rec.availableNoon;
+            [GlobalData sharedManager].timeOfDayAvailAfternoon = rec.availableAfternoon;
+            [GlobalData sharedManager].timeOfDayAvailEvening = rec.availableEvening;
+            
             DailyTimeIntervals* a = nil;
             
             a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"];

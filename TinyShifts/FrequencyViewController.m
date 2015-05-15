@@ -26,6 +26,8 @@
 @synthesize sliderFrequency;
 @synthesize labelSliderValue;
 @synthesize screenInstance;
+@synthesize responseAlert;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,10 +49,16 @@
         UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
         self.navigationItem.rightBarButtonItem = rightButtonItem;
     }
-
-    sliderFrequency.value = [GlobalData sharedManager].frequency;
-    labelSliderValue.text = [NSString stringWithFormat:@"%d", (int) sliderFrequency.value]; // value displayed on the screen
     
+//    if (screenInstance == 2)
+//    {
+//        Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+//        [GlobalData sharedManager].frequency = rec.weeklyFrequency;
+//    }
+//
+//    sliderFrequency.value = [GlobalData sharedManager].frequency;
+//    labelSliderValue.text = [NSString stringWithFormat:@"%d", (int) sliderFrequency.value]; // value displayed on the screen
+//    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,22 +90,20 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-//    // Control whether the user can interact with the tab bar buttons, based on whether the
-//    // baseline survey has been completed yet.
-//    // Determine whether baseline survey has been done yet.  If it has, set State = 1, otherwise, set State = 0.
-//    
-//    if ([[CDatabaseInterface sharedManager] getBaselineSurveyStatus] == 1)
-//    {
-//        // Baseline survey has been done, so enable tab bar buttons.
-//        self.tabBarController.tabBar.userInteractionEnabled = YES;
-//    }
-//    else
-//    {
-//        // Baseline survey has not been done, so disable tab bar buttons.
-//        self.tabBarController.tabBar.userInteractionEnabled = NO;
-//    }
+    if (screenInstance == 2)
+    {
+        bDataChanged_Mode2 = NO;    // Initialize data change flag
+    }
     
-
+    
+    if (screenInstance == 2)
+    {
+        Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+        [GlobalData sharedManager].frequency = rec.weeklyFrequency;
+    }
+    
+    sliderFrequency.value = [GlobalData sharedManager].frequency;
+    labelSliderValue.text = [NSString stringWithFormat:@"%d", (int) sliderFrequency.value]; // value displayed on the screen
     
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
@@ -111,6 +117,33 @@
     [super viewDidAppear:true];
     [self portraitLock];
 }
+
+
+
+
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    if (screenInstance == 2 && bDataChanged_Mode2)
+    {
+        // Ask user whether to save or discard changes on this screen.
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Data Changed"
+                              message:@"Do you want save or discard your changes on the Weekly Frequency screen?"
+                              delegate:[GlobalData sharedManager] // delegate:self
+                              cancelButtonTitle:@"Discard" otherButtonTitles:@"Save",nil];
+        
+        self.responseAlert = alert;     // Set the responseAlert so that the alert handler will know which alert is initiating it.
+        
+        [alert show];
+    }
+}
+
+
+
+
+
 
 -(void) portraitLock {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
@@ -130,12 +163,18 @@
 
 
 - (IBAction)sliderValueChanged:(UISlider *)sender {
+    
+    if (screenInstance == 2)
+    {
+        bDataChanged_Mode2 = YES;    // Set data change flag
+    }
+    
     [GlobalData sharedManager].frequency = sliderFrequency.value;
     labelSliderValue.text = [NSString stringWithFormat:@"%d", (int) sliderFrequency.value]; // value displayed on the screen
     
     if (screenInstance == 2)
     {
-        [self sendSchedule];
+//        [self sendSchedule];
     }
     
     NSLog(@"Frequency value = %d", [GlobalData sharedManager].frequency);
@@ -149,97 +188,31 @@
 }
 
 
-
-
-
-
-
--(void) sendSchedule
-{
-    // Record part of the database record for Schedule.
-    
-    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];
-    
-    rec2.idRecord++; // increment the record id
-    
-    rec2.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
-    
-    // Get the current date and time and save these in the InfoReadingActivity_Rec object.
-    NSDateFormatter *dateFormatter1;
-    NSDateFormatter *dateFormatter2;
-    
-    //date formatter with just date and no time
-    dateFormatter1 = [[NSDateFormatter alloc] init];
-    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
-    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
-    
-    //date formatter with no date and just time
-    dateFormatter2 = [[NSDateFormatter alloc] init];
-    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
-    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
-    
-    rec2.dateRecord = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
-    rec2.timeRecord = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
-    
-    rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
-    
-    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
-    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
-    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
-    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
-    
-    
-    
-    
-    // Send the schedule to the remote database.
-    
-    Responder* responder2 = [Responder responder:self
-                              selResponseHandler:@selector(responseHandlerSendSchedule:)
-                                 selErrorHandler:@selector(errorHandler:)];
-    
-    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];
-    
-    id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
-    
-    [dataStore2 save:record2 responder:responder2];
-    
-    
-    
-}
-
-
-
-//---------------------------------------------------------------------------------------------------------------------------------
-
-
-
--(id)responseHandlerSendSchedule:(id)response
-{
-    NSLog(@"Response Handler for send Schedule: Response = %@", response);
-    
-    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    
-    return response;
-}
-
-
-
-//---------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    
+//    // the user clicked one of the #/Cancel buttons
+//    
+//    if (actionSheet == responseAlert)
+//    {
+//        
+//        // the user clicked one of the #/Cancel buttons
+//        
+//        NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
+//        
+//        if ([title isEqualToString:@"Save"])
+//        {
+//            NSLog(@"Save changes on Calendar screen.");
+//        }
+//        else if ([title isEqualToString:@"Discard"])
+//        {
+//            NSLog(@"Discard changes on Calendar screen.");
+//        }
+//        
+//    }
+//    
+//    
+//}
 
 
 @end

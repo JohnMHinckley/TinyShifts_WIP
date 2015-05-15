@@ -15,6 +15,7 @@
 @synthesize participantId;
 @synthesize dateRecord;
 @synthesize timeRecord;
+@synthesize bUseGoogleCalendar;
 @synthesize weeklyFrequency;
 @synthesize availableMorning;
 @synthesize availableNoon;
@@ -31,8 +32,9 @@
     
     idRecord            = [Schedule_Rec sharedManager].idRecord;
     participantId       = [Schedule_Rec sharedManager].participantId;
-    dateRecord                = [Schedule_Rec sharedManager].dateRecord;
-    timeRecord                = [Schedule_Rec sharedManager].timeRecord;
+    dateRecord          = [Schedule_Rec sharedManager].dateRecord;
+    timeRecord          = [Schedule_Rec sharedManager].timeRecord;
+    bUseGoogleCalendar  = [Schedule_Rec sharedManager].bUseGoogleCalendar;
     weeklyFrequency     = [Schedule_Rec sharedManager].weeklyFrequency;
     availableMorning    = [Schedule_Rec sharedManager].availableMorning;
     availableNoon       = [Schedule_Rec sharedManager].availableNoon;

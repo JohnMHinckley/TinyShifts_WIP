@@ -397,6 +397,11 @@
         // Tell the destination view controller, the mode under which it is being created.
         [vc setScreenMode:1];   // 1 signifies being created from the main line of storyboard.
         
+        CGSize sz;
+        sz.height = 525;
+        sz.width = 106;
+        [vc setScrollSize:sz];
+        
         [self.navigationController pushViewController:vc animated:YES];
     }
     else

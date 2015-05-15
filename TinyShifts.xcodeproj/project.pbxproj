@@ -136,7 +136,7 @@
 		52C49A481A9A802800E53A9E /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C49A471A9A802800E53A9E /* InfoViewController.m */; };
 		52CACE561A8985FF00064614 /* CGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE551A8985FF00064614 /* CGradientButton.m */; };
 		52CACE591A898BB600064614 /* AllVideosHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE581A898BB600064614 /* AllVideosHeadViewController.m */; };
-		52DD991A1B03550D00529813 /* Database.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52DD99191B03550D00529813 /* Database.bundle */; };
+		52CB3F381B0554350005A854 /* Database.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52CB3F371B0554350005A854 /* Database.bundle */; };
 		52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */; };
 		52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */; };
 /* End PBXBuildFile section */
@@ -522,7 +522,7 @@
 		52CACE551A8985FF00064614 /* CGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGradientButton.m; sourceTree = "<group>"; };
 		52CACE571A898BB600064614 /* AllVideosHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllVideosHeadViewController.h; sourceTree = "<group>"; };
 		52CACE581A898BB600064614 /* AllVideosHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllVideosHeadViewController.m; sourceTree = "<group>"; };
-		52DD99191B03550D00529813 /* Database.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Database.bundle; sourceTree = "<group>"; };
+		52CB3F371B0554350005A854 /* Database.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Database.bundle; sourceTree = "<group>"; };
 		52E6F7AD1A88C0F800A5E269 /* ActivationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationViewController.h; sourceTree = "<group>"; };
 		52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivationViewController.m; sourceTree = "<group>"; };
 		52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationViewController.xib; sourceTree = "<group>"; };
@@ -686,7 +686,7 @@
 		524DEA571A7B0E26009A2EDC /* TinyShifts */ = {
 			isa = PBXGroup;
 			children = (
-				52DD99191B03550D00529813 /* Database.bundle */,
+				52CB3F371B0554350005A854 /* Database.bundle */,
 				5255F0D91ADACA7A00CFAB8F /* Remote Database */,
 				52B45AD01AB4C704006A4F1B /* Content.bundle */,
 				5255EE3E1ADA943E00CFAB8F /* Singletons */,
@@ -1438,7 +1438,7 @@
 				445ADC8A1AB9E17900FDCAEE /* appIcon_58x58.png in Resources */,
 				524DEA8B1A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png in Resources */,
 				445ADC931ABA04B600FDCAEE /* LaunchImage_640x960.png in Resources */,
-				52DD991A1B03550D00529813 /* Database.bundle in Resources */,
+				52CB3F381B0554350005A854 /* Database.bundle in Resources */,
 				445ADC941ABA04B600FDCAEE /* LaunchImage_640x1136.png in Resources */,
 				52982DB11AB270CC0085C600 /* pink.png in Resources */,
 				524DEA691A7B0E26009A2EDC /* LaunchScreen.xib in Resources */,

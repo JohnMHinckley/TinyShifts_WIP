@@ -144,7 +144,7 @@
 {
     NSLog(@"Response Handler for send SurveyData: Response = %@", response);
     
-    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Data Received" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     
     return response;
 }

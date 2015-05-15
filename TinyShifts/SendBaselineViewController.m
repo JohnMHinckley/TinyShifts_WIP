@@ -65,8 +65,13 @@
     
     // Record part of the database record for PersonalData and Schedule.
     
-    PersonalData_Rec* rec = [PersonalData_Rec sharedManager];
-    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];
+    PersonalData_Rec* rec = [PersonalData_Rec sharedManager];   // a singleton object
+    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];          // a singleton object
+    
+    
+    
+    
+    // Supply immediate data to the singletons
     
     rec.idRecord++; // increment the record id
     rec2.idRecord++; // increment the record id
@@ -93,9 +98,16 @@
     rec2.dateRecord = [rec.dateRecord copy];
     rec2.timeRecord = [rec.timeRecord copy];
     
+    
+    
+    
+    // Transfer global data to the singletons
+    
     rec.gender = [GlobalData sharedManager].gender;
     rec.age = [GlobalData sharedManager].age;
     rec.ethnicity = [GlobalData sharedManager].ethnicity;
+    
+    rec2.bUseGoogleCalendar = [GlobalData sharedManager].bUseGoogleCal;
     
     rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
     
@@ -107,13 +119,13 @@
     
     
     
-    // Send the personal data to the remote database
+    // Send the personal data to the remote database.
     
     Responder* responder = [Responder responder:self
                              selResponseHandler:@selector(responseHandlerSendPersonalData:)
                                 selErrorHandler:@selector(errorHandler:)];
     
-    RDB_PersonalData* record = [[RDB_PersonalData alloc] init];
+    RDB_PersonalData* record = [[RDB_PersonalData alloc] init];    // this transfers the data from the singleton object to the RDB transfer object
     
     id<IDataStore> dataStore = [backendless.persistenceService of:[RDB_PersonalData class]];
     
@@ -127,12 +139,21 @@
                              selResponseHandler:@selector(responseHandlerSendSchedule:)
                                 selErrorHandler:@selector(errorHandler:)];
     
-    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];
+    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];    // this transfers the data from the singleton object to the RDB transfer object
     
     id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
     
     [dataStore2 save:record2 responder:responder2];
     
+    
+    
+    
+    
+    
+    
+    
+    // Save the schedule data to the local database.
+    [[CDatabaseInterface sharedManager] saveSchedule:rec2];
 
     
     
@@ -143,9 +164,7 @@
     
     [GlobalData sharedManager].initialPass = INITIAL_PASS_NO;
   
-//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    StartViewController* vc = [sb instantiateViewControllerWithIdentifier:@"StartViewController"];
-//    [vc setState:1];    // Set State flag in StartViewController to indicate that baseline survey has been done.
+
     [[CDatabaseInterface sharedManager] saveBaselineSurveyStatus:1]; // record fact that baseline survey has been done.
 
     

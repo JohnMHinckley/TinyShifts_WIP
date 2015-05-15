@@ -19,6 +19,7 @@
 
 @implementation CalendarViewController
 @synthesize screenInstance;
+@synthesize responseAlert;
 
 
 - (void)viewDidLoad {
@@ -39,7 +40,13 @@
     UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
     
-    self.switchUseGoogleCal.on = [GlobalData sharedManager].bUseGoogleCal;
+//    if (screenInstance == 2)
+//    {
+//        Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+//        [GlobalData sharedManager].bUseGoogleCal = rec.bUseGoogleCalendar;
+//    }
+//    
+//    self.switchUseGoogleCal.on = [GlobalData sharedManager].bUseGoogleCal;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +69,13 @@
 - (IBAction)switchChangedUseGoogleCal:(UISwitch *)sender {
     // Use Google calendar switch changed state.
     // Record its current state.
+    
+    if (screenInstance == 2)
+    {
+        bDataChanged_Mode2 = YES;    // Set data change flag
+    }
+    
+
     
     //-------------------------------------------------
     //TODO: implement Google calendar use
@@ -92,6 +106,7 @@
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
     vc.navigationItem.hidesBackButton = NO;
+    [vc setScreenInstance:screenInstance];
     [[self navigationController] pushViewController:vc animated:YES];
     
 }
@@ -99,20 +114,19 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-//    // Control whether the user can interact with the tab bar buttons, based on whether the
-//    // baseline survey has been completed yet.
-//    // Determine whether baseline survey has been done yet.  If it has, set State = 1, otherwise, set State = 0.
-//    
-//    if ([[CDatabaseInterface sharedManager] getBaselineSurveyStatus] == 1)
-//    {
-//        // Baseline survey has been done, so enable tab bar buttons.
-//        self.tabBarController.tabBar.userInteractionEnabled = YES;
-//    }
-//    else
-//    {
-//        // Baseline survey has not been done, so disable tab bar buttons.
-//        self.tabBarController.tabBar.userInteractionEnabled = NO;
-//    }
+    if (screenInstance == 2)
+    {
+        bDataChanged_Mode2 = NO;    // Initialize data change flag
+    }
+    
+    if (screenInstance == 2)
+    {
+        Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+        [GlobalData sharedManager].bUseGoogleCal = rec.bUseGoogleCalendar;
+    }
+    
+    self.switchUseGoogleCal.on = [GlobalData sharedManager].bUseGoogleCal;
+
     
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
@@ -130,6 +144,33 @@
     [self portraitLock];
 }
 
+
+
+
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    if (screenInstance == 2 && bDataChanged_Mode2)
+    {
+        // Ask user whether to save or discard changes on this screen.
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Data Changed"
+                              message:@"Do you want save or discard your changes on the Google Calendar screen?"
+                              delegate:[GlobalData sharedManager] // delegate:self
+                              cancelButtonTitle:@"Discard" otherButtonTitles:@"Save",nil];
+        
+        self.responseAlert = alert;     // Set the responseAlert so that the alert handler will know which alert is initiating it.
+        
+        [alert show];
+   }
+}
+
+
+
+
+
+
 -(void) portraitLock {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     appDelegate.screenIsPortraitOnly = true;
@@ -145,6 +186,37 @@
 - (BOOL) shouldAutorotate {
     return NO;
 }
+
+
+
+
+
+
+//- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    
+//    // the user clicked one of the #/Cancel buttons
+//    
+//    if (actionSheet == responseAlert)
+//    {
+//        
+//        // the user clicked one of the #/Cancel buttons
+//        
+//        NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
+//        
+//        if ([title isEqualToString:@"Save"])
+//        {
+//            NSLog(@"Save changes on Calendar screen.");
+//        }
+//        else if ([title isEqualToString:@"Discard"])
+//        {
+//            NSLog(@"Discard changes on Calendar screen.");
+//        }
+//        
+//    }
+//    
+//    
+//}
 
 
 @end

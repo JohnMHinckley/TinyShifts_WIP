@@ -7,6 +7,10 @@
 //
 
 #import "GlobalData.h"
+#import "Schedule_Rec.h"
+#import "RDB_Schedule.h"
+#import "CDatabaseInterface.h"
+#import "Backendless.h"
 @import Security;
 
 @implementation GlobalData
@@ -272,6 +276,123 @@ static GlobalData* sharedSingleton = nil;   // single, static instance of this c
 
 
 //---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
+    //    if (actionSheet == responseAlert)
+    {
+        
+        // the user clicked one of the alert buttons
+        
+        NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
+        
+        if ([title isEqualToString:@"Save"])
+        {
+            NSLog(@"Save schedule changes.");
+            [self sendSchedule];
+        }
+        else if ([title isEqualToString:@"Discard"])
+        {
+            NSLog(@"Discard schedule changes.");
+        }
+        
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+-(void) sendSchedule
+{
+    // Record part of the database record for Schedule.
+    
+    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];
+    
+    rec2.idRecord++; // increment the record id
+    
+    rec2.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
+    
+    // Get the current date and time and save these in the InfoReadingActivity_Rec object.
+    NSDateFormatter *dateFormatter1;
+    NSDateFormatter *dateFormatter2;
+    
+    //date formatter with just date and no time
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateStyle:NSDateFormatterFullStyle];
+    [dateFormatter1 setTimeStyle:NSDateFormatterNoStyle];
+    
+    //date formatter with no date and just time
+    dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter2 setTimeStyle:NSDateFormatterShortStyle];
+    
+    rec2.dateRecord = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
+    rec2.timeRecord = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
+    
+    rec2.bUseGoogleCalendar = [GlobalData sharedManager].bUseGoogleCal;
+    
+    rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
+    
+    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
+    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
+    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
+    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
+    
+    
+    
+    // Save the schedule record to the local database.
+    [[CDatabaseInterface sharedManager] saveSchedule:rec2];
+    
+    
+    
+    
+    // Send the schedule to the remote database.
+    
+    Responder* responder2 = [Responder responder:self
+                              selResponseHandler:@selector(responseHandlerSendSchedule:)
+                                 selErrorHandler:@selector(errorHandler:)];
+    
+    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];
+    
+    id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
+    
+    [dataStore2 save:record2 responder:responder2];
+    
+    
+    
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-(id)responseHandlerSendSchedule:(id)response
+{
+    NSLog(@"Response Handler for send Schedule: Response = %@", response);
+    
+    //    [[[UIAlertView alloc] initWithTitle:@"Test Participant Sent" message:@"Proceed, if you wish." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    
+    return response;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 
 
 

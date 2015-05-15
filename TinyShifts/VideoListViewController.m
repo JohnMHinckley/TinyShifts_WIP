@@ -31,11 +31,12 @@
     UIImage* image = [UIImage imageNamed:@"TreeDesign.png"];
     imageView2.image = image;
     
-    //[imageView2 sizeToFit];  not needed
-    //scrollView.contentSize = imageView2.image.size;    not effective if this is executed here.
-    
-    
-    
+    CGSize sz = imageView2.image.size;
+//    CGSize sz;
+//    sz.height = 525;
+//    sz.width = 106;
+    scrollView.contentSize = sz;
+    NSLog(@"In viewDidLoad: scrollView contentSize size = %f (h) X %f (w)", scrollView.contentSize.height, scrollView.contentSize.width);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -313,7 +314,12 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    scrollView.contentSize = imageView2.image.size;  // For some damned reason, the size of the scroll view content must be set at this late point in the game.  Otherwise the statement has no effect.
+//    CGSize sz = imageView2.image.size;
+    //    CGSize sz;
+    //    sz.height = 525;
+    //    sz.width = 106;
+//    scrollView.contentSize = sz;  // For some damned reason, the size of the scroll view content must be set at this late point in the game.  Otherwise the statement has no effect.
+    //    NSLog(@"In viewDidAppear: scrollView size = %f (h) X %f (w)", sz.height, sz.width);
 }
 
 
@@ -327,7 +333,12 @@
 }
 
 
-
+-(void) setScrollSize:(CGSize) sz
+{
+//    scrollView.contentSize = sz;
+//    NSLog(@"In setScrollSize: scrollView contentSize size = %f (h) X %f (w)", scrollView.contentSize.height, scrollView.contentSize.width);
+    
+}
 
 
 @end

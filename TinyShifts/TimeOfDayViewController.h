@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "CGradientButton.h"
 
-@interface TimeOfDayViewController : UIViewController
-//- (IBAction)buttonPressedAnytime:(CGradientButton *)sender;
-//- (IBAction)buttonPressedMorning:(CGradientButton *)sender;
-//- (IBAction)buttonPressedNoon:(CGradientButton *)sender;
-//- (IBAction)buttonPressedAfternoon:(CGradientButton *)sender;
-//- (IBAction)buttonPressedEvening:(CGradientButton *)sender;
+@interface TimeOfDayViewController : UIViewController <UIAlertViewDelegate>
+{
+    BOOL bDataChanged_Mode2;    // flag: YES = user changed data on screen.
+}
+
+@property (strong, nonatomic) UIAlertView* responseAlert;
+
 - (IBAction)switchChangedMorning:(UISwitch *)sender;
 - (IBAction)switchChangedNoon:(UISwitch *)sender;
 - (IBAction)switchChangedAfternoon:(UISwitch *)sender;

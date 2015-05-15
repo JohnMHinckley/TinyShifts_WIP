@@ -29,5 +29,6 @@
 
 -(void) setActiveNavigationController:(UINavigationController*) nc;
 -(void) setScreenMode:(NSUInteger) mode;
+-(void) setScrollSize:(CGSize) sz;
 
 @end

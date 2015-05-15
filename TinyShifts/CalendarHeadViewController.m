@@ -7,7 +7,7 @@
 //
 
 #import "CalendarHeadViewController.h"
-#import "FrequencyViewController.h"
+#import "CalendarViewController.h"
 
 @interface CalendarHeadViewController ()
 
@@ -20,11 +20,12 @@
     // Do any additional setup after loading the view.
     
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
-    vc.navigationItem.hidesBackButton = YES;
-    [vc setScreenInstance:2];   // signifies that this is coming from the tab bar
-    [[self navigationController] pushViewController:vc animated:YES];
+//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
+//    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+//    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+//    vc.navigationItem.hidesBackButton = YES;
+//    [vc setScreenInstance:2];   // signifies that this is coming from the tab bar
+//    [[self navigationController] pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,5 +42,15 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
+    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+    vc.navigationItem.hidesBackButton = YES;
+    [vc setScreenInstance:2];   // signifies that this is coming from the tab bar
+    [[self navigationController] pushViewController:vc animated:YES];
+}
 
 @end

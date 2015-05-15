@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CalendarViewController : UIViewController
+@interface CalendarViewController : UIViewController <UIAlertViewDelegate>
+{
+    BOOL bDataChanged_Mode2;    // flag: YES = user changed data on screen.
+    UIAlertView*            responseAlert;
+}
+
+@property (strong, nonatomic) UIAlertView* responseAlert;
+
 @property (weak, nonatomic) IBOutlet UISwitch *switchUseGoogleCal;
 
 @property (nonatomic) NSUInteger screenInstance;    // key for where in storyboard this instance appears: 1 (in main storyboard), or 2 (tab bar)

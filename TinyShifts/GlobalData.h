@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface GlobalData : NSObject
+@interface GlobalData : NSObject  <UIAlertViewDelegate>
 @property (nonatomic, strong) NSString* gender;             // user's gender
 @property int genderIdxSelected;                            // key to user's gender
 @property int age;                  // user's age
