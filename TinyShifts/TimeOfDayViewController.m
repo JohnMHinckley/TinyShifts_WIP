@@ -126,10 +126,10 @@
     if (screenInstance == 2)
     {
         Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
-        [GlobalData sharedManager].timeOfDayAvailMorning = rec.availableMorning;
-        [GlobalData sharedManager].timeOfDayAvailNoon = rec.availableNoon;
-        [GlobalData sharedManager].timeOfDayAvailAfternoon = rec.availableAfternoon;
-        [GlobalData sharedManager].timeOfDayAvailEvening = rec.availableEvening;
+        [GlobalData sharedManager].timeOfDayAvailMorning = (int)rec.availableMorning;
+        [GlobalData sharedManager].timeOfDayAvailNoon = (int)rec.availableNoon;
+        [GlobalData sharedManager].timeOfDayAvailAfternoon = (int)rec.availableAfternoon;
+        [GlobalData sharedManager].timeOfDayAvailEvening = (int)rec.availableEvening;
     }
     
     

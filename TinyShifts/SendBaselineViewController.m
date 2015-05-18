@@ -16,6 +16,7 @@
 #import "RDB_PersonalData.h"
 #import "RDB_Schedule.h"
 #import "StartViewController.h"
+#import "ScheduleManager.h"
 
 @interface SendBaselineViewController ()
 
@@ -66,7 +67,7 @@
     // Record part of the database record for PersonalData and Schedule.
     
     PersonalData_Rec* rec = [PersonalData_Rec sharedManager];   // a singleton object
-    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];          // a singleton object
+//    Schedule_Rec* rec2 = [Schedule_Rec sharedManager];          // a singleton object
     
     
     
@@ -74,10 +75,10 @@
     // Supply immediate data to the singletons
     
     rec.idRecord++; // increment the record id
-    rec2.idRecord++; // increment the record id
+//    rec2.idRecord++; // increment the record id
     
     rec.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
-    rec2.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
+//    rec2.participantId = [[CDatabaseInterface sharedManager] getMyIdentity];     // participant identity
     
     // Get the current date and time and save these in the InfoReadingActivity_Rec object.
     NSDateFormatter *dateFormatter1;
@@ -95,8 +96,8 @@
     
     rec.dateRecord = [NSMutableString stringWithString:[dateFormatter1 stringFromDate:[NSDate date]]]; // the date right now
     rec.timeRecord = [NSMutableString stringWithString:[dateFormatter2 stringFromDate:[NSDate date]]]; // the time right now
-    rec2.dateRecord = [rec.dateRecord copy];
-    rec2.timeRecord = [rec.timeRecord copy];
+//    rec2.dateRecord = [rec.dateRecord copy];
+//    rec2.timeRecord = [rec.timeRecord copy];
     
     
     
@@ -107,14 +108,14 @@
     rec.age = [GlobalData sharedManager].age;
     rec.ethnicity = [GlobalData sharedManager].ethnicity;
     
-    rec2.bUseGoogleCalendar = [GlobalData sharedManager].bUseGoogleCal;
-    
-    rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
-    
-    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
-    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
-    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
-    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
+//    rec2.bUseGoogleCalendar = [GlobalData sharedManager].bUseGoogleCal;
+//    
+//    rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
+//    
+//    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
+//    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
+//    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
+//    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
     
     
     
@@ -133,28 +134,34 @@
     
     
     
-    // Send the schedule to the remote database.
-    
-    Responder* responder2 = [Responder responder:self
-                             selResponseHandler:@selector(responseHandlerSendSchedule:)
-                                selErrorHandler:@selector(errorHandler:)];
-    
-    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];    // this transfers the data from the singleton object to the RDB transfer object
-    
-    id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
-    
-    [dataStore2 save:record2 responder:responder2];
-    
-    
+//    // Send the schedule to the remote database.
+//    
+//    Responder* responder2 = [Responder responder:self
+//                             selResponseHandler:@selector(responseHandlerSendSchedule:)
+//                                selErrorHandler:@selector(errorHandler:)];
+//    
+//    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];    // this transfers the data from the singleton object to the RDB transfer object
+//    
+//    id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
+//    
+//    [dataStore2 save:record2 responder:responder2];
     
     
     
-    
-    
-    
-    // Save the schedule data to the local database.
-    [[CDatabaseInterface sharedManager] saveSchedule:rec2];
+//    // Save the schedule data to the local database.
+//    [[CDatabaseInterface sharedManager] saveSchedule:rec2];
 
+    
+    
+    
+    
+    
+    
+    
+    // Save the schedule data.
+    // Data will be sent to the remote database and also stored in the local database.
+    [[ScheduleManager sharedManager] updateSchedule];
+    
     
     
     

@@ -349,67 +349,80 @@ static GlobalData* sharedSingleton = nil;   // single, static instance of this c
 
 
 
-+(BOOL) setAppInfoIntegerValue:(NSInteger) nvalue ForKey:(NSString*) skey
-{
-    // Write the integer value to the AppInfo property list corresponding to the input key skey.
-    
-    // If the path to the AppInfo property list is determined, and
-    // if the property list exists,
-    // then write the integer.
-    // Return YES (successful).
-    
-    // Otherwise, return NO (not successful).
-    
-    BOOL retSuccessful = NO;    // initialize return value.
-    
-    NSInteger value = nvalue;   // Initialize the value.
-    
-    
-    
-    // Get the path for the AppInfo property list.
-    NSString* pathToAppInfoPList = [[NSBundle mainBundle] pathForResource:@"AppInfo" ofType:@"plist"];
-    
-    
-    
-    if (nil != pathToAppInfoPList)  // was the path for the AppInfo property list found?
-    {
-        // yes, it was found.
-        
-        
-        // Check that property list file exists
-        if ([[NSFileManager defaultManager] fileExistsAtPath:pathToAppInfoPList])   // was the AppInfo property list found?
-        {
-            // yes, it was found.
-            
-            // Load the property list into a mutable dictionary.
-            NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithContentsOfFile:pathToAppInfoPList];
-            
-            // Set the value in the dictionary,
-            // as the value corresponding to the key skey.
-            [dic setValue:[NSString stringWithFormat:@"%d",value] forKey:skey];
-            
-            // Set return flag to indicate success.
-            retSuccessful = YES;
-            
-        }
-        else
-        {
-            // AppInfo property list not found.
-            NSLog(@"*** Warning: AppInfo property list not found in GlobalData::setAppInfoIntegerValue:ForKey:.");
-            NSLog(@"Returning NO.");
-        }
-    }
-    else
-    {
-        // Path for AppInfo property list not found.
-        NSLog(@"*** Warning: Path for AppInfo property list not found in GlobalData::setAppInfoIntegerValue:ForKey:.");
-        NSLog(@"Returning NO.");
-    }
-    
-    
-    
-    return retSuccessful;
-}
+//+(BOOL) setAppInfoIntegerValue:(NSInteger) nvalue ForKey:(NSString*) skey
+//{
+//    // Write the integer value to the AppInfo property list corresponding to the input key skey.
+//    
+//    // If the path to the AppInfo property list is determined, and
+//    // if the property list exists,
+//    // then write the integer.
+//    // Return YES (successful).
+//    
+//    // Otherwise, return NO (not successful).
+//    
+//    BOOL retSuccessful = NO;    // initialize return value.
+//    
+//    NSInteger value = nvalue;   // Initialize the value.
+//    
+//    
+//    
+//    // Get the path for the AppInfo property list.
+//    NSString* pathToAppInfoPList = [[NSBundle mainBundle] pathForResource:@"AppInfo" ofType:@"plist"];
+//    
+//    
+//    
+//    if (nil != pathToAppInfoPList)  // was the path for the AppInfo property list found?
+//    {
+//        // yes, it was found.
+//        
+//        
+//        // Check that property list file exists
+//        if ([[NSFileManager defaultManager] fileExistsAtPath:pathToAppInfoPList])   // was the AppInfo property list found?
+//        {
+//            // yes, it was found.
+//            
+//            // Load the property list into a mutable dictionary.
+//            NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithContentsOfFile:pathToAppInfoPList];
+//            
+//            // Set the value in the dictionary,
+//            // as the value corresponding to the key skey.
+//            NSString* s1 = [NSString stringWithFormat:@"%ld",(long)nvalue];
+//            [dic setValue:s1 forKey:skey];
+//            
+//            [dic writeToFile:pathToAppInfoPList atomically:YES];
+//            
+//            // read it back (test)
+//            // Get the value from the dictionary,
+//            // as the value corresponding to the key skey.
+//            // Load the property list into a mutable dictionary.
+//            NSMutableDictionary *dic2 = [[NSMutableDictionary alloc] initWithContentsOfFile:pathToAppInfoPList];
+//            NSString* str2 = [NSString stringWithFormat:@"%@",[dic2 valueForKey:skey]];
+//            NSInteger value2 = [[NSString stringWithFormat:@"%@",[dic2 valueForKey:skey]] integerValue];
+//            
+//
+//            
+//            // Set return flag to indicate success.
+//            retSuccessful = YES;
+//            
+//        }
+//        else
+//        {
+//            // AppInfo property list not found.
+//            NSLog(@"*** Warning: AppInfo property list not found in GlobalData::setAppInfoIntegerValue:ForKey:.");
+//            NSLog(@"Returning NO.");
+//        }
+//    }
+//    else
+//    {
+//        // Path for AppInfo property list not found.
+//        NSLog(@"*** Warning: Path for AppInfo property list not found in GlobalData::setAppInfoIntegerValue:ForKey:.");
+//        NSLog(@"Returning NO.");
+//    }
+//    
+//    
+//    
+//    return retSuccessful;
+//}
 
 
 

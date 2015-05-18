@@ -16,6 +16,7 @@
 #import "RDB_Schedule.h"
 #import "CDatabaseInterface.h"
 #import "Backendless.h"
+#import "ScheduleManager.h"
 
 
 @interface FrequencyViewController ()
@@ -99,7 +100,7 @@
     if (screenInstance == 2)
     {
         Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
-        [GlobalData sharedManager].frequency = rec.weeklyFrequency;
+        [GlobalData sharedManager].frequency = (int)rec.weeklyFrequency;
     }
     
     sliderFrequency.value = [GlobalData sharedManager].frequency;
@@ -172,9 +173,10 @@
     [GlobalData sharedManager].frequency = sliderFrequency.value;
     labelSliderValue.text = [NSString stringWithFormat:@"%d", (int) sliderFrequency.value]; // value displayed on the screen
     
-    if (screenInstance == 2)
+    if (screenInstance == 1)
     {
-//        [self sendSchedule];
+        // In the baseline survey, the frequency has been changed, so record this in the database.
+        [[ScheduleManager sharedManager] setTotalNumberEvents:[GlobalData sharedManager].frequency];
     }
     
     NSLog(@"Frequency value = %d", [GlobalData sharedManager].frequency);

@@ -11,6 +11,8 @@
 #import "GlobalData.h"
 #import "DatabaseController.h"
 #import "Backendless.h"
+#import "ScheduleManager.h"
+#import "CDatabaseInterface.h"
 
 @interface AppDelegate ()
 
@@ -28,7 +30,7 @@
     
     [GlobalData sharedManager].activated = ACTIVATED_NO;
     [GlobalData sharedManager].initialPass = INITIAL_PASS_YES;
-    [GlobalData sharedManager].frequency = 7;
+    
     
     
     
@@ -43,6 +45,42 @@
     
     // Set up the database in the sandbox, if it is not already there.
     [[DatabaseController sharedManager] createDatabase];
+    
+    
+    
+    
+    
+    // Figure out total number of events this week.
+    int n = [[ScheduleManager sharedManager] getTotalNumberEvents];
+    if (n < 0)
+    {
+        // record was not found in database
+        // establish defaults.
+        [GlobalData sharedManager].frequency = 7;
+    }
+    else
+    {
+        // record was found in database.  use the value read.
+        [GlobalData sharedManager].frequency = n;
+    }
+    [[ScheduleManager sharedManager] setTotalNumberEvents:[GlobalData sharedManager].frequency];
+    
+    
+    
+    if ([[CDatabaseInterface sharedManager] getNumberDoneEvents] <= 0)
+    {
+        // If this function returns zero done events, this could be because actually there are zero done events or because this particular record does not exist in the database.
+        
+        // if the record was not found, the function will return -1.
+        
+        // Either way, write zero done events to the database.
+        [[ScheduleManager sharedManager] setNumberDoneEvents:0];
+    }
+    else
+    {
+        // positive number of done events was read from the database.  leave it alone.
+    }
+    
     
     return YES;
 }

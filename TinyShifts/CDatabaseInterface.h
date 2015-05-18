@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "sqlite3.h"
 #import "Schedule_Rec.h"
+#import "Notifications_Rec.h"
 
 @interface CDatabaseInterface : NSObject
 {
@@ -109,6 +110,24 @@
 
 // read
 -(Schedule_Rec*) getLatestSchedule;
+
+// write
+-(void) saveNotification:(Notifications_Rec*) rec;
+
+// read
+-(Notifications_Rec*) getNotification;
+
+// write
+-(void) saveNumberDoneEvents:(int)num;
+
+// read
+-(int) getNumberDoneEvents;
+
+// write
+-(void) saveTotalNumberEvents:(int)num;
+
+// read
+-(int) getTotalNumberEvents;
 
 
 

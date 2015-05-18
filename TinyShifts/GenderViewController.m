@@ -280,7 +280,7 @@
     
     
     
-    int idx = [m_Switch indexOfObject:sender];  // index of selected item
+    int idx = (int)[m_Switch indexOfObject:sender];  // index of selected item
     
     
     
@@ -534,10 +534,10 @@
 {
     // Some of the coordinates are OS version-dependent.
     // Get the version of the OS:
-    NSString* osVer = [[UIDevice currentDevice] systemVersion];
-    NSRange r = [osVer rangeOfString:@"."]; // find the first occurrence of "."
-    NSString* osMajVer = [osVer substringToIndex:r.location];
-    NSInteger verMajor = [osMajVer integerValue];
+//    NSString* osVer = [[UIDevice currentDevice] systemVersion];
+//    NSRange r = [osVer rangeOfString:@"."]; // find the first occurrence of "."
+//    NSString* osMajVer = [osVer substringToIndex:r.location];
+//    NSInteger verMajor = [osMajVer integerValue];
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     

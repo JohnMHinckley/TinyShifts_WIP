@@ -47,7 +47,7 @@
 +(int) RandomIntUpTo:(int) upperLimit;
 +(NSString*) getAppInfoStringValueForKey:(NSString*) skey;
 +(NSInteger) getAppInfoIntegerValueForKey:(NSString*) skey;
-+(BOOL) setAppInfoStringValue:(NSString*) sstr ForKey:(NSString*) skey;
-+(BOOL) setAppInfoIntegerValue:(NSInteger) nvalue ForKey:(NSString*) skey;
+//+(BOOL) setAppInfoStringValue:(NSString*) sstr ForKey:(NSString*) skey;
+//+(BOOL) setAppInfoIntegerValue:(NSInteger) nvalue ForKey:(NSString*) skey;
 
 @end

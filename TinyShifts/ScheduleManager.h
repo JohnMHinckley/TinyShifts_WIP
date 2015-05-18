@@ -18,5 +18,11 @@
 -(NSDate*) getNextRandomEventTime;
 -(void) updateSchedule;
 
+-(NSInteger) getTotalNumberEvents;
+-(void) setTotalNumberEvents:(int)n;
+
+-(NSInteger) getNumberDoneEvents;
+-(void) setNumberDoneEvents:(int)n;
+
 
 @end
