@@ -16,6 +16,7 @@
 		445ADC901AB9E3BE00FDCAEE /* appIcon_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC8E1AB9E3BE00FDCAEE /* appIcon_180x180.png */; };
 		445ADC931ABA04B600FDCAEE /* LaunchImage_640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC911ABA04B600FDCAEE /* LaunchImage_640x960.png */; };
 		445ADC941ABA04B600FDCAEE /* LaunchImage_640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC921ABA04B600FDCAEE /* LaunchImage_640x1136.png */; };
+		446FC8B81B0B8B6D00F26785 /* Database.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 446FC8B71B0B8B6D00F26785 /* Database.bundle */; };
 		52079D0A1A9BF9FF0015A41C /* PersonalCharacteristics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52079D091A9BF9FF0015A41C /* PersonalCharacteristics.storyboard */; };
 		520B67201A9F2B0A00F162A4 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520B671F1A9F2B0A00F162A4 /* Schedule.storyboard */; };
 		520B67231A9F455100F162A4 /* SendBaseline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520B67221A9F455100F162A4 /* SendBaseline.storyboard */; };
@@ -52,11 +53,9 @@
 		5255EFD51ADA94BA00CFAB8F /* CActivationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255EFD41ADA94BA00CFAB8F /* CActivationManager.m */; };
 		5255EFD81ADA956600CFAB8F /* CDatabaseInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255EFD71ADA956600CFAB8F /* CDatabaseInterface.m */; };
 		5255F0B41ADABF2200CFAB8F /* backendless.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255EFDB1ADABF2200CFAB8F /* backendless.a */; };
-		5255F0B51ADABF2300CFAB8F /* libbackendless-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F0131ADABF2200CFAB8F /* libbackendless-mac.a */; };
 		5255F0B61ADABF2300CFAB8F /* CommLibiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F0151ADABF2200CFAB8F /* CommLibiOS.a */; };
 		5255F0B71ADABF2300CFAB8F /* Communication Library for iOS User Guide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5255F0171ADABF2200CFAB8F /* Communication Library for iOS User Guide.pdf */; };
 		5255F0B81ADABF2300CFAB8F /* WeborbClient Class Reference.odt in Resources */ = {isa = PBXBuildFile; fileRef = 5255F0181ADABF2200CFAB8F /* WeborbClient Class Reference.odt */; };
-		5255F0B91ADABF2300CFAB8F /* libCommLibMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F02D1ADABF2200CFAB8F /* libCommLibMac.a */; };
 		5255F0BA1ADABF2300CFAB8F /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F08D1ADABF2200CFAB8F /* libavcodec.a */; };
 		5255F0BB1ADABF2300CFAB8F /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F08E1ADABF2200CFAB8F /* libavdevice.a */; };
 		5255F0BC1ADABF2300CFAB8F /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F08F1ADABF2200CFAB8F /* libavfilter.a */; };
@@ -79,7 +78,6 @@
 		5255F0D61ADABFDA00CFAB8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F0D21ADABFDA00CFAB8F /* UIKit.framework */; };
 		5255F0D81ADAC04800CFAB8F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F0D71ADAC04800CFAB8F /* libz.dylib */; };
 		5255F0DC1ADACAE700CFAB8F /* RDB_Participants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0DB1ADACAE700CFAB8F /* RDB_Participants.m */; };
-		5255F0DF1ADB37EC00CFAB8F /* RDB_Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0DE1ADB37EC00CFAB8F /* RDB_Notifications.m */; };
 		5255F0E21ADB3CD400CFAB8F /* Notifications_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0E11ADB3CD400CFAB8F /* Notifications_Rec.m */; };
 		5255F0E51ADB47DC00CFAB8F /* RDB_DeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0E41ADB47DC00CFAB8F /* RDB_DeviceData.m */; };
 		5255F0E81ADB49B300CFAB8F /* DeviceData_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0E71ADB49B300CFAB8F /* DeviceData_Rec.m */; };
@@ -136,7 +134,6 @@
 		52C49A481A9A802800E53A9E /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C49A471A9A802800E53A9E /* InfoViewController.m */; };
 		52CACE561A8985FF00064614 /* CGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE551A8985FF00064614 /* CGradientButton.m */; };
 		52CACE591A898BB600064614 /* AllVideosHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE581A898BB600064614 /* AllVideosHeadViewController.m */; };
-		52CB3F381B0554350005A854 /* Database.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52CB3F371B0554350005A854 /* Database.bundle */; };
 		52E6F7B01A88C0F800A5E269 /* ActivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */; };
 		52E6F7B11A88C0F800A5E269 /* ActivationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */; };
 /* End PBXBuildFile section */
@@ -161,6 +158,7 @@
 		445ADC8E1AB9E3BE00FDCAEE /* appIcon_180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon_180x180.png; sourceTree = "<group>"; };
 		445ADC911ABA04B600FDCAEE /* LaunchImage_640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_640x960.png; sourceTree = "<group>"; };
 		445ADC921ABA04B600FDCAEE /* LaunchImage_640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_640x1136.png; sourceTree = "<group>"; };
+		446FC8B71B0B8B6D00F26785 /* Database.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Database.bundle; sourceTree = "<group>"; };
 		52079D091A9BF9FF0015A41C /* PersonalCharacteristics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalCharacteristics.storyboard; sourceTree = "<group>"; };
 		520B671F1A9F2B0A00F162A4 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		520B67221A9F455100F162A4 /* SendBaseline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SendBaseline.storyboard; sourceTree = "<group>"; };
@@ -423,8 +421,6 @@
 		5255F0D71ADAC04800CFAB8F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5255F0DA1ADACAE700CFAB8F /* RDB_Participants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_Participants.h; sourceTree = "<group>"; };
 		5255F0DB1ADACAE700CFAB8F /* RDB_Participants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_Participants.m; sourceTree = "<group>"; };
-		5255F0DD1ADB37EC00CFAB8F /* RDB_Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_Notifications.h; sourceTree = "<group>"; };
-		5255F0DE1ADB37EC00CFAB8F /* RDB_Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_Notifications.m; sourceTree = "<group>"; };
 		5255F0E01ADB3CD400CFAB8F /* Notifications_Rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications_Rec.h; sourceTree = "<group>"; };
 		5255F0E11ADB3CD400CFAB8F /* Notifications_Rec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications_Rec.m; sourceTree = "<group>"; };
 		5255F0E31ADB47DC00CFAB8F /* RDB_DeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_DeviceData.h; sourceTree = "<group>"; };
@@ -522,7 +518,6 @@
 		52CACE551A8985FF00064614 /* CGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGradientButton.m; sourceTree = "<group>"; };
 		52CACE571A898BB600064614 /* AllVideosHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllVideosHeadViewController.h; sourceTree = "<group>"; };
 		52CACE581A898BB600064614 /* AllVideosHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllVideosHeadViewController.m; sourceTree = "<group>"; };
-		52CB3F371B0554350005A854 /* Database.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Database.bundle; sourceTree = "<group>"; };
 		52E6F7AD1A88C0F800A5E269 /* ActivationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationViewController.h; sourceTree = "<group>"; };
 		52E6F7AE1A88C0F800A5E269 /* ActivationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivationViewController.m; sourceTree = "<group>"; };
 		52E6F7AF1A88C0F800A5E269 /* ActivationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationViewController.xib; sourceTree = "<group>"; };
@@ -545,7 +540,6 @@
 				5255F0C61ADABF7100CFAB8F /* Foundation.framework in Frameworks */,
 				5255F0BC1ADABF2300CFAB8F /* libavfilter.a in Frameworks */,
 				52365D3B1AB70D6B0041FC1C /* MessageUI.framework in Frameworks */,
-				5255F0B91ADABF2300CFAB8F /* libCommLibMac.a in Frameworks */,
 				5255F0C31ADABF2300CFAB8F /* libx264.a in Frameworks */,
 				5255F0C21ADABF2300CFAB8F /* libspeexdsp.a in Frameworks */,
 				5255F0BD1ADABF2300CFAB8F /* libavformat.a in Frameworks */,
@@ -556,7 +550,6 @@
 				5255F0B41ADABF2200CFAB8F /* backendless.a in Frameworks */,
 				521179461A94277E001E6F48 /* libsqlite3.dylib in Frameworks */,
 				5255F0C11ADABF2300CFAB8F /* libspeex.a in Frameworks */,
-				5255F0B51ADABF2300CFAB8F /* libbackendless-mac.a in Frameworks */,
 				5255F0C01ADABF2300CFAB8F /* libswscale.a in Frameworks */,
 				5255F0BA1ADABF2300CFAB8F /* libavcodec.a in Frameworks */,
 				5255F0B61ADABF2300CFAB8F /* CommLibiOS.a in Frameworks */,
@@ -686,9 +679,9 @@
 		524DEA571A7B0E26009A2EDC /* TinyShifts */ = {
 			isa = PBXGroup;
 			children = (
-				52CB3F371B0554350005A854 /* Database.bundle */,
-				5255F0D91ADACA7A00CFAB8F /* Remote Database */,
 				52B45AD01AB4C704006A4F1B /* Content.bundle */,
+				446FC8B71B0B8B6D00F26785 /* Database.bundle */,
+				5255F0D91ADACA7A00CFAB8F /* Remote Database */,
 				5255EE3E1ADA943E00CFAB8F /* Singletons */,
 				5211793E1A9426E6001E6F48 /* Database */,
 				5211793D1A9426D3001E6F48 /* Model */,
@@ -1140,8 +1133,6 @@
 			children = (
 				5255F0DA1ADACAE700CFAB8F /* RDB_Participants.h */,
 				5255F0DB1ADACAE700CFAB8F /* RDB_Participants.m */,
-				5255F0DD1ADB37EC00CFAB8F /* RDB_Notifications.h */,
-				5255F0DE1ADB37EC00CFAB8F /* RDB_Notifications.m */,
 				5255F0E31ADB47DC00CFAB8F /* RDB_DeviceData.h */,
 				5255F0E41ADB47DC00CFAB8F /* RDB_DeviceData.m */,
 				5255F0EC1ADB4EE200CFAB8F /* RDB_InfoReadingActivity.h */,
@@ -1438,7 +1429,7 @@
 				445ADC8A1AB9E17900FDCAEE /* appIcon_58x58.png in Resources */,
 				524DEA8B1A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png in Resources */,
 				445ADC931ABA04B600FDCAEE /* LaunchImage_640x960.png in Resources */,
-				52CB3F381B0554350005A854 /* Database.bundle in Resources */,
+				446FC8B81B0B8B6D00F26785 /* Database.bundle in Resources */,
 				445ADC941ABA04B600FDCAEE /* LaunchImage_640x1136.png in Resources */,
 				52982DB11AB270CC0085C600 /* pink.png in Resources */,
 				524DEA691A7B0E26009A2EDC /* LaunchScreen.xib in Resources */,
@@ -1462,7 +1453,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5255F0DF1ADB37EC00CFAB8F /* RDB_Notifications.m in Sources */,
 				52761E551A883B630018E877 /* ContactViewController.m in Sources */,
 				5255F1061ADB5D8A00CFAB8F /* RDB_RandomVideoPlayActivity.m in Sources */,
 				522DB8F31A8D6644003EC3E1 /* AskWatchAgainViewController.m in Sources */,

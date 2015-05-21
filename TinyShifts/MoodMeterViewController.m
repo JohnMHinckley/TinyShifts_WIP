@@ -85,6 +85,13 @@
 }
 
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    // Disable the tab bar items
+ //   self.tabBarController.tabBar.userInteractionEnabled = NO;
+
+}
+
 
 
 -(void)viewDidAppear:(BOOL)animated {

@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Calendar View Controller-->
@@ -32,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.80392156859999997" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iQO-ha-63H">
+                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iQO-ha-63H">
                                 <rect key="frame" x="531" y="179" width="51" height="31"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -46,15 +47,25 @@
                                     <constraint firstAttribute="width" secondItem="ZZ5-k1-8k7" secondAttribute="height" multiplier="5:1" id="l10-6h-aAN"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Google Calendar for scheduling videos" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="JT2-Ja-K3F">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Google Calendar for scheduling videos" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="JT2-Ja-K3F">
                                 <rect key="frame" x="100" y="144" width="480" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lpg-CQ-raN" userLabel="Next Event Label">
+                                <rect key="frame" x="56" y="291" width="488" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="59E-PH-91F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Lpg-CQ-raN" firstAttribute="leading" secondItem="fkd-Tt-C1W" secondAttribute="leadingMargin" constant="40" id="2eL-Oo-iLd"/>
                             <constraint firstAttribute="trailing" secondItem="36r-oH-ZU5" secondAttribute="trailing" id="3qy-qw-V8v"/>
                             <constraint firstAttribute="trailing" secondItem="HsY-5y-Fvs" secondAttribute="trailing" id="7KZ-1N-ClX"/>
                             <constraint firstItem="iQO-ha-63H" firstAttribute="centerY" secondItem="HsY-5y-Fvs" secondAttribute="top" constant="130" id="8K1-Tn-4fD"/>
@@ -62,9 +73,11 @@
                             <constraint firstItem="JT2-Ja-K3F" firstAttribute="top" secondItem="HsY-5y-Fvs" secondAttribute="top" constant="80" id="JZA-oA-nh9"/>
                             <constraint firstItem="HsY-5y-Fvs" firstAttribute="trailing" secondItem="JT2-Ja-K3F" secondAttribute="trailing" constant="20" id="P9d-Gm-4a7"/>
                             <constraint firstItem="HsY-5y-Fvs" firstAttribute="leading" secondItem="fkd-Tt-C1W" secondAttribute="leading" id="S6Y-yS-LdI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lpg-CQ-raN" secondAttribute="trailing" constant="40" id="VQ6-Wa-Gdc"/>
                             <constraint firstItem="HsY-5y-Fvs" firstAttribute="trailing" secondItem="iQO-ha-63H" secondAttribute="trailing" constant="20" id="b8y-Fi-UdM"/>
                             <constraint firstItem="HsY-5y-Fvs" firstAttribute="top" secondItem="ZZ5-k1-8k7" secondAttribute="top" id="ggD-Zb-aaO"/>
                             <constraint firstItem="ujf-0r-j9G" firstAttribute="top" secondItem="HsY-5y-Fvs" secondAttribute="bottom" id="hs1-mH-ImL"/>
+                            <constraint firstAttribute="centerY" secondItem="Lpg-CQ-raN" secondAttribute="centerY" constant="-26.5" id="iKI-iW-hoy"/>
                             <constraint firstItem="36r-oH-ZU5" firstAttribute="leading" secondItem="fkd-Tt-C1W" secondAttribute="leading" id="mQs-yJ-PIj"/>
                             <constraint firstItem="ZZ5-k1-8k7" firstAttribute="centerX" secondItem="HsY-5y-Fvs" secondAttribute="centerX" id="pX4-Ui-gbB"/>
                             <constraint firstItem="HsY-5y-Fvs" firstAttribute="top" secondItem="36r-oH-ZU5" secondAttribute="bottom" id="tXQ-Gt-OfY"/>
@@ -72,6 +85,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="labelNextEvent" destination="Lpg-CQ-raN" id="WJk-6U-y5H"/>
                         <outlet property="switchUseGoogleCal" destination="iQO-ha-63H" id="loW-eC-dIJ"/>
                     </connections>
                 </viewController>

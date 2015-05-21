@@ -112,10 +112,16 @@
 -(Schedule_Rec*) getLatestSchedule;
 
 // write
--(void) saveNotification:(Notifications_Rec*) rec;
+-(int) saveNotification:(Notifications_Rec*) rec;   // returns the value of the record id
 
 // read
 -(Notifications_Rec*) getNotification;
+
+// read
+-(NSMutableArray*) getAllUngeneratedNotificationRecords;
+
+// delete
+-(void) deleteNotification:(int)idRecord;
 
 // write
 -(void) saveNumberDoneEvents:(int)num;
@@ -144,8 +150,6 @@
 
 
 // ----------------------------- Table: AppAction_GEPrompt --------------------------------------
-// read
--(NSMutableArray*) getAllUndoneGEPromptRecords;
 
 // write
 -(void) saveGEPromptRecordWithYear:(NSInteger)year

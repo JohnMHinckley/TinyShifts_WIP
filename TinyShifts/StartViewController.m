@@ -17,6 +17,7 @@
 #import "Backendless.h"
 #import "RDB_Participants.h"
 #import "CDatabaseInterface.h"
+#import "ScheduleManager.h"
 
 
 
@@ -163,6 +164,7 @@
     
     
     //BOOL bInitialPass = ([GlobalData sharedManager].initialPass == INITIAL_PASS_YES);    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
+    State = [[CDatabaseInterface sharedManager] getBaselineSurveyStatus];
     BOOL bInitialPass = (State == 0);    // If State is 0, this is the initial pass: baseline survey has not yet been done.  Otherwise, it has been done.
     
     if (bInitialPass)
@@ -208,9 +210,21 @@
         [GlobalData sharedManager].bVideoDidPlay = NO;  // initialize video played flag.
         
         
-        
-        
-        
+//        // Schedule next notification, if none are currently scheduled.
+//        // Are there already any scheduled local notifications?
+//        NSArray* arrNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];    // Get the array of scheduled local notifications
+//        
+//        // Are there any?
+//        if ([arrNotifications count] <= 0)
+//        {
+//            // No:
+//            // Schedule one.
+//            [[ScheduleManager sharedManager] setNextLocalNotification];    // start the timer for the next local notification.
+//        }
+//
+//        
+//        
+//        
         // This is not the initial pass, so go to the MoodMeter screen.
         
         // Attempt to use storyboard to instantiate MoodMeterViewController.

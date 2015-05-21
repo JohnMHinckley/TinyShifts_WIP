@@ -21,6 +21,7 @@
 @property (nonatomic) NSUInteger screenInstance;    // key for where in storyboard this instance appears: 1 (in main storyboard), or 2 (tab bar)
 
 - (IBAction)switchChangedUseGoogleCal:(UISwitch *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *labelNextEvent;
 
 -(void) setScreenInstance:(NSUInteger)sI;
 

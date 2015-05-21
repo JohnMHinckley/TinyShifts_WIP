@@ -503,6 +503,11 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 -(void) saveSchedule:(Schedule_Rec*) rec
 {
     
+ //   [self saveTotalNumberEvents:rec.weeklyFrequency];
+    
+    
+    
+    
     static int idRec = 0;
     
     [[DatabaseController sharedManager] openDB];
@@ -618,21 +623,44 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 
 
 
--(void) saveNotification:(Notifications_Rec*) rec
+-(int) saveNotification:(Notifications_Rec*) rec
 {
     
-    static int idRec = 0;
+    // Return value is idRec which was assigned to the record written into the table
+    
+    int idRec = 0;  // initialize the record id
     
     [[DatabaseController sharedManager] openDB];
     
     
-    // Remove all existing records from the Notifications table.
-    NSString* qsql = [NSString stringWithFormat:@"DELETE FROM Notifications"];
+//    // Remove all existing records from the Notifications table.
+//    NSString* qsql = [NSString stringWithFormat:@"DELETE FROM Notifications"];
+//    
+//    sqlite3_stmt *statement;
+//    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+//    {
+//        sqlite3_step(statement);
+//        
+//        
+//        sqlite3_reset(statement);
+//        
+//        //—-deletes the compiled statement from memory—-
+//        sqlite3_finalize(statement);
+//    }
+    
+    // Find the largest record id.
+    NSString *qsql = [NSString stringWithFormat:@"SELECT id FROM Notifications order by id DESC limit 1"];
     
     sqlite3_stmt *statement;
     if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
     {
-        sqlite3_step(statement);
+        
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            idRec = sqlite3_column_int(statement, 0); // id
+            idRec++;    // increment by 1 to get value to use for next record that will be written out.
+                        // This will be guaranteed to be a unique id number in this table.
+        }
         
         
         sqlite3_reset(statement);
@@ -645,23 +673,19 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     
     
-    qsql = [NSString stringWithFormat:@"INSERT INTO Notifications values (%d, '%@', '%@', '%@', %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %d)",
+    
+    qsql = [NSString stringWithFormat:@"INSERT INTO Notifications values (%d, '%@', '%@', %ld, %ld, %ld, %ld, %ld, %ld)",
             idRec,
             rec.participantId,
-            rec.dateGenerated,
-            rec.timeGenerated,
+            rec.type,
             (long)rec.fireYear,
             (long)rec.fireMonth,
             (long)rec.fireDay,
             (long)rec.fireHour,
             (long)rec.fireMinute,
-            (long)rec.wasGenerated,
-            (long)rec.responseWasStartApp,
-            (long)rec.responseWasPostpone,
-            (long)rec.responseWasDismiss,
-            (long)rec.numberRemainingNotifications,
-            0];  // 0 signifies that data is not sent to RDB
+            (long)rec.alertWasGenerated];
     
+    //sqlite3_stmt* statement;
     if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
     {
         sqlite3_step(statement);
@@ -677,7 +701,8 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     [[DatabaseController sharedManager] closeDB];
     
-    idRec++;   // increment PK for next cycle
+    
+    return idRec;
 }
 
 
@@ -693,7 +718,7 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     
     //—-retrieve latest row—-
-    NSString *qsql = [NSString stringWithFormat:@"SELECT id, participantId, dateGenerated, timeGenerated, fireYear, fireMonth, fireDay, fireHour, fireMinute, wasGenerated, responseWasStartApp, responseWasPostpone, responseWasDismiss, numberRemainingNotifications, didTransmitThisRecord FROM Notifications order by id DESC limit 1"];
+    NSString *qsql = [NSString stringWithFormat:@"SELECT id, participantId, type, fireYear, fireMonth, fireDay, fireHour, fireMinute, alertWasGenerated FROM Notifications order by id DESC limit 1"];
     
     sqlite3_stmt *statement;
     if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
@@ -707,31 +732,20 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
             
             c = (char *) sqlite3_column_text(statement, 1); rec.participantId = [[NSMutableString alloc] initWithUTF8String:c];  // participantId
             
-            c = (char *) sqlite3_column_text(statement, 2); rec.dateGenerated = [[NSMutableString alloc] initWithUTF8String:c];  // dateGenerated
+            c = (char *) sqlite3_column_text(statement, 2); rec.type = [[NSMutableString alloc] initWithUTF8String:c];  // type
             
-            c = (char *) sqlite3_column_text(statement, 3); rec.timeGenerated = [[NSMutableString alloc] initWithUTF8String:c];  // timeGenerated
+            n = sqlite3_column_int(statement, 3); rec.fireYear = n;  // fireYear
             
-            n = sqlite3_column_int(statement, 4); rec.fireYear = n;  // fireYear
+            n = sqlite3_column_int(statement, 4); rec.fireMonth = n;  // fireMonth
             
-            n = sqlite3_column_int(statement, 5); rec.fireMonth = n;  // fireMonth
+            n = sqlite3_column_int(statement, 5); rec.fireDay = n;  // fireDay
             
-            n = sqlite3_column_int(statement, 6); rec.fireDay = n;  // fireDay
+            n = sqlite3_column_int(statement, 6); rec.fireHour = n;  // fireHour
             
-            n = sqlite3_column_int(statement, 7); rec.fireHour = n;  // fireHour
+            n = sqlite3_column_int(statement, 7); rec.fireMinute = n;  // fireMinute
             
-            n = sqlite3_column_int(statement, 8); rec.fireMinute = n;  // fireMinute
+            n = sqlite3_column_int(statement, 8); rec.alertWasGenerated = n;  // alertWasGenerated
             
-            n = sqlite3_column_int(statement, 9); rec.wasGenerated = n;  // wasGenerated
-            
-            n = sqlite3_column_int(statement, 10); rec.responseWasStartApp = n;  // responseWasStartApp
-            
-            n = sqlite3_column_int(statement, 11); rec.responseWasPostpone = n;  // responseWasPostpone
-            
-            n = sqlite3_column_int(statement, 12); rec.responseWasDismiss = n;  // responseWasDismiss
-            
-            n = sqlite3_column_int(statement, 13); rec.numberRemainingNotifications = n;  // numberRemainingNotifications
-            
-            n = sqlite3_column_int(statement, 14); rec.didTransmitThisRecord = n;  // didTransmitThisRecord
         }
         
         
@@ -745,6 +759,91 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     
     return rec;
+}
+
+
+
+-(NSMutableArray*) getAllUngeneratedNotificationRecords
+{
+    NSMutableArray* arr = [[NSMutableArray alloc] init];
+    
+    
+    [[DatabaseController sharedManager] openDB];
+    
+    
+    //—-retrieve rows—-
+    NSString *qsql = [NSString stringWithFormat:@"SELECT id, participantId, type, fireYear, fireMonth, fireDay, fireHour, fireMinute, alertWasGenerated FROM Notifications where alertWasGenerated = 0"];
+    
+    sqlite3_stmt *statement;
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+    {
+        int n;
+        char* c;
+        
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            Notifications_Rec* rec = [[Notifications_Rec alloc] init];
+            
+            n = sqlite3_column_int(statement, 0); rec.idRecord = n;  // id
+            
+            c = (char *) sqlite3_column_text(statement, 1); rec.participantId = [[NSMutableString alloc] initWithUTF8String:c];  // participantId
+            
+            c = (char *) sqlite3_column_text(statement, 2); rec.type = [[NSMutableString alloc] initWithUTF8String:c];  // type
+            
+            n = sqlite3_column_int(statement, 3); rec.fireYear = n;  // fireYear
+            
+            n = sqlite3_column_int(statement, 4); rec.fireMonth = n;  // fireMonth
+            
+            n = sqlite3_column_int(statement, 5); rec.fireDay = n;  // fireDay
+            
+            n = sqlite3_column_int(statement, 6); rec.fireHour = n;  // fireHour
+            
+            n = sqlite3_column_int(statement, 7); rec.fireMinute = n;  // fireMinute
+            
+            n = sqlite3_column_int(statement, 8); rec.alertWasGenerated = n;  // alertWasGenerated
+            
+            [arr addObject:rec];
+        }
+        
+        
+        sqlite3_reset(statement);
+        
+        //—-deletes the compiled statement from memory—-
+        sqlite3_finalize(statement);
+    }
+    [[DatabaseController sharedManager] closeDB];
+    
+    return arr;
+}
+
+
+
+
+
+
+
+-(void) deleteNotification:(int)idRecord
+{
+    [[DatabaseController sharedManager] openDB];
+    
+    
+    // Delete the (all) record from the Notifications table having the id of idRecord.
+    NSString* qsql = [NSString stringWithFormat:@"DELETE FROM Notifications WHERE id = '%d'", idRecord];
+    
+    sqlite3_stmt *statement;
+    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+    {
+        sqlite3_step(statement);
+        
+        
+        sqlite3_reset(statement);
+        
+        //—-deletes the compiled statement from memory—-
+        sqlite3_finalize(statement);
+    }
+    
+    
+    [[DatabaseController sharedManager] closeDB];
 }
 
 
@@ -864,46 +963,56 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 
 -(void) saveTotalNumberEvents:(int)num
 {
-    // save the value of statusValue in the table MyStatus, under the key "totalNumberEvents"
-    NSString* key = @"totalNumberEvents";
     
-    [[DatabaseController sharedManager] openDB];
+    Schedule_Rec* rec = [self getLatestSchedule];
     
+    rec.weeklyFrequency = num;
     
-    // Delete the (all) record from the MyStatus table having the value of "totalNumberEvents" in the field key.
-    NSString* qsql = [NSString stringWithFormat:@"DELETE FROM MyStatus WHERE key = '%@'", key];
-    
-    sqlite3_stmt *statement;
-    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
-    {
-        sqlite3_step(statement);
-        
-        
-        sqlite3_reset(statement);
-        
-        //—-deletes the compiled statement from memory—-
-        sqlite3_finalize(statement);
-    }
+    [self saveSchedule:rec];
     
     
     
-    // Insert a record in the MyStatus table having a key value of "totalNumberEvents" and a value equal to statusValue.
-    qsql = [NSString stringWithFormat:@"INSERT INTO MyStatus values ('%@', %d)",key,num];
     
-    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
-    {
-        sqlite3_step(statement);
-        
-        
-        sqlite3_reset(statement);
-        
-        //—-deletes the compiled statement from memory—-
-        sqlite3_finalize(statement);
-    }
-    
-    
-    
-    [[DatabaseController sharedManager] closeDB];
+//    // save the value of statusValue in the table MyStatus, under the key "totalNumberEvents"
+//    NSString* key = @"totalNumberEvents";
+//    
+//    [[DatabaseController sharedManager] openDB];
+//    
+//    
+//    // Delete the (all) record from the MyStatus table having the value of "totalNumberEvents" in the field key.
+//    NSString* qsql = [NSString stringWithFormat:@"DELETE FROM MyStatus WHERE key = '%@'", key];
+//    
+//    sqlite3_stmt *statement;
+//    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+//    {
+//        sqlite3_step(statement);
+//        
+//        
+//        sqlite3_reset(statement);
+//        
+//        //—-deletes the compiled statement from memory—-
+//        sqlite3_finalize(statement);
+//    }
+//    
+//    
+//    
+//    // Insert a record in the MyStatus table having a key value of "totalNumberEvents" and a value equal to statusValue.
+//    qsql = [NSString stringWithFormat:@"INSERT INTO MyStatus values ('%@', %d)",key,num];
+//    
+//    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+//    {
+//        sqlite3_step(statement);
+//        
+//        
+//        sqlite3_reset(statement);
+//        
+//        //—-deletes the compiled statement from memory—-
+//        sqlite3_finalize(statement);
+//    }
+//    
+//    
+//    
+//    [[DatabaseController sharedManager] closeDB];
 }
 
 
@@ -911,60 +1020,67 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 -(int) getTotalNumberEvents
 {
     // Get the number of local notifications (SUGG type) to be done this week.
-    // This is read from the MyStatus table in the database.
-    // Returns -1 if key was not found.
-    
-    NSString* key = @"totalNumberEvents";
     
     int retVal = -1;
     
-    BOOL bDidFindDatabase = NO; // used to test for presence of database, which may not be on the phone, initially.
+    Schedule_Rec* rec = [self getLatestSchedule];
     
-    
-    [[DatabaseController sharedManager] openDB];
-    
-    
-    
-    //—-retrieve rows—-
-    NSString *qsql = [NSString stringWithFormat:@"SELECT value FROM MyStatus where key = '%@'", key];
-    
-    sqlite3_stmt *statement;
-    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
-    {
-        while (sqlite3_step(statement) == SQLITE_ROW)
-        {
-            retVal = sqlite3_column_int(statement, 0);  // int value read for key
-            
-            
-        }
-        
-        bDidFindDatabase = YES;
-        
-       
-        sqlite3_reset(statement);
-        
-        //—-deletes the compiled statement from memory—-
-        sqlite3_finalize(statement);
-    }
+    retVal = rec.weeklyFrequency;
     
     
     
-    
-    [[DatabaseController sharedManager] closeDB];
-    
-    
-    if (!bDidFindDatabase)
-    {
-        // did not find database: issue an alert.
-        
-        UIAlertView *alertView = nil;
-        alertView = [[UIAlertView alloc] initWithTitle:@"Attention:"
-                                               message:@"Local TinyShifts database has not \nbeen installed on this device.\nThis must be installed \nprior to activation."
-                                              delegate:self cancelButtonTitle:@"OK"
-                                     otherButtonTitles:nil];
-        [alertView show];
-        
-    }
+//    // This is read from the MyStatus table in the database.
+//    // Returns -1 if key was not found.
+//    
+//    NSString* key = @"totalNumberEvents";
+//    
+//    BOOL bDidFindDatabase = NO; // used to test for presence of database, which may not be on the phone, initially.
+//    
+//    
+//    [[DatabaseController sharedManager] openDB];
+//    
+//    
+//    
+//    //—-retrieve rows—-
+//    NSString *qsql = [NSString stringWithFormat:@"SELECT value FROM MyStatus where key = '%@'", key];
+//    
+//    sqlite3_stmt *statement;
+//    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
+//    {
+//        while (sqlite3_step(statement) == SQLITE_ROW)
+//        {
+//            retVal = sqlite3_column_int(statement, 0);  // int value read for key
+//            
+//            
+//        }
+//        
+//        bDidFindDatabase = YES;
+//        
+//       
+//        sqlite3_reset(statement);
+//        
+//        //—-deletes the compiled statement from memory—-
+//        sqlite3_finalize(statement);
+//    }
+//    
+//    
+//    
+//    
+//    [[DatabaseController sharedManager] closeDB];
+//    
+//    
+//    if (!bDidFindDatabase)
+//    {
+//        // did not find database: issue an alert.
+//        
+//        UIAlertView *alertView = nil;
+//        alertView = [[UIAlertView alloc] initWithTitle:@"Attention:"
+//                                               message:@"Local TinyShifts database has not \nbeen installed on this device.\nThis must be installed \nprior to activation."
+//                                              delegate:self cancelButtonTitle:@"OK"
+//                                     otherButtonTitles:nil];
+//        [alertView show];
+//        
+//    }
     
     
     return retVal;
@@ -1337,60 +1453,6 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     return arr;
 }
-
-
-
-
-
--(NSMutableArray*) getAllUndoneGEPromptRecords
-{
-    NSMutableArray* arr = [[NSMutableArray alloc] init];
-    
-    
-    [[DatabaseController sharedManager] openDB];
-    
-    
-    //—-retrieve rows—-
-    NSString *qsql = [NSString stringWithFormat:@"SELECT id, yearPrompt, monthPrompt, dayPrompt, hourPrompt, minutePrompt, dateGE, timeGE, locationGE, phrase, promptPhone, promptEmail, done FROM AppAction_GEPrompt where done = 0"];
-    
-    sqlite3_stmt *statement;
-    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
-    {
-        while (sqlite3_step(statement) == SQLITE_ROW)
-        {
-//            CGEPromptData* datum = [[CGEPromptData alloc] init];    // allocate a new object, each pass through loop
-//            datum.idRecord  = sqlite3_column_int(statement, 0);  // id
-//            datum.year      = sqlite3_column_int(statement, 1);  // year
-//            datum.month     = sqlite3_column_int(statement, 2);  // month
-//            datum.day       = sqlite3_column_int(statement, 3);  // day
-//            datum.hour      = sqlite3_column_int(statement, 4);  // hour
-//            datum.minute    = sqlite3_column_int(statement, 5);  // minute
-//            char* c = (char *) sqlite3_column_text(statement, 6); datum.dateGE = [[NSMutableString alloc] initWithUTF8String:c];  // dateGE
-//            c = (char *) sqlite3_column_text(statement, 7); datum.timeGE = [[NSMutableString alloc] initWithUTF8String:c];  // timeGE
-//            c = (char *) sqlite3_column_text(statement, 8); datum.locationGE = [[NSMutableString alloc] initWithUTF8String:c];  // locationGE
-//            c = (char *) sqlite3_column_text(statement, 9); datum.phrase = [[NSMutableString alloc] initWithUTF8String:c];  // phrase
-//            datum.promptPhone = sqlite3_column_int(statement,10);  // promptPhone
-//            datum.promptEmail = sqlite3_column_int(statement,11);  // promptEmail
-//            datum.done      = sqlite3_column_int(statement,12);  // done
-//            
-//
-//            
-//            [arr addObject:datum];
-            
-        }
-        
-        
-        sqlite3_reset(statement);
-        
-        //—-deletes the compiled statement from memory—-
-        sqlite3_finalize(statement);
-    }
-    [[DatabaseController sharedManager] closeDB];
-    
-    return arr;
-}
-
-
 
 
 

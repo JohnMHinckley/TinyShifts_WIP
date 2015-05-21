@@ -12,19 +12,13 @@
 
 @synthesize idRecord;
 @synthesize participantId;
-@synthesize dateGenerated;
-@synthesize timeGenerated;
+@synthesize type;
 @synthesize fireYear;
 @synthesize fireMonth;
 @synthesize fireDay;
 @synthesize fireHour;
 @synthesize fireMinute;
-@synthesize wasGenerated;
-@synthesize responseWasStartApp;
-@synthesize responseWasPostpone;
-@synthesize responseWasDismiss;
-@synthesize numberRemainingNotifications;
-@synthesize didTransmitThisRecord;
+@synthesize alertWasGenerated;
 
 
 
@@ -78,8 +72,7 @@ static Notifications_Rec* sharedSingleton = nil;   // single, static instance of
 -(id) init
 {
     participantId = [[NSMutableString alloc] initWithString:@""];
-    dateGenerated = [[NSMutableString alloc] initWithString:@""];
-    timeGenerated = [[NSMutableString alloc] initWithString:@""];
+    type = [[NSMutableString alloc] initWithString:@""];
     
     [self clearData];
     
@@ -98,19 +91,13 @@ static Notifications_Rec* sharedSingleton = nil;   // single, static instance of
 
     idRecord = 0;
     participantId = @"";
-    dateGenerated = @"";
-    timeGenerated = @"";
+    type = @"";
     fireYear = 0;
     fireMonth = 0;
     fireDay = 0;
     fireHour = 0;
     fireMinute = 0;
-    wasGenerated = 0;
-    responseWasStartApp = 0;
-    responseWasPostpone = 0;
-    responseWasDismiss = 0;
-    numberRemainingNotifications = 0;
-    didTransmitThisRecord = 0;
+    alertWasGenerated = 0;
 }
 
 

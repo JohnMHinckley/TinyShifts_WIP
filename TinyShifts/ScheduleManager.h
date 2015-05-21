@@ -17,12 +17,15 @@
 
 -(NSDate*) getNextRandomEventTime;
 -(void) updateSchedule;
+-(void)showAllLocalNotifications;
 
 -(NSInteger) getTotalNumberEvents;
 -(void) setTotalNumberEvents:(int)n;
 
 -(NSInteger) getNumberDoneEvents;
 -(void) setNumberDoneEvents:(int)n;
+
+-(void) setNextLocalNotification;
 
 
 @end

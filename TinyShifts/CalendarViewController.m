@@ -20,6 +20,7 @@
 @implementation CalendarViewController
 @synthesize screenInstance;
 @synthesize responseAlert;
+@synthesize labelNextEvent;
 
 
 - (void)viewDidLoad {
@@ -131,6 +132,32 @@
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
+    
+    
+    
+    
+    // Display the date/time of the next scheduled automatic reminder.
+    // Are there already any queued local notifications?
+    NSArray* arrNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];    // Get the array of scheduled local notifications
+    
+    // Are there any?
+    if ([arrNotifications count] > 0)
+    {
+        // YES:
+        
+        // Get the queued event
+        UILocalNotification* queuedNotification = [arrNotifications objectAtIndex:0];
+        
+        NSDate* fD = queuedNotification.fireDate;    // for examining the firing date of the notification
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"YYYY-MM-dd 'at' HH:mm"];
+        
+        labelNextEvent.text = [NSString stringWithFormat:@"Next scheduled reminder: %@", [formatter stringFromDate:fD]];
+    }
+    else
+    {
+        labelNextEvent.text = @"No reminders scheduled";
+    }
 }
 
 

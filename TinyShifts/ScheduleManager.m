@@ -147,6 +147,10 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
      12. Register the next notification.
      
      */
+    
+    BOOL bStartNewWeek = NO;    // flag, YES when current week is done and this routine starts new week.
+    
+    
     NSDate* retval = nil;   // return value: pointer to a NSDate object.
     
     
@@ -176,16 +180,22 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     NSInteger Nr = MAX(0, n1 - n2);
     if (Nr <= 0)
     {
-        // There are no more events remaining this week.
         
-        // Reset the count of the number of events per week.
-        [self setTotalNumberEvents:[GlobalData sharedManager].frequency];
+        bStartNewWeek = YES;    // flag indicating that new week is started.
+        
         
         
         
         // Get the dateSunday starting next week.
         dTime = (NSTimeInterval) (7 * 24 * 60 * 60);    // number of seconds in a week.
         dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:dateSunday];  // add a week to dateSunday.
+        
+        
+        // Reset the number of done events to zero.
+        [self setNumberDoneEvents:0];
+        
+        n2 = [self getNumberDoneEvents];
+        Nr = MAX(0, n1 - n2);               // Get new number of remaining events to do.
     }
     
     
@@ -436,38 +446,46 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     
     //=========================================================================================
     
-    // Step 5. set all minute array elements = 0 from the beginning up to 1 hour from now.
-    
-    // what is the minute index of the current time?
-    // Get today's date
-//    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-//    NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
-//    int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
-    
-    // Get the minimum date/time as components.
-    components = [[NSCalendar currentCalendar] components:NSCalendarUnitMinute | NSCalendarUnitHour | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-    NSInteger minute = [components minute];
-    NSInteger hour = [components hour];
-    
-    int currentMinuteIndex = (weekday - 1)*numberMinutesPerDay
-    + (int)hour * 60
-    + (int)minute;
-    
-    // Add one hour's worth of minutes
-    end_minute = currentMinuteIndex + 60;
-    
-    
-    // make sure not to go beyond end of week.
-    if (end_minute >= minutesPerWeek)
+    if (bStartNewWeek == NO)
     {
-        end_minute = minutesPerWeek - 1;
+        // Events to be done remain for this week, as signified by Nr > 0.  Therefore, zero out minutes up to one hour after the current time.
+        // Step 5. set all minute array elements = 0 from the beginning up to 1 hour from now.
+        
+        // what is the minute index of the current time?
+        // Get today's date
+        //    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        //    NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+        //    int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
+        
+        // Get the minimum date/time as components.
+        components = [[NSCalendar currentCalendar] components:NSCalendarUnitMinute | NSCalendarUnitHour | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+        NSInteger minute = [components minute];
+        NSInteger hour = [components hour];
+        
+        int currentMinuteIndex = (weekday - 1)*numberMinutesPerDay
+        + (int)hour * 60
+        + (int)minute;
+        
+        // Add one hour's worth of minutes
+        end_minute = currentMinuteIndex + 60;
+        
+        
+        // make sure not to go beyond end of week.
+        if (end_minute >= minutesPerWeek)
+        {
+            end_minute = minutesPerWeek - 1;
+        }
+        
+        start_minute = 0;
+        
+        for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
+        {
+            m[idxMinute] = 0;
+        }
     }
-    
-    start_minute = 0;
-    
-    for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
+    else
     {
-        m[idxMinute] = 0;
+        // No events remained for this week.  So scheduling will move to next week.  So no need to block off any minutes up to one hour after the current time.
     }
     
     
@@ -575,25 +593,26 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             
             // Set the notification for this date/time.
             
-            // Get today's date
-            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-            NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
-            int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
-            
-            // Get the NSDate object for now
-            NSDate* now = [NSDate date];
-            
-            // Get the components of this date/time
-            components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:now];
-            NSInteger nowHour = [components hour];
-            NSInteger nowMinute = [components minute];
-            NSInteger secondsBeforeNow = 60 * (nowMinute + 60 * (nowHour + 24 * (weekday-1)));    // number of seconds between 12:00 a.m. Sunday and now.
-            NSTimeInterval dTime = (NSTimeInterval) (-secondsBeforeNow);
-            
-            // Get the NSDate object for 12:00 a.m. Sunday
-            NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
+//            // Get today's date
+//            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//            NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+//            int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
+//            
+//            // Get the NSDate object for now
+//            NSDate* now = [NSDate date];
+//            
+//            // Get the components of this date/time
+//            components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:now];
+//            NSInteger nowHour = [components hour];
+//            NSInteger nowMinute = [components minute];
+//            NSInteger secondsBeforeNow = 60 * (nowMinute + 60 * (nowHour + 24 * (weekday-1)));    // number of seconds between 12:00 a.m. Sunday and now.
+//            NSTimeInterval dTime = (NSTimeInterval) (-secondsBeforeNow);
+//            
+//            // Get the NSDate object for 12:00 a.m. Sunday
+//            NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
             
             // Get the NSDate object for the randomly selected time, which is an offset from 12:00 a.m. Sunday.
+            // The NSDate object for 12:00 a.m. Sunday was determined near the start of this routine.
             dTime = (NSTimeInterval) (60 * m[smallestRandomNumber]);
             NSDate* fireDate = [NSDate dateWithTimeInterval:dTime sinceDate:dateSunday];
             
@@ -604,6 +623,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         else
         {
             // There are no more events to do this week.
+            NSLog(@"No more events this week");
         }
     }   // Not using Google calendar.
     
@@ -633,9 +653,9 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 -(void) setTotalNumberEvents:(int)n
 {
     // Set the total number of recommendation events for this week.
-    NSLog(@"Going to set total number of events: %d", n);
+    //NSLog(@"Going to set total number of events: %d", n);
     [[CDatabaseInterface sharedManager] saveTotalNumberEvents:n];  // set the total number of events into the database.
-    NSLog(@"Total number of events just set: %d", [[CDatabaseInterface sharedManager] getTotalNumberEvents]);
+    //NSLog(@"Total number of events just set: %d", [[CDatabaseInterface sharedManager] getTotalNumberEvents]);
 }
 
 
@@ -711,54 +731,54 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 
 
 
--(BOOL) createRecommendationNotificationOnDate:(NSDate*)fireDate
-{
-    BOOL retSuccess = YES;  // return value indicating creation success
-    
-    //-------------------
-    
-    // Allocate a working UILocalNotification object.
-    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-    
-    // Return if it was not properly allocated and initialized.
-    if (localNotif == nil)
-    {
-        retSuccess = NO;
-    }
-    else
-    {
-        
-        localNotif.fireDate = fireDate;
-        localNotif.timeZone = [NSTimeZone defaultTimeZone];
-        
-        
-        // Specify the notification characteristics
-        localNotif.alertBody = @"This is a suggestion to run the TinyShifts app.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
-        
-        localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
-        localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
-        localNotif.applicationIconBadgeNumber = 0;  // Display this as the icon's badge.
-        
-        //        // Specify custom data for the notification.
-        //        NSString* s1 = [NSString stringWithFormat:@"%d", datum.idRecord];
-        //        NSString* s2 = [NSString stringWithFormat:@"%d", datum.idWeek];
-        //        NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"PROD", @"Notification_Type", s1, @"Record_Number", s2, @"Week_Number", nil];
-        //        localNotif.userInfo = infoDict;
-        
-        
-        //------------------------------  Schedule the local notification  --------------------------
-        NSLog(@"Prior to scheduling a suggestion notification:");
-        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
-        
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-        
-        NSLog(@"After to scheduling a suggestion notification:");
-        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
-    }
-    //-------------------
-    
-    return retSuccess;
-}
+//-(BOOL) createRecommendationNotificationOnDate:(NSDate*)fireDate
+//{
+//    BOOL retSuccess = YES;  // return value indicating creation success
+//    
+//    //-------------------
+//    
+//    // Allocate a working UILocalNotification object.
+//    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+//    
+//    // Return if it was not properly allocated and initialized.
+//    if (localNotif == nil)
+//    {
+//        retSuccess = NO;
+//    }
+//    else
+//    {
+//        
+//        localNotif.fireDate = fireDate;
+//        localNotif.timeZone = [NSTimeZone defaultTimeZone];
+//        
+//        
+//        // Specify the notification characteristics
+//        localNotif.alertBody = @"This is a suggestion to run the TinyShifts app.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
+//        
+//        localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
+//        localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
+//        localNotif.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;  // Display this as the icon's badge.
+//        
+//        //        // Specify custom data for the notification.
+//        //        NSString* s1 = [NSString stringWithFormat:@"%d", datum.idRecord];
+//        //        NSString* s2 = [NSString stringWithFormat:@"%d", datum.idWeek];
+//        //        NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"PROD", @"Notification_Type", s1, @"Record_Number", s2, @"Week_Number", nil];
+//        //        localNotif.userInfo = infoDict;
+//        
+//        
+//        //------------------------------  Schedule the local notification  --------------------------
+//        NSLog(@"Prior to scheduling a suggestion notification:");
+//        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
+//        
+//        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+//        
+//        NSLog(@"After to scheduling a suggestion notification:");
+//        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
+//    }
+//    //-------------------
+//    
+//    return retSuccess;
+//}
 
 
 
@@ -766,54 +786,54 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 
 
 
--(BOOL) createProdNotificationOnDate:(NSDate*)fireDate
-{
-    BOOL retSuccess = YES;  // return value indicating creation success
-    
-    //-------------------
-    
-    // Allocate a working UILocalNotification object.
-    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-    
-    // Return if it was not properly allocated and initialized.
-    if (localNotif == nil)
-    {
-        retSuccess = NO;
-    }
-    else
-    {
-        
-        localNotif.fireDate = fireDate;
-        localNotif.timeZone = [NSTimeZone defaultTimeZone];
-        
-        
-        // Specify the notification characteristics
-        localNotif.alertBody = @"Consider setting automatic recommendations in the TinyShifts app.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
-        
-        localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
-        localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
-        localNotif.applicationIconBadgeNumber = 0;  // Display this as the icon's badge.
-        
-        //        // Specify custom data for the notification.
-        //        NSString* s1 = [NSString stringWithFormat:@"%d", datum.idRecord];
-        //        NSString* s2 = [NSString stringWithFormat:@"%d", datum.idWeek];
-        //        NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"PROD", @"Notification_Type", s1, @"Record_Number", s2, @"Week_Number", nil];
-        //        localNotif.userInfo = infoDict;
-        
-        
-        //------------------------------  Schedule the local notification  --------------------------
-        NSLog(@"Prior to scheduling a suggestion notification:");
-        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
-        
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-        
-        NSLog(@"After to scheduling a suggestion notification:");
-        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
-    }
-    //-------------------
-    
-    return retSuccess;
-}
+//-(BOOL) createProdNotificationOnDate:(NSDate*)fireDate
+//{
+//    BOOL retSuccess = YES;  // return value indicating creation success
+//    
+//    //-------------------
+//    
+//    // Allocate a working UILocalNotification object.
+//    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+//    
+//    // Return if it was not properly allocated and initialized.
+//    if (localNotif == nil)
+//    {
+//        retSuccess = NO;
+//    }
+//    else
+//    {
+//        
+//        localNotif.fireDate = fireDate;
+//        localNotif.timeZone = [NSTimeZone defaultTimeZone];
+//        
+//        
+//        // Specify the notification characteristics
+//        localNotif.alertBody = @"Consider setting automatic recommendations in the TinyShifts app.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
+//        
+//        localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
+//        localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
+//        localNotif.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;  // Display this as the icon's badge.
+//        
+//        //        // Specify custom data for the notification.
+//        //        NSString* s1 = [NSString stringWithFormat:@"%d", datum.idRecord];
+//        //        NSString* s2 = [NSString stringWithFormat:@"%d", datum.idWeek];
+//        //        NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"PROD", @"Notification_Type", s1, @"Record_Number", s2, @"Week_Number", nil];
+//        //        localNotif.userInfo = infoDict;
+//        
+//        
+//        //------------------------------  Schedule the local notification  --------------------------
+//        NSLog(@"Prior to scheduling a suggestion notification:");
+//        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
+//        
+//        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+//        
+//        NSLog(@"After to scheduling a suggestion notification:");
+//        [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
+//    }
+//    //-------------------
+//    
+//    return retSuccess;
+//}
 
 
 
@@ -960,6 +980,13 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 {
     // Return the number of available time segments per day.
     int retval = 0;
+    
+    Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+    [GlobalData sharedManager].timeOfDayAvailMorning = (int)rec.availableMorning;
+    [GlobalData sharedManager].timeOfDayAvailNoon = (int)rec.availableNoon;
+    [GlobalData sharedManager].timeOfDayAvailAfternoon = (int)rec.availableAfternoon;
+    [GlobalData sharedManager].timeOfDayAvailEvening = (int)rec.availableEvening;
+    
     if ([GlobalData sharedManager].timeOfDayAvailMorning > 0)
     {
         retval++;
@@ -989,6 +1016,11 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 {
     // There is some kind of change in the schedule.
     
+    // Cancel any currently registered local notifications.
+    [self clearAllLocalNotifications];
+    
+    
+    
     Notifications_Rec* rec = [[Notifications_Rec alloc]init];   // new record that will be written to the Notifications table, describing the next local notification that will be registered here.
     
     
@@ -997,14 +1029,10 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     {
         // there are no available time segments in the current schedule
         
+        // Create a PROD notification.
+        rec.type = @"PROD";
         
-        // Cancel any currently registered local notifications.
-        [self clearAllLocalNotifications];
         
-        
-       
-        // Set the number of remaining notifications to zero.
-        rec.numberRemainingNotifications = 0;
         
         //---------------------------------------------------------------------------------------------
         // Set the fire date/time to the next Friday at 6:00 p.m.
@@ -1050,38 +1078,33 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         rec.fireMinute = [components minute];
         
         // Clear generated flag.
-        rec.wasGenerated = 0;
-        
-        // Save this record in the Notifications table.
-        [[CDatabaseInterface sharedManager] saveNotification:rec];
-        
-        
-        // Register a PROD type notification.
-        [self schedulePRODNotification:rec];
+        rec.alertWasGenerated = 0;
         
     }
     else
     {
         // There is at least one available time segment.
         
-        // Is there a change in the number of notifications this week?
-        int numDoneEvents = [self getNumberDoneEvents];     // current number already done this week.
-        NSInteger newNumEvents = [GlobalData sharedManager].frequency;  // new value of maximum number to do this week.
-        
-        if (newNumEvents <= numDoneEvents)
-        {
-            // Do no more suggestions this week.
-            
-            // Prepare for next week.
-            
-//            // set the number of remaining events to zero.  This will trigger the generation of an event in the next week.
-//            [self setNumberRemainingEvents:0];
-            
-        }
+        // Create a SUGG notification.
+        rec.type = @"SUGG";
         
         
-        // Cancel any currently registered local notifications.
-        [self clearAllLocalNotifications];
+        
+//        // Is there a change in the number of notifications this week?
+//        int numDoneEvents = [self getNumberDoneEvents];     // current number already done this week.
+//        NSInteger newNumEvents = [GlobalData sharedManager].frequency;  // new value of maximum number to do this week.
+//        
+//        if (newNumEvents <= numDoneEvents)
+//        {
+//            // Do no more suggestions this week.
+//            
+//            // Prepare for next week.
+//#pragma mark *** TODO: determine whether anything needs to be done here.
+//            
+////            // set the number of remaining events to zero.  This will trigger the generation of an event in the next week.
+////            [self setNumberRemainingEvents:0];
+//            
+//        }
         
         
         // Calculate the next notification time.
@@ -1091,9 +1114,6 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         
         // Update the record in the Notifications table.
         
-        // Set the number of remaining notifications to zero.
-        rec.numberRemainingNotifications = 0;
-
         // Get the components of this date/time
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         NSDateComponents *components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:fireDate];
@@ -1104,17 +1124,19 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         rec.fireMinute = [components minute];
         
         // Clear generated flag.
-        rec.wasGenerated = 0;
-        
-        // Save this record in the Notifications table.
-        [[CDatabaseInterface sharedManager] saveNotification:rec];
-        
-        
-        // Register a SUGG type notification.
-        [self scheduleSUGGNotification:rec];
-        
+        rec.alertWasGenerated = 0;
         
     }
+    
+    
+    // Save this record in the Notifications table.
+    // The return value is the record id, as written to the Notifications table.
+    rec.idRecord = [[CDatabaseInterface sharedManager] saveNotification:rec];
+    
+    
+    // Register a notification.
+    [self scheduleNotification:rec];
+    
 }
 
 
@@ -1123,7 +1145,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 
 
 
--(void) schedulePRODNotification:(Notifications_Rec*) rec
+-(void) scheduleNotification:(Notifications_Rec*) rec
 {
     
     // Get a NSDate object from the components of the notification datum
@@ -1149,26 +1171,53 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     localNotif.timeZone = [NSTimeZone defaultTimeZone];
     
     
-    // Specify the notification characteristics
-    localNotif.alertBody = @"This is a suggestion to adjust your TinyShifts app settings for next week.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
-    
     localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
     localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
-    localNotif.applicationIconBadgeNumber = 0;  // Display this as the icon's badge.
+    localNotif.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;  // Display this as the icon's badge.
     
-    // Specify custom data for the notification.
-    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"PROD", @"Notification_Type", nil];
+    NSDictionary *infoDict = nil;
+    
+    if ([rec.type isEqualToString:@"PROD"])
+    {
+        // Specify the notification characteristics
+        localNotif.alertBody = @"This is a suggestion to adjust your TinyShifts app schedule settings for next week.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
+        
+        // Specify custom data for the notification.
+        infoDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                    @"PROD", @"Notification_Type",
+                    [NSString stringWithFormat:@"%d",rec.idRecord], @"Notification_RecordID",
+                    nil];
+    }
+    else if ([rec.type isEqualToString:@"SUGG"])
+    {
+        // Specify the notification characteristics
+        localNotif.alertBody = @"This is a suggestion to play a video in the TinyShifts app.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
+        
+        // Specify custom data for the notification.
+        infoDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                    @"SUGG", @"Notification_Type",
+                    [NSString stringWithFormat:@"%d",rec.idRecord], @"Notification_RecordID",
+                    nil];
+    }
+    
+    
     localNotif.userInfo = infoDict;
     
     
     //------------------------------  Schedule the local notification  --------------------------
-    NSLog(@"Prior to scheduling a PROD notification:");
+    NSLog(@"Prior to scheduling a notification:");
     [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
     
-    NSLog(@"After to scheduling a PROD notification:");
+    NSLog(@"After to scheduling a notification:");
     [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
+
+    
+    
+//    // Save this record in the Notifications table.
+//    [[CDatabaseInterface sharedManager] saveNotification:rec];
+    
     
     
 }
@@ -1179,54 +1228,5 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 
 
 
--(void) scheduleSUGGNotification:(Notifications_Rec*) rec
-{
-    
-    // Get a NSDate object from the components of the notification datum
-    NSCalendar *c = [NSCalendar currentCalendar];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setMinute:rec.fireMinute];
-    [components setHour:rec.fireHour];
-    [components setDay:rec.fireDay];
-    [components setMonth:rec.fireMonth];
-    [components setYear:rec.fireYear];
-    NSDate *fireDate = [c dateFromComponents:components];
-    
-    // Allocate a working UILocalNotification object.
-    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-    
-    // Return if it was not properly allocated and initialized.
-    if (localNotif == nil)
-    {
-        return;
-    }
-    
-    localNotif.fireDate = fireDate;
-    localNotif.timeZone = [NSTimeZone defaultTimeZone];
-    
-    
-    // Specify the notification characteristics
-    localNotif.alertBody = @"This is a suggestion to play a video in the TinyShifts app.";    // This is what is displayed at the top of the screen when the notification fires and the app is suspended.
-    
-    localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
-    localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
-    localNotif.applicationIconBadgeNumber = 0;  // Display this as the icon's badge.
-    
-    // Specify custom data for the notification.
-    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"SUGG", @"Notification_Type", nil];
-    localNotif.userInfo = infoDict;
-    
-    
-    //------------------------------  Schedule the local notification  --------------------------
-    NSLog(@"Prior to scheduling a SUGG notification:");
-    [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-    
-    NSLog(@"After to scheduling a SUGG notification:");
-    [self showAllLocalNotifications];   // display characteristics of all scheduled local notifications
-    
-    
-}
 
 @end

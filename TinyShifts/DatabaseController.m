@@ -250,7 +250,7 @@ static DatabaseController* sharedSingleton = nil;   // single, static instance o
         // Get the documents path in the app's sandbox
         NSString* path = ((AppDelegate*) [UIApplication sharedApplication].delegate).documentsPath;
         
-        NSLog(@"Path to database: %@", path);
+        //NSLog(@"Path to database: %@", path);
         
         
         

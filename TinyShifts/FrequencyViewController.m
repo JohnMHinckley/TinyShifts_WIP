@@ -179,7 +179,7 @@
         [[ScheduleManager sharedManager] setTotalNumberEvents:[GlobalData sharedManager].frequency];
     }
     
-    NSLog(@"Frequency value = %d", [GlobalData sharedManager].frequency);
+    //NSLog(@"Frequency value = %d", [GlobalData sharedManager].frequency);
 }
 
 
