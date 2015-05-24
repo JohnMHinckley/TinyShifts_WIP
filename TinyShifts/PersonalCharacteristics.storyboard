@@ -131,6 +131,7 @@
                     </view>
                     <connections>
                         <outlet property="m_TextField" destination="lPF-po-x5H" id="zaf-lb-Bhh"/>
+                        <outlet property="verticalPositionConstraint" destination="xqS-an-B5T" id="5AH-BB-lSu"/>
                         <outletCollection property="m_Switch" destination="8SH-pZ-8Fq" id="tBA-pq-Uyr"/>
                         <outletCollection property="m_Switch" destination="GRw-KF-wjj" id="cVK-8w-F81"/>
                         <outletCollection property="m_Switch" destination="H4n-kA-bPK" id="2Ag-RW-ppL"/>

@@ -13,6 +13,7 @@
 #import "PleasantMoodTableViewCell.h"
 #import "TableDatum.h"
 #import "AskWantResourceInfoViewController.h"
+#import "VideoPlayerViewController.h"
 #import "GlobalData.h"
 #import "ConstGen.h"
 
@@ -198,6 +199,15 @@
     // A given row has been selected in the table.
     // The index of this row is indexPath.row
     
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
+    
     selectedCell = indexPath.row;   // get the index of the selected cell.  This will be used to pass the correct text to the next screen.
     
     
@@ -347,9 +357,11 @@
     
     // Determine the next view controller.
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+    //AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];    // changed next screen at request of D. Eisenberg (18-May-2015)
+    VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
     vc.navigationItem.hidesBackButton = NO;
-    [vc setScreenInstance:1];
+    //[vc setScreenInstance:1];
+    [vc setScreenMode:1];
     [self.navigationController pushViewController:vc animated:YES];
     
     

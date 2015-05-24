@@ -23,6 +23,7 @@
 - (IBAction)buttonPressedTreadmill:(UIButton *)sender;
 - (IBAction)buttonPressedDaury:(UIButton *)sender;
 - (IBAction)buttonPressedBalloon:(UIButton *)sender;
+- (IBAction)buttonPressedChooseOneThing:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView2;

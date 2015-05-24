@@ -24,6 +24,7 @@
 @synthesize m_Switch;
 @synthesize m_Label;
 @synthesize m_TextField;
+@synthesize verticalPositionConstraint;
 
 
 - (void)viewDidLoad {
@@ -413,9 +414,11 @@
     
     CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
     
-    CGSize iPhone5 = CGSizeMake(640, 1136);
+    //CGSize iPhone5 = CGSizeMake(640, 1136);
     
     CGSize iPhone4 = CGSizeMake(640, 960);
+    
+    
     
     if(screenSize.height == iPhone4.height && screenSize.width == iPhone4.width)
     {
@@ -423,31 +426,28 @@
         
         textFieldFrame = m_TextField.frame; // save the frame for later restoration.
         
+        textFieldVertConstraint = verticalPositionConstraint.constant;
+        
         m_TextField.frame = CGRectMake(textFieldFrame.origin.x,    // x
                                       (verMajor >= 7 ? 200 : 135),   // y
                                       textFieldFrame.size.width,   // w
                                       textFieldFrame.size.height);   // h
         
-//        m_LabelCharLeft.frame = CGRectMake(20,    // x
-//                                           (verMajor >= 7 ? 240 : 175),   // y
-//                                           280,   // w
-//                                           21);   // h
+        verticalPositionConstraint.constant = textFieldVertConstraint - (textFieldFrame.origin.y - m_TextField.frame.origin.y);
     }
-    else if (screenSize.height == iPhone5.height && screenSize.width == iPhone5.width)
+    else //if (screenSize.height == iPhone5.height && screenSize.width == iPhone5.width)
     {
-        NSLog(@"Device is iPhone 5, portrait orientation");
         
         textFieldFrame = m_TextField.frame; // save the frame for later restoration.
+        
+        textFieldVertConstraint = verticalPositionConstraint.constant;
         
         m_TextField.frame = CGRectMake(textFieldFrame.origin.x,    // x
                                       (verMajor >= 7 ? 200 : 200),   // y
                                       textFieldFrame.size.width,   // w
                                       textFieldFrame.size.height);   // h
         
-//        m_LabelCharLeft.frame = CGRectMake(20,    // x
-//                                           (verMajor >= 7 ? 240 : 240),   // y
-//                                           280,   // w
-//                                           21);   // h
+        verticalPositionConstraint.constant = textFieldVertConstraint - (textFieldFrame.origin.y - m_TextField.frame.origin.y);
     }
     
     
@@ -545,7 +545,7 @@
     
     CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
     
-    CGSize iPhone5 = CGSizeMake(640, 1136);
+    //CGSize iPhone5 = CGSizeMake(640, 1136);
     
     CGSize iPhone4 = CGSizeMake(640, 960);
     
@@ -553,31 +553,17 @@
     {
         NSLog(@"Device is iPhone4, portrait orientation");
         
-//        m_TextField.frame = CGRectMake(20,    // x
-//                                      (verMajor >= 7 ? 365 : 300),   // y
-//                                      280,   // w
-//                                      30);   // h
-        
         m_TextField.frame = textFieldFrame;     // restore frame
+        
+        verticalPositionConstraint.constant = textFieldVertConstraint;
     }
-    else if (screenSize.height == iPhone5.height && screenSize.width == iPhone5.width)
+    else //if (screenSize.height == iPhone5.height && screenSize.width == iPhone5.width)
     {
-        NSLog(@"Device is iPhone 5, portrait orientation");
-        
-//        m_TextField.frame = CGRectMake(20,    // x
-//                                      (verMajor >= 7 ? 453 : 388),   // y
-//                                      280,   // w
-//                                      30);   // h
         
         m_TextField.frame = textFieldFrame;     // restore frame
+        
+        verticalPositionConstraint.constant = textFieldVertConstraint;
    }
-    
-    
-    
-//    m_LabelCharLeft.frame = CGRectMake(20,    // x
-//                                       476,   // y
-//                                       280,   // w
-//                                       21);   // h
     
     
     // Show the switches and labels.

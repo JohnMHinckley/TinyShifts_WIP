@@ -1025,7 +1025,7 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     Schedule_Rec* rec = [self getLatestSchedule];
     
-    retVal = rec.weeklyFrequency;
+    retVal = (int)rec.weeklyFrequency;
     
     
     

@@ -14,7 +14,6 @@
 		445ADC901AB9E3BE00FDCAEE /* appIcon_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC8E1AB9E3BE00FDCAEE /* appIcon_180x180.png */; };
 		445ADC931ABA04B600FDCAEE /* LaunchImage_640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC911ABA04B600FDCAEE /* LaunchImage_640x960.png */; };
 		445ADC941ABA04B600FDCAEE /* LaunchImage_640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 445ADC921ABA04B600FDCAEE /* LaunchImage_640x1136.png */; };
-		446FC8B81B0B8B6D00F26785 /* Database.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 446FC8B71B0B8B6D00F26785 /* Database.bundle */; };
 		52079D0A1A9BF9FF0015A41C /* PersonalCharacteristics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52079D091A9BF9FF0015A41C /* PersonalCharacteristics.storyboard */; };
 		520B67201A9F2B0A00F162A4 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520B671F1A9F2B0A00F162A4 /* Schedule.storyboard */; };
 		520B67231A9F455100F162A4 /* SendBaseline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520B67221A9F455100F162A4 /* SendBaseline.storyboard */; };
@@ -31,6 +30,9 @@
 		5225C4981B0E2D9B00A61DE6 /* LaunchImage_1024x768.png in Resources */ = {isa = PBXBuildFile; fileRef = 5225C4941B0E2D9B00A61DE6 /* LaunchImage_1024x768.png */; };
 		5225C4991B0E2D9B00A61DE6 /* LaunchImage_1536x2048.png in Resources */ = {isa = PBXBuildFile; fileRef = 5225C4951B0E2D9B00A61DE6 /* LaunchImage_1536x2048.png */; };
 		5225C49A1B0E2D9B00A61DE6 /* LaunchImage_2048x1536.png in Resources */ = {isa = PBXBuildFile; fileRef = 5225C4961B0E2D9B00A61DE6 /* LaunchImage_2048x1536.png */; };
+		5225C49C1B0E523A00A61DE6 /* magenta.png in Resources */ = {isa = PBXBuildFile; fileRef = 5225C49B1B0E523A00A61DE6 /* magenta.png */; };
+		5225C4A01B0E5CEB00A61DE6 /* Database.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5225C49F1B0E5CEB00A61DE6 /* Database.bundle */; };
+		5225C4A21B0E5D4000A61DE6 /* Content.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5225C4A11B0E5D4000A61DE6 /* Content.bundle */; };
 		522DB8DA1A8D6284003EC3E1 /* UnpleasantMoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */; };
 		522DB8DF1A8D633C003EC3E1 /* PleasantMoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8DD1A8D633C003EC3E1 /* PleasantMoodListViewController.m */; };
 		522DB8E41A8D641C003EC3E1 /* ResourceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8E21A8D641C003EC3E1 /* ResourceListViewController.m */; };
@@ -135,7 +137,6 @@
 		52A243251AE70C8A00B42B97 /* RDB_DailyTimeIntervals.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A243241AE70C8A00B42B97 /* RDB_DailyTimeIntervals.m */; };
 		52AF13181A8B79C0000CBD8B /* CalendarHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */; };
 		52AF131B1A8B7B70000CBD8B /* AboutHeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */; };
-		52B45AD11AB4C704006A4F1B /* Content.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52B45AD01AB4C704006A4F1B /* Content.bundle */; };
 		52C49A451A9A74C000E53A9E /* TableDatum.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C49A441A9A74C000E53A9E /* TableDatum.m */; };
 		52C49A481A9A802800E53A9E /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C49A471A9A802800E53A9E /* InfoViewController.m */; };
 		52CACE561A8985FF00064614 /* CGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CACE551A8985FF00064614 /* CGradientButton.m */; };
@@ -162,7 +163,6 @@
 		445ADC8E1AB9E3BE00FDCAEE /* appIcon_180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon_180x180.png; sourceTree = "<group>"; };
 		445ADC911ABA04B600FDCAEE /* LaunchImage_640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_640x960.png; sourceTree = "<group>"; };
 		445ADC921ABA04B600FDCAEE /* LaunchImage_640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_640x1136.png; sourceTree = "<group>"; };
-		446FC8B71B0B8B6D00F26785 /* Database.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Database.bundle; sourceTree = "<group>"; };
 		52079D091A9BF9FF0015A41C /* PersonalCharacteristics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalCharacteristics.storyboard; sourceTree = "<group>"; };
 		520B671F1A9F2B0A00F162A4 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		520B67221A9F455100F162A4 /* SendBaseline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SendBaseline.storyboard; sourceTree = "<group>"; };
@@ -181,6 +181,9 @@
 		5225C4941B0E2D9B00A61DE6 /* LaunchImage_1024x768.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_1024x768.png; sourceTree = "<group>"; };
 		5225C4951B0E2D9B00A61DE6 /* LaunchImage_1536x2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_1536x2048.png; sourceTree = "<group>"; };
 		5225C4961B0E2D9B00A61DE6 /* LaunchImage_2048x1536.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_2048x1536.png; sourceTree = "<group>"; };
+		5225C49B1B0E523A00A61DE6 /* magenta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magenta.png; sourceTree = "<group>"; };
+		5225C49F1B0E5CEB00A61DE6 /* Database.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Database.bundle; sourceTree = "<group>"; };
+		5225C4A11B0E5D4000A61DE6 /* Content.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Content.bundle; sourceTree = "<group>"; };
 		522DB8D71A8D6284003EC3E1 /* UnpleasantMoodListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnpleasantMoodListViewController.h; sourceTree = "<group>"; };
 		522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnpleasantMoodListViewController.m; sourceTree = "<group>"; };
 		522DB8DC1A8D633C003EC3E1 /* PleasantMoodListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PleasantMoodListViewController.h; sourceTree = "<group>"; };
@@ -521,7 +524,6 @@
 		52AF13171A8B79C0000CBD8B /* CalendarHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHeadViewController.m; sourceTree = "<group>"; };
 		52AF13191A8B7B70000CBD8B /* AboutHeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutHeadViewController.h; sourceTree = "<group>"; };
 		52AF131A1A8B7B70000CBD8B /* AboutHeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutHeadViewController.m; sourceTree = "<group>"; };
-		52B45AD01AB4C704006A4F1B /* Content.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Content.bundle; sourceTree = "<group>"; };
 		52C49A431A9A74C000E53A9E /* TableDatum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDatum.h; sourceTree = "<group>"; };
 		52C49A441A9A74C000E53A9E /* TableDatum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDatum.m; sourceTree = "<group>"; };
 		52C49A461A9A802800E53A9E /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
@@ -691,8 +693,8 @@
 		524DEA571A7B0E26009A2EDC /* TinyShifts */ = {
 			isa = PBXGroup;
 			children = (
-				52B45AD01AB4C704006A4F1B /* Content.bundle */,
-				446FC8B71B0B8B6D00F26785 /* Database.bundle */,
+				5225C4A11B0E5D4000A61DE6 /* Content.bundle */,
+				5225C49F1B0E5CEB00A61DE6 /* Database.bundle */,
 				5255F0D91ADACA7A00CFAB8F /* Remote Database */,
 				5255EE3E1ADA943E00CFAB8F /* Singletons */,
 				5211793E1A9426E6001E6F48 /* Database */,
@@ -1263,6 +1265,7 @@
 				5225C4951B0E2D9B00A61DE6 /* LaunchImage_1536x2048.png */,
 				5225C4961B0E2D9B00A61DE6 /* LaunchImage_2048x1536.png */,
 				52982DB51AB273570085C600 /* blank.png */,
+				5225C49B1B0E523A00A61DE6 /* magenta.png */,
 				52982DA31AB270CC0085C600 /* blue.png */,
 				52982DA41AB270CC0085C600 /* brtgreen.png */,
 				52982DA51AB270CC0085C600 /* drkblue.png */,
@@ -1429,12 +1432,13 @@
 				445ADC901AB9E3BE00FDCAEE /* appIcon_180x180.png in Resources */,
 				5225C4911B0E23E800A61DE6 /* appIcon_29x29.png in Resources */,
 				52982DAD1AB270CC0085C600 /* brtgreen.png in Resources */,
-				52B45AD11AB4C704006A4F1B /* Content.bundle in Resources */,
 				5225C4971B0E2D9B00A61DE6 /* LaunchImage_768x1024.png in Resources */,
 				521623001A9102950029BF68 /* InfoList.storyboard in Resources */,
 				5255F0B81ADABF2300CFAB8F /* WeborbClient Class Reference.odt in Resources */,
+				5225C4A21B0E5D4000A61DE6 /* Content.bundle in Resources */,
 				524DEA861A7B128D009A2EDC /* tabbaritemIcon_Settings.png in Resources */,
 				52982DAE1AB270CC0085C600 /* drkblue.png in Resources */,
+				5225C4A01B0E5CEB00A61DE6 /* Database.bundle in Resources */,
 				52982DB41AB270CC0085C600 /* yellow.png in Resources */,
 				52079D0A1A9BF9FF0015A41C /* PersonalCharacteristics.storyboard in Resources */,
 				52982DAC1AB270CC0085C600 /* blue.png in Resources */,
@@ -1451,11 +1455,11 @@
 				445ADC8A1AB9E17900FDCAEE /* appIcon_58x58.png in Resources */,
 				524DEA8B1A7B150F009A2EDC /* TextLogo_dkblue_205_235_252.png in Resources */,
 				445ADC931ABA04B600FDCAEE /* LaunchImage_640x960.png in Resources */,
-				446FC8B81B0B8B6D00F26785 /* Database.bundle in Resources */,
 				445ADC941ABA04B600FDCAEE /* LaunchImage_640x1136.png in Resources */,
 				5225C4981B0E2D9B00A61DE6 /* LaunchImage_1024x768.png in Resources */,
 				52982DB11AB270CC0085C600 /* pink.png in Resources */,
 				524DEA691A7B0E26009A2EDC /* LaunchScreen.xib in Resources */,
+				5225C49C1B0E523A00A61DE6 /* magenta.png in Resources */,
 				524DEA661A7B0E26009A2EDC /* Images.xcassets in Resources */,
 				52982DB31AB270CC0085C600 /* violet.png in Resources */,
 				520B67251A9F4CD200F162A4 /* SubmitBaselineDecoration.png in Resources */,

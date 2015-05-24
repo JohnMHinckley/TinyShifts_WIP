@@ -40,7 +40,7 @@
     self.navigationItem.rightBarButtonItem = rightButtonItem;
     
     
-    informationText = @"Resources on campus:\n\nCounseling and Psychological Services (CAPS)\nMichigan Union, 3rd Floor\n734-764-8312\nwww.caps.umich.edu\n\nUniversity Health Service (UHS)\n207 Fletcher Street\nww.uhs.umich.edu/edbi\n\nWolverine Wellness\n207 Fletcher Street\nhttp://www.uhs.umich.edu/wolverine-wellness\n\nUniversity of Michigan Psychological Clinic\n500 E. Washington St., Suite 100\nhttp://mari.umich.edu/adult-psychological-clinic\n\nFor more about general mental health resources available to U-M students, visit MiTalk (www.mitalk.umich.edu).\n\nList of available resources in the local community:\n\nFor a list of Ann Arbor providers, you can search the database at: umcpd.umich.edu.";
+    informationText = @"Resources on campus:\n\nCounseling and Psychological Services (CAPS)\nMichigan Union, 3rd Floor\n734-764-8312\nwww.caps.umich.edu\n\nUniversity Health Service (UHS)\n207 Fletcher Street\nwww.uhs.umich.edu\n\nWolverine Wellness\n207 Fletcher Street\nhttp://www.uhs.umich.edu/wolverine-wellness\n\nUniversity of Michigan Psychological Clinic\n500 E. Washington St., Suite 100\nhttp://mari.umich.edu/adult-psychological-clinic\n\nFor more about general mental health resources available to U-M students, visit MiTalk (www.mitalk.umich.edu).\n\nList of available resources in the local community:\n\nFor a list of Ann Arbor providers, you can search the database at: umcpd.umich.edu.";
     
     // Size of displayed text
     CGFloat fontSize = 12.0;

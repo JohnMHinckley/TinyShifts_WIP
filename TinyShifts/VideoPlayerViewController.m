@@ -46,17 +46,18 @@
     }
   
     /*
-     #define VIDEO_FIREFLIES         0;
-     #define VIDEO_SLOPPYJOE         1;
-     #define VIDEO_711               2;
-     #define VIDEO_TREADINGWATER     3;
-     #define VIDEO_TRAPPED           4;
-     #define VIDEO_POTATOHEAD        5;
-     #define VIDEO_TREADMILL         6;
-     #define VIDEO_DAURY             7;
-     #define VIDEO_BALLOON           8;
+     #define VIDEO_FIREFLIES         0
+     #define VIDEO_SLOPPYJOE         1
+     #define VIDEO_711               2
+     #define VIDEO_TREADINGWATER     3
+     #define VIDEO_TRAPPED           4
+     #define VIDEO_POTATOHEAD        5
+     #define VIDEO_TREADMILL         6
+     #define VIDEO_DAURY             7
+     #define VIDEO_BALLOON           8
+     #define VIDEO_CHOOSEONETHING    9
      */
-    arrVideoFilenames = [NSArray arrayWithObjects: @"Fireflies.m4v", @"SloppyJoe.m4v", @"SevenEleven.m4v", @"TreadingWater.m4v", @"Trapped.m4v", @"Potatohead.m4v", @"Treadmill.m4v", @"Daury.m4v", @"Balloon.m4v", nil];
+    arrVideoFilenames = [NSArray arrayWithObjects: @"Fireflies.m4v", @"SloppyJoe.m4v", @"SevenEleven.m4v", @"TreadingWater.m4v", @"Trapped.m4v", @"Potatohead.m4v", @"Treadmill.m4v", @"Daury.m4v", @"Balloon.m4v", @"ChooseOneThing.m4v", nil];
 }
 
 - (void)didReceiveMemoryWarning {

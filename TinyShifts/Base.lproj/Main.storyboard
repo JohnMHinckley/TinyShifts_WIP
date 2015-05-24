@@ -884,6 +884,16 @@
                                             <action selector="buttonPressedTrapped:" destination="QVo-e8-m8E" eventType="touchUpInside" id="Fje-4m-ida"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOW-4E-55e">
+                                        <rect key="frame" x="240" y="351" width="133" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Choose One Thing" backgroundImage="magenta.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonPressedChooseOneThing:" destination="QVo-e8-m8E" eventType="touchUpInside" id="ies-Rz-buF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="0R5-mH-ywE" firstAttribute="top" secondItem="fVW-U4-GZ4" secondAttribute="bottom" constant="-231" id="66r-II-nax"/>
@@ -974,7 +984,7 @@
                                     <navigationItem id="giU-Y5-IHY"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to be directed to mental-health resources close by?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txZ-cl-TT4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to be directed to mental health resources close by?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txZ-cl-TT4">
                                 <rect key="frame" x="40" y="144" width="520" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1551,6 +1561,7 @@
         <image name="brtgreen.png" width="277" height="197"/>
         <image name="drkblue.png" width="277" height="197"/>
         <image name="green.png" width="277" height="197"/>
+        <image name="magenta.png" width="277" height="197"/>
         <image name="mood.png" width="206" height="190"/>
         <image name="orange.png" width="277" height="197"/>
         <image name="pink.png" width="277" height="197"/>

@@ -94,6 +94,7 @@
 #define VIDEO_TREADMILL         6
 #define VIDEO_DAURY             7
 #define VIDEO_BALLOON           8
+#define VIDEO_CHOOSEONETHING    9
 
 // Keys for "Video was helpful?"
 #define VIDEO_WAS_HELPFUL_YES   1

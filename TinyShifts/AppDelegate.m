@@ -14,6 +14,7 @@
 #import "ScheduleManager.h"
 #import "CDatabaseInterface.h"
 #import "CActivationManager.h"
+#import "StartViewController.h"
 
 @interface AppDelegate ()
 
@@ -73,7 +74,7 @@
     
     
     // Figure out total number of events this week.
-    int n = [[ScheduleManager sharedManager] getTotalNumberEvents];
+    int n = (int)[[ScheduleManager sharedManager] getTotalNumberEvents];
     if (n < 3 || n > 15)
     {
         // record was not found in database
@@ -229,6 +230,12 @@
 //        }
 //    }
     
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    StartViewController* vc = [sb instantiateViewControllerWithIdentifier:@"StartViewController"];
+    [[vc navigationController] popToRootViewControllerAnimated:YES];
+    
+
     
 }
 

@@ -175,8 +175,8 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
 
     
-    int n1 = [self getTotalNumberEvents];
-    int n2 = [self getNumberDoneEvents];
+    int n1 = (int)[self getTotalNumberEvents];
+    int n2 = (int)[self getNumberDoneEvents];
     NSInteger Nr = MAX(0, n1 - n2);
     if (Nr <= 0)
     {
@@ -194,7 +194,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         // Reset the number of done events to zero.
         [self setNumberDoneEvents:0];
         
-        n2 = [self getNumberDoneEvents];
+        n2 = (int)[self getNumberDoneEvents];
         Nr = MAX(0, n1 - n2);               // Get new number of remaining events to do.
     }
     
@@ -1185,7 +1185,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         // Specify custom data for the notification.
         infoDict = [NSDictionary dictionaryWithObjectsAndKeys:
                     @"PROD", @"Notification_Type",
-                    [NSString stringWithFormat:@"%d",rec.idRecord], @"Notification_RecordID",
+                    [NSString stringWithFormat:@"%ld",(long)rec.idRecord], @"Notification_RecordID",
                     nil];
     }
     else if ([rec.type isEqualToString:@"SUGG"])
@@ -1196,7 +1196,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         // Specify custom data for the notification.
         infoDict = [NSDictionary dictionaryWithObjectsAndKeys:
                     @"SUGG", @"Notification_Type",
-                    [NSString stringWithFormat:@"%d",rec.idRecord], @"Notification_RecordID",
+                    [NSString stringWithFormat:@"%ld",(long)rec.idRecord], @"Notification_RecordID",
                     nil];
     }
     

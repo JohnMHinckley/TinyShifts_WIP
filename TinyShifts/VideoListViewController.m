@@ -74,14 +74,25 @@
 }
 
 - (IBAction)buttonPressedFireflies:(UIButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].selectedVideo = VIDEO_FIREFLIES; // save index to selected video in global data
     
     if (screenMode == 1)
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        //AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
         vc.navigationItem.hidesBackButton = NO;
-        [vc setScreenInstance:1];
+        //[vc setScreenInstance:1];
+        [vc setScreenMode:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (screenMode == 2)
@@ -98,14 +109,25 @@
 }
 
 - (IBAction)buttonPressedSloppyjoe:(UIButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].selectedVideo = VIDEO_SLOPPYJOE; // save index to selected video in global data
     
     if (screenMode == 1)
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        //AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
         vc.navigationItem.hidesBackButton = NO;
-        [vc setScreenInstance:1];
+        //[vc setScreenInstance:1];
+        [vc setScreenMode:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (screenMode == 2)
@@ -122,14 +144,25 @@
 }
 
 - (IBAction)buttonPressed711:(UIButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].selectedVideo = VIDEO_711; // save index to selected video in global data
     
     if (screenMode == 1)
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        //AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
         vc.navigationItem.hidesBackButton = NO;
-        [vc setScreenInstance:1];
+        //[vc setScreenInstance:1];
+        [vc setScreenMode:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (screenMode == 2)
@@ -146,14 +179,25 @@
 }
 
 - (IBAction)buttonPressedTreadingwater:(UIButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].selectedVideo = VIDEO_TREADINGWATER; // save index to selected video in global data
     
     if (screenMode == 1)
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        //AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
         vc.navigationItem.hidesBackButton = NO;
-        [vc setScreenInstance:1];
+        //[vc setScreenInstance:1];
+        [vc setScreenMode:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (screenMode == 2)
@@ -170,14 +214,25 @@
 }
 
 - (IBAction)buttonPressedTrapped:(UIButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].selectedVideo = VIDEO_TRAPPED; // save index to selected video in global data
     
     if (screenMode == 1)
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        //AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
         vc.navigationItem.hidesBackButton = NO;
-        [vc setScreenInstance:1];
+        //[vc setScreenInstance:1];
+        [vc setScreenMode:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (screenMode == 2)
@@ -194,14 +249,25 @@
 }
 
 - (IBAction)buttonPressedPotatohead:(UIButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].selectedVideo = VIDEO_POTATOHEAD; // save index to selected video in global data
     
     if (screenMode == 1)
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        //AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
         vc.navigationItem.hidesBackButton = NO;
-        [vc setScreenInstance:1];
+        //[vc setScreenInstance:1];
+        [vc setScreenMode:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (screenMode == 2)
@@ -218,14 +284,25 @@
 }
 
 - (IBAction)buttonPressedTreadmill:(UIButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].selectedVideo = VIDEO_TREADMILL; // save index to selected video in global data
     
     if (screenMode == 1)
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        //AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
         vc.navigationItem.hidesBackButton = NO;
-        [vc setScreenInstance:1];
+        //[vc setScreenInstance:1];
+        [vc setScreenMode:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (screenMode == 2)
@@ -242,14 +319,25 @@
 }
 
 - (IBAction)buttonPressedDaury:(UIButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].selectedVideo = VIDEO_DAURY; // save index to selected video in global data
     
     if (screenMode == 1)
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        //AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
         vc.navigationItem.hidesBackButton = NO;
-        [vc setScreenInstance:1];
+        //[vc setScreenInstance:1];
+        [vc setScreenMode:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (screenMode == 2)
@@ -266,14 +354,49 @@
 }
 
 - (IBAction)buttonPressedBalloon:(UIButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].selectedVideo = VIDEO_BALLOON; // save index to selected video in global data
     
     if (screenMode == 1)
     {
         UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        //AskWantResourceInfoViewController* vc = [sb instantiateViewControllerWithIdentifier:@"AskWantResourceInfoViewController"];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
         vc.navigationItem.hidesBackButton = NO;
-        [vc setScreenInstance:1];
+        //[vc setScreenInstance:1];
+        [vc setScreenMode:1];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (screenMode == 2)
+    {
+        // from all videos tab bar item
+        // Go directly to video display screen
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
+        [vc setScreenMode:screenMode];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+}
+
+- (IBAction)buttonPressedChooseOneThing:(UIButton *)sender {
+    [GlobalData sharedManager].selectedVideo = VIDEO_CHOOSEONETHING; // save index to selected video in global data
+    
+    if (screenMode == 1)
+    {
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
+        vc.navigationItem.hidesBackButton = NO;
+        [vc setScreenMode:1];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (screenMode == 2)
