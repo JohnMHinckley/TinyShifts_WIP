@@ -42,6 +42,7 @@
 @synthesize initialPass;
 @synthesize remainingNumberRecommendationsThisWeek;
 @synthesize bVideoDidPlay;
+@synthesize theTabBarController;
 
 static GlobalData* sharedSingleton = nil;   // single, static instance of this class
 

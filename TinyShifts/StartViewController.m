@@ -45,6 +45,7 @@
     
     UITabBarController* utc = self.tabBarController;
     utc.delegate = self;
+    [GlobalData sharedManager].theTabBarController = utc;   // Record the identity of the tab bar controller for global access.
     
     // State = 0: baseline survey not done.
     // State = 1: baseline survey has been done.

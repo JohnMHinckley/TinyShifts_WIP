@@ -53,6 +53,7 @@
     
     [GlobalData sharedManager].activated = ACTIVATED_NO;
     [GlobalData sharedManager].initialPass = INITIAL_PASS_YES;
+    [GlobalData sharedManager].theTabBarController = nil;
     
     
     
@@ -231,9 +232,21 @@
 //    }
     
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    StartViewController* vc = [sb instantiateViewControllerWithIdentifier:@"StartViewController"];
-    [[vc navigationController] popToRootViewControllerAnimated:YES];
+    if (nil != [GlobalData sharedManager].theTabBarController)  // If the tab bar controller has been identified,...
+    {
+        // Activate the first tab bar button (survey mode).
+        [[GlobalData sharedManager].theTabBarController setSelectedIndex:0];
+        
+    }
+    
+    
+    
+//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UITabBarController* tcl = [sb instantiateViewControllerWithIdentifier:@"tabBarCtlr"];
+//    [tcl setSelectedIndex:0];
+//    
+//    StartViewController* vc = [sb instantiateViewControllerWithIdentifier:@"StartViewController"];
+  //  [[vc navigationController] popToRootViewControllerAnimated:YES];
     
 
     

@@ -16,7 +16,7 @@
 // --------------------- Code version ----------------
 #define CODE_VERSION_DEVELOPMENT    0
 #define CODE_VERSION_RELEASE        1
-#define CODE_VERSION CODE_VERSION_DEVELOPMENT
+#define CODE_VERSION CODE_VERSION_RELEASE
 // ---------------------------------------------------
 
 
@@ -144,11 +144,12 @@
 #define ContactEMailAddress @"tinyshifts@umich.edu"
 
 // SPH values:
+// app name = "TinyShifts1"
 // email = tinyshifts@umich.edu
-// pw = ?
+// pw = TSapp2015
 
- #define BackendlessApplicationID    @"0AB623A6-8BD0-1333-FF89-FD667FC95F00"
- #define BackendlessIOSSecretKey     @"255693E8-09D7-8734-FFD4-11FE129E2300"
+ #define BackendlessApplicationID    @"BEBF8BC3-0234-9634-FF36-8B8861B08100"
+ #define BackendlessIOSSecretKey     @"CF06D382-63F5-DA76-FFF9-2935A5C1D400"
  #define BackendlessApplicationVer   @"v1"
 
 #endif

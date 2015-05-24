@@ -23,7 +23,7 @@
     
     // These data are used for making a test record in the RDB_Participants table
     idParticipantCode = @"_developer1";
-    activationCode = @"3.141592654Pi";
+    activationCode = @"abc";
     participantName = @"John M. Hinckley";
     eMailAddress = @"ncko@umich.edu";
     

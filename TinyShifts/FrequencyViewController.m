@@ -78,14 +78,14 @@
 */
 
 
-- (IBAction)nextButtonPressed:(CGradientButton *)sender {
-    
+- (IBAction)nextButtonPressed:(CGradientButton *)sender {    
+
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
     TimeOfDayViewController* vc = [sb instantiateViewControllerWithIdentifier:@"TimeOfDayViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:screenInstance];  // tell next screen where on storyboard we are coming from
     [[self navigationController] pushViewController:vc animated:YES];
-    
+   
 }
 
 

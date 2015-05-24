@@ -41,6 +41,8 @@
 
 @property int remainingNumberRecommendationsThisWeek;   // number of recommendation events remaining to be done this week
 
+@property UITabBarController* theTabBarController;
+
 +(GlobalData*) sharedManager;
 
 +(float) RandomNumberUpTo:(float) upperLimit;
