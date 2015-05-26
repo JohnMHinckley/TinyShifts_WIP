@@ -152,7 +152,10 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"YYYY-MM-dd 'at' HH:mm"];
         
-        labelNextEvent.text = [NSString stringWithFormat:@"Next scheduled reminder: %@", [formatter stringFromDate:fD]];
+        int numDone = [[CDatabaseInterface sharedManager] getNumberDoneEvents];
+        int numTotal = [[CDatabaseInterface sharedManager] getTotalNumberEvents];
+        
+        labelNextEvent.text = [NSString stringWithFormat:@"Next scheduled reminder (%d/%d): %@", numDone+1, numTotal, [formatter stringFromDate:fD]];
     }
     else
     {
