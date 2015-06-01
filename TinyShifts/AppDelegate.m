@@ -160,9 +160,12 @@
     // User acknowledges it by pressing the message box.
     // In response to pressing the message box, the app is started, displaying the start screen.
     // The the app runs this routine.
-
     
-    application.applicationIconBadgeNumber = 0;
+    //NSInteger badgeNum0 = application.applicationIconBadgeNumber;
+
+    //NSInteger badgeNum = [[UIApplication sharedApplication] applicationIconBadgeNumber];
+    
+    //application.applicationIconBadgeNumber = 0;
    
     int appIsActivated = [[CActivationManager sharedManager] getActivationStatus];
     if (appIsActivated)
@@ -182,54 +185,16 @@
             {
                 // No:
                 // Schedule one.
-                [[ScheduleManager sharedManager] setNextLocalNotification];    // start the timer for the next local notification.
+                [[ScheduleManager sharedManager] setNextLocalNotification:application.applicationIconBadgeNumber];    // start the timer for the next local notification.
             }
         }
     }
     
     
     
+    application.applicationIconBadgeNumber = 0;
     
-   // Examine all records in the Notifications table.
-    // If any have a fire time that is earlier than now, generate the corresponding alert messages.
-    
-    
-    
-//    // Examine each record in Notifications table where alertWasGenerated = 0.
-//    NSMutableArray* arr = [[CDatabaseInterface sharedManager] getAllUngeneratedNotificationRecords];
-//    
-//    if ([arr count] > 0)
-//    {
-//        // There are some ungenerated records.
-//        
-//        NSCalendar *c = [NSCalendar currentCalendar];
-//        NSDateComponents *components = [[NSDateComponents alloc] init];
-//        
-//        NSDate* now = [NSDate date];    // The time right now.
-//        
-//        // For each, are they earlier than now?
-//        for (int idx = 0; idx < [arr count]; idx++)
-//        {
-//            Notifications_Rec* rec = (Notifications_Rec*)[arr objectAtIndex:idx];
-//            
-//            // Get a NSDate object from the components of the record
-//            [components setMinute:rec.fireMinute];
-//            [components setHour:rec.fireHour];
-//            [components setDay:rec.fireDay];
-//            [components setMonth:rec.fireMonth];
-//            [components setYear:rec.fireYear];
-//            NSDate *fireDate = [c dateFromComponents:components];   // The time that the event should have gone off.
-//            
-//            if ([now compare:fireDate] == NSOrderedDescending)
-//            {
-//                // the event should have generated an alert by now.
-//                
-//                // do it now.
-//                [self generateAlertType:rec.type withNotificationRecord:rec.idRecord];
-//                
-//            }
-//        }
-//    }
+   
     
     
     if (nil != [GlobalData sharedManager].theTabBarController)  // If the tab bar controller has been identified,...
@@ -238,17 +203,6 @@
         [[GlobalData sharedManager].theTabBarController setSelectedIndex:0];
         
     }
-    
-    
-    
-//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    UITabBarController* tcl = [sb instantiateViewControllerWithIdentifier:@"tabBarCtlr"];
-//    [tcl setSelectedIndex:0];
-//    
-//    StartViewController* vc = [sb instantiateViewControllerWithIdentifier:@"StartViewController"];
-  //  [[vc navigationController] popToRootViewControllerAnimated:YES];
-    
-
     
 }
 
@@ -283,12 +237,15 @@
     // No message box appears at the top of the screen, nothing about the appearance of the app changes.
     // The app runs this routine.
     
-    app.applicationIconBadgeNumber = 0;
+    //app.applicationIconBadgeNumber = 0;
 
     int numDone = [[CDatabaseInterface sharedManager] getNumberDoneEvents]; // get the number of done events
     [[ScheduleManager sharedManager] setNumberDoneEvents:(numDone+1)];    // increment it by 1
 
-    [[ScheduleManager sharedManager] setNextLocalNotification];    // start the timer for the next local notification.
+    [[ScheduleManager sharedManager] setNextLocalNotification:app.applicationIconBadgeNumber];    // start the timer for the next local notification.
+    
+    app.applicationIconBadgeNumber = 0;
+    
 }
 
 

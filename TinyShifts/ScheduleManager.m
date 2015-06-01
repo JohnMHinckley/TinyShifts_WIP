@@ -115,6 +115,9 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     a.bAvailable = NO;
     [timeIntervals  setValue:a forKey:a.interval_name];
     //---------------------------------------------
+    
+    
+    dateMostRecentNotificationResponse = [NSDate dateWithTimeIntervalSince1970:0];  // initialize this date to a time way back...
    
     
                      
@@ -175,6 +178,12 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
 
     
+    
+    // The following block of code checks whether all of the events for the current week have been completed.
+    // If so, then the starting day for the calculation is advanced to Sunday of the next week and the number of done events (for next week) is set to 0,
+    //          and remaining number of events to do is set to the total number to do in the week.
+    // Otherwise, if not all of the events for the current week have been completed,
+    //          then the following code block does nothing and calculation continues based on starting with Sunday of the current week.
     int n1 = (int)[self getTotalNumberEvents];
     int n2 = (int)[self getNumberDoneEvents];
     NSInteger Nr = MAX(0, n1 - n2);
@@ -904,7 +913,8 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     
     
     
-    [self setNextLocalNotification];    // start the timer for the next local notification.
+    NSInteger badgeNum = [[UIApplication sharedApplication] applicationIconBadgeNumber];
+    [self setNextLocalNotification:badgeNum];    // start the timer for the next local notification.
     
     
     
@@ -1012,9 +1022,14 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 
 
 
--(void) setNextLocalNotification
+-(void) setNextLocalNotification:(NSInteger) badgeNumber
 {
     // There is some kind of change in the schedule.
+    
+    // The badge number for the app is passed in as a parameter.  This is used to determine whether this routine is being called in response to handling a local notifiication.
+    // If the badge number is > 0, then this is being run in response to a notification.  Otherwise, the app is just starting up.
+    
+    
     
     // Cancel any currently registered local notifications.
     [self clearAllLocalNotifications];
@@ -1090,21 +1105,39 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         
         
         
-//        // Is there a change in the number of notifications this week?
-//        int numDoneEvents = [self getNumberDoneEvents];     // current number already done this week.
-//        NSInteger newNumEvents = [GlobalData sharedManager].frequency;  // new value of maximum number to do this week.
-//        
-//        if (newNumEvents <= numDoneEvents)
-//        {
-//            // Do no more suggestions this week.
-//            
-//            // Prepare for next week.
-//#pragma mark *** TODO: determine whether anything needs to be done here.
-//            
-////            // set the number of remaining events to zero.  This will trigger the generation of an event in the next week.
-////            [self setNumberRemainingEvents:0];
-//            
-//        }
+        
+        
+        // If the last time that this function was called was before Sunday 12:00 a.m. of this week,
+        // and if the app has a badge number > 0 (user has been notified),
+        // then set then number of completed events this week to 1 (the current one).
+        if (badgeNumber > 0)
+        {
+            // This routine is being run in response to a notification.
+            NSLog(@"Setting next local notification in response to an earlier notification.  Badge number was %d", badgeNumber);
+            
+            NSDate* dateSunday = [self getDateSunday];
+            
+            if ([dateSunday compare:dateMostRecentNotificationResponse] == NSOrderedDescending)
+            {
+                // dateSunday is later than dateMostRecentNotificationResponse, which means that the most recent notification response
+                // occurred in some week prior to the current one.
+                // This is the condition in which the number of completed events needs to be reset to 1, this being a new week, compared to the one where a response occurred last.
+                [self setNumberDoneEvents:1];
+            }
+            
+            
+            // update the date at which this routine was last run in response to a notificiation.
+            dateMostRecentNotificationResponse = [NSDate date];
+       }
+        else
+        {
+            NSLog(@"Setting a local notification where there has not been one before");
+        }
+        
+        
+        
+        
+        
         
         
         // Calculate the next notification time.
@@ -1226,6 +1259,34 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 
 //---------------------------------------------------------------------------------------------------------------------------------
 
+
+
+-(NSDate*) getDateSunday
+{
+    // Calculate and return a pointer to the NSDate object corresponding to 12:00 a.m. Sunday of the current week.
+    
+    // Get today's date
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
+    
+    // Get the NSDate object for now
+    NSDate* now = [NSDate date];
+    
+    // Get the components of this date/time
+    components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:now];
+    NSInteger nowHour = [components hour];
+    NSInteger nowMinute = [components minute];
+    NSInteger nowSecond = [components second];
+    NSInteger secondsBeforeNow = nowSecond + (60 * (nowMinute + 60 * (nowHour + 24 * (weekday-1))));    // number of seconds between 12:00 a.m. Sunday and now.
+    NSTimeInterval dTime = (NSTimeInterval) (-secondsBeforeNow);
+    
+    // Get the NSDate object for 12:00 a.m. Sunday
+    NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
+    
+    return dateSunday;
+    
+}
 
 
 

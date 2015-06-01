@@ -11,6 +11,7 @@
 @interface ScheduleManager : NSObject
 {
     NSMutableDictionary* timeIntervals;
+    NSDate* dateMostRecentNotificationResponse;     // date/time of most recent user response to a local notification
 }
 
 +(ScheduleManager*) sharedManager;
@@ -25,7 +26,9 @@
 -(NSInteger) getNumberDoneEvents;
 -(void) setNumberDoneEvents:(int)n;
 
--(void) setNextLocalNotification;
+-(void) setNextLocalNotification:(NSInteger) badgeNumber;
+
+-(NSDate*) getDateSunday;
 
 
 @end

@@ -211,21 +211,6 @@
         [GlobalData sharedManager].bVideoDidPlay = NO;  // initialize video played flag.
         
         
-//        // Schedule next notification, if none are currently scheduled.
-//        // Are there already any scheduled local notifications?
-//        NSArray* arrNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];    // Get the array of scheduled local notifications
-//        
-//        // Are there any?
-//        if ([arrNotifications count] <= 0)
-//        {
-//            // No:
-//            // Schedule one.
-//            [[ScheduleManager sharedManager] setNextLocalNotification];    // start the timer for the next local notification.
-//        }
-//
-//        
-//        
-//        
         // This is not the initial pass, so go to the MoodMeter screen.
         
         // Attempt to use storyboard to instantiate MoodMeterViewController.
