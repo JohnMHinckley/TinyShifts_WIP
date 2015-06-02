@@ -1113,7 +1113,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         if (badgeNumber > 0)
         {
             // This routine is being run in response to a notification.
-            NSLog(@"Setting next local notification in response to an earlier notification.  Badge number was %d", badgeNumber);
+            NSLog(@"Setting next local notification in response to an earlier notification.  Badge number was %d", (int)badgeNumber);
             
             NSDate* dateSunday = [self getDateSunday];
             
