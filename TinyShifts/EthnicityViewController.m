@@ -9,7 +9,7 @@
 #import "EthnicityViewController.h"
 #import "CGradientButton.h"
 #import "AppDelegate.h"
-#import "CalendarViewController.h"
+//#import "CalendarViewController.h"
 #import "FrequencyViewController.h"
 #import "ConstGen.h"
 #import "GlobalData.h"
@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [GlobalData sharedManager].displayedViewController = self;
     
     // Adjust the navigation item
     // Title
@@ -58,9 +60,21 @@
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
 
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Jun-2015	J. M. Hinckley	Changed next screen from CalendarViewController to FrequencyViewController.  
+                                    CalendarViewController will be moved to the end of the Schedule storyboard, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+    //CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
     vc.navigationItem.hidesBackButton = NO;
+    [vc setScreenInstance:1];   // signifies that this is coming from baseline survey.
     [[self navigationController] pushViewController:vc animated:YES];
 
 }
@@ -108,13 +122,23 @@
 }
 
 - (IBAction)buttonPressedAsian:(CGradientButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Jun-2015	J. M. Hinckley	Changed next screen from CalendarViewController to FrequencyViewController.
+     CalendarViewController will be moved to the end of the Schedule storyboard, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].ethnicity = ETHNICITY_ASIAN ; // save result
     NSLog(@"Ethnicity value saved: %d", [GlobalData sharedManager].ethnicity);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
-    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
 
@@ -122,13 +146,23 @@
 }
 
 - (IBAction)buttonPressedBlack:(CGradientButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Jun-2015	J. M. Hinckley	Changed next screen from CalendarViewController to FrequencyViewController.
+     CalendarViewController will be moved to the end of the Schedule storyboard, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].ethnicity = ETHNICITY_BLACK ; // save result
     NSLog(@"Ethnicity value saved: %d", [GlobalData sharedManager].ethnicity);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
-    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     
@@ -136,13 +170,23 @@
 }
 
 - (IBAction)buttonPressedHispanic:(CGradientButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Jun-2015	J. M. Hinckley	Changed next screen from CalendarViewController to FrequencyViewController.
+     CalendarViewController will be moved to the end of the Schedule storyboard, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].ethnicity = ETHNICITY_HISPANIC ; // save result
     NSLog(@"Ethnicity value saved: %d", [GlobalData sharedManager].ethnicity);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
-    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     
@@ -150,13 +194,23 @@
 }
 
 - (IBAction)buttonPressedWhite:(CGradientButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Jun-2015	J. M. Hinckley	Changed next screen from CalendarViewController to FrequencyViewController.
+     CalendarViewController will be moved to the end of the Schedule storyboard, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].ethnicity = ETHNICITY_WHITE ; // save result
     NSLog(@"Ethnicity value saved: %d", [GlobalData sharedManager].ethnicity);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
-    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     
@@ -164,13 +218,23 @@
 }
 
 - (IBAction)buttonPressedOther:(CGradientButton *)sender {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Jun-2015	J. M. Hinckley	Changed next screen from CalendarViewController to FrequencyViewController.
+     CalendarViewController will be moved to the end of the Schedule storyboard, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     [GlobalData sharedManager].ethnicity = ETHNICITY_OTHER ; // save result
     NSLog(@"Ethnicity value saved: %d", [GlobalData sharedManager].ethnicity);
     
     // Go to next screen
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
-    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = NO;
     [vc setScreenInstance:1];   // signifies that this is coming from the main storyboard
     

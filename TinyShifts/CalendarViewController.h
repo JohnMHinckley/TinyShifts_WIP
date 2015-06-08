@@ -24,5 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelNextEvent;
 
 -(void) setScreenInstance:(NSUInteger)sI;
+-(void) displayNextReminderTime;
 
 @end

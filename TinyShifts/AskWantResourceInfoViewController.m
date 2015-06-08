@@ -27,6 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [GlobalData sharedManager].displayedViewController = self;
+    
 //    // Adjust the navigation item
 //    // Right button
 //    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];

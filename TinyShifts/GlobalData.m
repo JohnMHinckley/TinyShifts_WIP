@@ -12,6 +12,8 @@
 #import "CDatabaseInterface.h"
 #import "Backendless.h"
 #import "ScheduleManager.h"
+#import "AppDelegate.h"
+#import "CalendarViewController.h"
 @import Security;
 
 @implementation GlobalData
@@ -445,6 +447,16 @@ static GlobalData* sharedSingleton = nil;   // single, static instance of this c
         {
             NSLog(@"Save schedule changes.");
             [[ScheduleManager sharedManager] updateSchedule];
+            
+            //UIViewController *presentedViewController = [self.navigationController visibleViewController];
+            
+            NSString* title = self.displayedViewController.title;
+            NSLog(@"Title of displayed view controller is %@", title);
+            if ([title isEqualToString:@"Calendar"])
+            {
+                // Refresh the Calendar screen display.
+                [(CalendarViewController*)(self.displayedViewController) displayNextReminderTime];
+            }
         }
         else if ([title isEqualToString:@"Discard"])
         {

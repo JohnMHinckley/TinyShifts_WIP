@@ -30,6 +30,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [GlobalData sharedManager].displayedViewController = self;
+    
     // Do any additional setup after loading the view from its nib.
     
     // Adjust the navigation item

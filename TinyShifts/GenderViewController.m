@@ -31,6 +31,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [GlobalData sharedManager].displayedViewController = self;
+    
     // Adjust the navigation item
     // Title
     self.navigationItem.title = @"Gender";

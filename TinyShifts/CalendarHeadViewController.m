@@ -7,7 +7,8 @@
 //
 
 #import "CalendarHeadViewController.h"
-#import "CalendarViewController.h"
+#import "FrequencyViewController.h"
+#import "GlobalData.h"
 
 @interface CalendarHeadViewController ()
 
@@ -17,6 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [GlobalData sharedManager].displayedViewController = self;
+    
     // Do any additional setup after loading the view.
     
     
@@ -45,9 +49,20 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
+    
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Jun-2015	J. M. Hinckley	Changed next screen from CalendarViewController to FrequencyViewController.
+                                    CalendarViewController will be moved to the end of the Schedule storyboard, at the request on 18-May-2015, by D. Eisenberg.
+     
+     */
+    
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
-    CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    //CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
     vc.navigationItem.hidesBackButton = YES;
     [vc setScreenInstance:2];   // signifies that this is coming from the tab bar
     [[self navigationController] pushViewController:vc animated:YES];

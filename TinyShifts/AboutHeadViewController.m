@@ -8,6 +8,7 @@
 
 #import "AboutHeadViewController.h"
 #import "InfoListViewController.h"
+#import "GlobalData.h"
 
 @interface AboutHeadViewController ()
 
@@ -21,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    [GlobalData sharedManager].displayedViewController = self;
     
 //    // Attempt to use storyboard to instantiate InfoListViewController.
 //    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"InfoList" bundle:nil];

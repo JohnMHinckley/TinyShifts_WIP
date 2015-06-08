@@ -34,6 +34,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [GlobalData sharedManager].displayedViewController = self;
+    
     // Adjust the navigation item
     // Title
     self.navigationItem.title = @"Frequency";
@@ -131,7 +133,7 @@
         
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Data Changed"
-                              message:@"Do you want save or discard your changes on the Weekly Frequency screen?"
+                              message:@"Do you want to save or discard your changes on the Weekly Frequency screen?"
                               delegate:[GlobalData sharedManager] // delegate:self
                               cancelButtonTitle:@"Discard" otherButtonTitles:@"Save",nil];
         

@@ -27,6 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [GlobalData sharedManager].displayedViewController = self;
+    
     // Initialize interface state flag: keypad not showing
     State = 1;
    

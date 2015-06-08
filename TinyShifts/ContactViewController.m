@@ -12,6 +12,7 @@
 #import "Backendless.h"
 #import "RDB_ContactActivity.h"
 #import "ContactActivity_Rec.h"
+#import "GlobalData.h"
 
 @interface ContactViewController ()
 
@@ -21,6 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [GlobalData sharedManager].displayedViewController = self;
+    
     // Do any additional setup after loading the view.
 }
 

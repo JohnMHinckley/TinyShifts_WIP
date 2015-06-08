@@ -8,6 +8,7 @@
 
 #import "AllVideosHeadViewController.h"
 #import "VideoListViewController.h"
+#import "GlobalData.h"
 
 @interface AllVideosHeadViewController ()
 
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [GlobalData sharedManager].displayedViewController = self;
     
 //    // Create an instance of the video list view controller.
 //    

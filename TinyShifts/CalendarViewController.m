@@ -9,7 +9,7 @@
 #import "CalendarViewController.h"
 #import "CGradientButton.h"
 #import "AppDelegate.h"
-#import "FrequencyViewController.h"
+#import "SendBaselineViewController.h"
 #import "CDatabaseInterface.h"
 #import "GlobalData.h"
 
@@ -27,19 +27,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [GlobalData sharedManager].displayedViewController = self;
+    
     // Adjust the navigation item
     // Title
     self.navigationItem.title = @"Calendar";
     
     
-    // Right button
-    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
-    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
-    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+    if (screenInstance != 2)
+    {
+        // Right button
+        CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+        [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
+        [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+        rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+        [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
+        self.navigationItem.rightBarButtonItem = rightButtonItem;
+    }
     
 //    if (screenInstance == 2)
 //    {
@@ -104,10 +109,21 @@
 
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
     
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
-    FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Jun-2015	J. M. Hinckley	Changed next screen from FrequencyViewController to SendBaselineViewController.
+     
+     */
+    
+    //UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
+    //FrequencyViewController* vc = [sb instantiateViewControllerWithIdentifier:@"FrequencyViewController"];
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
+    SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
     vc.navigationItem.hidesBackButton = NO;
-    [vc setScreenInstance:screenInstance];
+    //[vc setScreenInstance:screenInstance];
     [[self navigationController] pushViewController:vc animated:YES];
     
 }
@@ -136,6 +152,14 @@
     
     
     
+    // Display the date/time of the next scheduled automatic reminder.
+    [self displayNextReminderTime];
+    
+    
+}
+
+-(void) displayNextReminderTime
+{
     // Display the date/time of the next scheduled automatic reminder.
     // Are there already any queued local notifications?
     NSArray* arrNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];    // Get the array of scheduled local notifications
@@ -186,7 +210,7 @@
         
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Data Changed"
-                              message:@"Do you want save or discard your changes on the Google Calendar screen?"
+                              message:@"Do you want to save or discard your changes on the Google Calendar screen?"
                               delegate:[GlobalData sharedManager] // delegate:self
                               cancelButtonTitle:@"Discard" otherButtonTitles:@"Save",nil];
         

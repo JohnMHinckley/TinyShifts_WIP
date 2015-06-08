@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "InfoReadingActivity_Rec.h"
 #import "CDatabaseInterface.h"
+#import "GlobalData.h"
 
 @interface InfoListViewController ()
 {
@@ -29,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [GlobalData sharedManager].displayedViewController = self;
     
     //UITabBarController* utc = self.tabBarController;
     

@@ -27,6 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [GlobalData sharedManager].displayedViewController = self;
+    
     // Add an image subview to the scroll view controller.
     UIImage* image = [UIImage imageNamed:@"TreeDesign.png"];
     imageView2.image = image;

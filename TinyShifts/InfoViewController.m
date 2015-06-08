@@ -12,6 +12,7 @@
 #import "RDB_InfoReadingActivity.h"
 #import "Backendless.h"
 #import "CDatabaseInterface.h"
+#import "GlobalData.h"
 
 @interface InfoViewController ()
 {
@@ -29,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [GlobalData sharedManager].displayedViewController = self;
     
     // Adjust the navigation item
     self.navigationItem.title = navigationTitleText;

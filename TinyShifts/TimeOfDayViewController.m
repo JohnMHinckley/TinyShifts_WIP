@@ -10,6 +10,7 @@
 #import "CGradientButton.h"
 #import "AppDelegate.h"
 #import "SendBaselineViewController.h"
+#import "CalendarViewController.h"
 #import "ConstGen.h"
 #import "GlobalData.h"
 #import "Schedule_Rec.h"
@@ -36,6 +37,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [GlobalData sharedManager].displayedViewController = self;
+    
 //    if (screenInstance == 2)
 //    {
 //        Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
@@ -57,8 +60,8 @@
     self.navigationItem.title = @"Time of Day";
     
     
-    if (screenInstance != 2)
-    {
+//    if (screenInstance != 2)
+ //   {
         // Right button
         CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
         [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
@@ -67,7 +70,7 @@
         [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
         self.navigationItem.rightBarButtonItem = rightButtonItem;
-    }
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,6 +92,15 @@
 - (IBAction)nextButtonPressed:(CGradientButton *)sender {
     // Next button is pressed.
     
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Jun-2015	J. M. Hinckley	Changed next screen from SendBaselineViewController to CalendarViewController, in screen instance == 1 (baseline survey).
+     
+     */
+    
     // TODO:
     // if all time intervals are selected for NOT receiving notifications, then
     // set up a notification to remind the user to change this, at 6 p.m. on Friday.
@@ -106,10 +118,23 @@
         
     
     // Go to next screen.
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
-    SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
-    vc.navigationItem.hidesBackButton = NO;
-    [[self navigationController] pushViewController:vc animated:YES];
+    if (screenInstance == 1)
+    {
+        // doing the baseline survey: go to SendBaselineViewController.
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SendBaseline" bundle:nil];
+        SendBaselineViewController* vc = [sb instantiateViewControllerWithIdentifier:@"SendBaselineViewController"];
+        vc.navigationItem.hidesBackButton = NO;
+        [[self navigationController] pushViewController:vc animated:YES];
+    }
+    else
+    {
+        // operating from the tab bar: go to CalendarViewController
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Schedule" bundle:nil];
+        CalendarViewController* vc = [sb instantiateViewControllerWithIdentifier:@"CalendarViewController"];
+        vc.navigationItem.hidesBackButton = NO;
+        [vc setScreenInstance:screenInstance];  // tell next screen where on storyboard we are coming from
+        [[self navigationController] pushViewController:vc animated:YES];
+    }
    
 }
 
@@ -158,32 +183,15 @@
 
 -(void) viewWillDisappear:(BOOL)animated
 {
-//    if (screenInstance == 2 && bDataChanged_Mode2)
-//    {
-//        // Ask user whether to save or discard changes on this screen.
-//        
-//        UIAlertView *alert = [[UIAlertView alloc]
-//                              initWithTitle:@"Data Changed"
-//                              message:@"Do you want save or discard your changes on the Time of Day screen?"
-//                              delegate:self
-//                              cancelButtonTitle:@"Discard" otherButtonTitles:@"Save",nil];
-//        
-//        self.responseAlert = alert;     // Set the responseAlert so that the alert handler will know which alert is initiating it.
-//        
-//        [alert show];
-//    }
-}
-
-
--(void) viewDidDisappear:(BOOL)animated
-{
     if (screenInstance == 2 && bDataChanged_Mode2)
     {
         // Ask user whether to save or discard changes on this screen.
         
+        
+        
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Data Changed"
-                              message:@"Do you want save or discard your changes on the Time of Day screen?"
+                              message:@"Do you want to save or discard your changes on the Time of Day screen?"
                               delegate:[GlobalData sharedManager] // delegate:self
                               cancelButtonTitle:@"Discard" otherButtonTitles:@"Save",nil];
         
@@ -191,6 +199,11 @@
         
         [alert show];
     }
+}
+
+
+-(void) viewDidDisappear:(BOOL)animated
+{
 }
 
 

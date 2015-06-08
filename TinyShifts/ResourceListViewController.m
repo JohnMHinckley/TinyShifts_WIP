@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "VideoPlayerViewController.h"
 #import "SendSurveyViewController.h"
+#import "GlobalData.h"
 
 @interface ResourceListViewController ()
 {
@@ -28,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [GlobalData sharedManager].displayedViewController = self;
     
     // Adjust the navigation item
     // Right button

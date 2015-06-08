@@ -39,6 +39,8 @@
 
 @property BOOL bVideoDidPlay;       // flag: YES if video played when play video screen was presented.
 
+@property (nonatomic, strong) UIViewController* displayedViewController;
+
 @property int remainingNumberRecommendationsThisWeek;   // number of recommendation events remaining to be done this week
 
 @property UITabBarController* theTabBarController;
