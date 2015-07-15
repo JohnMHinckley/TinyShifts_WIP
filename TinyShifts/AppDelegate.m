@@ -112,6 +112,12 @@
     UILocalNotification *notif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (notif)
     {
+        // *************** test code ***************
+        NSInteger b1 = application.applicationIconBadgeNumber;
+        NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        // *****************************************
+        
         application.applicationIconBadgeNumber = 0;
         
         int numDone = [[CDatabaseInterface sharedManager] getNumberDoneEvents]; // get the number of done events
@@ -167,6 +173,14 @@
     
     //application.applicationIconBadgeNumber = 0;
    
+    // *************** test code ***************
+    NSInteger b1 = application.applicationIconBadgeNumber;
+    NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    // *****************************************
+    
+    application.applicationIconBadgeNumber = 0;
+    
     int appIsActivated = [[CActivationManager sharedManager] getActivationStatus];
     if (appIsActivated)
     {
@@ -191,8 +205,6 @@
     }
     
     
-    
-    application.applicationIconBadgeNumber = 0;
     
    
     
@@ -242,9 +254,15 @@
     int numDone = [[CDatabaseInterface sharedManager] getNumberDoneEvents]; // get the number of done events
     [[ScheduleManager sharedManager] setNumberDoneEvents:(numDone+1)];    // increment it by 1
 
-    [[ScheduleManager sharedManager] setNextLocalNotification:app.applicationIconBadgeNumber];    // start the timer for the next local notification.
+    // *************** test code ***************
+    NSInteger b1 = app.applicationIconBadgeNumber;
+    NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    // *****************************************
     
     app.applicationIconBadgeNumber = 0;
+    
+    [[ScheduleManager sharedManager] setNextLocalNotification:app.applicationIconBadgeNumber];    // start the timer for the next local notification.
     
 }
 

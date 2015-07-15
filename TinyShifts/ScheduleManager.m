@@ -176,6 +176,11 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     
     // Get the NSDate object for 12:00 a.m. Sunday
     NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
+    
+    
+    // Initialize the number of week steps.
+    // This is the number of times the week has been advanced, looking for an available segment
+    int weekStep = 0;   // If weekStep == 0, it's this week, if weekStep == 1, it's next week, etc.
 
     
     
@@ -187,6 +192,12 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     int n1 = (int)[self getTotalNumberEvents];
     int n2 = (int)[self getNumberDoneEvents];
     NSInteger Nr = MAX(0, n1 - n2);
+    
+    
+    do
+    {
+        // Calculate the next time in the selected week.
+        
     if (Nr <= 0)
     {
         
@@ -386,9 +397,11 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         
         // loop over minute indices, setting corresponding array elements according to availability flag.
         if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).bAvailable == NO)
-        for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
         {
-            m[idxMinute] = 0;
+            for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
+            {
+                m[idxMinute] = 0;
+            }
         }
         
         
@@ -508,14 +521,14 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     //=========================================================================================
     // Check for use of Google calendar
     
-    if ([[GlobalData sharedManager] bUseGoogleCal])
-    {
-        // Is using Google calendar.
-#pragma mark ***** TODO: code this.
-        
-    }
-    else
-    {
+//    if ([[GlobalData sharedManager] bUseGoogleCal])
+//    {
+//        // Is using Google calendar.
+//#pragma mark ***** TODO: code this.
+//        
+//    }
+//    else
+//    {
         // if not using Google calendar...
         
         
@@ -633,8 +646,16 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         {
             // There are no more events to do this week.
             NSLog(@"No more events this week");
+            
+            // Set the number of remaining events this week to zero.
+            Nr = 0;
+            
+            
+            // Incrment the number of week steps.
+            weekStep++;
         }
-    }   // Not using Google calendar.
+//    }   // Not using Google calendar.
+    } while (nil == retval && weekStep < 2);    // go around again a maximum of one more time, if didn't get a time in the current week
     
     
     return retval;
@@ -913,6 +934,10 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     
     
     
+    // *************** test code ***************
+    NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    // *****************************************
+    
     NSInteger badgeNum = [[UIApplication sharedApplication] applicationIconBadgeNumber];
     [self setNextLocalNotification:badgeNum];    // start the timer for the next local notification.
     
@@ -1039,8 +1064,21 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     Notifications_Rec* rec = [[Notifications_Rec alloc]init];   // new record that will be written to the Notifications table, describing the next local notification that will be registered here.
     
     
+    
+    // Calculate a potential suggestion fire date here.
+    // If this comes back nil, this means that there are no more available minutes this week, nor next week.
+    // In such a case, do a PROD type notification to urge the user to open up some times.
+    
+    // Calculate the possible next notification time.
+    NSDate* fireDatePossible = [self getNextRandomEventTime];
+    
+    
+
+    
+    
     // Are there zero available time segments in the new schedule?
-    if ([self getNumberAvailTimeSegments] <= 0)
+    if (([self getNumberAvailTimeSegments] <= 0)    // there are zero available time segments in the schedule
+        || (fireDatePossible == nil))               // none of the available time segments remain this (or next) week
     {
         // there are no available time segments in the current schedule
         
@@ -1128,7 +1166,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             
             // update the date at which this routine was last run in response to a notificiation.
             dateMostRecentNotificationResponse = [NSDate date];
-       }
+        }
         else
         {
             NSLog(@"Setting a local notification where there has not been one before");
@@ -1141,7 +1179,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         
         
         // Calculate the next notification time.
-        NSDate* fireDate = [self getNextRandomEventTime];
+       // moved to an above location NSDate* fireDate = [self getNextRandomEventTime];
         
         
         
@@ -1149,7 +1187,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         
         // Get the components of this date/time
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        NSDateComponents *components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:fireDate];
+        NSDateComponents *components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:fireDatePossible];
         rec.fireYear = [components year];
         rec.fireMonth = [components month];
         rec.fireDay = [components day];
@@ -1206,6 +1244,10 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     
     localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
     localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
+    // *************** test code ***************
+    NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    // *****************************************
+    
     localNotif.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;  // Display this as the icon's badge.
     
     NSDictionary *infoDict = nil;
