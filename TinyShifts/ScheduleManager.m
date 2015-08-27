@@ -198,337 +198,338 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     {
         // Calculate the next time in the selected week.
         
-    if (Nr <= 0)
-    {
-        
-        bStartNewWeek = YES;    // flag indicating that new week is started.
-        
-        
-        
-        
-        // Get the dateSunday starting next week.
-        dTime = (NSTimeInterval) (7 * 24 * 60 * 60);    // number of seconds in a week.
-        dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:dateSunday];  // add a week to dateSunday.
-        
-        
-        // Reset the number of done events to zero.
-        [self setNumberDoneEvents:0];
-        
-        n2 = (int)[self getNumberDoneEvents];
-        Nr = MAX(0, n1 - n2);               // Get new number of remaining events to do.
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    // There are remaining events for this week, so get the next one.
-    // step 1
-    int m [minutesPerWeek];
-    
-    // step 2
-    for (int i = 0; i < minutesPerWeek; i++)
-    {
-        m[i] = i;
-    }
-    
-    
-    // step 3.
-    // Time interval boundaries obtained from local dictionary member timeIntervals.
-    
-    
-    //=========================================================================================
-    // Step 4.
-    // How many time intervals are there?
-    NSUInteger numberOfTimeIntervals = [timeIntervals count];
-    
-    
-    // For each time interval, set the availability flag (very early morning and night are always unavailable).
-    if (numberOfTimeIntervals <= 0)
-    {
-        NSLog(@"Error in ScheduleManager::getNextRandomEventTime: number of time intervals = %lu", (unsigned long)numberOfTimeIntervals);
-        assert(numberOfTimeIntervals > 0);
-    }
-    else
-    {
-        // positive number of time intervals.
-        // For the morning through evening time intervals, set the available flag to whatever is current for this user.
-        
-        // Get the most recent schedule data
-        Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
-        [GlobalData sharedManager].timeOfDayAvailMorning = (int)rec.availableMorning;
-        [GlobalData sharedManager].timeOfDayAvailNoon = (int)rec.availableNoon;
-        [GlobalData sharedManager].timeOfDayAvailAfternoon = (int)rec.availableAfternoon;
-        [GlobalData sharedManager].timeOfDayAvailEvening = (int)rec.availableEvening;
-        
-        DailyTimeIntervals* a = nil;
-        
-        a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"];
-        a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailMorning == 1 ? YES:NO);
-        
-        a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"];
-        a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailNoon == 1 ? YES:NO);
-        
-        a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"];
-        a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailAfternoon == 1 ? YES:NO);
-        
-        a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"];
-        a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailEvening == 1 ? YES:NO);
-        
-    }
-    
-    // Number of minutes per day.
-    int numberMinutesPerDay = 60 * 24;
-    
-    // Loop over days of the week, Sunday = 0, ..., Saturday = 6.
-    int start_minute = 0;
-    int end_minute = 0;
-    int idxMinute = 0;
-    for (int idxDay = 0; idxDay < 7; idxDay++)
-    {
-        //-------------------------
-        
-        // Set values of very early morning minutes in minute array.
-        
-        // Starting minute index
-        start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Very early morning"]).start_hour * 60 // number of minutes to get from start of day to start of given hour
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Very early morning"]).start_minute;   // number of minutes to get from start of hour to given minute
-        assert(start_minute >= 0);
-        assert(start_minute < minutesPerWeek);
-        
-        // Ending minute index
-        end_minute = idxDay * numberMinutesPerDay                                                   // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"]).start_hour * 60            // number of minutes to get from start of day to start of the hour that starts the next interval
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"]).start_minute               // number of minutes to get from start of hour that starts the next interval to the minute that starts the next interval
-        - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next interval.  This is the end of the current interval.
-        assert(end_minute >= start_minute);
-        assert(end_minute < minutesPerWeek);
-        
-        // loop over minute indices, setting corresponding array elements according to availability flag.
-        if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Very early morning"]).bAvailable == NO)
+        if (Nr <= 0)
         {
+            
+            bStartNewWeek = YES;    // flag indicating that new week is started.
+            
+            
+            
+            
+            // Get the dateSunday starting next week.
+            dTime = (NSTimeInterval) (7 * 24 * 60 * 60);    // number of seconds in a week.
+            dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:dateSunday];  // add a week to dateSunday.
+            
+            
+            // Reset the number of done events to zero.
+            [self setNumberDoneEvents:0];
+            
+            n2 = (int)[self getNumberDoneEvents];
+            Nr = MAX(0, n1 - n2);               // Get new number of remaining events to do.
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        // There are remaining events for this week, so get the next one.
+        // step 1
+        int m [minutesPerWeek];
+        
+        // step 2
+        for (int i = 0; i < minutesPerWeek; i++)
+        {
+            m[i] = i;
+        }
+        
+        
+        // step 3.
+        // Time interval boundaries obtained from local dictionary member timeIntervals.
+        
+        
+        //=========================================================================================
+        // Step 4.
+        // How many time intervals are there?
+        NSUInteger numberOfTimeIntervals = [timeIntervals count];
+        
+        
+        // For each time interval, set the availability flag (very early morning and night are always unavailable).
+        if (numberOfTimeIntervals <= 0)
+        {
+            NSLog(@"Error in ScheduleManager::getNextRandomEventTime: number of time intervals = %lu", (unsigned long)numberOfTimeIntervals);
+            assert(numberOfTimeIntervals > 0);
+        }
+        else
+        {
+            // positive number of time intervals.
+            // For the morning through evening time intervals, set the available flag to whatever is current for this user.
+            
+            // Get the most recent schedule data
+            Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+            [GlobalData sharedManager].timeOfDayAvailMorning = (int)rec.availableMorning;
+            [GlobalData sharedManager].timeOfDayAvailNoon = (int)rec.availableNoon;
+            [GlobalData sharedManager].timeOfDayAvailAfternoon = (int)rec.availableAfternoon;
+            [GlobalData sharedManager].timeOfDayAvailEvening = (int)rec.availableEvening;
+            
+            DailyTimeIntervals* a = nil;
+            
+            a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"];
+            a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailMorning == 1 ? YES:NO);
+            
+            a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"];
+            a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailNoon == 1 ? YES:NO);
+            
+            a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"];
+            a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailAfternoon == 1 ? YES:NO);
+            
+            a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"];
+            a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailEvening == 1 ? YES:NO);
+            
+        }
+        
+        // Number of minutes per day.
+        int numberMinutesPerDay = 60 * 24;
+        
+        // Loop over days of the week, Sunday = 0, ..., Saturday = 6.
+        int start_minute = 0;
+        int end_minute = 0;
+        int idxMinute = 0;
+        for (int idxDay = 0; idxDay < 7; idxDay++)
+        {
+            //-------------------------
+            
+            // Set values of very early morning minutes in minute array.
+            
+            // Starting minute index
+            start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Very early morning"]).start_hour * 60 // number of minutes to get from start of day to start of given hour
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Very early morning"]).start_minute;   // number of minutes to get from start of hour to given minute
+            assert(start_minute >= 0);
+            assert(start_minute < minutesPerWeek);
+            
+            // Ending minute index
+            end_minute = idxDay * numberMinutesPerDay                                                   // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"]).start_hour * 60            // number of minutes to get from start of day to start of the hour that starts the next interval
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"]).start_minute               // number of minutes to get from start of hour that starts the next interval to the minute that starts the next interval
+            - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next interval.  This is the end of the current interval.
+            assert(end_minute >= start_minute);
+            assert(end_minute < minutesPerWeek);
+            
+            // loop over minute indices, setting corresponding array elements according to availability flag.
+            if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Very early morning"]).bAvailable == NO)
+            {
+                for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
+                {
+                    m[idxMinute] = 0;
+                }
+            }
+            
+            
+            //-------------------------
+            
+            // Set values of morning minutes in minute array.
+            
+            // Starting minute index
+            start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"]).start_hour * 60            // number of minutes to get from start of day to start of given hour
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"]).start_minute;              // number of minutes to get from start of hour to given minute
+            assert(start_minute > end_minute);
+            assert(start_minute < minutesPerWeek);
+            
+            // Ending minute index
+            end_minute = idxDay * numberMinutesPerDay                                                   // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"]).start_hour * 60               // number of minutes to get from start of day to start of the hour that starts the next interval
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"]).start_minute                  // number of minutes to get from start of hour that starts the next interval to the minute that starts the next interval
+            - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next interval.  This is the end of the current interval.
+            assert(end_minute >= start_minute);
+            assert(end_minute < minutesPerWeek);
+            
+            // loop over minute indices, setting corresponding array elements according to availability flag.
+            if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"]).bAvailable == NO)
+            {
+                for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
+                {
+                    m[idxMinute] = 0;
+                }
+            }
+            
+            
+            //-------------------------
+            
+            // Set values of noon minutes in minute array.
+            
+            // Starting minute index
+            start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"]).start_hour * 60               // number of minutes to get from start of day to start of given hour
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"]).start_minute;                 // number of minutes to get from start of hour to given minute
+            assert(start_minute > end_minute);
+            assert(start_minute < minutesPerWeek);
+            
+            // Ending minute index
+            end_minute = idxDay * numberMinutesPerDay                                                   // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).start_hour * 60          // number of minutes to get from start of day to start of the hour that starts the next interval
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).start_minute             // number of minutes to get from start of hour that starts the next interval to the minute that starts the next interval
+            - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next interval.  This is the end of the current interval.
+            assert(end_minute >= start_minute);
+            assert(end_minute < minutesPerWeek);
+            
+            // loop over minute indices, setting corresponding array elements according to availability flag.
+            if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"]).bAvailable == NO)
+            {
+                for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
+                {
+                    m[idxMinute] = 0;
+                }
+            }
+            
+            
+            //-------------------------
+            
+            // Set values of afternoon minutes in minute array.
+            
+            // Starting minute index
+            start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).start_hour * 60          // number of minutes to get from start of day to start of given hour
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).start_minute;            // number of minutes to get from start of hour to given minute
+            assert(start_minute > end_minute);
+            assert(start_minute < minutesPerWeek);
+            
+            // Ending minute index
+            end_minute = idxDay * numberMinutesPerDay                                                   // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"]).start_hour * 60            // number of minutes to get from start of day to start of the hour that starts the next interval
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"]).start_minute               // number of minutes to get from start of hour that starts the next interval to the minute that starts the next interval
+            - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next interval.  This is the end of the current interval.
+            assert(end_minute >= start_minute);
+            assert(end_minute < minutesPerWeek);
+            
+            // loop over minute indices, setting corresponding array elements according to availability flag.
+            if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).bAvailable == NO)
+            {
+                for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
+                {
+                    m[idxMinute] = 0;
+                }
+            }
+            
+            
+            //-------------------------
+            
+            // Set values of evening minutes in minute array.
+            
+            // Starting minute index
+            start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"]).start_hour * 60            // number of minutes to get from start of day to start of given hour
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"]).start_minute;              // number of minutes to get from start of hour to given minute
+            assert(start_minute > end_minute);
+            assert(start_minute < minutesPerWeek);
+            
+            // Ending minute index
+            end_minute = idxDay * numberMinutesPerDay                                                   // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"]).start_hour * 60              // number of minutes to get from start of day to start of the hour that starts the next interval
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"]).start_minute                 // number of minutes to get from start of hour that starts the next interval to the minute that starts the next interval
+            - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next interval.  This is the end of the current interval.
+            assert(end_minute >= start_minute);
+            assert(end_minute < minutesPerWeek);
+            
+            // loop over minute indices, setting corresponding array elements according to availability flag.
+            if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"]).bAvailable == NO)
+            {
+                for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
+                {
+                    m[idxMinute] = 0;
+                }
+            }
+            
+            
+            //-------------------------
+            
+            // Set values of night minutes in minute array.
+            
+            // Starting minute index
+            start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"]).start_hour * 60              // number of minutes to get from start of day to start of given hour
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"]).start_minute;                // number of minutes to get from start of hour to given minute
+            assert(start_minute > end_minute);
+            assert(start_minute < minutesPerWeek);
+            
+            // Ending minute index
+            end_minute = (idxDay+1) * numberMinutesPerDay                                               // number of minutes to get to the start of the next day
+            - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next day.  This is the end of the current interval.
+            assert(end_minute >= start_minute);
+            assert(end_minute < minutesPerWeek);
+            
+            // loop over minute indices, zeroing corresponding array elements.
+            
+            // loop over minute indices, setting corresponding array elements according to availability flag.
+            if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"]).bAvailable == NO)
+            {
+                for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
+                {
+                    m[idxMinute] = 0;
+                }
+            }
+            
+            //-------------------------
+        }
+        
+        
+        //=========================================================================================
+        
+        if (bStartNewWeek == NO)
+        {
+            // Events to be done remain for this week, as signified by Nr > 0.  Therefore, zero out minutes up to one hour after the current time.
+            // Step 5. set all minute array elements = 0 from the beginning up to 1 hour from now.
+            
+            // what is the minute index of the current time?
+            // Get today's date
+            //    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+            //    NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+            //    int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
+            
+            // Get the minimum date/time as components.
+            components = [[NSCalendar currentCalendar] components:NSCalendarUnitMinute | NSCalendarUnitHour | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+            NSInteger minute = [components minute];
+            NSInteger hour = [components hour];
+            
+            int currentMinuteIndex = (weekday - 1)*numberMinutesPerDay
+            + (int)hour * 60
+            + (int)minute;
+            
+            // Add one hour's worth of minutes
+            end_minute = currentMinuteIndex + 60;
+            
+            
+            // make sure not to go beyond end of week.
+            if (end_minute >= minutesPerWeek)
+            {
+                end_minute = minutesPerWeek - 1;
+            }
+            
+            start_minute = 0;
+            
+            // Set minutes from now to up to one hour from now (not beyond end of week) to zero.
             for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
             {
                 m[idxMinute] = 0;
             }
         }
-        
-        
-        //-------------------------
-        
-        // Set values of morning minutes in minute array.
-        
-        // Starting minute index
-        start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"]).start_hour * 60            // number of minutes to get from start of day to start of given hour
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"]).start_minute;              // number of minutes to get from start of hour to given minute
-        assert(start_minute > end_minute);
-        assert(start_minute < minutesPerWeek);
-        
-        // Ending minute index
-        end_minute = idxDay * numberMinutesPerDay                                                   // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"]).start_hour * 60               // number of minutes to get from start of day to start of the hour that starts the next interval
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"]).start_minute                  // number of minutes to get from start of hour that starts the next interval to the minute that starts the next interval
-        - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next interval.  This is the end of the current interval.
-        assert(end_minute >= start_minute);
-        assert(end_minute < minutesPerWeek);
-        
-        // loop over minute indices, setting corresponding array elements according to availability flag.
-        if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"]).bAvailable == NO)
+        else
         {
-            for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
-            {
-                m[idxMinute] = 0;
-            }
+            // No events remained for this week.  So scheduling will move to next week.  So no need to block off any minutes up to one hour after the current time.
         }
         
         
-        //-------------------------
-        
-        // Set values of noon minutes in minute array.
-        
-        // Starting minute index
-        start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"]).start_hour * 60               // number of minutes to get from start of day to start of given hour
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"]).start_minute;                 // number of minutes to get from start of hour to given minute
-        assert(start_minute > end_minute);
-        assert(start_minute < minutesPerWeek);
-        
-        // Ending minute index
-        end_minute = idxDay * numberMinutesPerDay                                                   // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).start_hour * 60          // number of minutes to get from start of day to start of the hour that starts the next interval
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).start_minute             // number of minutes to get from start of hour that starts the next interval to the minute that starts the next interval
-        - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next interval.  This is the end of the current interval.
-        assert(end_minute >= start_minute);
-        assert(end_minute < minutesPerWeek);
-        
-        // loop over minute indices, setting corresponding array elements according to availability flag.
-        if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Noon"]).bAvailable == NO)
-        {
-            for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
-            {
-                m[idxMinute] = 0;
-            }
-        }
         
         
-        //-------------------------
-        
-        // Set values of afternoon minutes in minute array.
-        
-        // Starting minute index
-        start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).start_hour * 60          // number of minutes to get from start of day to start of given hour
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).start_minute;            // number of minutes to get from start of hour to given minute
-        assert(start_minute > end_minute);
-        assert(start_minute < minutesPerWeek);
-        
-        // Ending minute index
-        end_minute = idxDay * numberMinutesPerDay                                                   // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"]).start_hour * 60            // number of minutes to get from start of day to start of the hour that starts the next interval
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"]).start_minute               // number of minutes to get from start of hour that starts the next interval to the minute that starts the next interval
-        - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next interval.  This is the end of the current interval.
-        assert(end_minute >= start_minute);
-        assert(end_minute < minutesPerWeek);
-        
-        // loop over minute indices, setting corresponding array elements according to availability flag.
-        if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Afternoon"]).bAvailable == NO)
-        {
-            for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
-            {
-                m[idxMinute] = 0;
-            }
-        }
         
         
-        //-------------------------
-        
-        // Set values of evening minutes in minute array.
-        
-        // Starting minute index
-        start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"]).start_hour * 60            // number of minutes to get from start of day to start of given hour
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"]).start_minute;              // number of minutes to get from start of hour to given minute
-        assert(start_minute > end_minute);
-        assert(start_minute < minutesPerWeek);
-        
-        // Ending minute index
-        end_minute = idxDay * numberMinutesPerDay                                                   // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"]).start_hour * 60              // number of minutes to get from start of day to start of the hour that starts the next interval
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"]).start_minute                 // number of minutes to get from start of hour that starts the next interval to the minute that starts the next interval
-        - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next interval.  This is the end of the current interval.
-        assert(end_minute >= start_minute);
-        assert(end_minute < minutesPerWeek);
-        
-        // loop over minute indices, setting corresponding array elements according to availability flag.
-        if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"]).bAvailable == NO)
-        {
-            for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
-            {
-                m[idxMinute] = 0;
-            }
-        }
         
         
-        //-------------------------
         
-        // Set values of night minutes in minute array.
+        //=========================================================================================
+        // Check for use of Google calendar
         
-        // Starting minute index
-        start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"]).start_hour * 60              // number of minutes to get from start of day to start of given hour
-        + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"]).start_minute;                // number of minutes to get from start of hour to given minute
-        assert(start_minute > end_minute);
-        assert(start_minute < minutesPerWeek);
-        
-        // Ending minute index
-        end_minute = (idxDay+1) * numberMinutesPerDay                                               // number of minutes to get to the start of the next day
-        - 1;                                                                                        // subtract 1 to get the minute index just before the start of the next day.  This is the end of the current interval.
-        assert(end_minute >= start_minute);
-        assert(end_minute < minutesPerWeek);
-        
-        // loop over minute indices, zeroing corresponding array elements.
-        
-        // loop over minute indices, setting corresponding array elements according to availability flag.
-        if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"]).bAvailable == NO)
-        {
-            for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
-            {
-                m[idxMinute] = 0;
-            }
-        }
-        
-        //-------------------------
-    }
-    
-    
-    //=========================================================================================
-    
-    if (bStartNewWeek == NO)
-    {
-        // Events to be done remain for this week, as signified by Nr > 0.  Therefore, zero out minutes up to one hour after the current time.
-        // Step 5. set all minute array elements = 0 from the beginning up to 1 hour from now.
-        
-        // what is the minute index of the current time?
-        // Get today's date
-        //    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        //    NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
-        //    int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
-        
-        // Get the minimum date/time as components.
-        components = [[NSCalendar currentCalendar] components:NSCalendarUnitMinute | NSCalendarUnitHour | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-        NSInteger minute = [components minute];
-        NSInteger hour = [components hour];
-        
-        int currentMinuteIndex = (weekday - 1)*numberMinutesPerDay
-        + (int)hour * 60
-        + (int)minute;
-        
-        // Add one hour's worth of minutes
-        end_minute = currentMinuteIndex + 60;
-        
-        
-        // make sure not to go beyond end of week.
-        if (end_minute >= minutesPerWeek)
-        {
-            end_minute = minutesPerWeek - 1;
-        }
-        
-        start_minute = 0;
-        
-        for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
-        {
-            m[idxMinute] = 0;
-        }
-    }
-    else
-    {
-        // No events remained for this week.  So scheduling will move to next week.  So no need to block off any minutes up to one hour after the current time.
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //=========================================================================================
-    // Check for use of Google calendar
-    
-//    if ([[GlobalData sharedManager] bUseGoogleCal])
-//    {
-//        // Is using Google calendar.
-//#pragma mark ***** TODO: code this.
-//        
-//    }
-//    else
-//    {
+        //    if ([[GlobalData sharedManager] bUseGoogleCal])
+        //    {
+        //        // Is using Google calendar.
+        //#pragma mark ***** TODO: code this.
+        //
+        //    }
+        //    else
+        //    {
         // if not using Google calendar...
         
         
@@ -615,23 +616,23 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             
             // Set the notification for this date/time.
             
-//            // Get today's date
-//            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-//            NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
-//            int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
-//            
-//            // Get the NSDate object for now
-//            NSDate* now = [NSDate date];
-//            
-//            // Get the components of this date/time
-//            components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:now];
-//            NSInteger nowHour = [components hour];
-//            NSInteger nowMinute = [components minute];
-//            NSInteger secondsBeforeNow = 60 * (nowMinute + 60 * (nowHour + 24 * (weekday-1)));    // number of seconds between 12:00 a.m. Sunday and now.
-//            NSTimeInterval dTime = (NSTimeInterval) (-secondsBeforeNow);
-//            
-//            // Get the NSDate object for 12:00 a.m. Sunday
-//            NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
+            //            // Get today's date
+            //            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+            //            NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+            //            int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
+            //
+            //            // Get the NSDate object for now
+            //            NSDate* now = [NSDate date];
+            //
+            //            // Get the components of this date/time
+            //            components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:now];
+            //            NSInteger nowHour = [components hour];
+            //            NSInteger nowMinute = [components minute];
+            //            NSInteger secondsBeforeNow = 60 * (nowMinute + 60 * (nowHour + 24 * (weekday-1)));    // number of seconds between 12:00 a.m. Sunday and now.
+            //            NSTimeInterval dTime = (NSTimeInterval) (-secondsBeforeNow);
+            //            
+            //            // Get the NSDate object for 12:00 a.m. Sunday
+            //            NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
             
             // Get the NSDate object for the randomly selected time, which is an offset from 12:00 a.m. Sunday.
             // The NSDate object for 12:00 a.m. Sunday was determined near the start of this routine.
@@ -654,7 +655,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             // Incrment the number of week steps.
             weekStep++;
         }
-//    }   // Not using Google calendar.
+        //    }   // Not using Google calendar.
     } while (nil == retval && weekStep < 2);    // go around again a maximum of one more time, if didn't get a time in the current week
     
     
@@ -1002,6 +1003,15 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             
             [[UIApplication sharedApplication] cancelLocalNotification:n];
         }
+    }
+    
+    // Check that there are no notificiations left.
+    arrNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];    // Get the array of all scheduled local notifications
+    // Are there any?
+    if ([arrNotifications count] > 0)
+    {
+        // YES:
+        NSLog(@"*** Warning: the method ScheduleManager::clearAllLocalNotifications did not clear all local notifications.");
     }
 }
 

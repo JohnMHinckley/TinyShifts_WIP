@@ -176,6 +176,14 @@
     // *************** test code ***************
     NSInteger b1 = application.applicationIconBadgeNumber;
     NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    
+    // Increment the number of completed events, if the badge number is > 0
+    if (b1 > 0)
+    {
+        int numDone = [[CDatabaseInterface sharedManager] getNumberDoneEvents]; // get the number of done events
+        [[ScheduleManager sharedManager] setNumberDoneEvents:(numDone+1)];    // increment it by 1
+    }
+    
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     // *****************************************
     
