@@ -532,6 +532,8 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         //    {
         // if not using Google calendar...
         
+        //=========================================================================================
+       
         
         // Step 7. sort the minute array in ascending order of value
         // Use an exchange sort method with the special knowledge that the array has multiple zero values and that
@@ -562,6 +564,9 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         
         
         
+        //=========================================================================================
+        
+        
         
         // Step 8.  find the index of the lowest non-zero element
         int indexFirstNonzeroElement = minutesPerWeek;  // this will become the index for the first non-zero element in the sorted array.
@@ -579,6 +584,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         
         
         
+        //=========================================================================================
         
         
         
@@ -594,49 +600,109 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             // n1 is the index of the first non-zero element in the minute array.
             
             // Random number generator provides an integer in the range of [0,ULim-1].
-            int ULim = 10080 - indexFirstNonzeroElement;
-            int smallestRandomNumber = 10080;
+            //int ULim = 10080 - indexFirstNonzeroElement;
+            //int smallestRandomNumber = 10080;
+            int earliestRandomTime = m[minutesPerWeek-1];
             for (int i = 0; i < Nr; i++)
             {
-                int R = 0.0;
+                int ULim = minutesPerWeek - indexFirstNonzeroElement;
+                int R = 0;
                 R = [GlobalData RandomIntUpTo:(ULim-1)];
                 R = R + indexFirstNonzeroElement;   // put random number in the range of [n1, 10080-1].
-                // if this is the smallest one so far, keep it.
-                if (R < smallestRandomNumber)
+                int selectedRandomTime = m[R];
+//                // if this is the smallest one so far, keep it.
+//                if (R < smallestRandomNumber)
+//                {
+//                    smallestRandomNumber = R;
+//                }
+                // if selected time is earlier than earliest time (so far) update the earliest time to be the selected time.
+                if (earliestRandomTime > selectedRandomTime)
                 {
-                    smallestRandomNumber = R;
+                    earliestRandomTime = selectedRandomTime;
                 }
-            }
+                
+                
+                //=========================================================================================
+                
+                // Set the minute array elements = 0 from one hour before selected time to one hour after selected time.
+                int startZeroTime = selectedRandomTime - 60;
+                int endZeroTime = selectedRandomTime + 60;
+                for (int j = indexFirstNonzeroElement; j < minutesPerWeek; j++)
+                {
+                    if (m[j] >= startZeroTime && m[j] <= endZeroTime)
+                    {
+                        m[j] = 0;
+                    }
+                }
+                
+                
+                //=========================================================================================
+                
+                // Sort minute array in ascending order.
+                // Use an exchange sort method with the special knowledge that the array has multiple zero values and that
+                // these are the smallest values.
+                
+                for (int j = 0; j < minutesPerWeek-1; j++)    // loop over index for first element
+                {
+                    if (m[j] > 0)
+                    {
+                        // Loops over index of second element, only if first element is greater than zero.
+                        for (int i = j+1; i < minutesPerWeek; i++)  // loop over index for second element
+                        {
+                            if (m[i] < m[j])
+                            {
+                                // first element is larger than the second element: must swap them
+                                int mtemp = m[i];
+                                m[i] = m[j];
+                                m[j] = mtemp;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // On the other hand, if the first element is zero, it is not larger than any possible second
+                        // element, so the first element can stay where it is.  Go to the next first element.
+                    }
+                }
+                
+
+                
+                //=========================================================================================
+                
+                // Find the first non-zero element, if any.
+                indexFirstNonzeroElement = minutesPerWeek;  // this will become the index for the first non-zero element in the sorted array.
+                // if no element is non-zero, this index will remain at minutesPerWeek, in which
+                // case, this will signal that there are no non-zero elements in the array.
+                
+                for (int j = 0; j < minutesPerWeek && (indexFirstNonzeroElement == minutesPerWeek); j++)    // loop only until the first non-zero element is found.
+                {
+                    if (m[j] > 0)
+                    {
+                        indexFirstNonzeroElement = j;
+                        break;  // leave the for-loop, having found the lowest non-zero element.
+                    }
+                }
+                
+                
+               
+                
+                //=========================================================================================
+                
+                // If there is any non-zero element left in the array, loop back.  Otherwise, exith the loop here.
+                
+                //=========================================================================================
+                
+                if (indexFirstNonzeroElement >= minutesPerWeek)
+                {
+                    break;
+                }
+           }
             
-            
-            // Step 12. Register the next notification.
-            
-            // the value of smallestRandomNumber is the minute index for the selected time for the next notification.
-            // translate this into a NSDate object, then set a local notification for this date.
-            
-            // Set the notification for this date/time.
-            
-            //            // Get today's date
-            //            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-            //            NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
-            //            int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
-            //
-            //            // Get the NSDate object for now
-            //            NSDate* now = [NSDate date];
-            //
-            //            // Get the components of this date/time
-            //            components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:now];
-            //            NSInteger nowHour = [components hour];
-            //            NSInteger nowMinute = [components minute];
-            //            NSInteger secondsBeforeNow = 60 * (nowMinute + 60 * (nowHour + 24 * (weekday-1)));    // number of seconds between 12:00 a.m. Sunday and now.
-            //            NSTimeInterval dTime = (NSTimeInterval) (-secondsBeforeNow);
-            //            
-            //            // Get the NSDate object for 12:00 a.m. Sunday
-            //            NSDate* dateSunday = [NSDate dateWithTimeInterval:dTime sinceDate:now];
             
             // Get the NSDate object for the randomly selected time, which is an offset from 12:00 a.m. Sunday.
             // The NSDate object for 12:00 a.m. Sunday was determined near the start of this routine.
-            dTime = (NSTimeInterval) (60 * m[smallestRandomNumber]);
+            //dTime = (NSTimeInterval) (60 * m[smallestRandomNumber]);
+            dTime = (NSTimeInterval) (60 * earliestRandomTime);
             NSDate* fireDate = [NSDate dateWithTimeInterval:dTime sinceDate:dateSunday];
             
             retval = fireDate;  // return this date object.
