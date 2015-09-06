@@ -17,6 +17,7 @@
 @synthesize timeRecord;
 @synthesize bUseGoogleCalendar;
 @synthesize weeklyFrequency;
+// TODO: add VEarly & Night
 @synthesize availableMorning;
 @synthesize availableNoon;
 @synthesize availableAfternoon;
@@ -36,6 +37,7 @@
     timeRecord          = [Schedule_Rec sharedManager].timeRecord;
     bUseGoogleCalendar  = [Schedule_Rec sharedManager].bUseGoogleCalendar;
     weeklyFrequency     = [Schedule_Rec sharedManager].weeklyFrequency;
+    // TODO: add VEarly & Night
     availableMorning    = [Schedule_Rec sharedManager].availableMorning;
     availableNoon       = [Schedule_Rec sharedManager].availableNoon;
     availableAfternoon  = [Schedule_Rec sharedManager].availableAfternoon;

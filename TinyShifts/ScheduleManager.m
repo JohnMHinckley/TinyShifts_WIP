@@ -259,6 +259,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             
             // Get the most recent schedule data
             Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+            // TODO: add VEarly & Night
             [GlobalData sharedManager].timeOfDayAvailMorning = (int)rec.availableMorning;
             [GlobalData sharedManager].timeOfDayAvailNoon = (int)rec.availableNoon;
             [GlobalData sharedManager].timeOfDayAvailAfternoon = (int)rec.availableAfternoon;
@@ -266,6 +267,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             
             DailyTimeIntervals* a = nil;
             
+            // TODO: add VEarly & Night
             a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"];
             a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailMorning == 1 ? YES:NO);
             
@@ -972,6 +974,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     
     rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
     
+    // TODO: add VEarly & Night
     rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
     rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
     rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
@@ -1093,6 +1096,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     int retval = 0;
     
     Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
+    // TODO: add VEarly & Night
     [GlobalData sharedManager].timeOfDayAvailMorning = (int)rec.availableMorning;
     [GlobalData sharedManager].timeOfDayAvailNoon = (int)rec.availableNoon;
     [GlobalData sharedManager].timeOfDayAvailAfternoon = (int)rec.availableAfternoon;

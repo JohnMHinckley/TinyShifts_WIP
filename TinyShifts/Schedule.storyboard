@@ -225,6 +225,14 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.80392156859999997" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zpn-gv-dP0">
+                                <rect key="frame" x="531" y="425" width="51" height="31"/>
+                                <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="switchChangedVEarly:" destination="9jN-gn-HLy" eventType="valueChanged" id="NUH-A8-2ax"/>
+                                </connections>
+                            </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo_dkblue_205_235_252.png" translatesAutoresizingMaskIntoConstraints="NO" id="y1F-NW-sxL">
                                 <rect key="frame" x="150" y="64" width="300" height="60"/>
                                 <constraints>
@@ -239,13 +247,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning (8 a.m. - 11 a.m.)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzq-vp-hUV">
-                                <rect key="frame" x="20" y="215" width="199" height="21"/>
+                                <rect key="frame" x="20" y="200" width="199" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oEi-H6-7eg">
-                                <rect key="frame" x="531" y="266" width="51" height="31"/>
+                                <rect key="frame" x="531" y="241" width="51" height="31"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -253,13 +261,13 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noon (11 a.m. - 1 p.m.)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdQ-qM-SXm">
-                                <rect key="frame" x="20" y="271" width="178" height="21"/>
+                                <rect key="frame" x="20" y="246" width="178" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ge3-h0-2Wl">
-                                <rect key="frame" x="531" y="322" width="51" height="31"/>
+                                <rect key="frame" x="531" y="287" width="51" height="31"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -267,13 +275,13 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Afternoon (1 p.m. - 6 p.m.)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-hP-kQ6">
-                                <rect key="frame" x="20" y="327" width="203" height="21"/>
+                                <rect key="frame" x="20" y="292" width="203" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ogi-Ny-Rhv">
-                                <rect key="frame" x="531" y="378" width="51" height="31"/>
+                                <rect key="frame" x="531" y="333" width="51" height="31"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -281,45 +289,73 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evening (6 p.m. - 9 p.m.)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFS-0V-SJU">
-                                <rect key="frame" x="20" y="383" width="189" height="21"/>
+                                <rect key="frame" x="20" y="338" width="189" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Night (9 p.m. - 12 a.m.)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeS-Jz-Ln0">
+                                <rect key="frame" x="20" y="384" width="177" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Very Early (12 a.m. - 8 a.m.)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbu-I8-6m7">
+                                <rect key="frame" x="20" y="430" width="177" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAR-tl-vt0">
-                                <rect key="frame" x="531" y="210" width="51" height="31"/>
+                                <rect key="frame" x="531" y="195" width="51" height="31"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="switchChangedMorning:" destination="9jN-gn-HLy" eventType="valueChanged" id="BBj-hh-RX2"/>
                                 </connections>
                             </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MY0-W0-BRb">
+                                <rect key="frame" x="531" y="379" width="51" height="31"/>
+                                <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="switchChangedNight:" destination="9jN-gn-HLy" eventType="valueChanged" id="BPL-t4-Mbh"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rFS-0V-SJU" firstAttribute="centerY" secondItem="Ogi-Ny-Rhv" secondAttribute="centerY" id="271-Xt-SxV"/>
+                            <constraint firstItem="f9O-1Y-Vrg" firstAttribute="trailing" secondItem="zpn-gv-dP0" secondAttribute="trailing" constant="20" id="2pm-wn-Bj4"/>
                             <constraint firstItem="xAs-gl-SBx" firstAttribute="leading" secondItem="f9O-1Y-Vrg" secondAttribute="leading" constant="20" id="7KU-zB-sxv"/>
                             <constraint firstItem="f9O-1Y-Vrg" firstAttribute="centerX" secondItem="y1F-NW-sxL" secondAttribute="centerX" id="7Wv-uS-2oW"/>
                             <constraint firstItem="sdQ-qM-SXm" firstAttribute="centerY" secondItem="oEi-H6-7eg" secondAttribute="centerY" id="838-U7-IXb"/>
                             <constraint firstItem="rFS-0V-SJU" firstAttribute="leading" secondItem="f9O-1Y-Vrg" secondAttribute="leading" constant="20" id="9pl-tx-myH"/>
-                            <constraint firstItem="Ogi-Ny-Rhv" firstAttribute="top" secondItem="Ge3-h0-2Wl" secondAttribute="bottom" constant="25" id="E8i-O5-G6o"/>
+                            <constraint firstItem="Ogi-Ny-Rhv" firstAttribute="top" secondItem="Ge3-h0-2Wl" secondAttribute="bottom" constant="15" id="E8i-O5-G6o"/>
                             <constraint firstItem="Vpq-DD-owc" firstAttribute="leading" secondItem="FEy-JG-ODp" secondAttribute="leading" id="FZb-Sj-E3U"/>
-                            <constraint firstItem="MAR-tl-vt0" firstAttribute="top" secondItem="xAs-gl-SBx" secondAttribute="bottom" constant="25" id="GPk-Uh-fjU"/>
+                            <constraint firstItem="MAR-tl-vt0" firstAttribute="top" secondItem="xAs-gl-SBx" secondAttribute="bottom" constant="10" id="GPk-Uh-fjU"/>
                             <constraint firstItem="f9O-1Y-Vrg" firstAttribute="top" secondItem="y1F-NW-sxL" secondAttribute="top" id="GjM-oj-s5K"/>
+                            <constraint firstItem="zpn-gv-dP0" firstAttribute="top" secondItem="MY0-W0-BRb" secondAttribute="bottom" constant="15" id="Lwa-bq-jln"/>
                             <constraint firstItem="f9O-1Y-Vrg" firstAttribute="trailing" secondItem="xAs-gl-SBx" secondAttribute="trailing" constant="20" id="NHz-wc-UfM"/>
+                            <constraint firstItem="cbu-I8-6m7" firstAttribute="leading" secondItem="FEy-JG-ODp" secondAttribute="leading" constant="20" id="PjA-T7-kZ4"/>
                             <constraint firstItem="f9O-1Y-Vrg" firstAttribute="trailing" secondItem="Ge3-h0-2Wl" secondAttribute="trailing" constant="20" id="Q2V-oJ-MWS"/>
+                            <constraint firstItem="f9O-1Y-Vrg" firstAttribute="trailing" secondItem="MY0-W0-BRb" secondAttribute="trailing" constant="20" id="QeO-lH-BiW"/>
                             <constraint firstItem="f9O-1Y-Vrg" firstAttribute="trailing" secondItem="Ogi-Ny-Rhv" secondAttribute="trailing" constant="20" id="RUm-KB-eyR"/>
+                            <constraint firstItem="EeS-Jz-Ln0" firstAttribute="leading" secondItem="FEy-JG-ODp" secondAttribute="leading" constant="20" id="V2E-te-XqD"/>
                             <constraint firstAttribute="trailing" secondItem="Vpq-DD-owc" secondAttribute="trailing" id="ahs-gy-RqY"/>
                             <constraint firstItem="f9O-1Y-Vrg" firstAttribute="trailing" secondItem="oEi-H6-7eg" secondAttribute="trailing" constant="20" id="amH-we-HRh"/>
                             <constraint firstItem="f9O-1Y-Vrg" firstAttribute="trailing" secondItem="MAR-tl-vt0" secondAttribute="trailing" constant="20" id="b08-3I-yJo"/>
                             <constraint firstItem="Zzq-vp-hUV" firstAttribute="leading" secondItem="f9O-1Y-Vrg" secondAttribute="leading" constant="20" id="bhJ-lw-NCt"/>
                             <constraint firstAttribute="top" secondItem="Vpq-DD-owc" secondAttribute="top" id="cm9-Qb-0U6"/>
+                            <constraint firstItem="zpn-gv-dP0" firstAttribute="centerY" secondItem="cbu-I8-6m7" secondAttribute="centerY" id="e4g-vW-vaE"/>
                             <constraint firstAttribute="trailing" secondItem="f9O-1Y-Vrg" secondAttribute="trailing" id="eXV-oC-nlC"/>
-                            <constraint firstItem="Ge3-h0-2Wl" firstAttribute="top" secondItem="oEi-H6-7eg" secondAttribute="bottom" constant="25" id="gKw-go-zbJ"/>
-                            <constraint firstItem="oEi-H6-7eg" firstAttribute="top" secondItem="MAR-tl-vt0" secondAttribute="bottom" constant="25" id="gtF-v7-75u"/>
+                            <constraint firstItem="Ge3-h0-2Wl" firstAttribute="top" secondItem="oEi-H6-7eg" secondAttribute="bottom" constant="15" id="gKw-go-zbJ"/>
+                            <constraint firstItem="oEi-H6-7eg" firstAttribute="top" secondItem="MAR-tl-vt0" secondAttribute="bottom" constant="15" id="gtF-v7-75u"/>
                             <constraint firstItem="Ge3-h0-2Wl" firstAttribute="centerY" secondItem="TCk-hP-kQ6" secondAttribute="centerY" id="gwE-F9-wdC"/>
                             <constraint firstItem="Zzq-vp-hUV" firstAttribute="centerY" secondItem="MAR-tl-vt0" secondAttribute="centerY" id="hDz-PD-FKg"/>
+                            <constraint firstItem="MY0-W0-BRb" firstAttribute="centerY" secondItem="EeS-Jz-Ln0" secondAttribute="centerY" id="kqp-Ze-7jT"/>
                             <constraint firstItem="TCk-hP-kQ6" firstAttribute="leading" secondItem="f9O-1Y-Vrg" secondAttribute="leading" constant="20" id="lCZ-g7-LIt"/>
+                            <constraint firstItem="MY0-W0-BRb" firstAttribute="top" secondItem="Ogi-Ny-Rhv" secondAttribute="bottom" constant="15" id="lFl-nQ-8of"/>
                             <constraint firstItem="sdQ-qM-SXm" firstAttribute="leading" secondItem="f9O-1Y-Vrg" secondAttribute="leading" constant="20" id="op3-Yd-uL5"/>
                             <constraint firstItem="f9O-1Y-Vrg" firstAttribute="top" secondItem="Vpq-DD-owc" secondAttribute="bottom" id="r0W-UZ-Mjt"/>
                             <constraint firstItem="xAs-gl-SBx" firstAttribute="top" secondItem="f9O-1Y-Vrg" secondAttribute="top" constant="80" id="rix-6Z-Pxp"/>
@@ -331,7 +367,9 @@
                         <outlet property="switchAfternoon" destination="Ge3-h0-2Wl" id="vzz-PK-BqL"/>
                         <outlet property="switchEvening" destination="Ogi-Ny-Rhv" id="oal-uR-dc9"/>
                         <outlet property="switchMorning" destination="MAR-tl-vt0" id="N2m-Hq-ET5"/>
+                        <outlet property="switchNight" destination="MY0-W0-BRb" id="fEI-1o-rck"/>
                         <outlet property="switchNoon" destination="oEi-H6-7eg" id="nIW-y0-ZyW"/>
+                        <outlet property="switchVEarly" destination="zpn-gv-dP0" id="Qo2-GF-tjy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UsV-bh-mha" userLabel="First Responder" sceneMemberID="firstResponder"/>

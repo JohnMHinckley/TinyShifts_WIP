@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) UIAlertView* responseAlert;
 
+- (IBAction)switchChangedNight:(UISwitch *)sender;
+- (IBAction)switchChangedVEarly:(UISwitch *)sender;
 - (IBAction)switchChangedMorning:(UISwitch *)sender;
 - (IBAction)switchChangedNoon:(UISwitch *)sender;
 - (IBAction)switchChangedAfternoon:(UISwitch *)sender;
@@ -24,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *switchNoon;
 @property (weak, nonatomic) IBOutlet UISwitch *switchAfternoon;
 @property (weak, nonatomic) IBOutlet UISwitch *switchEvening;
+@property (weak, nonatomic) IBOutlet UISwitch *switchNight;
+@property (weak, nonatomic) IBOutlet UISwitch *switchVEarly;
 
 @property (nonatomic) NSUInteger screenInstance;    // key for where in storyboard this instance appears: 1 (in main storyboard), or 2 (tab bar)
 

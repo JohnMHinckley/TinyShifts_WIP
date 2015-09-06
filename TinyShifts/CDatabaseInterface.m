@@ -530,7 +530,7 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     }
     
     
-    
+    // TODO: add VEarly & Night
    
     qsql = [NSString stringWithFormat:@"INSERT INTO Schedule values (%d, '%@', '%@', '%@', %ld, %ld, %ld, %ld, %ld, %ld, %d)",
                       idRec,
@@ -575,6 +575,7 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     
     //—-retrieve latest row—-
+    // TODO: add VEarly & Night
     NSString *qsql = [NSString stringWithFormat:@"SELECT id, participantId, date, time, bUseGoogleCalendar, weeklyFrequency, availableMorning, availableNoon, availableAfternoon, availableEvening, didTransmitThisRecord FROM Schedule order by id DESC limit 1"];
     
     sqlite3_stmt *statement;
@@ -597,6 +598,7 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
             
             n = sqlite3_column_int(statement, 5); rec.weeklyFrequency = n;  // weeklyFrequency
             
+            // TODO: add VEarly & Night
             n = sqlite3_column_int(statement, 6); rec.availableMorning = n;  // availableMorning
             
             n = sqlite3_column_int(statement, 7); rec.availableNoon = n;  // availableNoon

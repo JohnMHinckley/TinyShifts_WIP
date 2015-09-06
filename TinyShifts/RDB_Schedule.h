@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString* timeRecord;     // time of record creation
 @property NSInteger bUseGoogleCalendar;                 // flag, 0 = don't use it, <> 0 = use it.
 @property NSInteger weeklyFrequency;                    // number of times per week for notifications
+// TODO: add VEarly & Night
 @property NSInteger availableMorning;                   // flag, 1 = participant is available in the morning for notifications
 @property NSInteger availableNoon;                      // flag, 1 = participant is available in the around noon for notifications
 @property NSInteger availableAfternoon;                 // flag, 1 = participant is available in the afternoon for notifications

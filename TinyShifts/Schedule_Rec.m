@@ -20,6 +20,8 @@
 @synthesize availableNoon;
 @synthesize availableAfternoon;
 @synthesize availableEvening;
+@synthesize availableNight;
+@synthesize availableVEarly;
 @synthesize didTransmitThisRecord;
 
 
@@ -98,6 +100,8 @@ static Schedule_Rec* sharedSingleton = nil;   // single, static instance of this
     timeRecord              = @"";
     bUseGoogleCalendar      = 0;
     weeklyFrequency         = 0;
+    availableVEarly         = 0;
+    availableNight          = 0;
     availableMorning        = 0;
     availableNoon           = 0;
     availableAfternoon      = 0;

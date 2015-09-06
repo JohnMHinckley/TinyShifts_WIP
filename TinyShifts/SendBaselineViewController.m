@@ -109,14 +109,6 @@
     rec.age = [GlobalData sharedManager].age;
     rec.ethnicity = [GlobalData sharedManager].ethnicity;
     
-//    rec2.bUseGoogleCalendar = [GlobalData sharedManager].bUseGoogleCal;
-//    
-//    rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
-//    
-//    rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
-//    rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
-//    rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
-//    rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
     
     
     
@@ -133,24 +125,6 @@
     
     [dataStore save:record responder:responder];
     
-    
-    
-//    // Send the schedule to the remote database.
-//    
-//    Responder* responder2 = [Responder responder:self
-//                             selResponseHandler:@selector(responseHandlerSendSchedule:)
-//                                selErrorHandler:@selector(errorHandler:)];
-//    
-//    RDB_Schedule* record2 = [[RDB_Schedule alloc] init];    // this transfers the data from the singleton object to the RDB transfer object
-//    
-//    id<IDataStore> dataStore2 = [backendless.persistenceService of:[RDB_Schedule class]];
-//    
-//    [dataStore2 save:record2 responder:responder2];
-    
-    
-    
-//    // Save the schedule data to the local database.
-//    [[CDatabaseInterface sharedManager] saveSchedule:rec2];
 
     
     

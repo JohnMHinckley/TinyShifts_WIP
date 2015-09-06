@@ -24,10 +24,12 @@
 @synthesize bUseGoogleCal;
 @synthesize frequency;
 //@synthesize timeOfDay;
+@synthesize timeOfDayAvailVEarly;
 @synthesize timeOfDayAvailMorning;
 @synthesize timeOfDayAvailNoon;
 @synthesize timeOfDayAvailAfternoon;
 @synthesize timeOfDayAvailEvening;
+@synthesize timeOfDayAvailNight;
 @synthesize moodMeterSelection;
 @synthesize moodTableSelection;
 @synthesize selectedVideo;
