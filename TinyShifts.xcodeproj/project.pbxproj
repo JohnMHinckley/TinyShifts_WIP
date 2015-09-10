@@ -31,7 +31,6 @@
 		5225C4991B0E2D9B00A61DE6 /* LaunchImage_1536x2048.png in Resources */ = {isa = PBXBuildFile; fileRef = 5225C4951B0E2D9B00A61DE6 /* LaunchImage_1536x2048.png */; };
 		5225C49A1B0E2D9B00A61DE6 /* LaunchImage_2048x1536.png in Resources */ = {isa = PBXBuildFile; fileRef = 5225C4961B0E2D9B00A61DE6 /* LaunchImage_2048x1536.png */; };
 		5225C49C1B0E523A00A61DE6 /* magenta.png in Resources */ = {isa = PBXBuildFile; fileRef = 5225C49B1B0E523A00A61DE6 /* magenta.png */; };
-		5225C4A01B0E5CEB00A61DE6 /* Database.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5225C49F1B0E5CEB00A61DE6 /* Database.bundle */; };
 		5225C4A21B0E5D4000A61DE6 /* Content.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5225C4A11B0E5D4000A61DE6 /* Content.bundle */; };
 		522DB8DA1A8D6284003EC3E1 /* UnpleasantMoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */; };
 		522DB8DF1A8D633C003EC3E1 /* PleasantMoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8DD1A8D633C003EC3E1 /* PleasantMoodListViewController.m */; };
@@ -43,6 +42,7 @@
 		522DB8FD1A8D679D003EC3E1 /* SendSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DB8FB1A8D679D003EC3E1 /* SendSurveyViewController.m */; };
 		52365D3B1AB70D6B0041FC1C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52365D3A1AB70D6B0041FC1C /* MessageUI.framework */; };
 		5243D8D71AB31610003DAE9C /* GlobalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5243D8D61AB31610003DAE9C /* GlobalData.m */; };
+		5248EEAA1BA1A12E0070E472 /* Database.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5248EEA91BA1A12E0070E472 /* Database.bundle */; };
 		524DEA5B1A7B0E26009A2EDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 524DEA5A1A7B0E26009A2EDC /* main.m */; };
 		524DEA5E1A7B0E26009A2EDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 524DEA5D1A7B0E26009A2EDC /* AppDelegate.m */; };
 		524DEA641A7B0E26009A2EDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524DEA621A7B0E26009A2EDC /* Main.storyboard */; };
@@ -182,7 +182,6 @@
 		5225C4951B0E2D9B00A61DE6 /* LaunchImage_1536x2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_1536x2048.png; sourceTree = "<group>"; };
 		5225C4961B0E2D9B00A61DE6 /* LaunchImage_2048x1536.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_2048x1536.png; sourceTree = "<group>"; };
 		5225C49B1B0E523A00A61DE6 /* magenta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magenta.png; sourceTree = "<group>"; };
-		5225C49F1B0E5CEB00A61DE6 /* Database.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Database.bundle; sourceTree = "<group>"; };
 		5225C4A11B0E5D4000A61DE6 /* Content.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Content.bundle; sourceTree = "<group>"; };
 		522DB8D71A8D6284003EC3E1 /* UnpleasantMoodListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnpleasantMoodListViewController.h; sourceTree = "<group>"; };
 		522DB8D81A8D6284003EC3E1 /* UnpleasantMoodListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnpleasantMoodListViewController.m; sourceTree = "<group>"; };
@@ -204,6 +203,7 @@
 		5243D8D41AB3145B003DAE9C /* ConstGen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstGen.h; sourceTree = "<group>"; };
 		5243D8D51AB31610003DAE9C /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
 		5243D8D61AB31610003DAE9C /* GlobalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalData.m; sourceTree = "<group>"; };
+		5248EEA91BA1A12E0070E472 /* Database.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Database.bundle; sourceTree = "<group>"; };
 		524DEA551A7B0E26009A2EDC /* TinyShifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyShifts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524DEA591A7B0E26009A2EDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		524DEA5A1A7B0E26009A2EDC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -693,8 +693,8 @@
 		524DEA571A7B0E26009A2EDC /* TinyShifts */ = {
 			isa = PBXGroup;
 			children = (
+				5248EEA91BA1A12E0070E472 /* Database.bundle */,
 				5225C4A11B0E5D4000A61DE6 /* Content.bundle */,
-				5225C49F1B0E5CEB00A61DE6 /* Database.bundle */,
 				5255F0D91ADACA7A00CFAB8F /* Remote Database */,
 				5255EE3E1ADA943E00CFAB8F /* Singletons */,
 				5211793E1A9426E6001E6F48 /* Database */,
@@ -1438,7 +1438,6 @@
 				5225C4A21B0E5D4000A61DE6 /* Content.bundle in Resources */,
 				524DEA861A7B128D009A2EDC /* tabbaritemIcon_Settings.png in Resources */,
 				52982DAE1AB270CC0085C600 /* drkblue.png in Resources */,
-				5225C4A01B0E5CEB00A61DE6 /* Database.bundle in Resources */,
 				52982DB41AB270CC0085C600 /* yellow.png in Resources */,
 				52079D0A1A9BF9FF0015A41C /* PersonalCharacteristics.storyboard in Resources */,
 				52982DAC1AB270CC0085C600 /* blue.png in Resources */,
@@ -1459,6 +1458,7 @@
 				5225C4981B0E2D9B00A61DE6 /* LaunchImage_1024x768.png in Resources */,
 				52982DB11AB270CC0085C600 /* pink.png in Resources */,
 				524DEA691A7B0E26009A2EDC /* LaunchScreen.xib in Resources */,
+				5248EEAA1BA1A12E0070E472 /* Database.bundle in Resources */,
 				5225C49C1B0E523A00A61DE6 /* magenta.png in Resources */,
 				524DEA661A7B0E26009A2EDC /* Images.xcassets in Resources */,
 				52982DB31AB270CC0085C600 /* violet.png in Resources */,

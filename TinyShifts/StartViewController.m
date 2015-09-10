@@ -78,13 +78,6 @@
         // app is activated
         
         
-        
-        
-        // TODO: develop code for starting timers.
-//        [[CScheduleManager sharedManager] startProdTimers]; // Start all non-done timers for prodding.
-//        
-//        [[CScheduleManager sharedManager] startGEPromptTimers]; // Start all non-done timers for GE prompting.
-        
     }
     else
     {
@@ -164,7 +157,6 @@
     
     
     
-    //BOOL bInitialPass = ([GlobalData sharedManager].initialPass == INITIAL_PASS_YES);    // TODO (001): Add a decision whether to go to this screen or to the MoodMeter screen.
     State = [[CDatabaseInterface sharedManager] getBaselineSurveyStatus];
     BOOL bInitialPass = (State == 0);    // If State is 0, this is the initial pass: baseline survey has not yet been done.  Otherwise, it has been done.
     

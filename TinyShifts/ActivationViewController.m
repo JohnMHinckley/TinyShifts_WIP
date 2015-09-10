@@ -84,61 +84,6 @@
     BOOL bDidActivate = [[CActivationManager sharedManager] attemptActivationWithCode:testCode];
     if (bDidActivate)
     {
-        // TODO: set up schedules for local notifications
-//        // add records to schedule tables
-//        [[CScheduleManager sharedManager] initSchedule];
-//        
-//        [[CScheduleManager sharedManager] cancelAllLocalNotifications];  // Cancel any existing local notifications
-//        
-//        [[CScheduleManager sharedManager] startProdTimers]; // Start all non-done timers for prodding.
-//        
-//        [[CScheduleManager sharedManager] startGEPromptTimers]; // Start all non-done timers for GE prompting.
-//        
-//        
-//        
-//        
-//        
-//        
-//        // Determine whether to show the "Motivate Me!" button, or not.
-//        
-//        // Loop over all weeks in MakeSchedule and in AppAction_ScheduleOpen tables of the DB.
-//        // For each week (record) if the date/time in AppAction_ScheduleOpen is earlier than the present time, set the field done = 1 (true).
-//        
-//        // For each week (record) calculate the logical product AppAction_ScheduleOpen::done * NOT(MakeSchedule::userDone).
-//        // Logically sum these terms over the weeks.
-//        
-//        // If the logical sum is true, enable (show) the "Motivate Me!" button.  Otherwise, disable (hide) it.
-//        // In practice, when looping over the weeks, if any product term is true, show the button.  If all terms are false, hide it.
-//        
-//        
-//        
-//        // Get the current date/time and set any earlier Open records done = 1.
-//        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMinute | NSCalendarUnitHour | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-//        NSInteger minute = [components minute];
-//        NSInteger hour = [components hour];
-//        NSInteger day = [components day];
-//        NSInteger month = [components month];
-//        NSInteger year = [components year];
-//        
-//        [[CDatabaseInterface sharedManager] setAllOpenRecordsDoneBeforeYear:(int)year andMonth:(int)month andDay:(int)day andHour:(int)hour andMinute:(int)minute];
-//        
-//        int latestWeekDidOpen = [[CDatabaseInterface sharedManager] getLatestDoneOpenWeek];
-//        int didAlreadyMakeSchedule = [[CDatabaseInterface sharedManager] getUserDoneForWeek:latestWeekDidOpen];
-//        
-//        if (didAlreadyMakeSchedule == 0)
-//        {
-//            // Did not already make the schedule.
-//            // There is at least one week for which this condition holds.  Enable the button.
-//            m_ButtonMotivateMe.enabled = YES;
-//            [m_ButtonMotivateMe setBackgroundColor:[UIColor colorWithRed:(255/255.0) green:(0/255.0) blue:(0/255.0) alpha:1]];
-//        }
-//        else
-//        {
-//            // Already made the schedule.
-//            // There are no weeks for which this condition holds.  Disable the button.
-//            m_ButtonMotivateMe.enabled = NO;
-//            [m_ButtonMotivateMe setBackgroundColor:[UIColor colorWithRed:(214/255.0) green:(214/255.0) blue:(214/255.0) alpha:1]];
-//        }
         
         // Enable the tab bar items
         activeTabBarController.tabBar.userInteractionEnabled = YES;

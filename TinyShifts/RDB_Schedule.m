@@ -6,6 +6,15 @@
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
+/* Modification log
+ 
+ Date			Author			Action
+ --------------------------------------------------------
+ 10-Sep-2015	J. M. Hinckley	Added synthesization of NSInteger properties availableVEarly and availableNight.
+ 
+ */
+
+
 #import "RDB_Schedule.h"
 #import "Schedule_Rec.h"
 
@@ -17,7 +26,8 @@
 @synthesize timeRecord;
 @synthesize bUseGoogleCalendar;
 @synthesize weeklyFrequency;
-// TODO: add VEarly & Night
+@synthesize availableVEarly;    // added 10-Sep-2015
+@synthesize availableNight;     // added 10-Sep-2015
 @synthesize availableMorning;
 @synthesize availableNoon;
 @synthesize availableAfternoon;
@@ -37,7 +47,8 @@
     timeRecord          = [Schedule_Rec sharedManager].timeRecord;
     bUseGoogleCalendar  = [Schedule_Rec sharedManager].bUseGoogleCalendar;
     weeklyFrequency     = [Schedule_Rec sharedManager].weeklyFrequency;
-    // TODO: add VEarly & Night
+    availableVEarly     = [Schedule_Rec sharedManager].availableVEarly;         // added 10-Sep-2015
+    availableNight      = [Schedule_Rec sharedManager].availableNight;          // added 10-Sep-2015
     availableMorning    = [Schedule_Rec sharedManager].availableMorning;
     availableNoon       = [Schedule_Rec sharedManager].availableNoon;
     availableAfternoon  = [Schedule_Rec sharedManager].availableAfternoon;

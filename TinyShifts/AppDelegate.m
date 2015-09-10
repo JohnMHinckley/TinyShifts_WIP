@@ -113,8 +113,8 @@
     if (notif)
     {
         // *************** test code ***************
-        NSInteger b1 = application.applicationIconBadgeNumber;
-        NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+        //NSInteger b1 = application.applicationIconBadgeNumber;
+        //NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         // *****************************************
         
@@ -175,7 +175,7 @@
    
     // *************** test code ***************
     NSInteger b1 = application.applicationIconBadgeNumber;
-    NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    //NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
     
     // Increment the number of completed events, if the badge number is > 0
     if (b1 > 0)
@@ -263,8 +263,8 @@
     [[ScheduleManager sharedManager] setNumberDoneEvents:(numDone+1)];    // increment it by 1
 
     // *************** test code ***************
-    NSInteger b1 = app.applicationIconBadgeNumber;
-    NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    //NSInteger b1 = app.applicationIconBadgeNumber;
+    //NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     // *****************************************
     

@@ -74,7 +74,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     
     // onse set of following instructions for each time interval
     a = [[DailyTimeIntervals alloc] init];
-    a.interval_name = @"Very early morning";
+    a.interval_name = @"VEarly";
     a.start_hour = 0;
     a.start_minute = 0;
     a.bAvailable = NO;
@@ -148,6 +148,15 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
      10. Otherwise, pick Nr random number from [n1 to 10080]
      11. Select the smallest random number.  Use this as the time for the next notification.
      12. Register the next notification.
+     
+     */
+    
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     10-Sep-2015	J. M. Hinckley	Added availableVEarly and availableNight time segments.
      
      */
     
@@ -259,15 +268,15 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             
             // Get the most recent schedule data
             Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
-            // TODO: add VEarly & Night
             [GlobalData sharedManager].timeOfDayAvailMorning = (int)rec.availableMorning;
             [GlobalData sharedManager].timeOfDayAvailNoon = (int)rec.availableNoon;
             [GlobalData sharedManager].timeOfDayAvailAfternoon = (int)rec.availableAfternoon;
             [GlobalData sharedManager].timeOfDayAvailEvening = (int)rec.availableEvening;
+            [GlobalData sharedManager].timeOfDayAvailVEarly = (int)rec.availableVEarly;     // added 10-Sep-2015
+            [GlobalData sharedManager].timeOfDayAvailNight = (int)rec.availableNight;       // added 10-Sep-2015
             
             DailyTimeIntervals* a = nil;
             
-            // TODO: add VEarly & Night
             a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Morning"];
             a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailMorning == 1 ? YES:NO);
             
@@ -279,6 +288,12 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             
             a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Evening"];
             a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailEvening == 1 ? YES:NO);
+            
+            a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"VEarly"];                     // added 10-Sep-2015
+            a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailVEarly == 1 ? YES:NO);      // added 10-Sep-2015
+            
+            a = (DailyTimeIntervals*)[timeIntervals objectForKey:@"Night"];                      // added 10-Sep-2015
+            a.bAvailable = ([GlobalData sharedManager].timeOfDayAvailNight == 1 ? YES:NO);       // added 10-Sep-2015
             
         }
         
@@ -297,8 +312,8 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             
             // Starting minute index
             start_minute = idxDay * numberMinutesPerDay                                                 // number of minutes to get to the start of the given day
-            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Very early morning"]).start_hour * 60 // number of minutes to get from start of day to start of given hour
-            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"Very early morning"]).start_minute;   // number of minutes to get from start of hour to given minute
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"VEarly"]).start_hour * 60 // number of minutes to get from start of day to start of given hour
+            + (int)((DailyTimeIntervals*)[timeIntervals objectForKey:@"VEarly"]).start_minute;   // number of minutes to get from start of hour to given minute
             assert(start_minute >= 0);
             assert(start_minute < minutesPerWeek);
             
@@ -311,7 +326,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             assert(end_minute < minutesPerWeek);
             
             // loop over minute indices, setting corresponding array elements according to availability flag.
-            if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"Very early morning"]).bAvailable == NO)
+            if (((DailyTimeIntervals*)[timeIntervals objectForKey:@"VEarly"]).bAvailable == NO)
             {
                 for (idxMinute = start_minute; idxMinute <= end_minute; idxMinute++)
                 {
@@ -527,7 +542,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         //    if ([[GlobalData sharedManager] bUseGoogleCal])
         //    {
         //        // Is using Google calendar.
-        //#pragma mark ***** TODO: code this.
+        //#pragma mark ***** TODO: code this for Google calendar use.
         //
         //    }
         //    else
@@ -947,6 +962,15 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     // The current schedule data is assumed to be in the GlobalData singleton object.
     
     
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     10-Sep-2015	J. M. Hinckley	Added availableVEarly and availableNight time segments.
+     
+     */
+    
     Schedule_Rec* rec2 = [Schedule_Rec sharedManager];
     
     rec2.idRecord++; // increment the record id
@@ -974,11 +998,12 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     
     rec2.weeklyFrequency = [GlobalData sharedManager].frequency;
     
-    // TODO: add VEarly & Night
     rec2.availableMorning = [GlobalData sharedManager].timeOfDayAvailMorning;
     rec2.availableNoon = [GlobalData sharedManager].timeOfDayAvailNoon;
     rec2.availableAfternoon = [GlobalData sharedManager].timeOfDayAvailAfternoon;
     rec2.availableEvening = [GlobalData sharedManager].timeOfDayAvailEvening;
+    rec2.availableVEarly = [GlobalData sharedManager].timeOfDayAvailVEarly; // added 10-Sep-2015
+    rec2.availableNight = [GlobalData sharedManager].timeOfDayAvailNight;   // added 10-Sep-2015
     
     
     
@@ -1005,7 +1030,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     
     
     // *************** test code ***************
-    NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    //NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
     // *****************************************
     
     NSInteger badgeNum = [[UIApplication sharedApplication] applicationIconBadgeNumber];
@@ -1093,14 +1118,24 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
 -(int) getNumberAvailTimeSegments
 {
     // Return the number of available time segments per day.
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     10-Sep-2015	J. M. Hinckley	Added availableVEarly and availableNight time segments.
+     
+     */
+    
     int retval = 0;
     
     Schedule_Rec* rec = [[CDatabaseInterface sharedManager] getLatestSchedule];
-    // TODO: add VEarly & Night
     [GlobalData sharedManager].timeOfDayAvailMorning = (int)rec.availableMorning;
     [GlobalData sharedManager].timeOfDayAvailNoon = (int)rec.availableNoon;
     [GlobalData sharedManager].timeOfDayAvailAfternoon = (int)rec.availableAfternoon;
     [GlobalData sharedManager].timeOfDayAvailEvening = (int)rec.availableEvening;
+    [GlobalData sharedManager].timeOfDayAvailVEarly = (int)rec.availableVEarly;     // added 10-Sep-2015
+    [GlobalData sharedManager].timeOfDayAvailNight = (int)rec.availableNight;       // added 10-Sep-2015
     
     if ([GlobalData sharedManager].timeOfDayAvailMorning > 0)
     {
@@ -1325,7 +1360,7 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     localNotif.alertAction = @"View";           // Show "View" on the slider to unlock when event fires.
     localNotif.soundName = UILocalNotificationDefaultSoundName; // Specifies using the default sound.
     // *************** test code ***************
-    NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    //NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
     // *****************************************
     
     localNotif.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;  // Display this as the icon's badge.

@@ -23,7 +23,6 @@
 @synthesize ethnicity;
 @synthesize bUseGoogleCal;
 @synthesize frequency;
-//@synthesize timeOfDay;
 @synthesize timeOfDayAvailVEarly;
 @synthesize timeOfDayAvailMorning;
 @synthesize timeOfDayAvailNoon;

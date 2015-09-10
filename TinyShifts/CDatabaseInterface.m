@@ -503,10 +503,13 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 -(void) saveSchedule:(Schedule_Rec*) rec
 {
     
- //   [self saveTotalNumberEvents:rec.weeklyFrequency];
-    
-    
-    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     10-Sep-2015	J. M. Hinckley	Added availableVEarly and availableNight to Schedule table.
+     
+     */
     
     static int idRec = 0;
     
@@ -530,9 +533,7 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     }
     
     
-    // TODO: add VEarly & Night
-   
-    qsql = [NSString stringWithFormat:@"INSERT INTO Schedule values (%d, '%@', '%@', '%@', %ld, %ld, %ld, %ld, %ld, %ld, %d)",
+    qsql = [NSString stringWithFormat:@"INSERT INTO Schedule values (%d, '%@', '%@', '%@', %ld, %ld, %ld, %ld, %ld, %ld, %d, %ld, %ld)",
                       idRec,
                       rec.participantId,
                       rec.dateRecord,
@@ -543,7 +544,9 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
                       (long)rec.availableNoon,
                       (long)rec.availableAfternoon,
                       (long)rec.availableEvening,
-                      0];  // 0 signifies that data is not sent to RDB
+                      0,  // 0 signifies that data is not sent to RDB
+                      (long) rec.availableVEarly, // added 10-Sep-2015
+                      (long) rec.availableNight]; // added 10-Sep-2015
     
     //sqlite3_stmt *statement;
     if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
@@ -567,6 +570,15 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
 
 -(Schedule_Rec*) getLatestSchedule
 {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     10-Sep-2015	J. M. Hinckley	Added availableVEarly and availableNight to Schedule table.
+     
+     */
+    
     Schedule_Rec* rec = [[Schedule_Rec alloc] init];
    
     
@@ -575,8 +587,7 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     
     //—-retrieve latest row—-
-    // TODO: add VEarly & Night
-    NSString *qsql = [NSString stringWithFormat:@"SELECT id, participantId, date, time, bUseGoogleCalendar, weeklyFrequency, availableMorning, availableNoon, availableAfternoon, availableEvening, didTransmitThisRecord FROM Schedule order by id DESC limit 1"];
+    NSString *qsql = [NSString stringWithFormat:@"SELECT id, participantId, date, time, bUseGoogleCalendar, weeklyFrequency, availableMorning, availableNoon, availableAfternoon, availableEvening, didTransmitThisRecord, availableVEarly, availableNight FROM Schedule order by id DESC limit 1"];    // modified 10-Sep-2015
     
     sqlite3_stmt *statement;
     if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
@@ -598,7 +609,6 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
             
             n = sqlite3_column_int(statement, 5); rec.weeklyFrequency = n;  // weeklyFrequency
             
-            // TODO: add VEarly & Night
             n = sqlite3_column_int(statement, 6); rec.availableMorning = n;  // availableMorning
             
             n = sqlite3_column_int(statement, 7); rec.availableNoon = n;  // availableNoon
@@ -608,6 +618,10 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
             n = sqlite3_column_int(statement, 9); rec.availableEvening = n;  // availableEvening
             
             n = sqlite3_column_int(statement, 10); rec.didTransmitThisRecord = n;  // didTransmitThisRecord
+            
+            n = sqlite3_column_int(statement, 11); rec.availableVEarly = n;  // availableVEarly // added 10-Sep-2015
+            
+            n = sqlite3_column_int(statement, 12); rec.availableNight = n;  // availableNight   // added 10-Sep-2015
         }
         
         
@@ -973,48 +987,6 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     [self saveSchedule:rec];
     
     
-    
-    
-//    // save the value of statusValue in the table MyStatus, under the key "totalNumberEvents"
-//    NSString* key = @"totalNumberEvents";
-//    
-//    [[DatabaseController sharedManager] openDB];
-//    
-//    
-//    // Delete the (all) record from the MyStatus table having the value of "totalNumberEvents" in the field key.
-//    NSString* qsql = [NSString stringWithFormat:@"DELETE FROM MyStatus WHERE key = '%@'", key];
-//    
-//    sqlite3_stmt *statement;
-//    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
-//    {
-//        sqlite3_step(statement);
-//        
-//        
-//        sqlite3_reset(statement);
-//        
-//        //—-deletes the compiled statement from memory—-
-//        sqlite3_finalize(statement);
-//    }
-//    
-//    
-//    
-//    // Insert a record in the MyStatus table having a key value of "totalNumberEvents" and a value equal to statusValue.
-//    qsql = [NSString stringWithFormat:@"INSERT INTO MyStatus values ('%@', %d)",key,num];
-//    
-//    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
-//    {
-//        sqlite3_step(statement);
-//        
-//        
-//        sqlite3_reset(statement);
-//        
-//        //—-deletes the compiled statement from memory—-
-//        sqlite3_finalize(statement);
-//    }
-//    
-//    
-//    
-//    [[DatabaseController sharedManager] closeDB];
 }
 
 
@@ -1029,60 +1001,6 @@ static CDatabaseInterface* sharedSingleton = nil;   // single, static instance o
     
     retVal = (int)rec.weeklyFrequency;
     
-    
-    
-//    // This is read from the MyStatus table in the database.
-//    // Returns -1 if key was not found.
-//    
-//    NSString* key = @"totalNumberEvents";
-//    
-//    BOOL bDidFindDatabase = NO; // used to test for presence of database, which may not be on the phone, initially.
-//    
-//    
-//    [[DatabaseController sharedManager] openDB];
-//    
-//    
-//    
-//    //—-retrieve rows—-
-//    NSString *qsql = [NSString stringWithFormat:@"SELECT value FROM MyStatus where key = '%@'", key];
-//    
-//    sqlite3_stmt *statement;
-//    if ([[DatabaseController sharedManager] prepareSqlStatement:&statement fromQuery:qsql])
-//    {
-//        while (sqlite3_step(statement) == SQLITE_ROW)
-//        {
-//            retVal = sqlite3_column_int(statement, 0);  // int value read for key
-//            
-//            
-//        }
-//        
-//        bDidFindDatabase = YES;
-//        
-//       
-//        sqlite3_reset(statement);
-//        
-//        //—-deletes the compiled statement from memory—-
-//        sqlite3_finalize(statement);
-//    }
-//    
-//    
-//    
-//    
-//    [[DatabaseController sharedManager] closeDB];
-//    
-//    
-//    if (!bDidFindDatabase)
-//    {
-//        // did not find database: issue an alert.
-//        
-//        UIAlertView *alertView = nil;
-//        alertView = [[UIAlertView alloc] initWithTitle:@"Attention:"
-//                                               message:@"Local TinyShifts database has not \nbeen installed on this device.\nThis must be installed \nprior to activation."
-//                                              delegate:self cancelButtonTitle:@"OK"
-//                                     otherButtonTitles:nil];
-//        [alertView show];
-//        
-//    }
     
     
     return retVal;
