@@ -1033,8 +1033,8 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     //NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
     // *****************************************
     
-    NSInteger badgeNum = [[UIApplication sharedApplication] applicationIconBadgeNumber];
-    [self setNextLocalNotification:badgeNum];    // start the timer for the next local notification.
+    NSInteger badgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber];
+    [self setNextLocalNotification:badgeNumber];    // start the timer for the next local notification.
     
     
     
@@ -1150,6 +1150,14 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
         retval++;
     }
     if ([GlobalData sharedManager].timeOfDayAvailEvening > 0)
+    {
+        retval++;
+    }
+    if ([GlobalData sharedManager].timeOfDayAvailVEarly > 0)
+    {
+        retval++;
+    }
+    if ([GlobalData sharedManager].timeOfDayAvailNight > 0)
     {
         retval++;
     }
@@ -1279,15 +1287,17 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
             }
             
             
-            // update the date at which this routine was last run in response to a notificiation.
-            dateMostRecentNotificationResponse = [NSDate date];
+//            // update the date at which this routine was last run in response to a notificiation.
+//            dateMostRecentNotificationResponse = [NSDate date];
         }
         else
         {
             NSLog(@"Setting a local notification where there has not been one before");
         }
         
-        
+        // update the date at which this routine was last run in response to a notificiation.
+        dateMostRecentNotificationResponse = [NSDate date];
+       
         
         
         

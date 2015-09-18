@@ -184,10 +184,11 @@
         [[ScheduleManager sharedManager] setNumberDoneEvents:(numDone+1)];    // increment it by 1
     }
     
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    NSInteger badgeNumber = 0;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badgeNumber;
     // *****************************************
     
-    application.applicationIconBadgeNumber = 0;
+    application.applicationIconBadgeNumber = badgeNumber;
     
     int appIsActivated = [[CActivationManager sharedManager] getActivationStatus];
     if (appIsActivated)
@@ -202,12 +203,46 @@
             // Are there already any scheduled local notifications?
             NSArray* arrNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];    // Get the array of scheduled local notifications
             
+            NSUInteger numNotifications = [arrNotifications count];
+            
             // Are there any?
-            if ([arrNotifications count] <= 0)
+            if (numNotifications <= 0)
             {
                 // No:
                 // Schedule one.
-                [[ScheduleManager sharedManager] setNextLocalNotification:application.applicationIconBadgeNumber];    // start the timer for the next local notification.
+                //[[ScheduleManager sharedManager] setNextLocalNotification:application.applicationIconBadgeNumber];    // start the timer for the next local notification.
+                [[ScheduleManager sharedManager] setNextLocalNotification:badgeNumber];    // start the timer for the next local notification.
+            }
+            else
+            {
+                // There are one or more local notifications pending.
+                
+                // Eliminate any which are to fire before the current time.
+                NSDate* Now = [NSDate date];
+                for (NSUInteger idx = 0; idx < numNotifications; idx++)
+                {
+                    UILocalNotification* note = (UILocalNotification*)[arrNotifications objectAtIndex:idx];
+                    if ([Now compare:note.fireDate] == NSOrderedDescending)
+                    {
+                        // Now is later that the notification fire date.
+                        // So, eliminate this notification.
+                        [[UIApplication sharedApplication] cancelLocalNotification:note];
+                    }
+                }
+                
+                // Now, are there any local notifications?
+                NSArray* arr2Notifications = [[UIApplication sharedApplication] scheduledLocalNotifications];    // Get the array of scheduled local notifications
+                
+                // If there are no local notifications, schedule one.
+                numNotifications = [arr2Notifications count];
+                
+                // Are there any?
+                if (numNotifications <= 0)
+                {
+                    // No:
+                    // Schedule one.
+                    [[ScheduleManager sharedManager] setNextLocalNotification:application.applicationIconBadgeNumber];    // start the timer for the next local notification.
+                }
             }
         }
     }
@@ -262,15 +297,21 @@
     int numDone = [[CDatabaseInterface sharedManager] getNumberDoneEvents]; // get the number of done events
     [[ScheduleManager sharedManager] setNumberDoneEvents:(numDone+1)];    // increment it by 1
 
+    NSInteger badgeNumber = 0;      // added explicit setting of this local variable, which is then used to set the application badge number and passed as a parameter to setNextLocalNotification:.
     // *************** test code ***************
     //NSInteger b1 = app.applicationIconBadgeNumber;
     //NSInteger b2 = [UIApplication sharedApplication].applicationIconBadgeNumber;
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badgeNumber;
     // *****************************************
     
-    app.applicationIconBadgeNumber = 0;
+    app.applicationIconBadgeNumber = badgeNumber;
     
-    [[ScheduleManager sharedManager] setNextLocalNotification:app.applicationIconBadgeNumber];    // start the timer for the next local notification.
+    // The following function was called with a parameter value of 1, not 0, from this point.
+    // I suspect that the application badge number was being altered somehow, outside of this routine, between the above code, which
+    // sets the badge number to 0 and the call to the following method.
+    // To ensure that a value of 0 is passed as the argument, the variable badgeNumber is used, rather than app.applicationIconBadgeNumber .
+    //[[ScheduleManager sharedManager] setNextLocalNotification:app.applicationIconBadgeNumber];    // start the timer for the next local notification.
+    [[ScheduleManager sharedManager] setNextLocalNotification:badgeNumber];    // start the timer for the next local notification.
     
 }
 
