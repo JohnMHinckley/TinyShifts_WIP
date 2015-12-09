@@ -12,6 +12,8 @@
 {
     NSMutableDictionary* timeIntervals;
     NSDate* dateMostRecentNotificationResponse;     // date/time of most recent user response to a local notification
+    
+    int previousWeekday;    // value of the weekday at the previous time that app was run (1=Sunday, 2=Monday, ..., 7=Saturday)
 }
 
 +(ScheduleManager*) sharedManager;

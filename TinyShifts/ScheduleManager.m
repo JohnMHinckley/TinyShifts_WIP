@@ -120,6 +120,8 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     dateMostRecentNotificationResponse = [NSDate dateWithTimeIntervalSince1970:0];  // initialize this date to a time way back...
    
     
+    // Initialize the index of the previous weekday on which the  app was run.
+    previousWeekday = 0;    // valid values are 1=Sunday, 2=Monday,..., 7=Saturday.
                      
     return self;
 }
@@ -158,6 +160,8 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
      --------------------------------------------------------
      10-Sep-2015	J. M. Hinckley	Added availableVEarly and availableNight time segments.
      
+     09-Dec-2015    J. M Hinckley   Added code to check whether a new week has started since the last run of the app, and if it has, to reset the number of completed events to zero.
+     
      */
     
     BOOL bStartNewWeek = NO;    // flag, YES when current week is done and this routine starts new week.
@@ -172,6 +176,31 @@ static ScheduleManager* sharedSingleton = nil;   // single, static instance of t
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
     int weekday = (int)[components weekday];  // today's day of the week: 1=Sunday, 2=Monday, etc.
+    
+    
+    
+    // ========================================
+    // The following code section checks whether a new week has begun since the last time the app was run.
+    // If it has, then the number of completed events (for the current week, of course) is reset to zero.
+    // This is done so that if the user does not actually run the app for the target number of times in the previous week,
+    // the activation counter is reset to zero for the new week, nevertheless.
+    // Otherwise, the old week's count is continued into the new week, which will therefore have less scheduled events than
+    // specified.
+    
+    // If more than a week has passed since the last invocation of the app, this algorithm can fail.
+    // But in that case, who's counting?  If it becomes a problem, this method could be improved.
+    
+    if (previousWeekday > weekday)
+    {
+        // A new week has started, since the last time that the app was run.
+        
+        // Reset the number of done events to one (this activation is actually the first one of the new week).
+        [self setNumberDoneEvents:1];
+    }
+    previousWeekday = weekday;  // The current weekday takes the role of the previous weekday, the next time the app is activated.
+    // ========================================
+    
+    
     
     // Get the NSDate object for now
     NSDate* now = [NSDate date];
