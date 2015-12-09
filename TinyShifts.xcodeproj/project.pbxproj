@@ -18,8 +18,9 @@
 		520B67201A9F2B0A00F162A4 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520B671F1A9F2B0A00F162A4 /* Schedule.storyboard */; };
 		520B67231A9F455100F162A4 /* SendBaseline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520B67221A9F455100F162A4 /* SendBaseline.storyboard */; };
 		520B67251A9F4CD200F162A4 /* SubmitBaselineDecoration.png in Resources */ = {isa = PBXBuildFile; fileRef = 520B67241A9F4CD200F162A4 /* SubmitBaselineDecoration.png */; };
+		520FC9E91C15EE9500A05D82 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 520FC9E81C15EE9500A05D82 /* libsqlite3.tbd */; };
+		520FC9EB1C15F51A00A05D82 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 520FC9EA1C15F51A00A05D82 /* libz.tbd */; };
 		5211793C1A941F72001E6F48 /* InfoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5211793B1A941F72001E6F48 /* InfoListTableViewCell.m */; };
-		521179461A94277E001E6F48 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 521179451A94277E001E6F48 /* libsqlite3.dylib */; };
 		521179491A9429B7001E6F48 /* InfoTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 521179481A9429B7001E6F48 /* InfoTopic.m */; };
 		521623001A9102950029BF68 /* InfoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521622FF1A9102950029BF68 /* InfoList.storyboard */; };
 		5225C48D1B0E22AD00A61DE6 /* appIcon_76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5225C48B1B0E22AD00A61DE6 /* appIcon_76x76.png */; };
@@ -84,7 +85,6 @@
 		5255F0D41ADABFDA00CFAB8F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F0D01ADABFDA00CFAB8F /* Security.framework */; };
 		5255F0D51ADABFDA00CFAB8F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F0D11ADABFDA00CFAB8F /* SystemConfiguration.framework */; };
 		5255F0D61ADABFDA00CFAB8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F0D21ADABFDA00CFAB8F /* UIKit.framework */; };
-		5255F0D81ADAC04800CFAB8F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5255F0D71ADAC04800CFAB8F /* libz.dylib */; };
 		5255F0DC1ADACAE700CFAB8F /* RDB_Participants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0DB1ADACAE700CFAB8F /* RDB_Participants.m */; };
 		5255F0E21ADB3CD400CFAB8F /* Notifications_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0E11ADB3CD400CFAB8F /* Notifications_Rec.m */; };
 		5255F0E51ADB47DC00CFAB8F /* RDB_DeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255F0E41ADB47DC00CFAB8F /* RDB_DeviceData.m */; };
@@ -167,9 +167,10 @@
 		520B671F1A9F2B0A00F162A4 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		520B67221A9F455100F162A4 /* SendBaseline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SendBaseline.storyboard; sourceTree = "<group>"; };
 		520B67241A9F4CD200F162A4 /* SubmitBaselineDecoration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SubmitBaselineDecoration.png; sourceTree = "<group>"; };
+		520FC9E81C15EE9500A05D82 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		520FC9EA1C15F51A00A05D82 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5211793A1A941F72001E6F48 /* InfoListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoListTableViewCell.h; sourceTree = "<group>"; };
 		5211793B1A941F72001E6F48 /* InfoListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoListTableViewCell.m; sourceTree = "<group>"; };
-		521179451A94277E001E6F48 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		521179471A9429B7001E6F48 /* InfoTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTopic.h; sourceTree = "<group>"; };
 		521179481A9429B7001E6F48 /* InfoTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTopic.m; sourceTree = "<group>"; };
 		521622FF1A9102950029BF68 /* InfoList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InfoList.storyboard; sourceTree = "<group>"; };
@@ -433,7 +434,6 @@
 		5255F0D01ADABFDA00CFAB8F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5255F0D11ADABFDA00CFAB8F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5255F0D21ADABFDA00CFAB8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		5255F0D71ADAC04800CFAB8F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5255F0DA1ADACAE700CFAB8F /* RDB_Participants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDB_Participants.h; sourceTree = "<group>"; };
 		5255F0DB1ADACAE700CFAB8F /* RDB_Participants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDB_Participants.m; sourceTree = "<group>"; };
 		5255F0E01ADB3CD400CFAB8F /* Notifications_Rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications_Rec.h; sourceTree = "<group>"; };
@@ -542,7 +542,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5255F0D81ADAC04800CFAB8F /* libz.dylib in Frameworks */,
+				520FC9EB1C15F51A00A05D82 /* libz.tbd in Frameworks */,
+				520FC9E91C15EE9500A05D82 /* libsqlite3.tbd in Frameworks */,
 				5255F0D31ADABFDA00CFAB8F /* CoreGraphics.framework in Frameworks */,
 				5255F0D41ADABFDA00CFAB8F /* Security.framework in Frameworks */,
 				5255F0D51ADABFDA00CFAB8F /* SystemConfiguration.framework in Frameworks */,
@@ -562,7 +563,6 @@
 				5255F0BB1ADABF2300CFAB8F /* libavdevice.a in Frameworks */,
 				5255F0C41ADABF2300CFAB8F /* MediaLibiOS.a in Frameworks */,
 				5255F0B41ADABF2200CFAB8F /* backendless.a in Frameworks */,
-				521179461A94277E001E6F48 /* libsqlite3.dylib in Frameworks */,
 				5255F0C11ADABF2300CFAB8F /* libspeex.a in Frameworks */,
 				5255F0C01ADABF2300CFAB8F /* libswscale.a in Frameworks */,
 				5255F0BA1ADABF2300CFAB8F /* libavcodec.a in Frameworks */,
@@ -662,7 +662,8 @@
 		524DEA4C1A7B0E26009A2EDC = {
 			isa = PBXGroup;
 			children = (
-				5255F0D71ADAC04800CFAB8F /* libz.dylib */,
+				520FC9EA1C15F51A00A05D82 /* libz.tbd */,
+				520FC9E81C15EE9500A05D82 /* libsqlite3.tbd */,
 				5255F0CF1ADABFDA00CFAB8F /* CoreGraphics.framework */,
 				5255F0D01ADABFDA00CFAB8F /* Security.framework */,
 				5255F0D11ADABFDA00CFAB8F /* SystemConfiguration.framework */,
@@ -674,7 +675,6 @@
 				5255F0C51ADABF7100CFAB8F /* Foundation.framework */,
 				5255EFD91ADABF2200CFAB8F /* lib */,
 				52365D3A1AB70D6B0041FC1C /* MessageUI.framework */,
-				521179451A94277E001E6F48 /* libsqlite3.dylib */,
 				524DEA571A7B0E26009A2EDC /* TinyShifts */,
 				524DEA711A7B0E27009A2EDC /* TinyShiftsTests */,
 				524DEA561A7B0E26009A2EDC /* Products */,
@@ -1664,6 +1664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TinyShifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1686,6 +1687,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TinyShifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
