@@ -556,6 +556,7 @@
     [v addSubview:player.view];
     
     // play movie
+    [player setFullscreen:YES animated:YES];    // Make the video run in full screen mode.
     [player play];
     
     

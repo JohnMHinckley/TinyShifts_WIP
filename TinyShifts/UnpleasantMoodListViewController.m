@@ -73,7 +73,7 @@
     [arrayTableCellData addObject:datum1];
     
     datum2.index = 2;
-    datum2.label = @"There is too much pressure and responsibilities";
+    datum2.label = @"I feel overwhelmed by pressure and responsibilities";
     datum2.backgroundImageFilename = nil;
     datum2.supplementaryImageFilename = nil;
     [arrayTableCellData addObject:datum2];
@@ -287,7 +287,7 @@
             break;
             
         case 2:
-            // "There is too much pressure and responsibilities" is chosen
+            // "I feel overwhelmed by pressure and responsibilities" is chosen
             [GlobalData sharedManager].moodTableSelection = MOOD_U_PRESSURE; // save result
             
             R = [GlobalData RandomIntUpTo:4];
