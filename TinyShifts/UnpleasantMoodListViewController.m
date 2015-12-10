@@ -423,6 +423,11 @@
         VideoPlayerViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];
         vc.navigationItem.hidesBackButton = NO;
         //[vc setScreenInstance:1];
+        
+        TableDatum* td = [arrayTableCellData objectAtIndex:selectedCell];
+        NSString* msg = [NSString stringWithFormat:@"You reported that '%@'.  Here is a video that might be helpful (press play to start).", td.label];
+        [vc setDisplayedMessage:msg];   // send the message to be displayed to the next screen.
+        
         [vc setScreenMode:1];
         [self.navigationController pushViewController:vc animated:YES];
     }

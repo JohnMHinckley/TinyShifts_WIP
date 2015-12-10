@@ -216,10 +216,12 @@
     
     
     // Determine the next video to play.  Generally, randomly pick from among a few, depending on which input the user gives.
+
     int R = 0.0;
     switch (selectedCell) {
         case 0:
             // "Relationships" is chosen
+            
             [GlobalData sharedManager].moodTableSelection = MOOD_P_RELATIONSHIPS; // save result
             
             R = [GlobalData RandomIntUpTo:3];
@@ -365,6 +367,11 @@
     vc.navigationItem.hidesBackButton = NO;
     //[vc setScreenInstance:1];
     [vc setScreenMode:1];
+    
+    TableDatum* td = [arrayTableCellData objectAtIndex:selectedCell];
+    NSString* msg = [NSString stringWithFormat:@"You are interested in %@.  Here is a video that might be helpful (press play to start).", td.label];
+   [vc setDisplayedMessage:msg];   // send the message to be displayed to the next screen.
+    
     [self.navigationController pushViewController:vc animated:YES];
     
     

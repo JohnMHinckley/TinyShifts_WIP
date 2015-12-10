@@ -27,6 +27,7 @@
 
 @implementation VideoPlayerViewController
 @synthesize imageViewBackground;
+@synthesize displayLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,6 +61,9 @@
      #define VIDEO_CHOOSEONETHING    9
      */
     arrVideoFilenames = [NSArray arrayWithObjects: @"Fireflies.m4v", @"SloppyJoe.m4v", @"SevenEleven.m4v", @"TreadingWater.m4v", @"Trapped.m4v", @"Potatohead.m4v", @"Treadmill.m4v", @"Daury.m4v", @"Balloon.m4v", @"ChooseOneThing.m4v", nil];
+    
+    
+    displayLabel.text = displayMsg;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -331,6 +335,15 @@
     // screen is created.
     
     screenMode = mode;
+}
+
+
+
+
+-(void) setDisplayedMessage:(NSString*)msg
+{
+    // Set the message to display on the screen.
+    displayMsg = msg;
 }
 
 

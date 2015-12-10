@@ -23,6 +23,7 @@
 @synthesize scrollView;
 @synthesize imageView2;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -39,6 +40,8 @@
 //    sz.width = 106;
     scrollView.contentSize = sz;
     NSLog(@"In viewDidLoad: scrollView contentSize size = %f (h) X %f (w)", scrollView.contentSize.height, scrollView.contentSize.width);
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
