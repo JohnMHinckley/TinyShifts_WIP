@@ -29,6 +29,16 @@
 @implementation UnpleasantMoodListViewController
 
 - (void)viewDidLoad {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     04-Apr-2016	J. M. Hinckley	A. Added table item "I feel out of control" per D. Eisenberg
+                                    B. To make room for this, created datum8 and moved "Other" to it.
+     
+     */
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
@@ -59,6 +69,7 @@
     TableDatum* datum5 = [[TableDatum alloc] init];
     TableDatum* datum6 = [[TableDatum alloc] init];
     TableDatum* datum7 = [[TableDatum alloc] init];
+    TableDatum* datum8 = [[TableDatum alloc] init];
     
     datum0.index = 0;
     datum0.label = @"I'm experiencing problems in my relationships with friends/family";
@@ -103,10 +114,16 @@
     [arrayTableCellData addObject:datum6];
     
     datum7.index = 7;
-    datum7.label = @"Other";
+    datum7.label = @"I feel out of control";
     datum7.backgroundImageFilename = nil;
     datum7.supplementaryImageFilename = nil;
     [arrayTableCellData addObject:datum7];
+    
+    datum8.index = 8;
+    datum8.label = @"Other";
+    datum8.backgroundImageFilename = nil;
+    datum8.supplementaryImageFilename = nil;
+    [arrayTableCellData addObject:datum8];
     
     
 }
@@ -195,8 +212,17 @@
 // Get the number of rows in the table.
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // There are 8 rows in this table.
-    NSInteger cnt = 8;
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     04-Apr-2016	J. M. Hinckley	Increased # rows from 8 to 9.
+     
+     */
+    
+    // There are 9 rows in this table.
+    NSInteger cnt = 9;
     
     return cnt;
 }
@@ -231,6 +257,8 @@
      Date			Author			Action
      --------------------------------------------------------
      21-May-2015	J. M. Hinckley	Changed next screen from AskWantResourceViewController to VideoPlayerViewController, at the request on 18-May-2015, by D. Eisenberg.
+     
+     04-Apr-2016    J. M. Hinckley  Added case for "I feel out of control", per D. Eisenberg
      
      */
     
@@ -386,6 +414,25 @@
             break;
             
         case 7:
+            // "I feel out of control" is chosen
+            [GlobalData sharedManager].moodTableSelection = MOOD_U_OUT_OF_CONTROL; // save result
+            
+            R = [GlobalData RandomIntUpTo:2];
+            switch (R) {
+                case 0:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_DAURY;
+                    break;
+                    
+                case 1:
+                    [GlobalData sharedManager].selectedVideo = VIDEO_TRAPPED;
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+       case 8:
             // "Other" is chosen
             [GlobalData sharedManager].moodTableSelection = MOOD_U_OTHER; // save result
             
@@ -401,7 +448,7 @@
     // Determine the next view controller.
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    if (selectedCell == 7)
+    if (selectedCell == 8)
     {
         // "Other" is chosen
         VideoListViewController* vc = [sb instantiateViewControllerWithIdentifier:@"VideoListViewController"];

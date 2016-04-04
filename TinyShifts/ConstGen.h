@@ -6,6 +6,14 @@
 //  Copyright (c) 2015 Gurmentor Inc. All rights reserved.
 //
 
+
+/* Modification log
+ 
+ Date			Author			Action
+ --------------------------------------------------------
+ 04-Apr-2016    J. M. Hinckley  Added mood key MOOD_U_OUT_OF_CONTROL and moved following keys down to make room for it. 
+ */
+
 #ifndef TinyShifts_ConstGen_h
 #define TinyShifts_ConstGen_h
 
@@ -67,13 +75,14 @@
 #define MOOD_U_NOT_GOOD_ENOUGH          5
 #define MOOD_U_NOT_LIKE_LOOKS           6
 #define MOOD_U_WORRY                    7
-#define MOOD_U_OTHER                    8
+#define MOOD_U_OUT_OF_CONTROL           8
+#define MOOD_U_OTHER                    9
 // Second, continuing with pleasant moods.
-#define MOOD_P_RELATIONSHIPS            9
-#define MOOD_P_STRESS                   10
-#define MOOD_P_WORRY                    11
-#define MOOD_P_INSECURITIES             12
-#define MOOD_P_SUPPORTING               13
+#define MOOD_P_RELATIONSHIPS            10
+#define MOOD_P_STRESS                   11
+#define MOOD_P_WORRY                    12
+#define MOOD_P_INSECURITIES             13
+#define MOOD_P_SUPPORTING               14
 
 // Keys for "Want resource info?" first time asked
 #define WANT_RESOURCE_INFO_1_YES   1
