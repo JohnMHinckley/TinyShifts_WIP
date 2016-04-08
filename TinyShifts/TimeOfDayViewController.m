@@ -46,17 +46,16 @@
     self.navigationItem.title = @"Time of Day";
     
     
-//    if (screenInstance != 2)
- //   {
-        // Right button
-        CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
-        [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
-        [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-        rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-        [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
-        self.navigationItem.rightBarButtonItem = rightButtonItem;
-//    }
+    // Right button
+    CGradientButton* rightNavigationButton = [[CGradientButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+    [rightNavigationButton setTitle:@"Next" forState:UIControlStateNormal];
+    [rightNavigationButton setTitleColor:[UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+    rightNavigationButton.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+    [rightNavigationButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightNavigationButton];
+    
+    // Prevent user for seeing the Calendar screen which shows when the next reminder is scheduled, by omitting the Next button here.
+    //self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,6 +128,15 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Apr-2016	J. M. Hinckley	Added code to initialize the switches to be either green or red, depending on their individual states.
+     
+     */
+    
     if (screenInstance == 2)
     {
         bDataChanged_Mode2 = NO;    // Initialize data change flag
@@ -155,6 +163,94 @@
     switchVEarly.on = ([GlobalData sharedManager].timeOfDayAvailVEarly > 0 ? NO : YES);
     switchNight.on = ([GlobalData sharedManager].timeOfDayAvailNight > 0 ? NO : YES);
     switchEvening.on = ([GlobalData sharedManager].timeOfDayAvailEvening > 0 ? NO : YES);
+    
+    if (switchMorning.isOn)
+    {
+        // Switch is on.
+        switchMorning.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        switchMorning.tintColor = [UIColor greenColor];
+        switchMorning.layer.cornerRadius = 16;
+        switchMorning.backgroundColor = [UIColor greenColor];
+    }
+    
+    
+    if (switchNoon.isOn)
+    {
+        // Switch is on.
+        switchNoon.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        switchNoon.tintColor = [UIColor greenColor];
+        switchNoon.layer.cornerRadius = 16;
+        switchNoon.backgroundColor = [UIColor greenColor];
+    }
+    
+    
+    if (switchAfternoon.isOn)
+    {
+        // Switch is on.
+        switchAfternoon.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        switchAfternoon.tintColor = [UIColor greenColor];
+        switchAfternoon.layer.cornerRadius = 16;
+        switchAfternoon.backgroundColor = [UIColor greenColor];
+    }
+    
+    
+    if (switchVEarly.isOn)
+    {
+        // Switch is on.
+        switchVEarly.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        switchVEarly.tintColor = [UIColor greenColor];
+        switchVEarly.layer.cornerRadius = 16;
+        switchVEarly.backgroundColor = [UIColor greenColor];
+    }
+    
+    
+    if (switchNight.isOn)
+    {
+        // Switch is on.
+        switchNight.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        switchNight.tintColor = [UIColor greenColor];
+        switchNight.layer.cornerRadius = 16;
+        switchNight.backgroundColor = [UIColor greenColor];
+    }
+    
+    
+    if (switchEvening.isOn)
+    {
+        // Switch is on.
+        switchEvening.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        switchEvening.tintColor = [UIColor greenColor];
+        switchEvening.layer.cornerRadius = 16;
+        switchEvening.backgroundColor = [UIColor greenColor];
+    }
+    
+    
+
+    
+    
     
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
@@ -222,12 +318,35 @@
 
 - (IBAction)switchChangedNight:(UISwitch *)sender {
     
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Apr-2016	J. M. Hinckley	Added code to color the switch to be either green or red, depending on its state.
+     
+     */
+    
     if (screenInstance == 2)
     {
         bDataChanged_Mode2 = YES;    // Set data change flag
     }
     
     [GlobalData sharedManager].timeOfDayAvailNight = (sender.isOn ? 0 : 1); // set flag
+    
+    if (sender.isOn)
+    {
+        // Switch is on.
+        sender.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        sender.tintColor = [UIColor greenColor];
+        sender.layer.cornerRadius = sender.frame.size.height/2;
+        sender.backgroundColor = [UIColor greenColor];
+    }
+    
     NSLog(@"Availability times: VEarly, Morning, Noon, Afternoon, Evening, Night = %d, %d, %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailVEarly,
           [GlobalData sharedManager].timeOfDayAvailMorning,
@@ -240,12 +359,35 @@
 
 - (IBAction)switchChangedVEarly:(UISwitch *)sender {
     
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Apr-2016	J. M. Hinckley	Added code to color the switch to be either green or red, depending on its state.
+     
+     */
+    
     if (screenInstance == 2)
     {
         bDataChanged_Mode2 = YES;    // Set data change flag
     }
     
     [GlobalData sharedManager].timeOfDayAvailVEarly = (sender.isOn ? 0 : 1); // set flag
+    
+    if (sender.isOn)
+    {
+        // Switch is on.
+        sender.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        sender.tintColor = [UIColor greenColor];
+        sender.layer.cornerRadius = sender.frame.size.height/2;
+        sender.backgroundColor = [UIColor greenColor];
+    }
+    
     NSLog(@"Availability times: VEarly, Morning, Noon, Afternoon, Evening, Night = %d, %d, %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailVEarly,
           [GlobalData sharedManager].timeOfDayAvailMorning,
@@ -258,12 +400,35 @@
 
 - (IBAction)switchChangedMorning:(UISwitch *)sender {
     
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Apr-2016	J. M. Hinckley	Added code to color the switch to be either green or red, depending on its state.
+     
+     */
+    
     if (screenInstance == 2)
     {
         bDataChanged_Mode2 = YES;    // Set data change flag
     }
     
     [GlobalData sharedManager].timeOfDayAvailMorning = (sender.isOn ? 0 : 1); // set flag
+    
+    if (sender.isOn)
+    {
+        // Switch is on.
+        sender.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        sender.tintColor = [UIColor greenColor];
+        sender.layer.cornerRadius = sender.frame.size.height/2;
+        sender.backgroundColor = [UIColor greenColor];
+    }
+    
     NSLog(@"Availability times: VEarly, Morning, Noon, Afternoon, Evening, Night = %d, %d, %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailVEarly,
           [GlobalData sharedManager].timeOfDayAvailMorning,
@@ -275,12 +440,35 @@
 
 - (IBAction)switchChangedNoon:(UISwitch *)sender {
     
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Apr-2016	J. M. Hinckley	Added code to color the switch to be either green or red, depending on its state.
+     
+     */
+    
     if (screenInstance == 2)
     {
         bDataChanged_Mode2 = YES;    // Set data change flag
     }
     
     [GlobalData sharedManager].timeOfDayAvailNoon = (sender.isOn ? 0 : 1); // set flag
+    
+    if (sender.isOn)
+    {
+        // Switch is on.
+        sender.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        sender.tintColor = [UIColor greenColor];
+        sender.layer.cornerRadius = sender.frame.size.height/2;
+        sender.backgroundColor = [UIColor greenColor];
+    }
+    
     NSLog(@"Availability times: VEarly, Morning, Noon, Afternoon, Evening, Night = %d, %d, %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailVEarly,
           [GlobalData sharedManager].timeOfDayAvailMorning,
@@ -292,12 +480,35 @@
 
 - (IBAction)switchChangedAfternoon:(UISwitch *)sender {
     
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Apr-2016	J. M. Hinckley	Added code to color the switch to be either green or red, depending on its state.
+     
+     */
+    
     if (screenInstance == 2)
     {
         bDataChanged_Mode2 = YES;    // Set data change flag
     }
     
     [GlobalData sharedManager].timeOfDayAvailAfternoon = (sender.isOn ? 0 : 1); // set flag
+    
+    if (sender.isOn)
+    {
+        // Switch is on.
+        sender.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        sender.tintColor = [UIColor greenColor];
+        sender.layer.cornerRadius = sender.frame.size.height/2;
+        sender.backgroundColor = [UIColor greenColor];
+    }
+    
     NSLog(@"Availability times: VEarly, Morning, Noon, Afternoon, Evening, Night = %d, %d, %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailVEarly,
           [GlobalData sharedManager].timeOfDayAvailMorning,
@@ -309,12 +520,35 @@
 
 - (IBAction)switchChangedEvening:(UISwitch *)sender {
     
+    
+    /* Modification log
+     
+     Date			Author			Action
+     --------------------------------------------------------
+     08-Apr-2016	J. M. Hinckley	Added code to color the switch to be either green or red, depending on its state.
+     
+     */
+    
     if (screenInstance == 2)
     {
         bDataChanged_Mode2 = YES;    // Set data change flag
     }
     
     [GlobalData sharedManager].timeOfDayAvailEvening = (sender.isOn ? 0 : 1); // set flag
+    
+    if (sender.isOn)
+    {
+        // Switch is on.
+        sender.onTintColor = [UIColor redColor];
+    }
+    else
+    {
+        // Switch is off.
+        sender.tintColor = [UIColor greenColor];
+        sender.layer.cornerRadius = sender.frame.size.height/2;
+        sender.backgroundColor = [UIColor greenColor];
+    }
+    
     NSLog(@"Availability times: VEarly, Morning, Noon, Afternoon, Evening, Night = %d, %d, %d, %d, %d, %d",
           [GlobalData sharedManager].timeOfDayAvailVEarly,
           [GlobalData sharedManager].timeOfDayAvailMorning,
